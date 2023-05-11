@@ -9,27 +9,34 @@ import SwiftUI
 
 struct ExpressView: View {
     @State private var selectedFace = "face_happy" // 초기 표정 설정
-
+    
     var body: some View {
-        ZStack {
-            Image("background").resizable().scaledToFill()
-            Color.bg2.ignoresSafeArea().opacity(0.5)
-            VStack {
-                ZStack {
-                    Image("text").frame(alignment: .center)
-                    Image("button_exit").offset(x:380)
+        NavigationView {
+            ZStack {
+                Image("background").resizable().scaledToFill()
+                Color.bg2.ignoresSafeArea().opacity(0.5)
+                VStack {
+                    ZStack {
+                        Image("text").frame(alignment: .center)
+                        Image("button_exit").offset(x:380)
+                    }
+                    
+                    HStack{
+                        Image("button_back")
+                        CharacterExpressView(selectedFace: $selectedFace)
+                        NavigationLink(destination: EmotionView(selectedFace: selectedFace)
+                            .navigationBarBackButtonHidden(true)
+                        ) {
+                            Image("button_next")
+                        }
+                        
+                    }
                 }
-
-                HStack{
-                    Image("button_back")
-                    CharacterExpressView(selectedFace: $selectedFace)
-                    Image("button_next")
-                }
+                .padding()
+                FaceView(selectedFace: $selectedFace)
+                    .offset(y:150)
+                
             }
-            .padding()
-            FaceView(selectedFace: $selectedFace)
-                .offset(y:150)
-            
         }
     }
 }

@@ -30,6 +30,7 @@
 		BFCE55272A0B8D4B003A85CA /* CharacterExpressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE55242A0B8D4B003A85CA /* CharacterExpressView.swift */; };
 		BFCE55282A0B8D4B003A85CA /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE55252A0B8D4B003A85CA /* FaceView.swift */; };
 		BFCE55292A0B8D4B003A85CA /* ExpressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE55262A0B8D4B003A85CA /* ExpressView.swift */; };
+		BFCE552B2A0CB8CC003A85CA /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE552A2A0CB8CC003A85CA /* EmotionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		BFCE55242A0B8D4B003A85CA /* CharacterExpressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExpressView.swift; sourceTree = "<group>"; };
 		BFCE55252A0B8D4B003A85CA /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		BFCE55262A0B8D4B003A85CA /* ExpressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressView.swift; sourceTree = "<group>"; };
+		BFCE552A2A0CB8CC003A85CA /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				BFCE55262A0B8D4B003A85CA /* ExpressView.swift */,
+				BFCE552A2A0CB8CC003A85CA /* EmotionView.swift */,
 				BFCE55242A0B8D4B003A85CA /* CharacterExpressView.swift */,
 				BFCE55252A0B8D4B003A85CA /* FaceView.swift */,
 			);
@@ -302,6 +305,7 @@
 				A83D72CD2A07A82D00119DB9 /* CoordinatorView.swift in Sources */,
 				A83D72C92A07A4EA00119DB9 /* Coordinator.swift in Sources */,
 				A878E4962A09D55800B97358 /* FontManager.swift in Sources */,
+				BFCE552B2A0CB8CC003A85CA /* EmotionView.swift in Sources */,
 				BF791C512A0A339B00BA00D2 /* Line.swift in Sources */,
 				A83D72CF2A07AAC100119DB9 /* SignUpView.swift in Sources */,
 				A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */,
