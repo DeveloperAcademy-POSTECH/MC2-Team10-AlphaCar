@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpressView: View {
+    @EnvironmentObject private var coordinator: Coordinator
     @State private var selectedFace = "face_happy" // 초기 표정 설정
 
     var body: some View {
@@ -18,6 +19,10 @@ struct ExpressView: View {
                 ZStack {
                     Image("text").frame(alignment: .center)
                     Image("button_exit").offset(x:380)
+                }
+                
+                Button("화면"){
+                    coordinator.push(.story1)
                 }
 
                 HStack{
