@@ -18,6 +18,12 @@
 		A83D72CD2A07A82D00119DB9 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */; };
 		A83D72D82A07E5D000119DB9 /* LoginDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72D72A07E5D000119DB9 /* LoginDomain.swift */; };
 		A83E86F82A0CC6CC005CB09D /* GLNavBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */; };
+		A865673E2A0E4FD900EB533A /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86567372A0E4FD900EB533A /* SoundManager.swift */; };
+		A865673F2A0E4FD900EB533A /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A86567382A0E4FD900EB533A /* button_sound.mp3 */; };
+		A86567412A0E4FD900EB533A /* clock_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A865673A2A0E4FD900EB533A /* clock_sound.mp3 */; };
+		A86567422A0E4FD900EB533A /* curtain_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A865673B2A0E4FD900EB533A /* curtain_sound.mp3 */; };
+		A86567432A0E4FD900EB533A /* pop_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A865673C2A0E4FD900EB533A /* pop_sound.mp3 */; };
+		A86567442A0E4FD900EB533A /* paper_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A865673D2A0E4FD900EB533A /* paper_sound.mp3 */; };
 		A878E4962A09D55800B97358 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4952A09D55800B97358 /* FontManager.swift */; };
 		A878E4A52A09E49C00B97358 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4A42A09E49C00B97358 /* Const.swift */; };
 		A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */; };
@@ -70,6 +76,12 @@
 		A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		A83D72D72A07E5D000119DB9 /* LoginDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomain.swift; sourceTree = "<group>"; };
 		A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarTitleView.swift; sourceTree = "<group>"; };
+		A86567372A0E4FD900EB533A /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundManager.swift; path = "../../../../../../../../Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/SoundManager.swift"; sourceTree = "<group>"; };
+		A86567382A0E4FD900EB533A /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = "../../../../../../../../Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/button_sound.mp3"; sourceTree = "<group>"; };
+		A865673A2A0E4FD900EB533A /* clock_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock_sound.mp3; path = "../../../../../../../../Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/clock_sound.mp3"; sourceTree = "<group>"; };
+		A865673B2A0E4FD900EB533A /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = "../../../../../../../../Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/curtain_sound.mp3"; sourceTree = "<group>"; };
+		A865673C2A0E4FD900EB533A /* pop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pop_sound.mp3; path = "../../../../../../../../Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/pop_sound.mp3"; sourceTree = "<group>"; };
+		A865673D2A0E4FD900EB533A /* paper_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paper_sound.mp3; path = "../../../../../../../../Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/paper_sound.mp3"; sourceTree = "<group>"; };
 		A878E4952A09D55800B97358 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A878E4982A09D8A100B97358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A878E4A42A09E49C00B97358 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -153,6 +165,12 @@
 		5722D82E2A0CCF750023B0F6 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				A86567382A0E4FD900EB533A /* button_sound.mp3 */,
+				A865673A2A0E4FD900EB533A /* clock_sound.mp3 */,
+				A865673B2A0E4FD900EB533A /* curtain_sound.mp3 */,
+				A865673D2A0E4FD900EB533A /* paper_sound.mp3 */,
+				A865673C2A0E4FD900EB533A /* pop_sound.mp3 */,
+				A86567372A0E4FD900EB533A /* SoundManager.swift */,
 				5722D82F2A0CCFA00023B0F6 /* MainView.swift */,
 			);
 			path = MainView;
@@ -418,8 +436,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8F10D862A008FB60015EC23 /* Preview Assets.xcassets in Resources */,
-				BF3C065E2A0E0B2A000362C1 /* soso.json in Resources */,
-				BF3C065F2A0E0B2A000362C1 /* twinkle.json in Resources */,
+				A86567412A0E4FD900EB533A /* clock_sound.mp3 in Resources */,
+				A865673F2A0E4FD900EB533A /* button_sound.mp3 in Resources */,
+				A86567442A0E4FD900EB533A /* paper_sound.mp3 in Resources */,
 				BF791C552A0A37FF00BA00D2 /* NanumSquareRoundEB.ttf in Resources */,
 				BF3C06622A0E0B2A000362C1 /* heart.json in Resources */,
 				A8F10D832A008FB60015EC23 /* Assets.xcassets in Resources */,
@@ -430,6 +449,8 @@
 				BF3C06612A0E0B2A000362C1 /* sad.json in Resources */,
 				BF3C06642A0E0B2A000362C1 /* basic.json in Resources */,
 				BF791C592A0A381500BA00D2 /* NanumSquareRoundR.ttf in Resources */,
+				A86567432A0E4FD900EB533A /* pop_sound.mp3 in Resources */,
+				A86567422A0E4FD900EB533A /* curtain_sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +490,7 @@
 				A8FA451F2A0E1AE8009C3A2C /* SplashView.swift in Sources */,
 				BFCE55272A0B8D4B003A85CA /* CharacterExpressView.swift in Sources */,
 				BFCE55282A0B8D4B003A85CA /* FaceView.swift in Sources */,
+				A865673E2A0E4FD900EB533A /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
