@@ -2,7 +2,7 @@
 //  EndingView3.swift
 //  SagakSagak
 //
-//  Created by Joy on 2023/05/11.
+//  Created by Joy on 2023/05/12.
 //
 
 import SwiftUI
@@ -22,3 +22,4 @@ struct EndingView3_Previews: PreviewProvider {
         EndingView3()
     }
 }
+

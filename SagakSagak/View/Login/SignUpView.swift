@@ -2,7 +2,7 @@
 //  SignUpView.swift
 //  SagakSagak
 //
-//  Created by Joy on 2023/05/07.
+//  Created by Joy on 2023/05/12.
 //
 
 import SwiftUI
