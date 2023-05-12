@@ -79,11 +79,14 @@ struct MainView: View {
     @State private var isAnimating = false
     @State private var isLampOn = true
     @State private var isCurtainOn = false
+    
+    //modal view related
     @State private var isLetter = false
+    @State private var isframe = false
+    @State private var isprofile = false
     @State private var isArchive = false
     @State private var isSkyTapped = false
     
-    var xOffset = 334
     private let soundManager = SoundManager.instance
     
     var body: some View {
@@ -94,12 +97,6 @@ struct MainView: View {
             .offset(x: 0, y: -120)
             
             ZStack {
-//                if isSkyTapped {
-//                    SkyModalView(isSkyTapped: $isSkyTapped)
-//                        .background(Color.black.opacity(0.3))
-//                        .edgesIgnoringSafeArea(.all)
-//                }
-                
                 if(!isLampOn){
                     if(!isCurtainOn){
                         Image("background1" +
@@ -119,21 +116,14 @@ struct MainView: View {
                         .resizable()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                
-                //            Image("bg")
-                //                .resizable()
-                //                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
                 Button(action: {
-                    isActive = true
+                    isprofile.toggle()
                 }) {
                     Image("profile")
                 }
                 .offset(x: -377.5, y: -148.4)
                 .shadow(color: Color(red: 38/255, green: 119/255, blue: 95/255).opacity(0.3), radius: 15, x: 0, y: -4)
-                .sheet(isPresented: $isActive) {
-                    MainView()
-                }
+                
                 Button(action: {
                     soundManager.playSound(sound: .curtain)
                     isCurtainOn.toggle()
@@ -200,7 +190,7 @@ struct MainView: View {
                 .buttonStyle(PlainButtonStyle())
                
                 Button(action: {
-                    isActive = true
+                    isframe.toggle()
                 }) {
                     if (!isLampOn){
                         Image("frame" +
@@ -211,11 +201,9 @@ struct MainView: View {
                     }
                 }
                 .offset(x: 334, y: -107.5)
-                .sheet(isPresented: $isActive) {
-                    MainView()
-                }
+                
                 Button(action: {
-                    isArchive = true
+                    isArchive.toggle()
                 }) {
                     if(!isLampOn){
                         Image("archive" +
@@ -226,9 +214,7 @@ struct MainView: View {
                     }
                 }
                 .offset(x: -224, y: 97)
-                .sheet(isPresented: $isArchive) {
-                    ArchiveView()
-                }
+                
                 Button(action: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                         self.isLetter = true
@@ -256,12 +242,23 @@ struct MainView: View {
                 .offset(x: 0, y: 97)
                 .sheet(isPresented: $isLetter) {
                     DrawingView()
-                    //                        .animation(.easeOut(duration: 10.0))
+                    // 추후에 변경되어야 합니다 !
                 }
+                
+                //각 버튼에 따라 modal view 뜨는 부분
+//                if (isframe){
+//                    MainView()//사진 모달
+//                }
+//                if(isprofile){
+//                    MainView()//프로필 화면
+//                }
+                if(isArchive){
+                    ArchiveView()
+                }
+//                if(isSkyTapped){
+//                    MainView()//날씨 모달
+//                }
             }
-            //            .background(Theme.current == .day ? .black : .system1)
-            //            .ignoresSafeArea()
-            //            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onReceive(receiver) { time in
                 currentTime = time
             }
