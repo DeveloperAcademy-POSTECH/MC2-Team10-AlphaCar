@@ -1,8 +1,8 @@
 //
-//  SoundPlayer.swift
+//  SoundManager.swift
 //  SagakSagak
 //
-//  Created by 신정연 on 2023/05/11.
+//  Created by Joy on 2023/05/12.
 //
 
 import Foundation
