@@ -9,13 +9,6 @@
 /* Begin PBXBuildFile section */
 		171720462A0CDA5000E34C24 /* LottiePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171720452A0CDA5000E34C24 /* LottiePlay.swift */; };
 		171720492A0CDA8900E34C24 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 171720482A0CDA8900E34C24 /* Lottie */; };
-		171720522A0CDABD00E34C24 /* angry.json in Resources */ = {isa = PBXBuildFile; fileRef = 1717204B2A0CDABD00E34C24 /* angry.json */; };
-		171720532A0CDABD00E34C24 /* sad.json in Resources */ = {isa = PBXBuildFile; fileRef = 1717204C2A0CDABD00E34C24 /* sad.json */; };
-		171720542A0CDABD00E34C24 /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 1717204D2A0CDABD00E34C24 /* basic.json */; };
-		171720552A0CDABD00E34C24 /* pleased.json in Resources */ = {isa = PBXBuildFile; fileRef = 1717204E2A0CDABD00E34C24 /* pleased.json */; };
-		171720562A0CDABD00E34C24 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 1717204F2A0CDABD00E34C24 /* heart.json */; };
-		171720572A0CDABD00E34C24 /* soso.json in Resources */ = {isa = PBXBuildFile; fileRef = 171720502A0CDABD00E34C24 /* soso.json */; };
-		171720582A0CDABD00E34C24 /* twinkle.json in Resources */ = {isa = PBXBuildFile; fileRef = 171720512A0CDABD00E34C24 /* twinkle.json */; };
 		1717205A2A0CDAD300E34C24 /* LottieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171720592A0CDAD300E34C24 /* LottieTest.swift */; };
 		5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5722D82F2A0CCFA00023B0F6 /* MainView.swift */; };
 		A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D728D2A070BFA00119DB9 /* Colors.swift */; };
@@ -24,7 +17,6 @@
 		A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C52A07A47600119DB9 /* LoginView.swift */; };
 		A83D72C92A07A4EA00119DB9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C82A07A4EA00119DB9 /* Coordinator.swift */; };
 		A83D72CD2A07A82D00119DB9 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */; };
-		A83D72CF2A07AAC100119DB9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72CE2A07AAC100119DB9 /* SignUpView.swift */; };
 		A83D72D82A07E5D000119DB9 /* LoginDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72D72A07E5D000119DB9 /* LoginDomain.swift */; };
 		A83E86F82A0CC6CC005CB09D /* GLNavBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */; };
 		A878E4962A09D55800B97358 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4952A09D55800B97358 /* FontManager.swift */; };
@@ -33,6 +25,14 @@
 		A8F10D832A008FB60015EC23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F10D822A008FB60015EC23 /* Assets.xcassets */; };
 		A8F10D862A008FB60015EC23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F10D852A008FB60015EC23 /* Preview Assets.xcassets */; };
 		BF1865092A0CE35000B2F730 /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1865082A0CE35000B2F730 /* EmotionView.swift */; };
+		BF1865192A0DE24A00B2F730 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1865182A0DE24A00B2F730 /* SignUpView.swift */; };
+		BF3C065E2A0E0B2A000362C1 /* soso.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3C06572A0E0B2A000362C1 /* soso.json */; };
+		BF3C065F2A0E0B2A000362C1 /* twinkle.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3C06582A0E0B2A000362C1 /* twinkle.json */; };
+		BF3C06602A0E0B2A000362C1 /* angry.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3C06592A0E0B2A000362C1 /* angry.json */; };
+		BF3C06612A0E0B2A000362C1 /* sad.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3C065A2A0E0B2A000362C1 /* sad.json */; };
+		BF3C06622A0E0B2A000362C1 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3C065B2A0E0B2A000362C1 /* heart.json */; };
+		BF3C06632A0E0B2A000362C1 /* pleased.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3C065C2A0E0B2A000362C1 /* pleased.json */; };
+		BF3C06642A0E0B2A000362C1 /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3C065D2A0E0B2A000362C1 /* basic.json */; };
 		BF791C4D2A0A338700BA00D2 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF791C4C2A0A338700BA00D2 /* DrawingView.swift */; };
 		BF791C512A0A339B00BA00D2 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF791C502A0A339B00BA00D2 /* Line.swift */; };
 		BF791C532A0A37EE00BA00D2 /* NanumSquareRoundL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF791C522A0A37EE00BA00D2 /* NanumSquareRoundL.ttf */; };
@@ -46,13 +46,6 @@
 
 /* Begin PBXFileReference section */
 		171720452A0CDA5000E34C24 /* LottiePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlay.swift; sourceTree = "<group>"; };
-		1717204B2A0CDABD00E34C24 /* angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = angry.json; path = ../../../../../../../Downloads/angry.json; sourceTree = "<group>"; };
-		1717204C2A0CDABD00E34C24 /* sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sad.json; path = ../../../../../../../Downloads/sad.json; sourceTree = "<group>"; };
-		1717204D2A0CDABD00E34C24 /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic.json; path = ../../../../../../../Downloads/basic.json; sourceTree = "<group>"; };
-		1717204E2A0CDABD00E34C24 /* pleased.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pleased.json; path = ../../../../../../../Downloads/pleased.json; sourceTree = "<group>"; };
-		1717204F2A0CDABD00E34C24 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = heart.json; path = ../../../../../../../Downloads/heart.json; sourceTree = "<group>"; };
-		171720502A0CDABD00E34C24 /* soso.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = soso.json; path = ../../../../../../../Downloads/soso.json; sourceTree = "<group>"; };
-		171720512A0CDABD00E34C24 /* twinkle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = twinkle.json; path = ../../../../../../../Downloads/twinkle.json; sourceTree = "<group>"; };
 		171720592A0CDAD300E34C24 /* LottieTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTest.swift; sourceTree = "<group>"; };
 		5722D82F2A0CCFA00023B0F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A83D728D2A070BFA00119DB9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -60,7 +53,6 @@
 		A83D72C52A07A47600119DB9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A83D72C82A07A4EA00119DB9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
-		A83D72CE2A07AAC100119DB9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A83D72D72A07E5D000119DB9 /* LoginDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomain.swift; sourceTree = "<group>"; };
 		A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarTitleView.swift; sourceTree = "<group>"; };
 		A878E4952A09D55800B97358 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -71,6 +63,14 @@
 		A8F10D822A008FB60015EC23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8F10D852A008FB60015EC23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF1865082A0CE35000B2F730 /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
+		BF1865182A0DE24A00B2F730 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpView.swift; path = View/SignUp/SignUpView.swift; sourceTree = SOURCE_ROOT; };
+		BF3C06572A0E0B2A000362C1 /* soso.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soso.json; sourceTree = "<group>"; };
+		BF3C06582A0E0B2A000362C1 /* twinkle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twinkle.json; sourceTree = "<group>"; };
+		BF3C06592A0E0B2A000362C1 /* angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = angry.json; sourceTree = "<group>"; };
+		BF3C065A2A0E0B2A000362C1 /* sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sad.json; sourceTree = "<group>"; };
+		BF3C065B2A0E0B2A000362C1 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
+		BF3C065C2A0E0B2A000362C1 /* pleased.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pleased.json; sourceTree = "<group>"; };
+		BF3C065D2A0E0B2A000362C1 /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basic.json; sourceTree = "<group>"; };
 		BF791C4C2A0A338700BA00D2 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		BF791C502A0A339B00BA00D2 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		BF791C522A0A37EE00BA00D2 /* NanumSquareRoundL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundL.ttf; sourceTree = "<group>"; };
@@ -107,13 +107,13 @@
 		1717204A2A0CDAA800E34C24 /* LottieFile */ = {
 			isa = PBXGroup;
 			children = (
-				1717204B2A0CDABD00E34C24 /* angry.json */,
-				1717204D2A0CDABD00E34C24 /* basic.json */,
-				1717204F2A0CDABD00E34C24 /* heart.json */,
-				1717204E2A0CDABD00E34C24 /* pleased.json */,
-				1717204C2A0CDABD00E34C24 /* sad.json */,
-				171720502A0CDABD00E34C24 /* soso.json */,
-				171720512A0CDABD00E34C24 /* twinkle.json */,
+				BF3C06592A0E0B2A000362C1 /* angry.json */,
+				BF3C065D2A0E0B2A000362C1 /* basic.json */,
+				BF3C065B2A0E0B2A000362C1 /* heart.json */,
+				BF3C065C2A0E0B2A000362C1 /* pleased.json */,
+				BF3C065A2A0E0B2A000362C1 /* sad.json */,
+				BF3C06572A0E0B2A000362C1 /* soso.json */,
+				BF3C06582A0E0B2A000362C1 /* twinkle.json */,
 			);
 			path = LottieFile;
 			sourceTree = "<group>";
@@ -192,7 +192,7 @@
 		A83D72D22A07ABB300119DB9 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				A83D72CE2A07AAC100119DB9 /* SignUpView.swift */,
+				BF1865182A0DE24A00B2F730 /* SignUpView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -347,18 +347,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				171720552A0CDABD00E34C24 /* pleased.json in Resources */,
-				171720572A0CDABD00E34C24 /* soso.json in Resources */,
-				171720532A0CDABD00E34C24 /* sad.json in Resources */,
 				A8F10D862A008FB60015EC23 /* Preview Assets.xcassets in Resources */,
-				171720542A0CDABD00E34C24 /* basic.json in Resources */,
-				171720562A0CDABD00E34C24 /* heart.json in Resources */,
-				171720582A0CDABD00E34C24 /* twinkle.json in Resources */,
+				BF3C065E2A0E0B2A000362C1 /* soso.json in Resources */,
+				BF3C065F2A0E0B2A000362C1 /* twinkle.json in Resources */,
 				BF791C552A0A37FF00BA00D2 /* NanumSquareRoundEB.ttf in Resources */,
+				BF3C06622A0E0B2A000362C1 /* heart.json in Resources */,
 				A8F10D832A008FB60015EC23 /* Assets.xcassets in Resources */,
-				171720522A0CDABD00E34C24 /* angry.json in Resources */,
+				BF3C06632A0E0B2A000362C1 /* pleased.json in Resources */,
 				BF791C532A0A37EE00BA00D2 /* NanumSquareRoundL.ttf in Resources */,
 				BF791C572A0A380700BA00D2 /* NanumSquareRoundB.ttf in Resources */,
+				BF3C06602A0E0B2A000362C1 /* angry.json in Resources */,
+				BF3C06612A0E0B2A000362C1 /* sad.json in Resources */,
+				BF3C06642A0E0B2A000362C1 /* basic.json in Resources */,
 				BF791C592A0A381500BA00D2 /* NanumSquareRoundR.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,8 +380,8 @@
 				A83D72C92A07A4EA00119DB9 /* Coordinator.swift in Sources */,
 				A878E4962A09D55800B97358 /* FontManager.swift in Sources */,
 				BF791C512A0A339B00BA00D2 /* Line.swift in Sources */,
+				BF1865192A0DE24A00B2F730 /* SignUpView.swift in Sources */,
 				BF1865092A0CE35000B2F730 /* EmotionView.swift in Sources */,
-				A83D72CF2A07AAC100119DB9 /* SignUpView.swift in Sources */,
 				A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */,
 				A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */,
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,

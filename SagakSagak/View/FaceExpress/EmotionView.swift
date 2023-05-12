@@ -45,6 +45,7 @@ struct EmotionView: View {
 
 struct EmotionView_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionView(selectedFace: "face_happy")
+        EmotionView(selectedFace: "pleased")
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

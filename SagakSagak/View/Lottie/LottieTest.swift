@@ -17,7 +17,7 @@ struct AnimationView: View {
             LottieView(jsonName: "pleased")
             LottieView(jsonName: "soso")
             LottieView(jsonName: "twinkle")
-    }
+        }
     }
 }
 

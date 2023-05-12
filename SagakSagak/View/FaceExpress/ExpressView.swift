@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ExpressView: View {
-    @State private var selectedFace = "face_happy" // 초기 표정 설정
+    @State private var selectedFace = "basic" // 초기 표정 설정
+    @StateObject private var emotionFace = EmotionFace()
     
     var body: some View {
         NavigationView {
@@ -23,16 +24,21 @@ struct ExpressView: View {
                     
                     HStack{
                         Image("button_back")
-                        CharacterExpressView(selectedFace: $selectedFace)
+//                        CharacterExpressView(selectedFace: $selectedFace)
+                        if let image = emotionFace.faceName {
+                            LottieView(jsonName: image)
+                        }else{
+                            LottieView(jsonName: "basic")
+                        }
                         NavigationLink(destination: EmotionView(selectedFace: selectedFace)) {
                             Image("button_next")
                         }.navigationBarBackButtonHidden(true) // < Back 없애기
                     }
                 }
                 .padding()
-                FaceView(selectedFace: $selectedFace)
+                FaceView()
+                    .environmentObject(self.emotionFace)
                     .offset(y:150)
-                
             }
         }
     }
@@ -41,5 +47,6 @@ struct ExpressView: View {
 struct ExpressView_Previews: PreviewProvider {
     static var previews: some View {
         ExpressView()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

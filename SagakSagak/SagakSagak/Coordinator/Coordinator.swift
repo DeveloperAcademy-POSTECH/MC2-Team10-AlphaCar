@@ -38,7 +38,8 @@ class Coordinator: ObservableObject{
     func build(page: Page) -> some View {
         switch page {
         case .splash:
-            SplashView()
+//            SplashView()
+            ExpressView()
         case .login:
             LoginView(store: Store(initialState: LoginDomain.State(), reducer: LoginDomain()))
         case .signup:
