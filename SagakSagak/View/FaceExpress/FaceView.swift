@@ -7,8 +7,12 @@
 
 import SwiftUI
 
+class EmotionFace: ObservableObject {
+    @Published var faceName: String?
+}
+
 struct FaceView: View {
-    @Binding var selectedFace: String
+    @EnvironmentObject private var emotionFace: EmotionFace
     
     var body: some View {
         ZStack {
@@ -17,34 +21,34 @@ struct FaceView: View {
                 .foregroundColor(.white)
             HStack{
                 Button(action: {
-                    selectedFace = "face_excited"
+                    emotionFace.faceName = "twinkle"
                 }) {
-                    Image("face_excited")
+                    Image("twinkle")
                 }
                 Button(action: {
-                    selectedFace = "face_lovely"
+                    emotionFace.faceName = "pleased"
                 }) {
-                    Image("face_lovely")
+                    Image("pleased")
                 }
                 Button(action: {
-                    selectedFace = "face_sad"
+                    emotionFace.faceName = "heart"
                 }) {
-                    Image("face_sad")
+                    Image("heart")
                 }
                 Button(action: {
-                    selectedFace = "face_boring"
+                    emotionFace.faceName = "soso"
                 }) {
-                    Image("face_boring")
+                    Image("soso")
                 }
                 Button(action: {
-                    selectedFace = "face_happy"
+                    emotionFace.faceName = "sad"
                 }) {
-                    Image("face_happy")
+                    Image("sad")
                 }
                 Button(action: {
-                    selectedFace = "face_angry"
+                    emotionFace.faceName = "angry"
                 }) {
-                    Image("face_angry")
+                    Image("angry")
                 }
             }
         }
@@ -54,6 +58,7 @@ struct FaceView: View {
 
 struct FaceView_Previews: PreviewProvider {
     static var previews: some View {
-        FaceView(selectedFace: .constant("face_happy"))
+        FaceView()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
