@@ -80,6 +80,7 @@ struct MainView: View {
     @State private var isLampOn = true
     @State private var isCurtainOn = false
     @State private var isLetter = false
+    @State private var isArchive = false
     @State private var isSkyTapped = false
     
     var xOffset = 334
@@ -214,7 +215,7 @@ struct MainView: View {
                     MainView()
                 }
                 Button(action: {
-                    isActive = true
+                    isArchive = true
                 }) {
                     if(!isLampOn){
                         Image("archive" +
@@ -225,8 +226,8 @@ struct MainView: View {
                     }
                 }
                 .offset(x: -224, y: 97)
-                .sheet(isPresented: $isActive) {
-                    MainView()
+                .sheet(isPresented: $isArchive) {
+                    ArchiveView()
                 }
                 Button(action: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
