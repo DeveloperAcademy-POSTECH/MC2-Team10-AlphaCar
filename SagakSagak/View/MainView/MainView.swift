@@ -14,7 +14,7 @@ struct MainButton{
 }
 
 enum Theme : String {
-    // dayOn , nightOn -> on
+    
     case day
     case night
     
@@ -72,18 +72,33 @@ struct MainView: View {
     @State var receiver = Timer.publish(every: 1, on: .current, in: .default)
         .autoconnect()
     @State private var currentTime : Date = Date.now
-//    @State var hour = currentHour
+    //    @State var hour = currentHour
     
     //button related
     @State private var isActive = false
+    @State private var isAnimating = false
     @State private var isLampOn = true
     @State private var isCurtainOn = false
     @State private var isLetter = false
+    @State private var isSkyTapped = false
+    
+    var xOffset = 334
+    private let soundManager = SoundManager.instance
     
     var body: some View {
         ZStack {
-            //창문 밖 색깔? 이미지?
+            Image("sky" +
+                  (Theme.current == .day ? "_night" : "_day"))
+            .resizable()
+            .offset(x: 0, y: -120)
+            
             ZStack {
+//                if isSkyTapped {
+//                    SkyModalView(isSkyTapped: $isSkyTapped)
+//                        .background(Color.black.opacity(0.3))
+//                        .edgesIgnoringSafeArea(.all)
+//                }
+                
                 if(!isLampOn){
                     if(!isCurtainOn){
                         Image("background1" +
@@ -119,7 +134,9 @@ struct MainView: View {
                     MainView()
                 }
                 Button(action: {
+                    soundManager.playSound(sound: .curtain)
                     isCurtainOn.toggle()
+                    print("curtain")
                 }) {
                     if(!isCurtainOn){
                         if (isLampOn == false){
@@ -134,17 +151,18 @@ struct MainView: View {
                         if (isLampOn == false){
                             Image("curtain_opened" +
                                   (Theme.current == .day ? "_night" : "_day"))
+                            //                            Image("curtaintmp")
                         }
                         else{
                             Image("curtain_opened")
+//                            Image("curtaintmp")
                         }
                     }
                 }
                 .offset(x: 0, y: -120)
-                .sheet(isPresented: $isActive) {
-                    MainView()
-                }
+                
                 Button(action: {
+                    soundManager.playSound(sound: .button)
                     isLampOn.toggle()
                 }) {
                     if (isLampOn == false){
@@ -157,30 +175,29 @@ struct MainView: View {
                     
                 }
                 .offset(x: -310, y: -47)
-                .sheet(isPresented: $isActive) {
-                    MainView()
-                }
+                
                 Button(action: {
-                    isActive = true
+                    isAnimating = true
+                    soundManager.playSound(sound: .clock)
                 }) {
-                    if (isLampOn){
-                        Image("clock" +
-                              (Theme.current == .day ? "_moon" : "_sun"))
+                    ZStack{
+                        if (isLampOn){
+                            Image("clock" +
+                                  (Theme.current == .day ? "_moon" : "_sun"))
+                        }
+                        else{
+                            Image("clock_off" +
+                                  (Theme.current == .day ? "_moon" : "_sun"))
+                        }
+                        Text(Date(), formatter: DateFormatter.timeOnlyFormatter)
+                            .offset(x: 14, y: 2.5)
+                            .font(FontManager.shared.nanumsquare(.extrabold, 24))
+                            .foregroundColor(.clock2)
                     }
-                    else{
-                        Image("clock_off" +
-                              (Theme.current == .day ? "_moon" : "_sun"))
-                    }
-                    
                 }
                 .offset(x: 334, y: 25)
-                .sheet(isPresented: $isActive) {
-                    MainView()
-                }
-                Text(Date(), formatter: DateFormatter.timeOnlyFormatter)
-                    .offset(x: 348, y: 28)
-                    .font(FontManager.shared.nanumsquare(.extrabold, 24))
-                    .foregroundColor(.clock2)
+                .buttonStyle(PlainButtonStyle())
+               
                 Button(action: {
                     isActive = true
                 }) {
@@ -241,13 +258,15 @@ struct MainView: View {
                     //                        .animation(.easeOut(duration: 10.0))
                 }
             }
-            .background(Theme.current == .day ? .black : .system1)
-            .ignoresSafeArea()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            //            .background(Theme.current == .day ? .black : .system1)
+            //            .ignoresSafeArea()
+            //            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onReceive(receiver) { time in
                 currentTime = time
             }
         }
+        .ignoresSafeArea()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
