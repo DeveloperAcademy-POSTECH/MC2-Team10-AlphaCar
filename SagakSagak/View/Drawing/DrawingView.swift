@@ -163,6 +163,7 @@ struct DrawingView: View {
                             .padding(.trailing, 24)
                   
                     }
+                    .navigationBarBackButtonHidden(true)
                     .padding(.leading, 24)
                     // .layoutPriority(0)
                 }

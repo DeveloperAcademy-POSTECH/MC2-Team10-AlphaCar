@@ -229,9 +229,12 @@ struct MainView: View {
                     MainView()
                 }
                 Button(action: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                        self.isLetter = true
-                    }
+                    coordinator.push(.letter)
+//
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+//                        self.isLetter = true
+//
+//                    }
                 }) {
                     if(!isLetter){
                         if(!isLampOn){
@@ -253,10 +256,12 @@ struct MainView: View {
                     }
                 }
                 .offset(x: 0, y: 97)
-                .sheet(isPresented: $isLetter) {
-                    DrawingView()
-                    //                        .animation(.easeOut(duration: 10.0))
-                }
+//                .sheet(isPresented: $isLetter) {
+//                    coordinator.push(.letter)
+//
+//                    //DrawingView()
+//                    //                        .animation(.easeOut(duration: 10.0))
+//                }
             }
             //            .background(Theme.current == .day ? .black : .system1)
             //            .ignoresSafeArea()
@@ -267,6 +272,7 @@ struct MainView: View {
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

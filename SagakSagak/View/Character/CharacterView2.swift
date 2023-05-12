@@ -16,7 +16,7 @@ struct CharacterView2: View {
             Button("화면"){
                 coordinator.push(.face)
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

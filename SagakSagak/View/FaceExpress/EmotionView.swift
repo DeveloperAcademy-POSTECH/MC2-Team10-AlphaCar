@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct EmotionView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var selectedFace: String
+   // @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    //var selectedFace: String
+    @EnvironmentObject private var coordinator: Coordinator
+    @Binding var selectedFace: String
     
     var body: some View {
         ZStack {
             Color.bg2.ignoresSafeArea() // 배경화면 변경 필요
             
             HStack{
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image("button_back")
-                }
+//                Button(action: {
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }) {
+//                    Image("button_back")
+//                }
                 Spacer()
                 HStack {
                     Image(selectedFace)
@@ -29,6 +31,9 @@ struct EmotionView: View {
                 }
                 Spacer()
                 Image("button_next")
+                    .onTapGesture {
+                        coordinator.push(.story1)
+                    }
             }
             ZStack {
                 Rectangle()
@@ -45,7 +50,7 @@ struct EmotionView: View {
 
 struct EmotionView_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionView(selectedFace: "pleased")
+        EmotionView(selectedFace: .constant("pleased"))
             .previewInterfaceOrientation(.landscapeRight)
     }
 }

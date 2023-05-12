@@ -17,6 +17,7 @@ struct LetterView: View {
                 coordinator.push(.draw)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
