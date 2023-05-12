@@ -23,6 +23,7 @@
 		A80EAE8A2A0E844A00676483 /* sad.json in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE832A0E844A00676483 /* sad.json */; };
 		A80EAE8B2A0E844A00676483 /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE842A0E844A00676483 /* basic.json */; };
 		A80EAE8E2A0E912800676483 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE8D2A0E912800676483 /* HapticManager.swift */; };
+		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
 		A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D728D2A070BFA00119DB9 /* Colors.swift */; };
 		A83D729A2A07938600119DB9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A83D72992A07938600119DB9 /* ComposableArchitecture */; };
 		A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C52A07A47600119DB9 /* LoginView.swift */; };
@@ -72,6 +73,7 @@
 		A80EAE832A0E844A00676483 /* sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sad.json; sourceTree = "<group>"; };
 		A80EAE842A0E844A00676483 /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basic.json; sourceTree = "<group>"; };
 		A80EAE8D2A0E912800676483 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		A83D728D2A070BFA00119DB9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A83D72C52A07A47600119DB9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A83D72C82A07A4EA00119DB9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -187,12 +189,21 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		A80EAE932A0EE62000676483 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A80EAE912A0EE4B000676483 /* View+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A83D728B2A070BDB00119DB9 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
 				A878E4A42A09E49C00B97358 /* Const.swift */,
 				A80EAE8C2A0E90AF00676483 /* Manager */,
 				A83E86F62A0CC6B8005CB09D /* Component */,
+				A80EAE932A0EE62000676483 /* Extensions */,
 				A83D728C2A070BEF00119DB9 /* Color */,
 				A878E48F2A09D49400B97358 /* Font */,
 				A8FA453E2A0E1FDC009C3A2C /* LottieFile */,
@@ -493,6 +504,7 @@
 				A8FA451F2A0E1AE8009C3A2C /* SplashView.swift in Sources */,
 				BFCE55272A0B8D4B003A85CA /* CharacterExpressView.swift in Sources */,
 				BFCE55282A0B8D4B003A85CA /* FaceView.swift in Sources */,
+				A80EAE922A0EE4B000676483 /* View+.swift in Sources */,
 				A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

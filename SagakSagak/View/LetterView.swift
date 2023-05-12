@@ -16,6 +16,13 @@ struct LetterView: View {
             Button("화면"){
                 coordinator.push(.draw)
             }
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.green)
+                .frame(width: 400, height: 300)
+                .mask(RoundedRectangle(cornerRadius: 10)
+                .fill(Color.green.opacity(0.4))
+                .innerShadow(color: Color.green.opacity(0.5)))
+            
         }
         .navigationBarBackButtonHidden(true)
     }
