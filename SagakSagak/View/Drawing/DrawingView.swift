@@ -8,8 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-
-
 let crayonColors1: [(image: String, color: Color, id: Int)] = [
     ("redcrayon", Color.red, 1),
     ("orangecrayon", Color.orange, 2),
@@ -123,6 +121,12 @@ struct DrawingView: View {
                         //                            .padding(.bottom, 9)
                             .padding(.trailing, 48)
                             .padding(.top, 24)
+                        
+                        //MARK: 화면 전환 
+                        Button("화면"){
+                            coordinator.push(.character1)
+                        }
+                        
                         ForEach(crayonColors2, id: \.0) { crayon in
                             Button(action: {
                                 selectedWidth = 5
@@ -149,7 +153,7 @@ struct DrawingView: View {
                                 .scaledToFit()
                                 .frame(width: 108, height: 68)
                                 .offset(x: selectedWidth == 20 ? -21 : 0, y: 0)
-                                .animation(.spring())
+                                .animation(.spring() )
                                 .padding(.bottom, 3)
                                 .padding(.trailing, 24)
                         }
@@ -157,6 +161,7 @@ struct DrawingView: View {
                         Image(isDrawing ? "button_next" : "button_next_enabled")
                             .padding(.bottom, 10)
                             .padding(.trailing, 24)
+                  
                     }
                     .padding(.leading, 24)
                     // .layoutPriority(0)

@@ -21,8 +21,8 @@ struct SplashView: View {
                 .fill(Color.button_bg1)
                 .frame(width:Const.glScriptWidth, height:Const.glScriptHeight)
             
-            Button("로그인 화면으로 이동"){
-                coordinator.push(.login)
+            Button("메인 화면으로 이동"){
+                coordinator.push(.main)
             }
         }
         .padding()
