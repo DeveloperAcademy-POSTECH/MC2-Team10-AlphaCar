@@ -12,7 +12,6 @@ class EmotionFace: ObservableObject {
 }
 
 struct FaceView: View {
-//    @Binding var selectedFace: String?
     @EnvironmentObject private var emotionFace: EmotionFace
     
     var body: some View {
@@ -27,14 +26,14 @@ struct FaceView: View {
                     Image("twinkle")
                 }
                 Button(action: {
+                    emotionFace.faceName = "pleased"
+                }) {
+                    Image("pleased")
+                }
+                Button(action: {
                     emotionFace.faceName = "heart"
                 }) {
                     Image("heart")
-                }
-                Button(action: {
-                    emotionFace.faceName = "sad"
-                }) {
-                    Image("sad")
                 }
                 Button(action: {
                     emotionFace.faceName = "soso"
@@ -42,9 +41,9 @@ struct FaceView: View {
                     Image("soso")
                 }
                 Button(action: {
-                    emotionFace.faceName = "pleased"
+                    emotionFace.faceName = "sad"
                 }) {
-                    Image("pleased")
+                    Image("sad")
                 }
                 Button(action: {
                     emotionFace.faceName = "angry"
@@ -59,7 +58,6 @@ struct FaceView: View {
 
 struct FaceView_Previews: PreviewProvider {
     static var previews: some View {
-//        FaceView(selectedFace: .constant("pleased"))
         FaceView()
             .previewInterfaceOrientation(.landscapeRight)
     }

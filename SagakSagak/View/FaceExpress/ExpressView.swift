@@ -24,9 +24,9 @@ struct ExpressView: View {
                     
                     HStack{
                         Image("button_back")
-//                        CharacterExpressView(selectedFace: $selectedFace)
                         if let image = emotionFace.faceName {
                             LottieView(jsonName: image)
+                                .id(image)
                         }else{
                             LottieView(jsonName: "basic")
                         }
@@ -40,6 +40,9 @@ struct ExpressView: View {
                     .environmentObject(self.emotionFace)
                     .offset(y:150)
             }
+        }
+        .onChange(of: emotionFace.faceName) { _ in
+            selectedFace = emotionFace.faceName ?? "basic"
         }
     }
 }
