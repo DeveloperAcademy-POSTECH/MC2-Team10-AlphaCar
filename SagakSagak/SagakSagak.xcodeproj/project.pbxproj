@@ -12,9 +12,6 @@
 		1717205A2A0CDAD300E34C24 /* LottieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171720592A0CDAD300E34C24 /* LottieTest.swift */; };
 		5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5722D82F2A0CCFA00023B0F6 /* MainView.swift */; };
 		A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE6E2A0E77E400676483 /* SoundManager.swift */; };
-		A80EAE752A0E791100676483 /* paper_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE742A0E791100676483 /* paper_sound.mp3 */; };
-		A80EAE7B2A0E793800676483 /* curtain_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE7A2A0E793800676483 /* curtain_sound.mp3 */; };
-		A80EAE7D2A0E794100676483 /* pop_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE7C2A0E794100676483 /* pop_sound.mp3 */; };
 		A80EAE852A0E844A00676483 /* pleased.json in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE7E2A0E844A00676483 /* pleased.json */; };
 		A80EAE862A0E844A00676483 /* angry.json in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE7F2A0E844A00676483 /* angry.json */; };
 		A80EAE872A0E844A00676483 /* soso.json in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE802A0E844A00676483 /* soso.json */; };
@@ -62,9 +59,6 @@
 		171720592A0CDAD300E34C24 /* LottieTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTest.swift; sourceTree = "<group>"; };
 		5722D82F2A0CCFA00023B0F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = MainView/MainView.swift; sourceTree = "<group>"; };
 		A80EAE6E2A0E77E400676483 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		A80EAE742A0E791100676483 /* paper_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paper_sound.mp3; path = "../../../../../../../../../Desktop/무제 폴더/MC2-Team10-AlphaCar/SagakSagak/View/MainView/paper_sound.mp3"; sourceTree = "<group>"; };
-		A80EAE7A2A0E793800676483 /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = "../../../../../../../../../Desktop/무제 폴더/MC2-Team10-AlphaCar/SagakSagak/View/MainView/curtain_sound.mp3"; sourceTree = "<group>"; };
-		A80EAE7C2A0E794100676483 /* pop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pop_sound.mp3; path = "../../../../../../../../../Desktop/무제 폴더/MC2-Team10-AlphaCar/SagakSagak/View/MainView/pop_sound.mp3"; sourceTree = "<group>"; };
 		A80EAE7E2A0E844A00676483 /* pleased.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pleased.json; sourceTree = "<group>"; };
 		A80EAE7F2A0E844A00676483 /* angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = angry.json; sourceTree = "<group>"; };
 		A80EAE802A0E844A00676483 /* soso.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soso.json; sourceTree = "<group>"; };
@@ -172,9 +166,6 @@
 		A80EAE712A0E78A500676483 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				A80EAE7C2A0E794100676483 /* pop_sound.mp3 */,
-				A80EAE7A2A0E793800676483 /* curtain_sound.mp3 */,
-				A80EAE742A0E791100676483 /* paper_sound.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -452,14 +443,11 @@
 			files = (
 				A80EAE852A0E844A00676483 /* pleased.json in Resources */,
 				A8F10D862A008FB60015EC23 /* Preview Assets.xcassets in Resources */,
-				A80EAE7B2A0E793800676483 /* curtain_sound.mp3 in Resources */,
 				A80EAE892A0E844A00676483 /* heart.json in Resources */,
 				A80EAE862A0E844A00676483 /* angry.json in Resources */,
 				BF791C552A0A37FF00BA00D2 /* NanumSquareRoundEB.ttf in Resources */,
 				A8F10D832A008FB60015EC23 /* Assets.xcassets in Resources */,
 				A80EAE8A2A0E844A00676483 /* sad.json in Resources */,
-				A80EAE7D2A0E794100676483 /* pop_sound.mp3 in Resources */,
-				A80EAE752A0E791100676483 /* paper_sound.mp3 in Resources */,
 				BF791C532A0A37EE00BA00D2 /* NanumSquareRoundL.ttf in Resources */,
 				A80EAE872A0E844A00676483 /* soso.json in Resources */,
 				BF791C572A0A380700BA00D2 /* NanumSquareRoundB.ttf in Resources */,
