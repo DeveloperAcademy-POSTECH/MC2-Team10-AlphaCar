@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CharacterView1: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var snapshotImage: SnapshotImage
+    @State private var isNextBtnClicked = false
+    @State private var isPrevBtnClicked = false
     
     var body: some View {
 

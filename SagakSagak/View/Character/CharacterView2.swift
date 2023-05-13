@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CharacterView2: View {
+    @State private var isNextBtnClicked = false
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
@@ -63,5 +64,6 @@ struct CharacterView2: View {
 struct CharacterView2_Previews: PreviewProvider {
     static var previews: some View {
         CharacterView2()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

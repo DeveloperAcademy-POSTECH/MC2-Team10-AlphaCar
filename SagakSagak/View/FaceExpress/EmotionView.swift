@@ -9,48 +9,71 @@ import SwiftUI
 
 struct EmotionView: View {
    // @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    //var selectedFace: String
+    @State private var isNextBtnClicked = false
+    @State private var isPrevBtnClicked = false
     @EnvironmentObject private var coordinator: Coordinator
-    @Binding var selectedFace: String
+    @EnvironmentObject private var emotionFace: EmotionFace
     
     var body: some View {
-        ZStack {
-            Color.bg2.ignoresSafeArea() // 배경화면 변경 필요
-            
-            HStack{
-//                Button(action: {
-//                    self.presentationMode.wrappedValue.dismiss()
-//                }) {
-//                    Image("button_back")
-//                }
-                Spacer()
-                HStack {
-                    Image(selectedFace)
-                    Text("표정의 이름은").font(.title) // 폰트 지정
-                    Text("이야.").font(.title) // 폰트 지정
-                }
-                Spacer()
-                Image("button_next")
-                    .onTapGesture {
-                        coordinator.push(.story1)
-                    }
-            }
+        if !isNextBtnClicked && !isPrevBtnClicked{
             ZStack {
-                Rectangle()
-                    .frame(width: 844, height: 88)
-                    .foregroundColor(.white)
+                Color.bg2.ignoresSafeArea() // 배경화면 변경 필요
+                
                 HStack{
-                    Text("blocks")
+                    Image("button_next")
+                        .onTapGesture {
+                            isPrevBtnClicked = true
+                        }
+                    Spacer()
+                    HStack {
+                        Image(emotionFace.faceName ?? "basic")
+                            .padding(20)
+                            .foregroundColor(Color(red: 52/255, green: 57/255, blue: 133/255))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke(Color(.white).opacity(0.5),
+                                            lineWidth: 2)
+                                    .shadow(color: Color(hex: "579DFF"),
+                                            radius: 3, x: 0, y: -7)
+                                    .clipShape(
+                                        RoundedRectangle(cornerRadius: 10)
+                                    )
+                                    .shadow(color: Color.white, radius: 2, x: -2, y: -2)
+                                    .clipShape(
+                                        RoundedRectangle(cornerRadius: 10)
+                                    )
+                            )
+                            .background(.white)
+                            .cornerRadius(20)
+                        Text("표정의 이름은").font(.title) // 폰트 지정
+                        Text("이야.").font(.title) // 폰트 지정
+                    }
+                    Spacer()
+                    Image("button_next")
+                        .onTapGesture {
+                            isNextBtnClicked = true
+                        }
                 }
-            }.offset(y:150)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 844, height: 88)
+                        .foregroundColor(.white)
+                    HStack{
+                        Text("blocks")
+                    }
+                }.offset(y:150)
+            }
+        } else if isPrevBtnClicked {
+            ExpressView()
+        } else {
+            StoryView1()
         }
-        
     }
 }
 
 struct EmotionView_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionView(selectedFace: .constant("pleased"))
+        EmotionView()
             .previewInterfaceOrientation(.landscapeRight)
     }
 }

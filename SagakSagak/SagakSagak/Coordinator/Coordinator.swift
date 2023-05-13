@@ -20,6 +20,7 @@ enum Page: String, Identifiable {
 //ObservableObject
 class Coordinator: ObservableObject{
     @Published var path = NavigationPath() //16버전부터만 가능
+    
 
     // MARK: 화면 전환
     func push(_ page: Page) {
@@ -53,7 +54,8 @@ class Coordinator: ObservableObject{
         case .face:
             ExpressView()
         case .emotion:
-            EmotionView(selectedFace: .constant("pleased")) //TODO: Fix
+            EmotionView() //TODO: Fix
+//            EmotionView(selectedFace: .constant("pleased")) //TODO: Fix
         case .story1:
             StoryView1()
         case .story2:
