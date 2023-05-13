@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GLBavBarItem: View {
+struct GLNavBarItem: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     let navBarTitle: String
@@ -29,6 +29,6 @@ struct GLBavBarItem: View {
 
 struct GLBavBarItem_Previews: PreviewProvider {
     static var previews: some View {
-        GLBavBarItem(navBarTitle: "가람이에게 가장 소중한 것을 그려보자1", navBarBgColor: .system1, navBarFontColor: .system2)
+        GLNavBarItem(navBarTitle: "가람이에게 가장 소중한 것을 그려보자1", navBarBgColor: .system1, navBarFontColor: .system2)
     }
 }

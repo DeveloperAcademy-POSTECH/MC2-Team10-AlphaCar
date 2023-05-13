@@ -30,7 +30,7 @@
 		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
 		A80EAE992A0EF0E800676483 /* GLBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE982A0EF0E800676483 /* GLBlockView.swift */; };
 		A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */; };
-		A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA42A0F256000676483 /* GLBavBarItem.swift */; };
+		A80EAEA52A0F256000676483 /* GLNavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA42A0F256000676483 /* GLNavBarItem.swift */; };
 		A80EAEA82A0F285200676483 /* GLButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA72A0F285200676483 /* GLButtonSet.swift */; };
 		A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEAA2A0F377000676483 /* GLPopupView.swift */; };
 		A81261B32A10075A00280ECE /* SwingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261B22A10075A00280ECE /* SwingAnimation.swift */; };
@@ -95,7 +95,7 @@
 		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		A80EAE982A0EF0E800676483 /* GLBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockView.swift; sourceTree = "<group>"; };
 		A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockItem.swift; sourceTree = "<group>"; };
-		A80EAEA42A0F256000676483 /* GLBavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBavBarItem.swift; sourceTree = "<group>"; };
+		A80EAEA42A0F256000676483 /* GLNavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarItem.swift; sourceTree = "<group>"; };
 		A80EAEA72A0F285200676483 /* GLButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLButtonSet.swift; sourceTree = "<group>"; };
 		A80EAEAA2A0F377000676483 /* GLPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLPopupView.swift; sourceTree = "<group>"; };
 		A81261B22A10075A00280ECE /* SwingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwingAnimation.swift; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 		A83E86F62A0CC6B8005CB09D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				A80EAEA42A0F256000676483 /* GLBavBarItem.swift */,
+				A80EAEA42A0F256000676483 /* GLNavBarItem.swift */,
 				A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */,
 				A80EAE982A0EF0E800676483 /* GLBlockView.swift */,
 				A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */,
@@ -525,7 +525,7 @@
 				A8FA45302A0E1CF0009C3A2C /* StoryView1.swift in Sources */,
 				A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */,
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,
-				A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */,
+				A80EAEA52A0F256000676483 /* GLNavBarItem.swift in Sources */,
 				A872FC932A0FD9F80058880B /* UserDefaultsManager.swift in Sources */,
 				A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */,
 				A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */,
