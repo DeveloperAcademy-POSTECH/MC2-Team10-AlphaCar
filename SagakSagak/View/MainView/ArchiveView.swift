@@ -24,10 +24,10 @@ struct ArchiveView: View {
                 }) {
                     Image("book")
                 }
-                .offset(x: -80, y: 70)
+                .offset(x: -85, y: 65)
                 .shadow(color: Color(red: 38/255, green: 119/255, blue: 95/255).opacity(0.3), radius: 15, x: 0, y: -4)
-                .sheet(isPresented: $isActive) {
-                    MainView()
+                if(isActive){
+                    ArchiveOpenView()
                 }
             }
         }
