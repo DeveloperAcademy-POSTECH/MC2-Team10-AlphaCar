@@ -1,8 +1,8 @@
 //
-//  SwiftUIView.swift
-//  MC2_Practice
+//  ToCameraView.swift
+//  SagakSagak
 //
-//  Created by 채영민 on 2023/05/10.
+//  Created by Joy on 2023/05/14.
 //
 
 import SwiftUI
