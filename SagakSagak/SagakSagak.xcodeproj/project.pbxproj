@@ -40,10 +40,7 @@
 		A83D72CD2A07A82D00119DB9 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */; };
 		A83D72D82A07E5D000119DB9 /* LoginDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72D72A07E5D000119DB9 /* LoginDomain.swift */; };
 		A83E86F82A0CC6CC005CB09D /* GLNavBarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */; };
-		A872FC952A0FEDB90058880B /* stamp.json in Resources */ = {isa = PBXBuildFile; fileRef = A872FC942A0FEDB90058880B /* stamp.json */; };
-		A872FC972A0FEEAA0058880B /* great.json in Resources */ = {isa = PBXBuildFile; fileRef = A872FC962A0FEEAA0058880B /* great.json */; };
-		A872FC992A0FEF170058880B /* happy.json in Resources */ = {isa = PBXBuildFile; fileRef = A872FC982A0FEF170058880B /* happy.json */; };
-		A872FC9B2A0FF1020058880B /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = A872FC9A2A0FF1020058880B /* love.json */; };
+		A872FC932A0FD9F80058880B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872FC922A0FD9F80058880B /* UserDefaultsManager.swift */; };
 		A878E4962A09D55800B97358 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4952A09D55800B97358 /* FontManager.swift */; };
 		A878E4A52A09E49C00B97358 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4A42A09E49C00B97358 /* Const.swift */; };
 		A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */; };
@@ -74,13 +71,13 @@
 		171720452A0CDA5000E34C24 /* LottiePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlay.swift; sourceTree = "<group>"; };
 		171720592A0CDAD300E34C24 /* LottieTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTest.swift; sourceTree = "<group>"; };
 		5722D82F2A0CCFA00023B0F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = View/MainView/curtain_sound.mp3; sourceTree = SOURCE_ROOT; };
-		5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = View/MainView/button_sound.mp3; sourceTree = SOURCE_ROOT; };
-		5739EBF22A0F8D0B00AEAB5E /* clock_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock_sound.mp3; path = View/MainView/clock_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = SagakSagak/Utils/Music/curtain_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = SagakSagak/Utils/Music/button_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBF22A0F8D0B00AEAB5E /* clock_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock_sound.mp3; path = SagakSagak/Utils/Music/clock_sound.mp3; sourceTree = SOURCE_ROOT; };
 		5739EBF32A0F8D0B00AEAB5E /* ArchiveOpenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveOpenView.swift; path = View/MainView/ArchiveOpenView.swift; sourceTree = SOURCE_ROOT; };
 		5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveView.swift; path = View/MainView/ArchiveView.swift; sourceTree = SOURCE_ROOT; };
-		5739EBFA2A0F8D2900AEAB5E /* pop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pop_sound.mp3; path = View/MainView/pop_sound.mp3; sourceTree = SOURCE_ROOT; };
-		5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paper_sound.mp3; path = View/MainView/paper_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBFA2A0F8D2900AEAB5E /* pop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pop_sound.mp3; path = SagakSagak/Utils/Music/pop_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paper_sound.mp3; path = SagakSagak/Utils/Music/paper_sound.mp3; sourceTree = SOURCE_ROOT; };
 		A80EAE6E2A0E77E400676483 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A80EAE7E2A0E844A00676483 /* pleased.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pleased.json; sourceTree = "<group>"; };
 		A80EAE7F2A0E844A00676483 /* angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = angry.json; sourceTree = "<group>"; };
@@ -102,10 +99,7 @@
 		A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		A83D72D72A07E5D000119DB9 /* LoginDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomain.swift; sourceTree = "<group>"; };
 		A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarTitle.swift; sourceTree = "<group>"; };
-		A872FC942A0FEDB90058880B /* stamp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stamp.json; path = ../../../../../../../../../Downloads/stamp.json; sourceTree = "<group>"; };
-		A872FC962A0FEEAA0058880B /* great.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = great.json; path = ../../../../../../../../../Downloads/great.json; sourceTree = "<group>"; };
-		A872FC982A0FEF170058880B /* happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = happy.json; path = ../../../../../../../../../Downloads/happy.json; sourceTree = "<group>"; };
-		A872FC9A2A0FF1020058880B /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = love.json; path = ../../../../../../../../../Downloads/love.json; sourceTree = "<group>"; };
+		A872FC922A0FD9F80058880B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		A878E4952A09D55800B97358 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A878E4982A09D8A100B97358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A878E4A42A09E49C00B97358 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -162,6 +156,21 @@
 				5722D82F2A0CCFA00023B0F6 /* MainView.swift */,
 				5739EBF32A0F8D0B00AEAB5E /* ArchiveOpenView.swift */,
 				5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A80EAE702A0E789F00676483 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A80EAE712A0E78A500676483 /* Music */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A80EAE712A0E78A500676483 /* Music */ = {
+			isa = PBXGroup;
+			children = (
 				5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */,
 				5739EBF22A0F8D0B00AEAB5E /* clock_sound.mp3 */,
 				5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */,
@@ -169,6 +178,7 @@
 				5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */,
 			);
 			path = Main;
+			path = Music;
 			sourceTree = "<group>";
 		};
 		A80EAE8C2A0E90AF00676483 /* Manager */ = {
@@ -177,6 +187,7 @@
 				A878E4952A09D55800B97358 /* FontManager.swift */,
 				A80EAE6E2A0E77E400676483 /* SoundManager.swift */,
 				A80EAE8D2A0E912800676483 /* HapticManager.swift */,
+				A872FC922A0FD9F80058880B /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -505,6 +516,7 @@
 				A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */,
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,
 				A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */,
+				A872FC932A0FD9F80058880B /* UserDefaultsManager.swift in Sources */,
 				A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */,
 				A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */,
 				A83E86F82A0CC6CC005CB09D /* GLNavBarTitle.swift in Sources */,
