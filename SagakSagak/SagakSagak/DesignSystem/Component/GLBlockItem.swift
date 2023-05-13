@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 enum BlockItemType{
     case weatherItem
@@ -14,7 +15,8 @@ enum BlockItemType{
 }
 
 struct GLBlockItem: View {
-    static let blockItemType: BlockItemType = .textItem
+    static var blockItemType: BlockItemType = .textItem
+    @State private var onDrag = false
     
     let imageName: String
     let textName: String
@@ -42,11 +44,11 @@ struct GLBlockItem: View {
             )
             
         case .faceItem:
-            return AnyView(
+            return AnyView( 
                 ZStack{
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.system2) ///color 색상 system2로 바꾸기
-                        .frame(width: 112, height: 60)
+                        .frame(width: 100, height: 60)
                         .mask(RoundedRectangle(cornerRadius: 10)
                         .fill(Color.system2.opacity(0.5)) ///color
                         .innerShadow(color: Color.system2.opacity(0.5))) ///color
@@ -58,12 +60,16 @@ struct GLBlockItem: View {
             return AnyView(
                 ZStack{
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.block_bg2) ///color 색상 system2로 바꾸기
-                        .frame(width: 112, height: 60)  // TODO: 그림자 효과 재조정 필요
+                        .fill(onDrag ? Color.block_bg3: Color.block_bg2) //TODO: 컬러 확인
+                        .frame(width: 100, height: 60)  // TODO: 그림자 효과(innershadow, blur) 재조정 필요
 
                     Text(textName)
                         .font(FontManager.shared.nanumsquare(.extrabold, 24))
-                        .foregroundColor(.system2)
+                        .foregroundColor(onDrag ? Color.block_bg3: .system2)//TODO: 컬러 확인
+                }
+                .onDrag {
+                    self.onDrag = true
+                    return NSItemProvider(object: String(textName) as NSString)
                 }
             )
         }
