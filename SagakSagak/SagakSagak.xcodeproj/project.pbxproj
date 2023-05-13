@@ -25,6 +25,7 @@
 		A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */; };
 		A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA42A0F256000676483 /* GLBavBarItem.swift */; };
 		A80EAEA82A0F285200676483 /* GLButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA72A0F285200676483 /* GLButtonSet.swift */; };
+		A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEAA2A0F377000676483 /* GLPopupView.swift */; };
 		A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D728D2A070BFA00119DB9 /* Colors.swift */; };
 		A83D729A2A07938600119DB9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A83D72992A07938600119DB9 /* ComposableArchitecture */; };
 		A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C52A07A47600119DB9 /* LoginView.swift */; };
@@ -76,6 +77,7 @@
 		A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockItem.swift; sourceTree = "<group>"; };
 		A80EAEA42A0F256000676483 /* GLBavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBavBarItem.swift; sourceTree = "<group>"; };
 		A80EAEA72A0F285200676483 /* GLButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLButtonSet.swift; sourceTree = "<group>"; };
+		A80EAEAA2A0F377000676483 /* GLPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLPopupView.swift; sourceTree = "<group>"; };
 		A83D728D2A070BFA00119DB9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A83D72C52A07A47600119DB9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A83D72C82A07A4EA00119DB9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				A80EAE982A0EF0E800676483 /* GLBlockView.swift */,
 				A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */,
 				A80EAEA72A0F285200676483 /* GLButtonSet.swift */,
+				A80EAEAA2A0F377000676483 /* GLPopupView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */,
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,
 				A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */,
+				A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */,
 				A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */,
 				A83E86F82A0CC6CC005CB09D /* GLNavBarTitle.swift in Sources */,
 				A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */,
