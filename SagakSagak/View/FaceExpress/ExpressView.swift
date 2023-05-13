@@ -33,7 +33,7 @@ struct ExpressView: View {
                     }
                     Image("button_next")
                         .onTapGesture {
-                            coordinator.push(.emotion)
+                            coordinator.push(.face)
                         }
                     
                     

@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Color {
-    //MARK: systemColor - s
+    //MARK: system
     /// #5E9BF0
     static let system1 = Color(#colorLiteral(red: 0.4371724725, green: 0.6795191169, blue: 0.9540358186, alpha: 1))
     /// #FFFFFF
