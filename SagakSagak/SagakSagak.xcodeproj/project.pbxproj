@@ -22,9 +22,7 @@
 		A80EAE8E2A0E912800676483 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE8D2A0E912800676483 /* HapticManager.swift */; };
 		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
 		A80EAE992A0EF0E800676483 /* GLBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE982A0EF0E800676483 /* GLBlockView.swift */; };
-		A80EAE9D2A0EF18200676483 /* GLFaceBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE9C2A0EF18200676483 /* GLFaceBlock.swift */; };
-		A80EAE9F2A0EF19100676483 /* GLTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE9E2A0EF19100676483 /* GLTextBlock.swift */; };
-		A80EAEA12A0EF23700676483 /* GLWeatherBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA02A0EF23700676483 /* GLWeatherBlock.swift */; };
+		A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */; };
 		A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D728D2A070BFA00119DB9 /* Colors.swift */; };
 		A83D729A2A07938600119DB9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A83D72992A07938600119DB9 /* ComposableArchitecture */; };
 		A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C52A07A47600119DB9 /* LoginView.swift */; };
@@ -73,9 +71,7 @@
 		A80EAE8D2A0E912800676483 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		A80EAE982A0EF0E800676483 /* GLBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockView.swift; sourceTree = "<group>"; };
-		A80EAE9C2A0EF18200676483 /* GLFaceBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLFaceBlock.swift; sourceTree = "<group>"; };
-		A80EAE9E2A0EF19100676483 /* GLTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLTextBlock.swift; sourceTree = "<group>"; };
-		A80EAEA02A0EF23700676483 /* GLWeatherBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLWeatherBlock.swift; sourceTree = "<group>"; };
+		A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockItem.swift; sourceTree = "<group>"; };
 		A83D728D2A070BFA00119DB9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A83D72C52A07A47600119DB9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A83D72C82A07A4EA00119DB9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -261,9 +257,7 @@
 			children = (
 				A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */,
 				A80EAE982A0EF0E800676483 /* GLBlockView.swift */,
-				A80EAE9C2A0EF18200676483 /* GLFaceBlock.swift */,
-				A80EAE9E2A0EF19100676483 /* GLTextBlock.swift */,
-				A80EAEA02A0EF23700676483 /* GLWeatherBlock.swift */,
+				A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -479,7 +473,6 @@
 				171720462A0CDA5000E34C24 /* LottiePlay.swift in Sources */,
 				A8FA45322A0E1D02009C3A2C /* StoryView2.swift in Sources */,
 				BFCE55292A0B8D4B003A85CA /* ExpressView.swift in Sources */,
-				A80EAE9D2A0EF18200676483 /* GLFaceBlock.swift in Sources */,
 				A8FA453B2A0E1D83009C3A2C /* EndingView3.swift in Sources */,
 				BF791C4D2A0A338700BA00D2 /* DrawingView.swift in Sources */,
 				A8FA45272A0E1C6E009C3A2C /* CharacterView2.swift in Sources */,
@@ -496,12 +489,11 @@
 				BF1865092A0CE35000B2F730 /* EmotionView.swift in Sources */,
 				A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */,
 				A8FA45302A0E1CF0009C3A2C /* StoryView1.swift in Sources */,
-				A80EAE9F2A0EF19100676483 /* GLTextBlock.swift in Sources */,
-				A80EAEA12A0EF23700676483 /* GLWeatherBlock.swift in Sources */,
 				A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */,
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,
 				A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */,
 				A83E86F82A0CC6CC005CB09D /* GLNavBarTitleView.swift in Sources */,
+				A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */,
 				A8FA45372A0E1D63009C3A2C /* EndingView1.swift in Sources */,
 				A878E4A52A09E49C00B97358 /* Const.swift in Sources */,
 				A80EAE8E2A0E912800676483 /* HapticManager.swift in Sources */,
