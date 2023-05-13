@@ -216,9 +216,12 @@ struct MainView: View {
                 .offset(x: -224, y: 97)
                 
                 Button(action: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                        self.isLetter = true
-                    }
+                    coordinator.push(.letter)
+//
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+//                        self.isLetter = true
+//
+//                    }
                 }) {
                     if(!isLetter){
                         if(!isLampOn){
@@ -265,6 +268,7 @@ struct MainView: View {
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
