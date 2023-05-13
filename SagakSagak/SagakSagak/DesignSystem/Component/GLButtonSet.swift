@@ -13,6 +13,9 @@ import SwiftUI
 //}
 
 struct GLButtonSet: View {
+    @EnvironmentObject private var coordinator: Coordinator
+    
+    let page: Page
     let backButtonImage: String ///뒤로 가기 버튼 이미지명
     let forwardButtonImage: String /// 앞으로 가기 버튼 이미지명
     
@@ -29,7 +32,7 @@ struct GLButtonSet: View {
             Spacer()
             
             Button{
-                print("Forward")
+                coordinator.push(page)
             }label:{
                 Image(forwardButtonImage)
             }

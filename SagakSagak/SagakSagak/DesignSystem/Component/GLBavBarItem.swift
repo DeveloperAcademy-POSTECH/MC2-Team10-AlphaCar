@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GLBavBarItem: View {
+    @EnvironmentObject private var coordinator: Coordinator
+    
     let navBarTitle: String
     let navBarBgColor: Color
     let navBarFontColor: Color
@@ -15,9 +17,12 @@ struct GLBavBarItem: View {
     var body: some View {
         HStack{
             GLNavBarTitle(navBarTitle: navBarTitle, navBarBgColor: navBarBgColor, navBarFontColor: navBarFontColor)
-            
-            Image("button_exit")
-                .padding(EdgeInsets(top: 5, leading: 128, bottom: 5, trailing: 0))
+            Button {
+                coordinator.popToRoot()
+            } label: {
+                Image("button_exit")
+                    .padding(EdgeInsets(top: 5, leading: 128, bottom: 5, trailing: 0))
+            }
         }
     }
 }
