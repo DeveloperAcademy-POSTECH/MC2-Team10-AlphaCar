@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GLNavBarTitleView: View {
+struct GLNavBarTitle: View {
     let navBarTitle: String ///네비게이션바 타이틀 내용  ex) 오늘의 이야기, 액자에 사진을 걸어보자
     let navBarBgColor: Color ///네비게이션바 타이틀 백그라운드 색상
     let navBarFontColor: Color ///네비게이션바 타이틀 폰트 색상

@@ -23,13 +23,14 @@
 		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
 		A80EAE992A0EF0E800676483 /* GLBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE982A0EF0E800676483 /* GLBlockView.swift */; };
 		A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */; };
+		A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA42A0F256000676483 /* GLBavBarItem.swift */; };
 		A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D728D2A070BFA00119DB9 /* Colors.swift */; };
 		A83D729A2A07938600119DB9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A83D72992A07938600119DB9 /* ComposableArchitecture */; };
 		A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C52A07A47600119DB9 /* LoginView.swift */; };
 		A83D72C92A07A4EA00119DB9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C82A07A4EA00119DB9 /* Coordinator.swift */; };
 		A83D72CD2A07A82D00119DB9 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */; };
 		A83D72D82A07E5D000119DB9 /* LoginDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72D72A07E5D000119DB9 /* LoginDomain.swift */; };
-		A83E86F82A0CC6CC005CB09D /* GLNavBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */; };
+		A83E86F82A0CC6CC005CB09D /* GLNavBarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */; };
 		A878E4962A09D55800B97358 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4952A09D55800B97358 /* FontManager.swift */; };
 		A878E4A52A09E49C00B97358 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4A42A09E49C00B97358 /* Const.swift */; };
 		A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */; };
@@ -72,12 +73,13 @@
 		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		A80EAE982A0EF0E800676483 /* GLBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockView.swift; sourceTree = "<group>"; };
 		A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockItem.swift; sourceTree = "<group>"; };
+		A80EAEA42A0F256000676483 /* GLBavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBavBarItem.swift; sourceTree = "<group>"; };
 		A83D728D2A070BFA00119DB9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A83D72C52A07A47600119DB9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A83D72C82A07A4EA00119DB9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		A83D72D72A07E5D000119DB9 /* LoginDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomain.swift; sourceTree = "<group>"; };
-		A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarTitleView.swift; sourceTree = "<group>"; };
+		A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarTitle.swift; sourceTree = "<group>"; };
 		A86567372A0E4FD900EB533A /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundManager.swift; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/SoundManager.swift"; sourceTree = "<absolute>"; };
 		A86567382A0E4FD900EB533A /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/button_sound.mp3"; sourceTree = "<absolute>"; };
 		A865673A2A0E4FD900EB533A /* clock_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock_sound.mp3; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/clock_sound.mp3"; sourceTree = "<absolute>"; };
@@ -255,7 +257,8 @@
 		A83E86F62A0CC6B8005CB09D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				A83E86F72A0CC6CC005CB09D /* GLNavBarTitleView.swift */,
+				A80EAEA42A0F256000676483 /* GLBavBarItem.swift */,
+				A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */,
 				A80EAE982A0EF0E800676483 /* GLBlockView.swift */,
 				A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */,
 			);
@@ -491,8 +494,9 @@
 				A8FA45302A0E1CF0009C3A2C /* StoryView1.swift in Sources */,
 				A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */,
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,
+				A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */,
 				A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */,
-				A83E86F82A0CC6CC005CB09D /* GLNavBarTitleView.swift in Sources */,
+				A83E86F82A0CC6CC005CB09D /* GLNavBarTitle.swift in Sources */,
 				A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */,
 				A8FA45372A0E1D63009C3A2C /* EndingView1.swift in Sources */,
 				A878E4A52A09E49C00B97358 /* Const.swift in Sources */,
