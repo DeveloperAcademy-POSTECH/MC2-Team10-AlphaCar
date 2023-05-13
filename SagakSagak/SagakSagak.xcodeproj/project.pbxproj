@@ -10,6 +10,7 @@
 		171720462A0CDA5000E34C24 /* LottiePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171720452A0CDA5000E34C24 /* LottiePlay.swift */; };
 		171720492A0CDA8900E34C24 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 171720482A0CDA8900E34C24 /* Lottie */; };
 		1717205A2A0CDAD300E34C24 /* LottieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171720592A0CDAD300E34C24 /* LottieTest.swift */; };
+		1784D8EE2A0FE08B002CBADC /* stamp.json in Resources */ = {isa = PBXBuildFile; fileRef = 1784D8ED2A0FE08B002CBADC /* stamp.json */; };
 		5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5722D82F2A0CCFA00023B0F6 /* MainView.swift */; };
 		5739EBF52A0F8D0B00AEAB5E /* curtain_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */; };
 		5739EBF62A0F8D0B00AEAB5E /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		171720452A0CDA5000E34C24 /* LottiePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlay.swift; sourceTree = "<group>"; };
 		171720592A0CDAD300E34C24 /* LottieTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTest.swift; sourceTree = "<group>"; };
+		1784D8ED2A0FE08B002CBADC /* stamp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stamp.json; path = ../../../../../../../Downloads/stamp.json; sourceTree = "<group>"; };
 		5722D82F2A0CCFA00023B0F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = View/MainView/curtain_sound.mp3; sourceTree = SOURCE_ROOT; };
 		5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = View/MainView/button_sound.mp3; sourceTree = SOURCE_ROOT; };
@@ -98,12 +100,6 @@
 		A83D72CC2A07A82D00119DB9 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		A83D72D72A07E5D000119DB9 /* LoginDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDomain.swift; sourceTree = "<group>"; };
 		A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarTitle.swift; sourceTree = "<group>"; };
-		A86567372A0E4FD900EB533A /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundManager.swift; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/SoundManager.swift"; sourceTree = "<absolute>"; };
-		A86567382A0E4FD900EB533A /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/button_sound.mp3"; sourceTree = "<absolute>"; };
-		A865673A2A0E4FD900EB533A /* clock_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock_sound.mp3; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/clock_sound.mp3"; sourceTree = "<absolute>"; };
-		A865673B2A0E4FD900EB533A /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/curtain_sound.mp3"; sourceTree = "<absolute>"; };
-		A865673C2A0E4FD900EB533A /* pop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pop_sound.mp3; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/pop_sound.mp3"; sourceTree = "<absolute>"; };
-		A865673D2A0E4FD900EB533A /* paper_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paper_sound.mp3; path = "/Desktop/메인뷰/MC2-Team10-AlphaCar 복사본/SagakSagak/View/MainView/paper_sound.mp3"; sourceTree = "<absolute>"; };
 		A878E4952A09D55800B97358 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A878E4982A09D8A100B97358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A878E4A42A09E49C00B97358 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -121,12 +117,6 @@
 		A8FA45382A0E1D73009C3A2C /* EndingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView2.swift; sourceTree = "<group>"; };
 		A8FA453A2A0E1D83009C3A2C /* EndingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView3.swift; sourceTree = "<group>"; };
 		BF1865082A0CE35000B2F730 /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
-		BF1865182A0DE24A00B2F730 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpView.swift; path = View/SignUp/SignUpView.swift; sourceTree = SOURCE_ROOT; };
-		BF3C06592A0E0B2A000362C1 /* angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = angry.json; sourceTree = "<group>"; };
-		BF3C065A2A0E0B2A000362C1 /* sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sad.json; sourceTree = "<group>"; };
-		BF3C065B2A0E0B2A000362C1 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
-		BF3C065C2A0E0B2A000362C1 /* pleased.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pleased.json; sourceTree = "<group>"; };
-		BF3C065D2A0E0B2A000362C1 /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basic.json; sourceTree = "<group>"; };
 		BF791C4C2A0A338700BA00D2 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		BF791C502A0A339B00BA00D2 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		BF791C522A0A37EE00BA00D2 /* NanumSquareRoundL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundL.ttf; sourceTree = "<group>"; };
@@ -173,40 +163,6 @@
 				5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		A80EAE6B2A0E76B800676483 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				BF1865182A0DE24A00B2F730 /* SignUpView.swift */,
-				A86567372A0E4FD900EB533A /* SoundManager.swift */,
-				A865673A2A0E4FD900EB533A /* clock_sound.mp3 */,
-				A86567382A0E4FD900EB533A /* button_sound.mp3 */,
-				A865673D2A0E4FD900EB533A /* paper_sound.mp3 */,
-				BF3C065B2A0E0B2A000362C1 /* heart.json */,
-				BF3C065C2A0E0B2A000362C1 /* pleased.json */,
-				BF3C06592A0E0B2A000362C1 /* angry.json */,
-				BF3C065A2A0E0B2A000362C1 /* sad.json */,
-				BF3C065D2A0E0B2A000362C1 /* basic.json */,
-				A865673C2A0E4FD900EB533A /* pop_sound.mp3 */,
-				A865673B2A0E4FD900EB533A /* curtain_sound.mp3 */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		A80EAE702A0E789F00676483 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				A80EAE712A0E78A500676483 /* Music */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		A80EAE712A0E78A500676483 /* Music */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Music;
 			sourceTree = "<group>";
 		};
 		A80EAE8C2A0E90AF00676483 /* Manager */ = {
@@ -324,7 +280,6 @@
 			children = (
 				A8F10D7D2A008FB50015EC23 /* SagakSagak */,
 				A8F10D7C2A008FB50015EC23 /* Products */,
-				A80EAE6B2A0E76B800676483 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -343,7 +298,6 @@
 				A83D72C72A07A4A300119DB9 /* Coordinator */,
 				A83D72972A07934E00119DB9 /* View */,
 				A83D728B2A070BDB00119DB9 /* DesignSystem */,
-				A80EAE702A0E789F00676483 /* Utils */,
 				A8F10D842A008FB60015EC23 /* Preview Content */,
 			);
 			path = SagakSagak;
@@ -388,6 +342,7 @@
 		A8FA453E2A0E1FDC009C3A2C /* LottieFile */ = {
 			isa = PBXGroup;
 			children = (
+				1784D8ED2A0FE08B002CBADC /* stamp.json */,
 				A80EAE7F2A0E844A00676483 /* angry.json */,
 				A80EAE842A0E844A00676483 /* basic.json */,
 				A80EAE822A0E844A00676483 /* heart.json */,
@@ -503,6 +458,7 @@
 				BF791C592A0A381500BA00D2 /* NanumSquareRoundR.ttf in Resources */,
 				A80EAE8B2A0E844A00676483 /* basic.json in Resources */,
 				5739EBFD2A0F8D2900AEAB5E /* paper_sound.mp3 in Resources */,
+				1784D8EE2A0FE08B002CBADC /* stamp.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
