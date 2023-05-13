@@ -24,7 +24,7 @@ struct GLButtonSet: View {
             Spacer()
                 .frame(width:24)
             Button{
-                print("Back")
+                coordinator.pop()
             }label:{
                 Image(backButtonImage)
             }
@@ -37,6 +37,9 @@ struct GLButtonSet: View {
                 Image(forwardButtonImage)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .padding(.trailing, 24)
+        .padding(.bottom, 18)
     }
 }
 

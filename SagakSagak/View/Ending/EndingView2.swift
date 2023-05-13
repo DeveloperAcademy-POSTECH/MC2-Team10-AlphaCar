@@ -46,9 +46,7 @@ struct EndingView2: View {
                         
                     }
                     .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.trailing, 24)
-                    .padding(.bottom, 18)
+
 
                 }
             }

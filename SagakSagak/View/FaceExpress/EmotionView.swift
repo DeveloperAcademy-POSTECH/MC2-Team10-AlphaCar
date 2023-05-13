@@ -15,7 +15,9 @@ enum textType: String {
 
 struct EmotionView: View {
     var body: some View {
+        GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
         DropText()
+        
         GLBlockView()
     }
 }

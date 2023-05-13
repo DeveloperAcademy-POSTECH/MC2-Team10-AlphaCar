@@ -24,6 +24,9 @@ struct GLNavBarItem: View {
                     .padding(EdgeInsets(top: 5, leading: 128, bottom: 5, trailing: 0))
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.trailing, 24)
+        .padding(.top, 18)
     }
 }
 
