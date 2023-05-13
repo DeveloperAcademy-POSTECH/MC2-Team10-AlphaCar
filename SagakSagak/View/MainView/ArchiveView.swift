@@ -17,7 +17,7 @@ struct ArchiveView: View {
                 .background(Color(red: 250/255, green: 248/255, blue: 229/255))
             
             ZStack{
-                GLNavBarTitleView(navBarTitle: "어쩌구한 이야기책", navBarBgColor: .white, navBarFontColor: .blue)
+                GLNavBarTitle(navBarTitle: "어쩌구한 이야기책", navBarBgColor: .white, navBarFontColor: .blue)
                     .offset(x: 0, y: -140)
                 Button(action: {
                     isActive = true

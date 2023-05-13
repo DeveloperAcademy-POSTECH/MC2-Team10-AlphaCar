@@ -11,6 +11,13 @@
 		171720492A0CDA8900E34C24 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 171720482A0CDA8900E34C24 /* Lottie */; };
 		1717205A2A0CDAD300E34C24 /* LottieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171720592A0CDAD300E34C24 /* LottieTest.swift */; };
 		5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5722D82F2A0CCFA00023B0F6 /* MainView.swift */; };
+		5739EBF52A0F8D0B00AEAB5E /* curtain_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */; };
+		5739EBF62A0F8D0B00AEAB5E /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */; };
+		5739EBF72A0F8D0B00AEAB5E /* clock_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBF22A0F8D0B00AEAB5E /* clock_sound.mp3 */; };
+		5739EBF82A0F8D0B00AEAB5E /* ArchiveOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5739EBF32A0F8D0B00AEAB5E /* ArchiveOpenView.swift */; };
+		5739EBF92A0F8D0B00AEAB5E /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */; };
+		5739EBFC2A0F8D2900AEAB5E /* pop_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBFA2A0F8D2900AEAB5E /* pop_sound.mp3 */; };
+		5739EBFD2A0F8D2900AEAB5E /* paper_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */; };
 		A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE6E2A0E77E400676483 /* SoundManager.swift */; };
 		A80EAE852A0E844A00676483 /* pleased.json in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE7E2A0E844A00676483 /* pleased.json */; };
 		A80EAE862A0E844A00676483 /* angry.json in Resources */ = {isa = PBXBuildFile; fileRef = A80EAE7F2A0E844A00676483 /* angry.json */; };
@@ -62,7 +69,14 @@
 /* Begin PBXFileReference section */
 		171720452A0CDA5000E34C24 /* LottiePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlay.swift; sourceTree = "<group>"; };
 		171720592A0CDAD300E34C24 /* LottieTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTest.swift; sourceTree = "<group>"; };
-		5722D82F2A0CCFA00023B0F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = MainView/MainView.swift; sourceTree = "<group>"; };
+		5722D82F2A0CCFA00023B0F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = View/MainView/curtain_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = View/MainView/button_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBF22A0F8D0B00AEAB5E /* clock_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock_sound.mp3; path = View/MainView/clock_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBF32A0F8D0B00AEAB5E /* ArchiveOpenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveOpenView.swift; path = View/MainView/ArchiveOpenView.swift; sourceTree = SOURCE_ROOT; };
+		5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveView.swift; path = View/MainView/ArchiveView.swift; sourceTree = SOURCE_ROOT; };
+		5739EBFA2A0F8D2900AEAB5E /* pop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pop_sound.mp3; path = View/MainView/pop_sound.mp3; sourceTree = SOURCE_ROOT; };
+		5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paper_sound.mp3; path = View/MainView/paper_sound.mp3; sourceTree = SOURCE_ROOT; };
 		A80EAE6E2A0E77E400676483 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A80EAE7E2A0E844A00676483 /* pleased.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pleased.json; sourceTree = "<group>"; };
 		A80EAE7F2A0E844A00676483 /* angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = angry.json; sourceTree = "<group>"; };
@@ -146,6 +160,21 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
+		5739EBEF2A0F8C4600AEAB5E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5722D82F2A0CCFA00023B0F6 /* MainView.swift */,
+				5739EBF32A0F8D0B00AEAB5E /* ArchiveOpenView.swift */,
+				5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */,
+				5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */,
+				5739EBF22A0F8D0B00AEAB5E /* clock_sound.mp3 */,
+				5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */,
+				5739EBFA2A0F8D2900AEAB5E /* pop_sound.mp3 */,
+				5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		A80EAE6B2A0E76B800676483 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,9 +253,9 @@
 		A83D72972A07934E00119DB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5739EBEF2A0F8C4600AEAB5E /* Main */,
 				A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */,
 				A8FA451E2A0E1AE8009C3A2C /* SplashView.swift */,
-				5722D82F2A0CCFA00023B0F6 /* MainView.swift */,
 				A8FA45202A0E1B10009C3A2C /* LetterView.swift */,
 				171720442A0CDA2100E34C24 /* Lottie */,
 				BF791C4B2A0A332900BA00D2 /* Drawing */,
@@ -457,8 +486,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A80EAE852A0E844A00676483 /* pleased.json in Resources */,
+				5739EBF72A0F8D0B00AEAB5E /* clock_sound.mp3 in Resources */,
+				5739EBFC2A0F8D2900AEAB5E /* pop_sound.mp3 in Resources */,
+				5739EBF52A0F8D0B00AEAB5E /* curtain_sound.mp3 in Resources */,
 				A8F10D862A008FB60015EC23 /* Preview Assets.xcassets in Resources */,
 				A80EAE892A0E844A00676483 /* heart.json in Resources */,
+				5739EBF62A0F8D0B00AEAB5E /* button_sound.mp3 in Resources */,
 				A80EAE862A0E844A00676483 /* angry.json in Resources */,
 				BF791C552A0A37FF00BA00D2 /* NanumSquareRoundEB.ttf in Resources */,
 				A8F10D832A008FB60015EC23 /* Assets.xcassets in Resources */,
@@ -469,6 +502,7 @@
 				A80EAE882A0E844A00676483 /* twinkle.json in Resources */,
 				BF791C592A0A381500BA00D2 /* NanumSquareRoundR.ttf in Resources */,
 				A80EAE8B2A0E844A00676483 /* basic.json in Resources */,
+				5739EBFD2A0F8D2900AEAB5E /* paper_sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +516,8 @@
 				171720462A0CDA5000E34C24 /* LottiePlay.swift in Sources */,
 				A8FA45322A0E1D02009C3A2C /* StoryView2.swift in Sources */,
 				BFCE55292A0B8D4B003A85CA /* ExpressView.swift in Sources */,
+				5739EBF92A0F8D0B00AEAB5E /* ArchiveView.swift in Sources */,
+				5739EBF82A0F8D0B00AEAB5E /* ArchiveOpenView.swift in Sources */,
 				A8FA453B2A0E1D83009C3A2C /* EndingView3.swift in Sources */,
 				BF791C4D2A0A338700BA00D2 /* DrawingView.swift in Sources */,
 				A8FA45272A0E1C6E009C3A2C /* CharacterView2.swift in Sources */,

@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "default.svg",
+      "filename" : "default_day.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "default@2x.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "default@3x.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

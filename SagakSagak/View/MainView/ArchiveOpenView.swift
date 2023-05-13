@@ -9,35 +9,42 @@ import SwiftUI
 
 struct ArchiveOpenView: View {
     
-    @State private var isActive : Bool = false
-    @State private var textIndex = 0
-    @State private var timer: Timer?
-    private let texts = ["2023년 5월 12일의 이야기", "날씨는 맑음"]
+    @State private var isActive: Bool = false
+    @State private var title = ""
+    @State private var isShowingFirstText = true
     
+    let weather: String = "맑음"
+    
+    var dateFormatter: DateFormatter {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy년 MM월 dd일"
+            return formatter
+        }
+    
+    let timer = Timer.publish(every: 0.8, on: .main, in: .common).autoconnect()
+        
     var body: some View {
         ZStack {
             Image("background_archive")
                 .resizable()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color(red: 250/255, green: 248/255, blue: 229/255))
-            ZStack{
-                VStack{
-                    GLNavBarTitleView(navBarTitle: texts[textIndex], navBarBgColor: .white, navBarFontColor: .blue)
-                        .offset(x: 0, y: -140)
-                        .onAppear() {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                                timer?.invalidate()
-                            }
+            ZStack {
+                GLNavBarTitle(navBarTitle: title, navBarBgColor: .white, navBarFontColor: .blue)
+                    .offset(x: 0, y: -140)
+                    .font(FontManager.shared.nanumsquare(.extrabold, 18))
+                    .onAppear {
+                        self.title = self.dateFormatter.string(from: Date())
+                    }
+                    .onReceive(timer) { _ in
+                        self.isShowingFirstText.toggle()
+                        if self.isShowingFirstText {
+                            self.title = self.dateFormatter.string(from: Date()) + "의 이야기"
+                        } else {
+                            self.title = "날씨는 \(self.weather)"
                         }
-                    //                    .onAppear() {
-                    //                        self.timer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true) { timer in
-                    //                            self.textIndex = (self.textIndex + 1) % self.texts.count
-                    //                        }
-                    //                    }
-                }
-//                .onReceive(timer) { _ in
-//                    self.textIndex = (self.textIndex + 1) % self.texts.count
-//                }
+                    }
+                
                 Button(action: {
                     isActive = true
                 }) {
@@ -47,11 +54,40 @@ struct ArchiveOpenView: View {
                 .sheet(isPresented: $isActive) {
                     MainView()
                 }
+                HStack{
+                    VStack{
+                        Text("나에게 가장 소중한 것은")
+                            .font(FontManager.shared.nanumsquare(.bold, 16))
+                        Image("letter")
+                    }
+                    .padding(.leading, 20)
+                    .padding(.trailing, 75)
+                    
+                    VStack{
+                        Text("소중한 것을 떠올리면")
+                            .font(FontManager.shared.nanumsquare(.bold, 16))
+                            .padding(.top, 50)
+                        HStack{
+                            Image("profile")
+                            Text("표정이 돼.")
+                                .font(FontManager.shared.nanumsquare(.bold, 16))
+                        }
+                        HStack{
+                            Text("이 표정의 이름은 ")
+                                .font(FontManager.shared.nanumsquare(.bold, 16))
+                            Image("profile")
+                            Text("이야.")
+                                .font(FontManager.shared.nanumsquare(.bold, 16))
+                        }
+                    }
+                    .padding(.leading, 75)
+                    
+                }
+                .padding(.top, 65)
             }
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
     }
     
 }

@@ -13,6 +13,11 @@ struct MainButton{
     let offset_y: CGFloat
 }
 
+struct Time{
+    var min: Int
+    var hour : Int
+}
+
 enum Theme : String {
     
     case day
@@ -69,10 +74,8 @@ struct MainView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     //time related
-    @State var receiver = Timer.publish(every: 1, on: .current, in: .default)
-        .autoconnect()
-    @State private var currentTime : Date = Date.now
-    //    @State var hour = currentHour
+    @State var receiver = Timer.publish(every: 0.5, on: .current, in: .default).autoconnect()
+    @State var currentTime = Time(min: 0, hour : 0)
     
     //button related
     @State private var isActive = false
@@ -95,27 +98,36 @@ struct MainView: View {
                   (Theme.current == .day ? "_night" : "_day"))
             .resizable()
             .offset(x: 0, y: -120)
-            
-            ZStack {
-                if(!isLampOn){
-                    if(!isCurtainOn){
-                        Image("background1" +
-                              (Theme.current == .day ? "_night" : "_day"))
-                        .resizable()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }
-                    else{
-                        Image("background2" +
-                              (Theme.current == .day ? "_night" : "_day"))
-                        .resizable()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }
+            if(!isLampOn){
+                if(!isCurtainOn){
+                    Image("background1" +
+                          (Theme.current == .day ? "_night" : "_day"))
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 else{
-                    Image("background_on")
-                        .resizable()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    Image("background2" +
+                          (Theme.current == .day ? "_night" : "_day"))
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+            }
+            else{
+                Image("background_on")
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            
+            if(!isLampOn){
+                Image("default" + (Theme.current == .day ? "_night" : "_day"))
+                    .offset(x: 334, y: -100)
+            }
+            else{
+                Image("default")
+                    .offset(x: 334, y: -100)
+            }
+            
+            ZStack {
                 Button(action: {
                     isprofile.toggle()
                 }) {
@@ -180,10 +192,37 @@ struct MainView: View {
                             Image("clock_off" +
                                   (Theme.current == .day ? "_moon" : "_sun"))
                         }
-                        Text(Date(), formatter: DateFormatter.timeOnlyFormatter)
-                            .offset(x: 14, y: 2.5)
-                            .font(FontManager.shared.nanumsquare(.extrabold, 24))
-                            .foregroundColor(.clock2)
+//                        Text(Date(), formatter: DateFormatter.timeOnlyFormatter)
+//                            .offset(x: 14, y: 2.5)
+//                            .font(FontManager.shared.nanumsquare(.extrabold, 24))
+//                            .foregroundColor(.clock2)
+                        
+                        VStack{
+                            Text(String(format: "%02d:%02d", self.currentTime.hour, self.currentTime.min))
+                                .foregroundColor(.clock2)
+                                .font(FontManager.shared.nanumsquare(.extrabold, 24))
+                        }
+                        .offset(x: 14, y: 2.5)
+                        .onAppear(perform: {
+                            let calendar = Calendar.current
+                            
+                            let min = calendar.component(.minute, from: Date())
+                            let hour = calendar.component(.hour, from: Date())
+                            
+                            withAnimation(Animation.linear(duration: 0.01)){
+                                self.currentTime = Time(min: min, hour: hour)
+                            }
+                        })
+                        .onReceive(receiver){ (_) in
+                            let calendar = Calendar.current
+                            
+                            let min = calendar.component(.minute, from: Date())
+                            let hour = calendar.component(.hour, from: Date())
+                            
+                            withAnimation(Animation.linear(duration: 0.01)){
+                                self.currentTime = Time(min: min, hour: hour)
+                            }
+                        }
                     }
                 }
                 .offset(x: 334, y: 25)
@@ -262,8 +301,25 @@ struct MainView: View {
 //                    MainView()//날씨 모달
 //                }
             }
-            .onReceive(receiver) { time in
-                currentTime = time
+            .onAppear(perform: {
+                let calendar = Calendar.current
+                
+                let min = calendar.component(.minute, from: Date())
+                let hour = calendar.component(.hour, from: Date())
+                
+                withAnimation(Animation.linear(duration: 0.01)){
+                    self.currentTime = Time(min: min, hour: hour)
+                }
+            })
+            .onReceive(receiver){ (_) in
+                let calendar = Calendar.current
+                
+                let min = calendar.component(.minute, from: Date())
+                let hour = calendar.component(.hour, from: Date())
+                
+                withAnimation(Animation.linear(duration: 0.01)){
+                    self.currentTime = Time(min: min, hour: hour)
+                }
             }
         }
         .ignoresSafeArea()
