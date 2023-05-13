@@ -66,4 +66,18 @@ extension Color {
     static let crayon9 = Color(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
     /// #383838
     static let crayon10 = Color(#colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1))
+    
+    /// 그 외 기타 컬러 코드 추출 
+    init(hex: String) {
+        let scanner = Scanner(string: hex)
+        _ = scanner.scanString("#")
+        
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >>  8) & 0xFF) / 255.0
+        let b = Double((rgb >>  0) & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
+    }
 }

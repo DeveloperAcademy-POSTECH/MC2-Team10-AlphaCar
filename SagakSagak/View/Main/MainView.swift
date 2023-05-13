@@ -479,7 +479,7 @@ struct MainView: View {
             .ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarBackButtonHidden(true)
-        }else if onAlbumClicked{
+        } else if onAlbumClicked{
             ToCameraView()
         }else {
             LetterView().environmentObject(snapshotImage)
