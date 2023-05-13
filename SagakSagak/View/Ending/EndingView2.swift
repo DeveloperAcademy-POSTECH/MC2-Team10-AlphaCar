@@ -24,14 +24,8 @@ struct EndingView2: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
-                    HStack{
-                        Spacer()
-                        GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    .padding(.trailing, 24)
-                    .padding(.top, 18)
-                    
+                    GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
+
                 VStack{
                     LottieView(jsonName: "love", loopMode: .loop)
                         .frame(height: 360)

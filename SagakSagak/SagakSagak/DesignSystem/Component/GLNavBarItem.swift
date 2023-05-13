@@ -15,18 +15,20 @@ struct GLNavBarItem: View {
     let navBarFontColor: Color
     
     var body: some View {
-        HStack{
-            GLNavBarTitle(navBarTitle: navBarTitle, navBarBgColor: navBarBgColor, navBarFontColor: navBarFontColor)
-            Button {
-                coordinator.popToRoot()
-            } label: {
-                Image("button_exit")
-                    .padding(EdgeInsets(top: 5, leading: 128, bottom: 5, trailing: 0))
+        ZStack{
+            HStack{
+                GLNavBarTitle(navBarTitle: navBarTitle, navBarBgColor: navBarBgColor, navBarFontColor: navBarFontColor)
+                Button {
+                    coordinator.popToRoot()
+                } label: {
+                    Image("button_exit")
+                        .padding(EdgeInsets(top: 5, leading: 128, bottom: 5, trailing: 0))
+                }
             }
         }
+        .padding(EdgeInsets(top: 24, leading: 200, bottom: 318, trailing: 24))
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding(.trailing, 24)
-        .padding(.top, 18)
+
     }
 }
 
