@@ -11,6 +11,7 @@ struct GLPopupView: View {
     let popupWidth: CGFloat
     let popupHeight: CGFloat
     let popupBgColor: Color
+    let popupOpacity: Double
     
     var body: some View {
         ZStack{
@@ -18,6 +19,6 @@ struct GLPopupView: View {
                 .fill(popupBgColor)
                 .frame(width: popupWidth, height: popupHeight)
         }
-        .background(popupBgColor)
+        .background(popupBgColor).opacity(popupOpacity)
     }
 }
