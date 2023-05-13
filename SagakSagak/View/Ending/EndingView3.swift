@@ -12,8 +12,11 @@ struct EndingView3: View {
     
     var body: some View {
         VStack{
-            Text("스토리2")
-        }
+            LottieView(jsonName: "stamp")
+            }
+            .navigationBarBackButtonHidden(true)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea()
     }
 }
 

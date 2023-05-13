@@ -11,13 +11,52 @@ struct EndingView1: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        VStack{
-            Text("스토리2")
-            Button("화면"){
-                coordinator.push(.end2)
+
+            ZStack {
+                Image("background")
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                GeometryReader { geometry in
+                    ZStack {
+                        Ellipse()
+                            .foregroundColor(.bg4)
+                            .frame(width: 1000, height: 400)
+                            .offset(y: 100)
+                    }
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    
+                    HStack{
+                        Spacer()
+                        GLBavBarItem(navBarTitle: "이야기를 들어줘서 고마워.", navBarBgColor: .system2, navBarFontColor: .system3)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .padding(.trailing, 24)
+                    .padding(.top, 18)
+                    
+                VStack{
+                    LottieView(jsonName: "happy", loopMode: .loop)
+                        .frame(height: 360)
+                        .offset(y: 20)
+                    }
+                    .navigationBarBackButtonHidden(true)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                    .padding(.bottom, geometry.safeAreaInsets.bottom)
+                    
+                ZStack{
+                        GLButtonSet(page: .end1, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                        
+                    }
+                    .navigationBarBackButtonHidden(true)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                    .padding(.trailing, 24)
+                    .padding(.bottom, 18)
+
+                }
             }
+            .background(Color.bg2)
+            .ignoresSafeArea()
         }
-    }
 }
 
 struct EndingView1_Previews: PreviewProvider {
