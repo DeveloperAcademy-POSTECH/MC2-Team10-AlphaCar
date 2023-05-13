@@ -44,7 +44,7 @@ struct CharacterView2: View {
                     .padding(.bottom, geometry.safeAreaInsets.bottom)
                     
                 ZStack{
-                        GLButtonSet(page: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                        GLButtonSet(page: .face, backButtonImage: "button_back", forwardButtonImage: "button_next")
                         
                     }
                     .navigationBarBackButtonHidden(true)
