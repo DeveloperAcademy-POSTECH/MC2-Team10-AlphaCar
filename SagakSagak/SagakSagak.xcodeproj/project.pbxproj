@@ -393,11 +393,6 @@
 		A8FA453E2A0E1FDC009C3A2C /* LottieFile */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				1784D8EF2A10AB72002CBADC /* splash.json */,
-				1784D8ED2A0FE08B002CBADC /* stamp.json */,
-=======
->>>>>>> develop
 				A80EAE7F2A0E844A00676483 /* angry.json */,
 				A80EAE842A0E844A00676483 /* basic.json */,
 				A80EAE822A0E844A00676483 /* heart.json */,
