@@ -32,6 +32,9 @@ struct SplashView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .background(Color.bg4)
+        .onAppear(perform: {
+            SoundManager.instance.playBackgroundMusic(sound: .splash)
+        })
         
     }
 }

@@ -12,6 +12,8 @@ import AVKit
 class SoundManager {
     static let instance = SoundManager()
     var player: AVAudioPlayer?
+    var backgroundMusicPlayer: AVAudioPlayer?
+    var currentBackgroundMusic: SoundOption?
     
     enum SoundOption: String {
         case clock = "clock_sound"
@@ -19,6 +21,9 @@ class SoundManager {
         case paper = "paper_sound"
         case curtain = "curtain_sound"
         case pop = "pop_sound"
+        case main = "main_music"
+        case archive = "archive_music"
+        case splash = "splash_music"
     }
     
     func playSound(sound: SoundOption) {
@@ -31,5 +36,22 @@ class SoundManager {
         }
     }
     
+    func playBackgroundMusic(sound: SoundOption) {
+        guard sound != currentBackgroundMusic else { return } // 같은 음악일 경우 계속 재생
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else { return }
+        do {
+            backgroundMusicPlayer?.stop()
+            backgroundMusicPlayer = try AVAudioPlayer(contentsOf: url)
+            backgroundMusicPlayer?.numberOfLoops = -1  // Infinite loop
+            backgroundMusicPlayer?.play()
+            currentBackgroundMusic = sound
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func stopBackgroundMusic() {
+        backgroundMusicPlayer?.stop()
+    }
     
 }
