@@ -41,7 +41,6 @@ struct EndingView2: View {
                     }
                     .navigationBarBackButtonHidden(true)
 
-
                 }
             }
             .background(Color.bg2)
@@ -52,5 +51,6 @@ struct EndingView2: View {
 struct EndingView2_Previews: PreviewProvider {
     static var previews: some View {
         EndingView2()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

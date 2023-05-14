@@ -73,5 +73,6 @@ struct GLBlockView: View {
 struct GLBlockView_Previews: PreviewProvider {
     static var previews: some View {
         GLBlockView()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

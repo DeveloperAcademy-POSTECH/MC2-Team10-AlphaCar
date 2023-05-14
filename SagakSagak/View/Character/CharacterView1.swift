@@ -34,8 +34,6 @@ struct CharacterView1: View {
                         GLNavBarItem(navBarTitle: "정말 멋진 그림이야!", navBarBgColor: .system2, navBarFontColor: .system3)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    .padding(.trailing, 24)
-                    .padding(.top, 18)
                     
                 VStack{
                     LottieView(jsonName: "great", loopMode: .loop)
@@ -51,8 +49,6 @@ struct CharacterView1: View {
                     }
                     .navigationBarBackButtonHidden(true)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.trailing, 24)
-                    .padding(.bottom, 18)
 
                 }
             }
@@ -65,5 +61,6 @@ struct CharacterView1: View {
 struct CharacterView1_Previews: PreviewProvider {
     static var previews: some View {
         CharacterView1()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

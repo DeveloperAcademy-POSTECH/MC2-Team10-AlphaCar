@@ -31,8 +31,7 @@ struct EndingView1: View {
                         GLNavBarItem(navBarTitle: "이야기를 들어줘서 고마워.", navBarBgColor: .system2, navBarFontColor: .system3)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    .padding(.trailing, 24)
-                    .padding(.top, 18)
+                    
                     
                 VStack{
                     LottieView(jsonName: "happy", loopMode: .loop)
@@ -49,10 +48,9 @@ struct EndingView1: View {
                     }
                     .navigationBarBackButtonHidden(true)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.trailing, 24)
-                    .padding(.bottom, 18)
-
+                    
                 }
+                
             }
             .background(Color.bg2)
             .ignoresSafeArea()
@@ -62,5 +60,6 @@ struct EndingView1: View {
 struct EndingView1_Previews: PreviewProvider {
     static var previews: some View {
         EndingView1()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
