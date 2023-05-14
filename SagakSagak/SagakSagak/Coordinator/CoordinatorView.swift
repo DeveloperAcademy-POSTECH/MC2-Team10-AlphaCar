@@ -10,9 +10,13 @@ import SwiftUI
 struct CoordinatorView: View {
     @StateObject private var coordinator = Coordinator()
     
+    init(){
+           UINavigationBar.setAnimationsEnabled(false)
+       }
+    
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            coordinator.build(page: .emotion)
+            coordinator.build(page: .main)
                 .navigationDestination(for: Page.self) { page in
                     coordinator.build(page: page)
                 }
