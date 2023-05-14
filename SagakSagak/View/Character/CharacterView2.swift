@@ -44,7 +44,7 @@ struct CharacterView2: View {
                     
                 ZStack{
                 
-                        GLButtonSet(nextpage: .face, backButtonImage: "button_back", forwardButtonImage: "button_next")
+//                        GLButtonSet(nextpage: .face, backButtonImage: "button_back", forwardButtonImage: "button_next")
                         
                     }
                     .navigationBarBackButtonHidden(true)

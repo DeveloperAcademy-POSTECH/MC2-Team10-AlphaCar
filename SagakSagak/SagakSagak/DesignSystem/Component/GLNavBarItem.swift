@@ -60,6 +60,7 @@ struct GLNavBarItem: View {
                                 y: shadowOn ? 0 : 0)
                 }
             }
+            .disabled(nextEnabled ? false : true)
         }
     }
     

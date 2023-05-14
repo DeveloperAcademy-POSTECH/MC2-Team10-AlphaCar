@@ -43,7 +43,7 @@ struct EndingView1: View {
                     .padding(.bottom, geometry.safeAreaInsets.bottom)
                     
                 ZStack{
-                        GLButtonSet(nextpage: .end2, backButtonImage: "button_back", forwardButtonImage: "button_next")
+//                        GLButtonSet(nextpage: .end2, backButtonImage: "button_back", forwardButtonImage: "button_next")
                         
                     }
                     .navigationBarBackButtonHidden(true)
