@@ -289,7 +289,7 @@ struct MainView: View {
                    coordinator.push(.letter)
                   //  coordinator.push(.emotion)
 //                    coordinator.push(.end2)
-                    LetterView().environmentObject(snapshotImage)
+                    
                     //
                     //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                     //                        self.isLetter = true
