@@ -32,10 +32,10 @@ struct ExpressView: View {
                     }
                     
                     HStack{
-//                        Image("button_back")
-//                            .onTapGesture {
-//                                isPrevBtnClicked = true
-//                            }
+                        Image("button_back")
+                            .onTapGesture {
+                                isPrevBtnClicked = true
+                            }
                         if let image = emotionFace.faceName {
                             LottieView(jsonName: image)
                                 .id(image)
@@ -43,12 +43,12 @@ struct ExpressView: View {
                         }else{
                             LottieView(jsonName: "basic")
                         }
-//                        Image("button_next")
-//                            .onTapGesture {
-//                                if selectedFace != "basic" {
-//                                    isNextBtnClicked = true
-//                                }
-//                            }
+                        Image("button_next")
+                            .onTapGesture {
+                                if selectedFace != "basic" {
+                                    isNextBtnClicked = true
+                                }
+                            }
                     }
                 }
                 .padding()

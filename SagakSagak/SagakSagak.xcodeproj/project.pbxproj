@@ -247,6 +247,7 @@
 				BF791C4B2A0A332900BA00D2 /* Drawing */,
 				A8FA45252A0E1C40009C3A2C /* Character */,
 				BFCE55232A0B8D23003A85CA /* FaceExpress */,
+				A85FA97E2A10799F00D681A8 /* Emotion */,
 				A8FA452E2A0E1CD6009C3A2C /* Story */,
 				A8FA45352A0E1D46009C3A2C /* Ending */,
 				A83D72D12A07ABA700119DB9 /* Login */,
@@ -284,6 +285,14 @@
 				A80EAEAA2A0F377000676483 /* GLPopupView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		A85FA97E2A10799F00D681A8 /* Emotion */ = {
+			isa = PBXGroup;
+			children = (
+				A81261BC2A1017AE00280ECE /* EmotionView.swift */,
+			);
+			path = Emotion;
 			sourceTree = "<group>";
 		};
 		A878E48F2A09D49400B97358 /* Font */ = {
@@ -400,7 +409,6 @@
 				BF1865082A0CE35000B2F730 /* EmotionView1.swift */,
 				BFCE55242A0B8D4B003A85CA /* CharacterExpressView.swift */,
 				BFCE55252A0B8D4B003A85CA /* FaceView.swift */,
-				A81261BC2A1017AE00280ECE /* EmotionView.swift */,
 			);
 			path = FaceExpress;
 			sourceTree = "<group>";
