@@ -64,7 +64,7 @@ struct ExpressView: View {
         } else if isPrevBtnClicked {
             CharacterView2()
         } else {
-            EmotionView().environmentObject(self.emotionFace)
+            EmotionView(onClicked: false).environmentObject(self.emotionFace)
         }
     }
 }

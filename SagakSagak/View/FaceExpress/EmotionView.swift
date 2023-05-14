@@ -9,43 +9,70 @@ import SwiftUI
 
 struct EmotionView: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @State var onClicked: Bool ///넵바 버튼 조정을 위한 변수
     
     var body: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Color.bg3.ignoresSafeArea()
+            VStack(spacing:0){
+                navBarView
+                contentsView
+                tabBarView
+            }
+        }
+    }
+    
+    // MARK: navBar
+    var navBarView: some View {
+        HStack{
+            GLNavBarItem(backPage: .face, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system1, nextButtonImg: "button_next", nextPage: .story1, nextEnabled: false)
             
-            GeometryReader { geometry in
-                ZStack {
-                    Ellipse()
-                        .foregroundColor(.bg4)
-                        .frame(width: 1000, height: 400)
-                        .offset(y: 100)
-                }
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                
-//                GLNavBarItem(navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system3)
-//                
-                VStack{
-                    LottieView(jsonName: "love", loopMode: .loop)
-                        .frame(height: 360)
-                        .offset(y: 20)
-                }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                .padding(.bottom, geometry.safeAreaInsets.bottom)
-                
-                ZStack{
-                    //                        GLButtonSet(nextpage: .end3, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                    
-                }
-                .navigationBarBackButtonHidden(true)
+            Spacer().frame(width:70)
+            
+            Button {
+                print("Button Tapped")
+            } label: {
+                Image("button_exit")
+                    .shadow(color: Color(hex: "26775F").opacity(0.15),
+                            radius: 30,
+                            x: 0,
+                            y: 4)
                 
             }
         }
-        .background(Color.bg2)
-        .ignoresSafeArea()
+        .frame(width: Const.glScreenWidth, height: 72)
+        //.background(.yellow)
+        .padding(.top, 24)
+        .padding(.trailing, 24)
+        .padding(.leading, 142)
+    }
+    
+    // MARK: Contents
+    var contentsView: some View {
+        VStack{
+            HStack(spacing:16){
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 100, height:60)
+                    .foregroundColor(Color.system2)
+                Text("표정의 이름은").font(FontManager.shared.nanumsquare(.bold, 28))
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 100, height:60)
+                    .foregroundColor(Color.system2)
+                Text("이야.").font(FontManager.shared.nanumsquare(.bold, 28))
+            }
+        }
+        .frame(width: Const.glScreenWidth, height:230)
+        //.background(.blue)
+    }
+    
+    //MARK: TabBar
+    var tabBarView: some View {
+        Rectangle()
+        .frame(width: Const.glScreenWidth, height:88)
+        .foregroundColor(.system2)
+        .overlay{
+            GLBlockView()//.background(.yellow)
+        }
     }
 }
 
@@ -53,6 +80,6 @@ struct EmotionView: View {
 
 struct EmotionView_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionView()
+        EmotionView(onClicked: false)
     }
 }

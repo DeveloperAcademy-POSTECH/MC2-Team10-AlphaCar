@@ -8,8 +8,8 @@
 import Foundation
 
 enum UserDefaultKey: String {
-    case faceImage
-    case feel
+    case faceImage ///표정(faceView 화면에서 선택)
+    case feel ///감정(emotionView 화면에서 선택)
 }
 
 class UserDefaultsManager{

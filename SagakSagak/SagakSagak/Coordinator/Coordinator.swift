@@ -56,7 +56,7 @@ class Coordinator: ObservableObject{
         case .face:
             ExpressView()
         case .emotion:
-            EmotionView()
+            EmotionView(onClicked: false)
 //            EmotionView(selectedFace: .constant("pleased")) //TODO: Fix
         case .story1:
             StoryView1()
