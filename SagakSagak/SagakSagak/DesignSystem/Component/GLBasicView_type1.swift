@@ -20,7 +20,7 @@ struct GLBasicView_type1: View {
                 
                 GeometryReader { geometry in
     
-                    GLNavBarItem(navBarTitle: navBarTitle, navBarBgColor: navBarBgColor, navBarFontColor: navBarFontcolor)
+//                    GLNavBarItem(navBarTitle: navBarTitle, navBarBgColor: navBarBgColor, navBarFontColor: navBarFontcolor)
                
                 VStack{
 
@@ -45,8 +45,8 @@ struct GLBasicView_type1: View {
     
 }
 
-//struct GLBasicView_type1_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GLBasicView_type1(navBarTitle: <#String#>, navBarBgColor: <#Color#>, navBarFontcolor: <#Color#>)
-//    }
-//}
+struct GLBasicView_type1_Previews: PreviewProvider {
+    static var previews: some View {
+        GLBasicView_type1(navBarTitle: "나에게 가장 소중한 것은?", navBarBgColor: .bg3, navBarFontcolor: .bg1)
+    }
+}

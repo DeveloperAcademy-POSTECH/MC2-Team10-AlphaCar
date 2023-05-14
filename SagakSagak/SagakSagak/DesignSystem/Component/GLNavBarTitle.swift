@@ -14,7 +14,7 @@ struct GLNavBarTitle: View {
     
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 32)
                 .fill(navBarBgColor)
                 .frame(width:Const.glScriptWidth, height:Const.glScriptHeight)
                 .overlay{

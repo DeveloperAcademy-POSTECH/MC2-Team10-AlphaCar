@@ -37,22 +37,23 @@ struct ExpressView: View {
                             }
                     }
                     
-                    ZStack{
-                        GeometryReader { geometry in
-                            VStack{
-                                if let image = emotionFace.faceName {
-                                    LottieView(jsonName: image)
-                                        .id(image)
-                                        .frame(width: 400, height: 400)
-                                        .onDisappear {
-                                                    // 애니메이션 정리 코드 추가
-                                                }
-                                }else{
-                                    LottieView(jsonName: "basic")
-                                        .frame(width: 400, height: 400)
-                                        .onDisappear {
-                                                    // 애니메이션 정리 코드 추가
-                                                }
+                    HStack{
+                        Image("button_back")
+                            .onTapGesture {
+                                isPrevBtnClicked = true
+                            }
+                        if let image = emotionFace.faceName {
+                            LottieView(jsonName: image)
+                                .id(image)
+                      
+                        }else{
+                            LottieView(jsonName: "basic")
+                        }
+                        Image("button_next")
+                            .onTapGesture {
+                                if selectedFace != "basic" {
+                                    isNextBtnClicked = true
+                                    coordinator.push(.emotion)
                                 }
                             }
                             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
