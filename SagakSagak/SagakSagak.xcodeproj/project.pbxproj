@@ -11,6 +11,7 @@
 		171720492A0CDA8900E34C24 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 171720482A0CDA8900E34C24 /* Lottie */; };
 		1717205A2A0CDAD300E34C24 /* LottieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171720592A0CDAD300E34C24 /* LottieTest.swift */; };
 		1784D8EE2A0FE08B002CBADC /* stamp.json in Resources */ = {isa = PBXBuildFile; fileRef = 1784D8ED2A0FE08B002CBADC /* stamp.json */; };
+		1784D8F02A10AB72002CBADC /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 1784D8EF2A10AB72002CBADC /* splash.json */; };
 		5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5722D82F2A0CCFA00023B0F6 /* MainView.swift */; };
 		5739EBF52A0F8D0B00AEAB5E /* curtain_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */; };
 		5739EBF62A0F8D0B00AEAB5E /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */; };
@@ -71,6 +72,7 @@
 		171720452A0CDA5000E34C24 /* LottiePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlay.swift; sourceTree = "<group>"; };
 		171720592A0CDAD300E34C24 /* LottieTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTest.swift; sourceTree = "<group>"; };
 		1784D8ED2A0FE08B002CBADC /* stamp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stamp.json; path = ../../../../../../../Downloads/stamp.json; sourceTree = "<group>"; };
+		1784D8EF2A10AB72002CBADC /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../../../../../Downloads/splash.json; sourceTree = "<group>"; };
 		5722D82F2A0CCFA00023B0F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5739EBF02A0F8D0B00AEAB5E /* curtain_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = curtain_sound.mp3; path = View/MainView/curtain_sound.mp3; sourceTree = SOURCE_ROOT; };
 		5739EBF12A0F8D0B00AEAB5E /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_sound.mp3; path = View/MainView/button_sound.mp3; sourceTree = SOURCE_ROOT; };
@@ -342,6 +344,7 @@
 		A8FA453E2A0E1FDC009C3A2C /* LottieFile */ = {
 			isa = PBXGroup;
 			children = (
+				1784D8EF2A10AB72002CBADC /* splash.json */,
 				1784D8ED2A0FE08B002CBADC /* stamp.json */,
 				A80EAE7F2A0E844A00676483 /* angry.json */,
 				A80EAE842A0E844A00676483 /* basic.json */,
@@ -454,6 +457,7 @@
 				BF791C532A0A37EE00BA00D2 /* NanumSquareRoundL.ttf in Resources */,
 				A80EAE872A0E844A00676483 /* soso.json in Resources */,
 				BF791C572A0A380700BA00D2 /* NanumSquareRoundB.ttf in Resources */,
+				1784D8F02A10AB72002CBADC /* splash.json in Resources */,
 				A80EAE882A0E844A00676483 /* twinkle.json in Resources */,
 				BF791C592A0A381500BA00D2 /* NanumSquareRoundR.ttf in Resources */,
 				A80EAE8B2A0E844A00676483 /* basic.json in Resources */,
