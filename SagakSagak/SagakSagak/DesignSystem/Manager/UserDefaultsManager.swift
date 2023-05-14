@@ -21,8 +21,8 @@ class UserDefaultsManager{
             return faceImage
         }
         
-        set{
-            UserDefaults.standard.set(newValue, forKey: UserDefaultKey.faceImage.rawValue)
+        set(faceImage){
+            UserDefaults.standard.set(faceImage, forKey: UserDefaultKey.faceImage.rawValue)
         }
     }
     
@@ -32,8 +32,8 @@ class UserDefaultsManager{
             return feel
         }
         
-        set{
-            UserDefaults.standard.set(newValue, forKey: UserDefaultKey.feel.rawValue)
+        set(feel){
+            UserDefaults.standard.set(feel, forKey: UserDefaultKey.feel.rawValue)
         }
     }
     

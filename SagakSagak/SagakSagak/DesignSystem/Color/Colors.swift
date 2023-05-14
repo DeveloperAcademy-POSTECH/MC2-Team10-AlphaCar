@@ -38,6 +38,8 @@ extension Color {
     static let block_bg1 = Color(#colorLiteral(red: 0.8392156863, green: 0.9058823529, blue: 1, alpha: 1))
     /// #89BAFF
     static let block_bg2 = Color(#colorLiteral(red: 0.537254902, green: 0.7294117647, blue: 1, alpha: 1))
+    /// #F2F8FF
+    static let block_bg3 = Color(#colorLiteral(red: 0.9490196078, green: 0.9725490196, blue: 1, alpha: 1))
 
     //MARK: clock1
     /// #BDBDBD

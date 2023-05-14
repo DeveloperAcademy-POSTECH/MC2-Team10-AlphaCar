@@ -24,14 +24,8 @@ struct EndingView2: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
-                    HStack{
-                        Spacer()
-                        GLBavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    .padding(.trailing, 24)
-                    .padding(.top, 18)
-                    
+                    GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
+
                 VStack{
                     LottieView(jsonName: "love", loopMode: .loop)
                         .frame(height: 360)
@@ -42,13 +36,11 @@ struct EndingView2: View {
                     .padding(.bottom, geometry.safeAreaInsets.bottom)
                     
                 ZStack{
-                        GLButtonSet(page: .end3, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                        GLButtonSet(nextpage: .end3, backButtonImage: "button_back", forwardButtonImage: "button_next")
                         
                     }
                     .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.trailing, 24)
-                    .padding(.bottom, 18)
+
 
                 }
             }

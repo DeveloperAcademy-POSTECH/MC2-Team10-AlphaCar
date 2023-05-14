@@ -31,7 +31,7 @@ struct CharacterView1: View {
                     
                     HStack{
                         Spacer()
-                        GLBavBarItem(navBarTitle: "정말 멋진 그림이야!", navBarBgColor: .system2, navBarFontColor: .system3)
+                        GLNavBarItem(navBarTitle: "정말 멋진 그림이야!", navBarBgColor: .system2, navBarFontColor: .system3)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .padding(.trailing, 24)
@@ -46,7 +46,7 @@ struct CharacterView1: View {
                     .padding(.bottom, geometry.safeAreaInsets.bottom)
                     
                 ZStack{
-                        GLButtonSet(page: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                        GLButtonSet(nextpage: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
                         
                     }
                     .navigationBarBackButtonHidden(true)

@@ -30,12 +30,14 @@
 		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
 		A80EAE992A0EF0E800676483 /* GLBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE982A0EF0E800676483 /* GLBlockView.swift */; };
 		A80EAEA32A0F15BF00676483 /* GLBlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */; };
-		A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA42A0F256000676483 /* GLBavBarItem.swift */; };
+		A80EAEA52A0F256000676483 /* GLNavBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA42A0F256000676483 /* GLNavBarItem.swift */; };
 		A80EAEA82A0F285200676483 /* GLButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEA72A0F285200676483 /* GLButtonSet.swift */; };
 		A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAEAA2A0F377000676483 /* GLPopupView.swift */; };
 		A81261B32A10075A00280ECE /* SwingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261B22A10075A00280ECE /* SwingAnimation.swift */; };
 		A81261B92A10098900280ECE /* TakingPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261B82A10098900280ECE /* TakingPhotoView.swift */; };
 		A81261BB2A1009A900280ECE /* ToCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261BA2A1009A900280ECE /* ToCameraView.swift */; };
+		A81261BD2A1017AE00280ECE /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261BC2A1017AE00280ECE /* EmotionView.swift */; };
+		A81261BF2A101A5F00280ECE /* DragRelocateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261BE2A101A5F00280ECE /* DragRelocateDelegate.swift */; };
 		A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D728D2A070BFA00119DB9 /* Colors.swift */; };
 		A83D729A2A07938600119DB9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A83D72992A07938600119DB9 /* ComposableArchitecture */; };
 		A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C52A07A47600119DB9 /* LoginView.swift */; };
@@ -58,7 +60,7 @@
 		A8FA45372A0E1D63009C3A2C /* EndingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FA45362A0E1D63009C3A2C /* EndingView1.swift */; };
 		A8FA45392A0E1D73009C3A2C /* EndingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FA45382A0E1D73009C3A2C /* EndingView2.swift */; };
 		A8FA453B2A0E1D83009C3A2C /* EndingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FA453A2A0E1D83009C3A2C /* EndingView3.swift */; };
-		BF1865092A0CE35000B2F730 /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1865082A0CE35000B2F730 /* EmotionView.swift */; };
+		BF1865092A0CE35000B2F730 /* EmotionView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1865082A0CE35000B2F730 /* EmotionView1.swift */; };
 		BF791C4D2A0A338700BA00D2 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF791C4C2A0A338700BA00D2 /* DrawingView.swift */; };
 		BF791C512A0A339B00BA00D2 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF791C502A0A339B00BA00D2 /* Line.swift */; };
 		BF791C532A0A37EE00BA00D2 /* NanumSquareRoundL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF791C522A0A37EE00BA00D2 /* NanumSquareRoundL.ttf */; };
@@ -93,12 +95,14 @@
 		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		A80EAE982A0EF0E800676483 /* GLBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockView.swift; sourceTree = "<group>"; };
 		A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBlockItem.swift; sourceTree = "<group>"; };
-		A80EAEA42A0F256000676483 /* GLBavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBavBarItem.swift; sourceTree = "<group>"; };
+		A80EAEA42A0F256000676483 /* GLNavBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLNavBarItem.swift; sourceTree = "<group>"; };
 		A80EAEA72A0F285200676483 /* GLButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLButtonSet.swift; sourceTree = "<group>"; };
 		A80EAEAA2A0F377000676483 /* GLPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLPopupView.swift; sourceTree = "<group>"; };
 		A81261B22A10075A00280ECE /* SwingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwingAnimation.swift; sourceTree = "<group>"; };
 		A81261B82A10098900280ECE /* TakingPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingPhotoView.swift; sourceTree = "<group>"; };
 		A81261BA2A1009A900280ECE /* ToCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToCameraView.swift; sourceTree = "<group>"; };
+		A81261BC2A1017AE00280ECE /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
+		A81261BE2A101A5F00280ECE /* DragRelocateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRelocateDelegate.swift; sourceTree = "<group>"; };
 		A83D728D2A070BFA00119DB9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A83D72C52A07A47600119DB9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A83D72C82A07A4EA00119DB9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -122,7 +126,7 @@
 		A8FA45362A0E1D63009C3A2C /* EndingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView1.swift; sourceTree = "<group>"; };
 		A8FA45382A0E1D73009C3A2C /* EndingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView2.swift; sourceTree = "<group>"; };
 		A8FA453A2A0E1D83009C3A2C /* EndingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView3.swift; sourceTree = "<group>"; };
-		BF1865082A0CE35000B2F730 /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
+		BF1865082A0CE35000B2F730 /* EmotionView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView1.swift; sourceTree = "<group>"; };
 		BF791C4C2A0A338700BA00D2 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		BF791C502A0A339B00BA00D2 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		BF791C522A0A37EE00BA00D2 /* NanumSquareRoundL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundL.ttf; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				A80EAE912A0EE4B000676483 /* View+.swift */,
+				A81261BE2A101A5F00280ECE /* DragRelocateDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,7 +276,7 @@
 		A83E86F62A0CC6B8005CB09D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				A80EAEA42A0F256000676483 /* GLBavBarItem.swift */,
+				A80EAEA42A0F256000676483 /* GLNavBarItem.swift */,
 				A83E86F72A0CC6CC005CB09D /* GLNavBarTitle.swift */,
 				A80EAE982A0EF0E800676483 /* GLBlockView.swift */,
 				A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */,
@@ -392,9 +397,10 @@
 			isa = PBXGroup;
 			children = (
 				BFCE55262A0B8D4B003A85CA /* ExpressView.swift */,
-				BF1865082A0CE35000B2F730 /* EmotionView.swift */,
+				BF1865082A0CE35000B2F730 /* EmotionView1.swift */,
 				BFCE55242A0B8D4B003A85CA /* CharacterExpressView.swift */,
 				BFCE55252A0B8D4B003A85CA /* FaceView.swift */,
+				A81261BC2A1017AE00280ECE /* EmotionView.swift */,
 			);
 			path = FaceExpress;
 			sourceTree = "<group>";
@@ -499,8 +505,10 @@
 				5739EBF92A0F8D0B00AEAB5E /* ArchiveView.swift in Sources */,
 				5739EBF82A0F8D0B00AEAB5E /* ArchiveOpenView.swift in Sources */,
 				A8FA453B2A0E1D83009C3A2C /* EndingView3.swift in Sources */,
+				A81261BD2A1017AE00280ECE /* EmotionView.swift in Sources */,
 				BF791C4D2A0A338700BA00D2 /* DrawingView.swift in Sources */,
 				A8FA45272A0E1C6E009C3A2C /* CharacterView2.swift in Sources */,
+				A81261BF2A101A5F00280ECE /* DragRelocateDelegate.swift in Sources */,
 				A83D72D82A07E5D000119DB9 /* LoginDomain.swift in Sources */,
 				A80EAE992A0EF0E800676483 /* GLBlockView.swift in Sources */,
 				A8FA45232A0E1BFB009C3A2C /* CharacterView1.swift in Sources */,
@@ -511,13 +519,13 @@
 				A878E4962A09D55800B97358 /* FontManager.swift in Sources */,
 				A8FA45392A0E1D73009C3A2C /* EndingView2.swift in Sources */,
 				BF791C512A0A339B00BA00D2 /* Line.swift in Sources */,
-				BF1865092A0CE35000B2F730 /* EmotionView.swift in Sources */,
+				BF1865092A0CE35000B2F730 /* EmotionView1.swift in Sources */,
 				A81261B92A10098900280ECE /* TakingPhotoView.swift in Sources */,
 				A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */,
 				A8FA45302A0E1CF0009C3A2C /* StoryView1.swift in Sources */,
 				A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */,
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,
-				A80EAEA52A0F256000676483 /* GLBavBarItem.swift in Sources */,
+				A80EAEA52A0F256000676483 /* GLNavBarItem.swift in Sources */,
 				A872FC932A0FD9F80058880B /* UserDefaultsManager.swift in Sources */,
 				A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */,
 				A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */,

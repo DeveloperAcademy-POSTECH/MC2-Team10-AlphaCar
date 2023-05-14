@@ -286,7 +286,9 @@ struct MainView: View {
                 .offset(x: -224, y: 97)
                 
                 Button(action: {
-                    coordinator.push(.letter)
+                   coordinator.push(.letter)
+                  //  coordinator.push(.emotion)
+//                    coordinator.push(.end2)
                     LetterView().environmentObject(snapshotImage)
                     //
                     //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
