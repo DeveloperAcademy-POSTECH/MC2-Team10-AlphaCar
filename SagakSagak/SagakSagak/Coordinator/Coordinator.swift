@@ -19,6 +19,7 @@ enum Page: String, Identifiable {
 
 //ObservableObject
 class Coordinator: ObservableObject{
+    @StateObject private var snapshotImage = SnapshotImage()
     @Published var path = NavigationPath() //16버전부터만 가능
     
 
@@ -44,9 +45,9 @@ class Coordinator: ObservableObject{
         case .main:
             MainView()
         case .letter:
-            LetterView()
+            LetterView().navigationBarBackButtonHidden()
         case .draw:
-            DrawingView()
+            DrawingView().environmentObject(snapshotImage)
         case .character1:
             CharacterView1()
         case .character2:
