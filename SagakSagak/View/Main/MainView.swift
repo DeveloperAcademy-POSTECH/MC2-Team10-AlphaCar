@@ -355,6 +355,9 @@ struct MainView: View {
                     self.currentTime = Time(min: min, hour: hour)
                 }
             }
+            .onAppear(perform: {
+                SoundManager.instance.playBackgroundMusic(sound: .main)
+            })
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)

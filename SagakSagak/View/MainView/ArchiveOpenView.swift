@@ -88,6 +88,9 @@ struct ArchiveOpenView: View {
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear(perform: {
+            SoundManager.instance.playBackgroundMusic(sound: .archive)
+        })
     }
     
 }
