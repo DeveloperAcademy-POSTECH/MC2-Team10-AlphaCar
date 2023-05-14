@@ -287,8 +287,7 @@ struct MainView: View {
                 
                 Button(action: {
                    coordinator.push(.letter)
-                  //  coordinator.push(.emotion)
-//                    coordinator.push(.end2)
+
                     
                     //
                     //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {

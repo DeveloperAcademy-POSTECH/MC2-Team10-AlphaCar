@@ -44,6 +44,7 @@ class Coordinator: ObservableObject{
             SplashView()
         case .main:
             MainView()
+            //SwiftUIView(onTouch: false)
         case .letter:
             LetterView().navigationBarBackButtonHidden()
         case .draw:
@@ -55,7 +56,7 @@ class Coordinator: ObservableObject{
         case .face:
             ExpressView()
         case .emotion:
-            EmotionView() //TODO: Fix
+            EmotionView()
 //            EmotionView(selectedFace: .constant("pleased")) //TODO: Fix
         case .story1:
             StoryView1()

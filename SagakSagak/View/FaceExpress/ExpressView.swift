@@ -47,6 +47,7 @@ struct ExpressView: View {
                             .onTapGesture {
                                 if selectedFace != "basic" {
                                     isNextBtnClicked = true
+                                    coordinator.push(.emotion)
                                 }
                             }
                     }
