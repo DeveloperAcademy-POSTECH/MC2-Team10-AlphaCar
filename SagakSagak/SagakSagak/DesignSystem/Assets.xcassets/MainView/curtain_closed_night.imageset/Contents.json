@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "closed.svg",
+      "filename" : "curtain_close_n.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "closed@2x.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "closed@3x.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
