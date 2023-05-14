@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "opened.svg",
+      "filename" : "curtain_open_d.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "opened@2x.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "opened@3x.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -90,8 +90,9 @@ struct MainView: View {
     //button related
     @State private var isActive = false
     @State private var isAnimating = false
-    @State private var isLampOn = true
+    @AppStorage("isLampOn") private var isLampOn = true
     @State private var isCurtainOn = false
+    @State private var isCurtainOpened = false
     
     //modal view related
     @State private var isLetter = false
@@ -99,15 +100,27 @@ struct MainView: View {
     @State private var isprofile = false
     @State private var isArchive = false
     @State private var isSkyTapped = false
+    @State private var moveToLetter = false
+    
+    //weather related
+    @State var weather: String = "sky"
     
     private let soundManager = SoundManager.instance
     
     var body: some View {
         ZStack {
-            Image("sky" +
-                  (Theme.current == .day ? "_night" : "_day"))
-            .resizable()
-            .offset(x: 0, y: -120)
+            if(weather == "sky"){
+                Image(weather +
+                      (Theme.current == .day ? "_night" : "_day"))
+                .resizable()
+                .offset(x: 0, y: -120)
+            }
+            else{
+                LottieView(jsonName: weather + (Theme.current == .day ? "_n":"_d"), loopMode: .repeat(100))
+                    .frame(width: 450, height: 160)
+                    .offset(y:-120)
+            }
+            
             if(!isLampOn){
                 if(!isCurtainOn){
                     Image("background1" +
@@ -146,33 +159,194 @@ struct MainView: View {
                 .offset(x: -377.5, y: -148.4)
                 .shadow(color: Color(red: 38/255, green: 119/255, blue: 95/255).opacity(0.3), radius: 15, x: 0, y: -4)
                 
-                Button(action: {
-                    soundManager.playSound(sound: .curtain)
-                    isCurtainOn.toggle()
-                    print("curtain")
-                }) {
-                    if(!isCurtainOn){
-                        if (isLampOn == false){
+                if(!isCurtainOpened){//커튼 닫혀있어
+                    if(!isCurtainOn){//커튼 누른게 아닐때
+                        if(isLampOn){//근데 이제 램프가 켜져있을때
+                            Image("curtain_closed")//닫힌 이미지
+                                .resizable()
+                                .frame(width: 420, height: 200)
+                                .onTapGesture {
+                                    isCurtainOn.toggle()
+//                                    isCurtainOpened.toggle()
+                                    print("커튼 닫혀있을때 램프 켜져있을 때 닫혀있는걸 눌렀지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                }
+                                .offset(x: 0, y: -120)
+                        }
+                        else{
                             Image("curtain_closed" +
                                   (Theme.current == .day ? "_night" : "_day"))
+                                .resizable()
+                                .frame(width: 480, height: 180)
+                                .onTapGesture {
+                                    isCurtainOn.toggle()
+//                                    isCurtainOpened.toggle()
+                                    print("커튼 닫혀있을때 램프 꺼져있을 때 닫혀있는걸 눌렀지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                }
+                                .offset(x: 0, y: -120)
                         }
-                        else{
-                            Image("curtain_closed")
-                        }
-                    }
-                    else{
-                        if (isLampOn == false){
-                            Image("curtain_opened" +
-                                  (Theme.current == .day ? "_night" : "_day"))
-                            //                            Image("curtaintmp")
-                        }
-                        else{
-                            Image("curtain_opened")
-                            //                            Image("curtaintmp")
+                        
+                    } else {//커튼 닫혀있는데, 커튼 눌렀을때
+                        Button(action: {
+                            soundManager.playSound(sound: .curtain)
+//                            isCurtainOn.toggle()//커튼 누름 토글
+//                            isCurtainOpened.toggle()//커튼 열려있음 토글
+                        }) {
+                            if(isLampOn){//닫히는 로띠
+                                LottieView(jsonName: "curtain_open", loopMode: .repeat(1))
+                                .frame(width: 540, height: 200)
+                                .offset(x: 0, y: -120)
+                                .onTapGesture {
+//                                    isCurtainOn.toggle()
+                                    isCurtainOpened.toggle()
+                                    print("커튼 닫혀있을대 램프 켜져있을 때 커튼을 눌렀지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                }
+                            }
+                            else{
+                                LottieView(jsonName: "curtain_open" +
+                                           (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+                                .frame(width: 540, height: 200)
+                                .offset(x: 0, y: -120)
+                                .onTapGesture {
+//                                    isCurtainOn.toggle()
+                                    isCurtainOpened.toggle()
+                                    print("커튼 닫혀있을때 램프 꺼져있을 때 커튼을 눌렀지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                }
+                            }
                         }
                     }
                 }
-                .offset(x: 0, y: -120)
+                else{//커튼이 열려있어
+                    if(!isCurtainOn){//근데 이제 커튼을 안 눌렀지
+                        if(isLampOn){
+                            Image("curtain_opened")
+                                .resizable()
+                                .frame(width: 540, height: 200)
+                                .onTapGesture {
+                                    isCurtainOn.toggle()//커튼 누름 토글
+//                                    isCurtainOpened.toggle()//커튼 누름 토글
+                                    print("커튼 열려있을때 램프 켜져있을 때 열린 커튼을 눌렀지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                }
+                                .offset(x: 0, y: -120)
+                        }
+                        else{
+                            Image("curtain_opened"  +
+                                  (Theme.current == .day ? "_night" : "_day") )
+                                .resizable()
+                                .frame(width: 540, height: 200)
+                                .onTapGesture {
+                                    isCurtainOn.toggle()
+//                                    isCurtainOpened.toggle()
+                                    print("커튼 열려있을때 램프 꺼져있을 때 열린 커튼을 눌렀지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                }
+                                .offset(x: 0, y: -120)
+                        }
+
+                    } else {//커튼 열려있는데 커튼을 눌렀지
+                        Button(action: {
+                            soundManager.playSound(sound: .curtain)
+//                            isCurtainOn.toggle()
+//                            isCurtainOpened.toggle()
+                            print("curtain_closed")
+                        }) {
+
+                            if(isLampOn){
+                                LottieView(jsonName: "curtain_close", loopMode: .repeat(1))
+                                .frame(width: 540, height: 200)
+                                .offset(x: 0, y: -120)
+                                .onTapGesture {
+//                                    isCurtainOn.toggle()
+                                    isCurtainOpened.toggle()
+                                    print("커튼 열려있을때 램프 켜져있을 때 커튼을 눌러서 닫아야지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                }
+                            }
+                            else{
+                                LottieView(jsonName: "curtain_close" +
+                                           (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+                                .frame(width: 540, height: 200)
+                                .offset(x: 0, y: -120)
+                                .onTapGesture {
+//                                    isCurtainOn.toggle()
+                                    isCurtainOpened.toggle()
+                                    print("커튼 열려있을때 램프 꺼져있을 때 커튼을 눌러서 닫아야지")
+                                    print("iscurtainon = \(isCurtainOn)")
+                                    print("iscurtainopened = \(isCurtainOpened)")
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+                
+                
+                
+                
+                //                if(!isCurtainOn){
+                //                    Button(action: {
+                //                        soundManager.playSound(sound: .curtain)
+                //                        isCurtainOn.toggle()
+                //                        print("curtain")
+                //                    }) {
+                //                        if (!isLampOn){
+                //                            LottieView(jsonName: "curtain_close" +
+                //                                       (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+                //                                .frame(width: 540, height: 200)
+                //                                .offset(x:0, y:0)
+                //                                .onTapGesture(perform: {
+                //                                    isCurtainOn.toggle()
+                //                                })
+                //                        }
+                //                        else{
+                //                            LottieView(jsonName: "curtain_close"
+                //                                       , loopMode: .repeat(1))
+                //                                .frame(width: 540, height: 200)
+                //                                .offset(x:0, y:0)
+                //                                .onTapGesture(perform: {
+                //                                    isCurtainOn.toggle()
+                //                                })
+                //                        }
+                //
+                //                    }
+                //                    .offset(x: 0, y: -120)
+                //                }
+                //                else{
+                //                    //커튼 열림
+                //                    if (!isLampOn){
+                //                        LottieView(jsonName: "curtain_open" +
+                //                                   (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+                //                            .frame(width: 540, height: 200)
+                //                            .offset(x:0, y:-119)
+                //                            .onTapGesture(perform: {
+                //                                isCurtainOn.toggle()
+                //                                isSkyTapped = true
+                //                            })
+                //                    }
+                //                    else{
+                //                        LottieView(jsonName: "curtain_open", loopMode: .repeat(1))
+                //                            .frame(width: 540, height: 200)
+                //                            .offset(x:0, y:-119)
+                //                            .onTapGesture(perform: {
+                //                                isCurtainOn.toggle()
+                //                                isSkyTapped = true
+                //                            })
+                //                    }
+                //
+                //                }
                 
                 Button(action: {
                     soundManager.playSound(sound: .button)
@@ -285,40 +459,52 @@ struct MainView: View {
                 }
                 .offset(x: -224, y: 97)
                 
-                Button(action: {
-                   coordinator.push(.letter)
-                  //  coordinator.push(.emotion)
-//                    coordinator.push(.end2)
-                    
-                    //
-                    //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                    //                        self.isLetter = true
-                    //
-                    //                    }
-                }) {
-                    if(!isLetter){
-                        if(!isLampOn){
-                            Image("letter" +
-                                  (Theme.current == .day ? "_night" : "_day"))
+                if(isLampOn){
+                    if(isLetter){
+                        // 램프 킴, 편지
+                        Button(action: {
+                            isLetter.toggle()
+                            print(isLetter)
+                            coordinator.push(.letter)
+                        }){
+                            Image("letter_open")
                         }
-                        else{
-                            Image("letter")
-                        }
+                        .offset(x: 0, y: 80)
                     }
                     else{
-                        if(!isLampOn){
+                        // 램프 킴, 편지 닫음
+                        Button(action: {
+                            isLetter.toggle()
+                            print(isLetter)
+                        }){
+                            Image("letter")
+                        }
+                        .offset(x: 0, y: 97)
+                    }
+                }
+                else{
+                    // 램프 끔, 편지
+                    if(isLetter){
+                        Button(action: {
+                            isLetter.toggle()
+                            coordinator.push(.letter)
+                        }){
                             Image("letter_open" +
                                   (Theme.current == .day ? "_night" : "_day"))
                         }
-                        else{
-                            Image("letter_open")
-                        }
+                        .frame(width: 205, height: 105)
+                        .offset(x: 0, y: 80)
                     }
-                }
-                .offset(x: 0, y: 97)
-                .sheet(isPresented: $isLetter) {
-                    DrawingView()
-                    // 추후에 변경되어야 합니다 !
+                    else{
+                        // 램프 끔, 편지 닫음
+                        Button(action: {
+                            isLetter.toggle()
+                        }){
+                            Image("letter" +
+                                  (Theme.current == .day ? "_night" : "_day"))
+                        }
+                        .offset(x: 0, y: 97)
+                    }
                 }
                 
                 //각 버튼에 따라 modal view 뜨는 부분
@@ -328,9 +514,9 @@ struct MainView: View {
                 if(isprofile){
                     MainView()//프로필 화면
                 }
-                if(isArchive){
-                    ArchiveView()
-                }
+//                if(isArchive){
+//                    ArchiveView()
+//                }
                 //                if(isSkyTapped){
                 //                    MainView()//날씨 모달
                 //                }
@@ -371,7 +557,7 @@ struct Shake: GeometryEffect {
     var shakesPerUnit = 3
     var jumpHeight: CGFloat = 10
     var animatableData: CGFloat
-
+    
     func effectValue(size: CGSize) -> ProjectionTransform {
         ProjectionTransform(
             CGAffineTransform(
