@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CharacterView2: View {
+    @State private var isNextBtnClicked = false
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
@@ -27,7 +28,8 @@ struct CharacterView2: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
                     HStack{
-                        GLBavBarItem(navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: .system1)
+                        Spacer()
+                        GLNavBarItem(navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: .system1)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     
@@ -41,7 +43,7 @@ struct CharacterView2: View {
                     .padding(.bottom, geometry.safeAreaInsets.bottom)
                     
                 ZStack{
-                        GLButtonSet(page: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                        GLButtonSet(nextpage: .face, backButtonImage: "button_back", forwardButtonImage: "button_next")
                         
                     }
                     .navigationBarBackButtonHidden(true)

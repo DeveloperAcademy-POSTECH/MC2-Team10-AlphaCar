@@ -5,6 +5,12 @@
 //  Created by 신정연 on 2023/05/10.
 //
 
+//  MainView.swift
+//  SagakSagak
+//
+//  Created by 신정연 on 2023/05/10.
+//
+
 import SwiftUI
 
 struct MainButton{
@@ -72,6 +78,10 @@ let buttons: [ButtonStyle] = [.archive, .clock, .frame, .lamp, .letter]
 
 struct MainView: View {
     @EnvironmentObject private var coordinator: Coordinator
+    
+    @State var attempts: Int = 0
+    @State private var isWatchClicked = false
+    @StateObject private var snapshotImage = SnapshotImage()
     
     //time related
     @State var receiver = Timer.publish(every: 0.5, on: .current, in: .default).autoconnect()
@@ -158,7 +168,7 @@ struct MainView: View {
                         }
                         else{
                             Image("curtain_opened")
-//                            Image("curtaintmp")
+                            //                            Image("curtaintmp")
                         }
                     }
                 }
@@ -182,20 +192,29 @@ struct MainView: View {
                 Button(action: {
                     isAnimating = true
                     soundManager.playSound(sound: .clock)
+                    isWatchClicked.toggle()
                 }) {
                     ZStack{
                         if (isLampOn){
                             Image("clock" +
                                   (Theme.current == .day ? "_moon" : "_sun"))
+                            .onTapGesture {
+                                withAnimation(.default) {
+                                    self.attempts += 1
+                                }
+                            }
+                            .modifier(Shake(animatableData: CGFloat(attempts)))
                         }
                         else{
                             Image("clock_off" +
                                   (Theme.current == .day ? "_moon" : "_sun"))
+                            .onTapGesture {
+                                withAnimation(.default) {
+                                    self.attempts += 1
+                                }
+                            }
+                            .modifier(Shake(animatableData: CGFloat(attempts)))
                         }
-//                        Text(Date(), formatter: DateFormatter.timeOnlyFormatter)
-//                            .offset(x: 14, y: 2.5)
-//                            .font(FontManager.shared.nanumsquare(.extrabold, 24))
-//                            .foregroundColor(.clock2)
                         
                         VStack{
                             Text(String(format: "%02d:%02d", self.currentTime.hour, self.currentTime.min))
@@ -223,20 +242,32 @@ struct MainView: View {
                                 self.currentTime = Time(min: min, hour: hour)
                             }
                         }
+                        .onTapGesture {
+                            withAnimation(.default) {
+                                self.attempts += 1
+                            }
+                        }
+                        .modifier(Shake(animatableData: CGFloat(attempts)))
                     }
                 }
                 .offset(x: 334, y: 25)
                 .buttonStyle(PlainButtonStyle())
-               
+                
                 Button(action: {
                     isframe.toggle()
                 }) {
                     if (!isLampOn){
-                        Image("frame" +
-                              (Theme.current == .day ? "_night" : "_day"))
+                        SwingAnimation(imgName: "frame" +
+                                       (Theme.current == .day ? "_night" : "_day"))
+                        .onTapGesture {
+                            isframe = true
+                        }
                     }
                     else{
-                        Image("frame")
+                        SwingAnimation(imgName: "frame")
+                            .onTapGesture {
+                                isframe = true
+                            }
                     }
                 }
                 .offset(x: 334, y: -107.5)
@@ -255,12 +286,15 @@ struct MainView: View {
                 .offset(x: -224, y: 97)
                 
                 Button(action: {
-                    coordinator.push(.letter)
-//
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-//                        self.isLetter = true
-//
-//                    }
+                   coordinator.push(.letter)
+                  //  coordinator.push(.emotion)
+//                    coordinator.push(.end2)
+                    LetterView().environmentObject(snapshotImage)
+                    //
+                    //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    //                        self.isLetter = true
+                    //
+                    //                    }
                 }) {
                     if(!isLetter){
                         if(!isLampOn){
@@ -288,18 +322,18 @@ struct MainView: View {
                 }
                 
                 //각 버튼에 따라 modal view 뜨는 부분
-//                if (isframe){
-//                    MainView()//사진 모달
-//                }
-//                if(isprofile){
-//                    MainView()//프로필 화면
-//                }
+                if (isframe){
+                    ToCameraView()//사진 모달
+                }
+                if(isprofile){
+                    MainView()//프로필 화면
+                }
                 if(isArchive){
                     ArchiveView()
                 }
-//                if(isSkyTapped){
-//                    MainView()//날씨 모달
-//                }
+                //                if(isSkyTapped){
+                //                    MainView()//날씨 모달
+                //                }
             }
             .onAppear(perform: {
                 let calendar = Calendar.current
@@ -325,6 +359,23 @@ struct MainView: View {
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarBackButtonHidden(true)
+        
+    }
+}
+
+struct Shake: GeometryEffect {
+    var amount: CGFloat = 5
+    var shakesPerUnit = 3
+    var jumpHeight: CGFloat = 10
+    var animatableData: CGFloat
+
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        ProjectionTransform(
+            CGAffineTransform(
+                translationX: amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)) ,
+                y: -abs(sin(animatableData * .pi)) * jumpHeight
+            )
+        )
     }
 }
 

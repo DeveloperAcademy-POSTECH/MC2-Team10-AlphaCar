@@ -27,7 +27,8 @@ struct EndingView1: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
                     HStack{
-                        GLBavBarItem(navBarTitle: "이야기를 들려줘서 고마워.", navBarBgColor: .system2, navBarFontColor: .system3)
+                        Spacer()
+                        GLNavBarItem(navBarTitle: "이야기를 들어줘서 고마워.", navBarBgColor: .system2, navBarFontColor: .system3)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     
@@ -42,7 +43,7 @@ struct EndingView1: View {
                     .padding(.bottom, geometry.safeAreaInsets.bottom)
                     
                 ZStack{
-                        GLButtonSet(page: .end1, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                        GLButtonSet(nextpage: .end2, backButtonImage: "button_back", forwardButtonImage: "button_next")
                         
                     }
                     .navigationBarBackButtonHidden(true)

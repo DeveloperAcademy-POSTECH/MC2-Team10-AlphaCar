@@ -38,6 +38,8 @@ extension Color {
     static let block_bg1 = Color(#colorLiteral(red: 0.8392156863, green: 0.9058823529, blue: 1, alpha: 1))
     /// #89BAFF
     static let block_bg2 = Color(#colorLiteral(red: 0.537254902, green: 0.7294117647, blue: 1, alpha: 1))
+    /// #F2F8FF
+    static let block_bg3 = Color(#colorLiteral(red: 0.9490196078, green: 0.9725490196, blue: 1, alpha: 1))
 
     //MARK: clock1
     /// #BDBDBD
@@ -66,4 +68,18 @@ extension Color {
     static let crayon9 = Color(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
     /// #383838
     static let crayon10 = Color(#colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1))
+    
+    /// 그 외 기타 컬러 코드 추출 
+    init(hex: String) {
+        let scanner = Scanner(string: hex)
+        _ = scanner.scanString("#")
+        
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >>  8) & 0xFF) / 255.0
+        let b = Double((rgb >>  0) & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
+    }
 }

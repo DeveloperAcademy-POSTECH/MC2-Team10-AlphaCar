@@ -7,20 +7,21 @@
 //
 import SwiftUI
 
-enum BlockType{
+enum BlockType: String{
     case face
     case weather
-    case text
+    case text1
+    case text2
 }
 
 struct GLBlockView: View {
     static let faceData: [String] = ["twinkle", "pleased", "heart", "soso", "sad", "angry"]
     static let weatherData: [String] = ["snow", "wind", "sun", "cloud", "rain", "thunder"]
-    static let emotionDataSet1: [String] = ["행복함", "사랑가득", "멋짐", "기쁨", "즐거움", "신남"]
+    static let emotionDataSet1: [String] = ["사랑", "멋짐", "기쁨", "행복함", "즐거움", "신남"]
     static let emotionDataSet2: [String] = ["나쁨", "심심함", "화남", "무서움", "짜증남", "슬픔"]
     
-    static let blockType: BlockType = .text
-    
+    static var blockType: BlockType = .text1
+
     let rows: [GridItem] = [
         GridItem(.flexible( maximum: 112))
     ]
@@ -39,15 +40,23 @@ struct GLBlockView: View {
                     }
                 }
             )
-        case .text:
+        case .text1:
             return AnyView(
                 LazyHGrid(rows: rows, spacing: 14){
-                    //TODO: 텍스트 종류에 따라 emotionData1과 2로 나뉘어야 함(Switch재활용)
                     ForEach(GLBlockView.emotionDataSet1, id: \.self){ item in
                         GLBlockItem(imageName: "", textName: item)
                     }
                 }
             )
+        case .text2:
+            return AnyView(
+                LazyHGrid(rows: rows, spacing: 14){
+                    ForEach(GLBlockView.emotionDataSet2, id: \.self){ item in
+                        GLBlockItem(imageName: "", textName: item)
+                    }
+                }
+            )
+            
             
         case .weather:
             return AnyView(
