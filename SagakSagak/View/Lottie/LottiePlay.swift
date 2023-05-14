@@ -11,11 +11,13 @@ import Lottie
 struct LottieView: UIViewRepresentable {
     var name : String
     var loopMode: LottieLoopMode
+    var delay: Double
     
     // 간단하게 View로 JSON 파일 이름으로 애니메이션을 실행합니다.
-    init(jsonName: String = "", loopMode : LottieLoopMode = .playOnce){
+    init(jsonName: String = "", loopMode : LottieLoopMode = .playOnce, delay: Double = 0.0){
         self.name = jsonName
         self.loopMode = loopMode
+        self.delay = delay
     }
     
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
@@ -26,10 +28,12 @@ struct LottieView: UIViewRepresentable {
         animationView.animation = animation
         // AspectFit으로 적절한 크기의 에니매이션을 불러옵니다.
         animationView.contentMode = .scaleAspectFit
-        // 애니메이션은 기본으로 Loop합니다.
+        // 애니메이션 Loop
         animationView.loopMode = loopMode
-        // 애니메이션을 재생합니다
-        animationView.play()
+        // 애니메이션 딜레이 후 재생
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                    animationView.play()
+                }
         // 백그라운드에서 재생이 멈추는 오류를 잡습니다
         animationView.backgroundBehavior = .pauseAndRestore
 

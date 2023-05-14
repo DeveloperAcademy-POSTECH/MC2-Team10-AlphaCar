@@ -27,12 +27,9 @@ struct CharacterView2: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
                     HStack{
-                        Spacer()
                         GLBavBarItem(navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: .system1)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    .padding(.trailing, 24)
-                    .padding(.top, 18)
                     
                 VStack{
                     LottieView(jsonName: "happy", loopMode: .loop)
@@ -49,8 +46,6 @@ struct CharacterView2: View {
                     }
                     .navigationBarBackButtonHidden(true)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.trailing, 24)
-                    .padding(.bottom, 18)
 
                 }
             }
@@ -63,5 +58,6 @@ struct CharacterView2: View {
 struct CharacterView2_Previews: PreviewProvider {
     static var previews: some View {
         CharacterView2()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

@@ -35,8 +35,12 @@ struct GLButtonSet: View {
                 coordinator.push(page)
             }label:{
                 Image(forwardButtonImage)
+            Spacer()
+                .frame(width:24)
             }
+            
         }
+        .padding(.bottom, 18)
     }
 }
 

@@ -12,7 +12,7 @@ struct EndingView3: View {
     
     var body: some View {
         VStack{
-            LottieView(jsonName: "stamp")
+            LottieView(jsonName: "stamp", delay: 0.7)
             }
             .navigationBarBackButtonHidden(true)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
@@ -23,6 +23,7 @@ struct EndingView3: View {
 struct EndingView3_Previews: PreviewProvider {
     static var previews: some View {
         EndingView3()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 

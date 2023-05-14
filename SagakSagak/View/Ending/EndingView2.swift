@@ -25,12 +25,9 @@ struct EndingView2: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
                     HStack{
-                        Spacer()
                         GLBavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    .padding(.trailing, 24)
-                    .padding(.top, 18)
                     
                 VStack{
                     LottieView(jsonName: "love", loopMode: .loop)
@@ -47,8 +44,6 @@ struct EndingView2: View {
                     }
                     .navigationBarBackButtonHidden(true)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.trailing, 24)
-                    .padding(.bottom, 18)
 
                 }
             }
@@ -60,5 +55,6 @@ struct EndingView2: View {
 struct EndingView2_Previews: PreviewProvider {
     static var previews: some View {
         EndingView2()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
