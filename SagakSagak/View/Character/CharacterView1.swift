@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CharacterView1: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject private var snapshotImage: SnapshotImage
     @State private var isNextBtnClicked = false
     @State private var isPrevBtnClicked = false
     
@@ -29,31 +28,30 @@ struct CharacterView1: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
-                    HStack{
-                        Spacer()
-                        GLNavBarItem(navBarTitle: "정말 멋진 그림이야!", navBarBgColor: .system2, navBarFontColor: .system3)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     
-                VStack{
-                    LottieView(jsonName: "great", loopMode: .loop)
-                        .frame(height: 330)
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.bottom, geometry.safeAreaInsets.bottom)
-                    
-                ZStack{
-                        GLButtonSet(nextpage: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                        
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
 
                 }
+                HStack{
+                    GLNavBarItem(navBarTitle: "정말 멋진 그림이야!", navBarBgColor: .system2, navBarFontColor: .system3)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                
+            VStack{
+                LottieView(jsonName: "great", loopMode: .loop)
+                    .frame(height: 340)
+                }
+                .navigationBarBackButtonHidden(true)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                .ignoresSafeArea()
+                
+            ZStack{
+                    GLButtonSet(nextpage: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                    
+                }
+                .navigationBarBackButtonHidden(true)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             }
             .background(Color.bg2)
-            .ignoresSafeArea()
         }
 
 }

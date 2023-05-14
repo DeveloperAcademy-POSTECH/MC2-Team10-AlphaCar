@@ -6,15 +6,35 @@
 //
 
 import Foundation
+import UIKit
 
 enum UserDefaultKey: String {
     case faceImage
     case feel
+    case snapShot
 }
 
-class UserDefaultsManager{
+class UserDefaultsManager {
     static let shared = UserDefaultsManager()
+   
+    var snapShot: UIImage? {
+        get {
+            guard let snapShotData = UserDefaults.standard.value(forKey: UserDefaultKey.snapShot.rawValue) as? Data else { return nil }
+            return UIImage(data: snapShotData)
+        }
+        
+        set(snapShot) {
+            guard let snapShot = snapShot else {
+                UserDefaults.standard.removeObject(forKey: UserDefaultKey.snapShot.rawValue)
+                return
+            }
+            let snapShotData = snapShot.jpegData(compressionQuality: 1.0)
+            UserDefaults.standard.set(snapShotData, forKey: UserDefaultKey.snapShot.rawValue)
+        }
+    }
     
+    private init() {}
+
     var faceImage: String? {
         get{
             guard let faceImage = UserDefaults.standard.value(forKey: UserDefaultKey.faceImage.rawValue) as? String else { return nil }

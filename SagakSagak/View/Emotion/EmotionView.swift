@@ -10,6 +10,7 @@ import UniformTypeIdentifiers
 
 struct EmotionView: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var snapshotImage: SnapshotImage
     
     var body: some View {
         VStack(spacing:0){
@@ -73,23 +74,21 @@ struct EmotionView: View {
                     Text(UserDefaultsManager.shared.feel ?? "사랑")
                         .font(FontManager.shared.nanumsquare(.bold, 24))
                 }
-            
- 
-            
             Text("이야")
                 .font(FontManager.shared.nanumsquare(.bold, 24))
                 .frame(width:60)
             
             Spacer().frame(width:70)
             Button {
-                
+                coordinator.push(.story1)
+//                    .environmentObject(snapshotImage)
             } label: {
                 Image("button_next")
             }
             
         }
+        .navigationBarBackButtonHidden(true)
         .frame(height:200)
-        
     }
     
 }

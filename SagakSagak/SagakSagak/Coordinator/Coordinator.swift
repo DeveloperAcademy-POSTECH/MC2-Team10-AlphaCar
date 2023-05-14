@@ -20,6 +20,7 @@ enum Page: String, Identifiable {
 //ObservableObject
 class Coordinator: ObservableObject{
     @StateObject private var snapshotImage = SnapshotImage()
+    @StateObject private var emotionFace = EmotionFace()
     @Published var path = NavigationPath() //16버전부터만 가능
     
 
@@ -47,7 +48,7 @@ class Coordinator: ObservableObject{
         case .letter:
             LetterView().navigationBarBackButtonHidden()
         case .draw:
-            DrawingView().environmentObject(snapshotImage)
+            DrawingView()
         case .character1:
             CharacterView1()
         case .character2:
@@ -60,9 +61,9 @@ class Coordinator: ObservableObject{
         case .story1:
             StoryView1()
         case .story2:
-            StoryView2()
+            StoryView2().navigationBarBackButtonHidden()
         case .end1:
-            EndingView1()
+            EndingView1().navigationBarBackButtonHidden()
         case .end2:
             EndingView2()
         case .end3:
@@ -75,4 +76,3 @@ class Coordinator: ObservableObject{
     }
     
 }
-

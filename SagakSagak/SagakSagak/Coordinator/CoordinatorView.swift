@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CoordinatorView: View {
     @StateObject private var coordinator = Coordinator()
+    @StateObject private var snapshotImage = SnapshotImage()
     
     init(){
            UINavigationBar.setAnimationsEnabled(false)
@@ -21,6 +22,7 @@ struct CoordinatorView: View {
                     coordinator.build(page: page)
                 }
         }
+        .environmentObject(snapshotImage)
         .environmentObject(coordinator)
     }
 }

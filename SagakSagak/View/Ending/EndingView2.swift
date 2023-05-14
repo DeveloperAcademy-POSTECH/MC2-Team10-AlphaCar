@@ -24,27 +24,29 @@ struct EndingView2: View {
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     
-                    GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
-
-                VStack{
-                    LottieView(jsonName: "love", loopMode: .loop)
-                        .frame(height: 360)
-                        .offset(y: 20)
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.bottom, geometry.safeAreaInsets.bottom)
-                    
-                ZStack{
-                        GLButtonSet(nextpage: .end3, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                        
-                    }
-                    .navigationBarBackButtonHidden(true)
-
                 }
+                HStack{
+                    Spacer()
+                    GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
+                }
+            VStack{
+                LottieView(jsonName: "love", loopMode: .loop)
+                    .frame(height: 360)
+                    .offset(y: 20)
+                }
+                .navigationBarBackButtonHidden(true)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+
+                
+            ZStack{
+                    GLButtonSet(nextpage: .end3, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                    
+                }
+            .navigationBarBackButtonHidden(true)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea()
             }
             .background(Color.bg2)
-            .ignoresSafeArea()
         }
 }
 

@@ -19,47 +19,75 @@ struct ExpressView: View {
     var body: some View {
         if !isNextBtnClicked && !isPrevBtnClicked && !isExitBtnClicked{
             ZStack {
-                Image("background").resizable().scaledToFill()
-                Color.bg2.ignoresSafeArea().opacity(0.5)
+                Image("background")
+                    .resizable()
+                    .scaledToFill()
+                
+                Color.bg2
+                    .ignoresSafeArea()
+                    .opacity(0.5)
+                
                 VStack {
                     ZStack {
-                        Image("text").frame(alignment: .center)
-                        Image("button_exit").offset(x:380)
+                        Image("button_exit")
+                            .padding(EdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 15))
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                             .onTapGesture {
-                                
 //                                isExitBtnClicked = true
                             }
                     }
                     
-                    HStack{
-                        Image("button_back")
-                            .onTapGesture {
-                                isPrevBtnClicked = true
-                            }
-                        if let image = emotionFace.faceName {
-                            LottieView(jsonName: image)
-                                .id(image)
-                      
-                        }else{
-                            LottieView(jsonName: "basic")
-                        }
-                        Image("button_next")
-                            .onTapGesture {
-                                if selectedFace != "basic" {
-                                    isNextBtnClicked = true
+                    ZStack{
+                        GeometryReader { geometry in
+                            VStack{
+                                if let image = emotionFace.faceName {
+                                    LottieView(jsonName: image)
+                                        .id(image)
+                                        .frame(width: 400, height: 400)
+                                        .onDisappear {
+                                                    // 애니메이션 정리 코드 추가
+                                                }
+                                }else{
+                                    LottieView(jsonName: "basic")
+                                        .frame(width: 400, height: 400)
+                                        .onDisappear {
+                                                    // 애니메이션 정리 코드 추가
+                                                }
                                 }
                             }
+                            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                        }
+                        
+                        HStack(spacing: 530){
+                            Image("button_back")
+                                .onTapGesture {
+                                    isPrevBtnClicked = true
+                                }
+                            Image("button_next")
+                                .onTapGesture {
+                                    if selectedFace != "basic" {
+                                        isNextBtnClicked = true
+                                    }
+                                }
+                        }
+                        .offset(y: -20)
+                        
                     }
                 }
-                .padding()
-                FaceView()
-                    .environmentObject(self.emotionFace)
-                    .offset(y:150)
+
+                VStack {
+                    Spacer()
+                    FaceView()
+                        .environmentObject(self.emotionFace)
+                }
+                .edgesIgnoringSafeArea(.bottom)
             }
             .onChange(of: emotionFace.faceName) { _ in
                 selectedFace = emotionFace.faceName ?? "basic"
             }
+            .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
+            
         } else if isPrevBtnClicked {
             CharacterView2()
         } else {

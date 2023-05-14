@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct StoryView1: View {
+    @AppStorage(UserDefaultKey.snapShot.rawValue) var snapShotData: Data?
     @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject private var snapshotImage: SnapshotImage
     @State private var isNextBtnClicked = false
     @State private var isPrevBtnClicked = false
 
@@ -19,8 +19,14 @@ struct StoryView1: View {
                 Image("Group 10226").padding(.top,20)
                 Rectangle().foregroundColor(Color(hex: "D5F0E7").opacity(0.5)).ignoresSafeArea()
                 
+                ZStack{
+                    GLButtonSet(nextpage: .story2, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                }
+                .navigationBarBackButtonHidden(true)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+
                 ZStack {
-                    if let snapshot = snapshotImage.image {
+                    if let data = snapShotData, let snapshot = UIImage(data: data) {
                         Image("letterBody")
                         VStack{
                             Image("오늘의_이야기").padding(.top,10)
@@ -36,14 +42,15 @@ struct StoryView1: View {
                                 .onTapGesture {
                                     isNextBtnClicked = true
                                 }
-                            Image(uiImage: snapshot).resizable().scaledToFit().frame(width:450,height:450)
+                            Image(uiImage: snapshot)
+                                .resizable().scaledToFit().frame(width:450,height:450)
                                 .offset(x:-15,y:0)
                         }.padding(.top,90)
                     } else {
-                        Text("Snapshot image not available.")
+                        Text("Snapshot image is not available.")
                     }
                 }
-            }
+            }.navigationBarBackButtonHidden(true)
         } else {
             StoryView2()
         }

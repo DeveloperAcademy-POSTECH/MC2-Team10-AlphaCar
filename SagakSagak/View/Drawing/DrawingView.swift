@@ -45,6 +45,8 @@ struct DrawingView: View {
     func takeSnapshot() {
         let snapshot = snapshot()
         snapshotImage.image = snapshot
+        
+        UserDefaultsManager.shared.snapShot = snapshot
     }
     
     func snapshot() -> UIImage {
@@ -80,9 +82,23 @@ struct DrawingView: View {
                 Image("background")
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                ZStack{
+                    ZStack{
+                        GLButtonSet(nextpage: .character1, backButtonImage: "button_back", forwardButtonImage: isDrawing ? "button_next" : "button_next_enabled")
+                    }.onTapGesture {
+                        if isDrawing {
+                            isNextBtnClicked = true
+                        }
+                        takeSnapshot()
+                    }
+                    .padding(.horizontal, 47)
+                    .padding(.bottom, -4)
+                    .navigationBarBackButtonHidden(true)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                }
+                
                 VStack{
                     //버튼으로 바꾸기
-                    
                     HStack {
                         VStack{
                             Spacer(minLength: 100)
@@ -153,6 +169,7 @@ struct DrawingView: View {
                                     }
                                 }))
                         }
+                        
                         VStack() {
                             Image("button_exit")
                                 .resizable()
@@ -201,15 +218,6 @@ struct DrawingView: View {
                                     .padding(.trailing, 24)
                             }
                             
-                            Image(isDrawing ? "button_next" : "button_next_enabled")
-                                .padding(.bottom, 10)
-                                .padding(.trailing, 24)
-                                .onTapGesture {
-                                    if isDrawing {
-                                        isNextBtnClicked = true
-                                    }
-                                    takeSnapshot()
-                                }
                         }
                         .navigationBarBackButtonHidden(true)
                         .padding(.leading, 24)
@@ -221,6 +229,7 @@ struct DrawingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.bg2)
             .ignoresSafeArea()
+            
         } else if isExitBtnClicked {
             MainView()
         } else {
