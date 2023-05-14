@@ -22,31 +22,37 @@ struct FaceView: View {
             HStack{
                 Button(action: {
                     emotionFace.faceName = "twinkle"
+                    UserDefaultsManager.shared.faceImage = emotionFace.faceName
                 }) {
                     Image("twinkle")
                 }
                 Button(action: {
                     emotionFace.faceName = "pleased"
+                    UserDefaultsManager.shared.faceImage = emotionFace.faceName
                 }) {
                     Image("pleased")
                 }
                 Button(action: {
                     emotionFace.faceName = "heart"
+                    UserDefaultsManager.shared.faceImage = emotionFace.faceName
                 }) {
                     Image("heart")
                 }
                 Button(action: {
                     emotionFace.faceName = "soso"
+                    UserDefaultsManager.shared.faceImage = emotionFace.faceName
                 }) {
                     Image("soso")
                 }
                 Button(action: {
                     emotionFace.faceName = "sad"
+                    UserDefaultsManager.shared.faceImage = emotionFace.faceName
                 }) {
                     Image("sad")
                 }
                 Button(action: {
                     emotionFace.faceName = "angry"
+                    UserDefaultsManager.shared.faceImage = emotionFace.faceName
                 }) {
                     Image("angry")
                 }

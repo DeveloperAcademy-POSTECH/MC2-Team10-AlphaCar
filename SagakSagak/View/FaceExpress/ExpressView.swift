@@ -26,27 +26,29 @@ struct ExpressView: View {
                         Image("text").frame(alignment: .center)
                         Image("button_exit").offset(x:380)
                             .onTapGesture {
+                                
 //                                isExitBtnClicked = true
                             }
                     }
                     
                     HStack{
-                        Image("button_back")
-                            .onTapGesture {
-                                isPrevBtnClicked = true
-                            }
+//                        Image("button_back")
+//                            .onTapGesture {
+//                                isPrevBtnClicked = true
+//                            }
                         if let image = emotionFace.faceName {
                             LottieView(jsonName: image)
                                 .id(image)
+                      
                         }else{
                             LottieView(jsonName: "basic")
                         }
-                        Image("button_next")
-                            .onTapGesture {
-                                if selectedFace != "basic" {
-                                    isNextBtnClicked = true
-                                }
-                            }
+//                        Image("button_next")
+//                            .onTapGesture {
+//                                if selectedFace != "basic" {
+//                                    isNextBtnClicked = true
+//                                }
+//                            }
                     }
                 }
                 .padding()

@@ -9,11 +9,12 @@ import SwiftUI
 
 struct CoordinatorView: View {
     @StateObject private var coordinator = Coordinator()
+    @StateObject private var snapshotImage = SnapshotImage()
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
             coordinator.build(page: .main)
-                //.environmentObject(snapshotImage)
+                .environmentObject(snapshotImage)
                 .navigationDestination(for: Page.self) { page in
                     coordinator.build(page: page)
                 }

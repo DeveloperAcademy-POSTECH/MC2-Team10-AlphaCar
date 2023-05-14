@@ -15,7 +15,7 @@ import SwiftUI
 struct GLButtonSet: View {
     @EnvironmentObject private var coordinator: Coordinator
     
-    let nextpage: Page
+    let nextpage: Page ///이동하려는 페이지
     let backButtonImage: String ///뒤로 가기 버튼 이미지명
     let forwardButtonImage: String /// 앞으로 가기 버튼 이미지명
     

@@ -15,6 +15,7 @@ enum BlockItemType{
 }
 
 struct GLBlockItem: View {
+
     static var blockItemType: BlockItemType = .textItem
     @State private var onDrag = false
     
