@@ -93,17 +93,46 @@ struct MainView: View {
     @AppStorage("isLampOn") private var isLampOn = true
     @State private var isCurtainOn = false
     @State private var isCurtainOpened = false
+    @State private var loopNum : Float = 0
+    @State private var isCharacterTapped = false
     
     //modal view related
     @State private var isLetter = false
     @State private var isframe = false
+    @State private var isframe2 = false
     @State private var isprofile = false
     @State private var isArchive = false
     @State private var isSkyTapped = false
     @State private var moveToLetter = false
+    @State private var shouldNavigate = false
+    
+//    //ToCameraView에서 이미지 받아오기
+//    @EnvironmentObject var imageData: ImageData
+    
+    @State var showImagePicker = false
+    @State var selectedUIImage: UIImage?
+    
+//    @Binding var image: UIImage?
+    
+//    func loadImage() {
+//        guard let selectedImage = selectedUIImage else { return }
+//        image = Image(uiImage: selectedImage)
+//    }
     
     //weather related
     @State var weather: String = "sky"
+    
+    var curtainOpenName: String {
+        var baseName = "curtain_open"
+        baseName += isLampOn ? (Theme.current == .day ? "_n" : "_d") : ""
+        return baseName
+    }
+    
+    var curtainCloseName: String {
+        var baseName = "curtain_close"
+        baseName += isLampOn ? (Theme.current == .day ? "_n" : "_d") : ""
+        return baseName
+    }
     
     private let soundManager = SoundManager.instance
     
@@ -120,6 +149,12 @@ struct MainView: View {
                     .frame(width: 450, height: 160)
                     .offset(y:-120)
             }
+            LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
+                .frame(width: 70)
+                .offset(x:-100, y:-70)
+                .onTapGesture(perform: {
+                    isCharacterTapped.toggle()
+                })
             
             if(!isLampOn){
                 if(!isCurtainOn){
@@ -141,14 +176,102 @@ struct MainView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             
-            if(!isLampOn){
+            if (!isLampOn){
                 Image("default" + (Theme.current == .day ? "_night" : "_day"))
                     .offset(x: 334, y: -100)
+                    .onTapGesture(perform: {
+                        isframe.toggle()
+                        isframe2 = true
+                    })
             }
             else{
                 Image("default")
                     .offset(x: 334, y: -100)
+                    .onTapGesture(perform: {
+                        isframe.toggle()
+                        isframe2 = true
+                    })
             }
+//                if let image = image {
+//                    Image(uiImage: image)
+//                        .resizable()
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            isframe2 = true
+//                        })
+//                        .frame(width: 120, height: 120)
+//                } else {
+                    
+//
+//                if(showImagePicker){
+//                    image
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            isframe2 = true
+//                        })
+//                }
+//                else{
+//                    Image("default"  +
+//                          (Theme.current == .day ? "_night" : "_day"))
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            isframe2 = true
+//                        })
+//                }
+            
+//            if(!isframe){
+//                if (!isLampOn){
+//                    Image("default"  +
+//                          (Theme.current == .day ? "_night" : "_day"))
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                                isframe2 = true
+//                            }
+//                        })
+//                }
+//                else{
+//                    Image("default")
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                                isframe2 = true
+//                            }
+//                        })
+//                }
+//            }
+//            else{
+//                if (!isLampOn){
+//                    SwingAnimation(imgName: "default" +
+//                                   (Theme.current == .day ? "_night" : "_day"))
+//                    .offset(x: 334, y: -100)
+//
+//                }
+//                else{
+//                    SwingAnimation(imgName: "default").offset(x: 334, y: -100)
+//                }
+//            }
+    
+//            if(!isLampOn){
+//                Image("default" +
+//                      (Theme.current == .day ? "_night" : "_day"))
+//                    .onTapGesture(perform: {
+//                        SwingAnimation(imgName: "default")
+//                    })
+//                    .offset(x: 334, y: -100)
+//            }
+//            else{
+//                Image("default")
+//                    .onTapGesture(perform: {
+//                        SwingAnimation(imgName: "default")
+//                    })
+//                    .offset(x: 334, y: -100)
+//            }
             
             ZStack {
                 Button(action: {
@@ -159,194 +282,97 @@ struct MainView: View {
                 .offset(x: -377.5, y: -148.4)
                 .shadow(color: Color(red: 38/255, green: 119/255, blue: 95/255).opacity(0.3), radius: 15, x: 0, y: -4)
                 
-                if(!isCurtainOpened){//커튼 닫혀있어
-                    if(!isCurtainOn){//커튼 누른게 아닐때
-                        if(isLampOn){//근데 이제 램프가 켜져있을때
-                            Image("curtain_closed")//닫힌 이미지
-                                .resizable()
-                                .frame(width: 420, height: 200)
-                                .onTapGesture {
-                                    isCurtainOn.toggle()
-//                                    isCurtainOpened.toggle()
-                                    print("커튼 닫혀있을때 램프 켜져있을 때 닫혀있는걸 눌렀지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                }
-                                .offset(x: 0, y: -120)
-                        }
-                        else{
-                            Image("curtain_closed" +
-                                  (Theme.current == .day ? "_night" : "_day"))
-                                .resizable()
-                                .frame(width: 480, height: 180)
-                                .onTapGesture {
-                                    isCurtainOn.toggle()
-//                                    isCurtainOpened.toggle()
-                                    print("커튼 닫혀있을때 램프 꺼져있을 때 닫혀있는걸 눌렀지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                }
-                                .offset(x: 0, y: -120)
-                        }
-                        
-                    } else {//커튼 닫혀있는데, 커튼 눌렀을때
-                        Button(action: {
-                            soundManager.playSound(sound: .curtain)
-//                            isCurtainOn.toggle()//커튼 누름 토글
-//                            isCurtainOpened.toggle()//커튼 열려있음 토글
-                        }) {
-                            if(isLampOn){//닫히는 로띠
-                                LottieView(jsonName: "curtain_open", loopMode: .repeat(1))
-                                .frame(width: 540, height: 200)
-                                .offset(x: 0, y: -120)
-                                .onTapGesture {
-//                                    isCurtainOn.toggle()
-                                    isCurtainOpened.toggle()
-                                    print("커튼 닫혀있을대 램프 켜져있을 때 커튼을 눌렀지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                }
-                            }
-                            else{
-                                LottieView(jsonName: "curtain_open" +
-                                           (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
-                                .frame(width: 540, height: 200)
-                                .offset(x: 0, y: -120)
-                                .onTapGesture {
-//                                    isCurtainOn.toggle()
-                                    isCurtainOpened.toggle()
-                                    print("커튼 닫혀있을때 램프 꺼져있을 때 커튼을 눌렀지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                }
-                            }
-                        }
+                if !isLampOn {
+                    if !isCurtainOn {
+                        LottieView(jsonName: "curtain_close" +
+                                   (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+                            .frame(width: 540)
+                            .onTapGesture(perform: {
+                                isCurtainOn = true
+                            })
+                            .offset(x: 0, y: -119)
+                    }
+                    else{
+                        LottieView(jsonName: "curtain_open" +
+                                   (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+                        .frame(width: 540)
+                        .offset(x:0, y:-119)
+                        .onTapGesture(perform: {
+                            isCurtainOn = false
+                            isSkyTapped = true
+                        })
+                    }
+                } else {
+                    if (!isCurtainOn) {
+                        LottieView(jsonName: "curtain_close", loopMode: .repeat(1))
+                            .frame(width: 540)
+                            .onTapGesture(perform: {
+                                isCurtainOn = true
+                            })
+                            .offset(x: 0, y: -119)
+                    }
+                    else{
+                        LottieView(jsonName: "curtain_open", loopMode: .repeat(1))
+                            .frame(width: 540)
+                            .offset(x:0, y:-119)
+                            .onTapGesture(perform: {
+                                isCurtainOn = false
+                                isSkyTapped = true
+                            })
                     }
                 }
-                else{//커튼이 열려있어
-                    if(!isCurtainOn){//근데 이제 커튼을 안 눌렀지
-                        if(isLampOn){
-                            Image("curtain_opened")
-                                .resizable()
-                                .frame(width: 540, height: 200)
-                                .onTapGesture {
-                                    isCurtainOn.toggle()//커튼 누름 토글
-//                                    isCurtainOpened.toggle()//커튼 누름 토글
-                                    print("커튼 열려있을때 램프 켜져있을 때 열린 커튼을 눌렀지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                }
-                                .offset(x: 0, y: -120)
-                        }
-                        else{
-                            Image("curtain_opened"  +
-                                  (Theme.current == .day ? "_night" : "_day") )
-                                .resizable()
-                                .frame(width: 540, height: 200)
-                                .onTapGesture {
-                                    isCurtainOn.toggle()
-//                                    isCurtainOpened.toggle()
-                                    print("커튼 열려있을때 램프 꺼져있을 때 열린 커튼을 눌렀지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                }
-                                .offset(x: 0, y: -120)
-                        }
 
-                    } else {//커튼 열려있는데 커튼을 눌렀지
-                        Button(action: {
-                            soundManager.playSound(sound: .curtain)
+                
+//                if(!isCurtainOn){
+//                    Button(action: {
+//                        soundManager.playSound(sound: .curtain)
+//                        isCurtainOn.toggle()
+//                        print("curtain")
+//                    }) {
+//                        if (!isLampOn){
+//                            LottieView(jsonName: "curtain_close" +
+//                                       (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+//                            .frame(width: 560, height: 220)
+//                            .onTapGesture(perform: {
+//                                isCurtainOn.toggle()
+//                            })
+//                        }
+//                        else{
+//                            LottieView(jsonName: "curtain_close"
+//                                       , loopMode: .repeat(1))
+//                            .frame(width: 560, height: 220)
+//
+//                            .onTapGesture(perform: {
+//                                isCurtainOn.toggle()
+//                            })
+//                        }
+//
+//                    }
+//                    .offset(x: 0, y: -110)
+//                }
+//                else{
+//                    //커튼 열림
+//                    if (!isLampOn){
+//                        LottieView(jsonName: "curtain_open" +
+//                                   (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
+//                        .frame(width: 540, height: 200)
+//                        .offset(x:0, y:-119)
+//                        .onTapGesture(perform: {
 //                            isCurtainOn.toggle()
-//                            isCurtainOpened.toggle()
-                            print("curtain_closed")
-                        }) {
-
-                            if(isLampOn){
-                                LottieView(jsonName: "curtain_close", loopMode: .repeat(1))
-                                .frame(width: 540, height: 200)
-                                .offset(x: 0, y: -120)
-                                .onTapGesture {
-//                                    isCurtainOn.toggle()
-                                    isCurtainOpened.toggle()
-                                    print("커튼 열려있을때 램프 켜져있을 때 커튼을 눌러서 닫아야지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                }
-                            }
-                            else{
-                                LottieView(jsonName: "curtain_close" +
-                                           (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
-                                .frame(width: 540, height: 200)
-                                .offset(x: 0, y: -120)
-                                .onTapGesture {
-//                                    isCurtainOn.toggle()
-                                    isCurtainOpened.toggle()
-                                    print("커튼 열려있을때 램프 꺼져있을 때 커튼을 눌러서 닫아야지")
-                                    print("iscurtainon = \(isCurtainOn)")
-                                    print("iscurtainopened = \(isCurtainOpened)")
-                                    
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                
-                
-                
-                
-                
-                //                if(!isCurtainOn){
-                //                    Button(action: {
-                //                        soundManager.playSound(sound: .curtain)
-                //                        isCurtainOn.toggle()
-                //                        print("curtain")
-                //                    }) {
-                //                        if (!isLampOn){
-                //                            LottieView(jsonName: "curtain_close" +
-                //                                       (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
-                //                                .frame(width: 540, height: 200)
-                //                                .offset(x:0, y:0)
-                //                                .onTapGesture(perform: {
-                //                                    isCurtainOn.toggle()
-                //                                })
-                //                        }
-                //                        else{
-                //                            LottieView(jsonName: "curtain_close"
-                //                                       , loopMode: .repeat(1))
-                //                                .frame(width: 540, height: 200)
-                //                                .offset(x:0, y:0)
-                //                                .onTapGesture(perform: {
-                //                                    isCurtainOn.toggle()
-                //                                })
-                //                        }
-                //
-                //                    }
-                //                    .offset(x: 0, y: -120)
-                //                }
-                //                else{
-                //                    //커튼 열림
-                //                    if (!isLampOn){
-                //                        LottieView(jsonName: "curtain_open" +
-                //                                   (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
-                //                            .frame(width: 540, height: 200)
-                //                            .offset(x:0, y:-119)
-                //                            .onTapGesture(perform: {
-                //                                isCurtainOn.toggle()
-                //                                isSkyTapped = true
-                //                            })
-                //                    }
-                //                    else{
-                //                        LottieView(jsonName: "curtain_open", loopMode: .repeat(1))
-                //                            .frame(width: 540, height: 200)
-                //                            .offset(x:0, y:-119)
-                //                            .onTapGesture(perform: {
-                //                                isCurtainOn.toggle()
-                //                                isSkyTapped = true
-                //                            })
-                //                    }
-                //
-                //                }
+//                            isSkyTapped = true
+//                        })
+//                    }
+//                    else{
+//                        LottieView(jsonName: "curtain_open", loopMode: .repeat(1))
+//                            .frame(width: 540, height: 200)
+//                            .offset(x:0, y:-119)
+//                            .onTapGesture(perform: {
+//                                isCurtainOn.toggle()
+//                                isSkyTapped = true
+//                            })
+//                    }
+//
+//                }
                 
                 Button(action: {
                     soundManager.playSound(sound: .button)
@@ -427,24 +453,78 @@ struct MainView: View {
                 .offset(x: 334, y: 25)
                 .buttonStyle(PlainButtonStyle())
                 
-                Button(action: {
-                    isframe.toggle()
-                }) {
-                    if (!isLampOn){
-                        SwingAnimation(imgName: "frame" +
-                                       (Theme.current == .day ? "_night" : "_day"))
-                        .onTapGesture {
-                            isframe = true
-                        }
-                    }
-                    else{
-                        SwingAnimation(imgName: "frame")
-                            .onTapGesture {
-                                isframe = true
-                            }
-                    }
+                if (!isLampOn){
+                    Image("frame"  +
+                          (Theme.current == .day ? "_night" : "_day"))
+                        .offset(x: 334, y: -107.5)
+                        .onTapGesture(perform: {
+                            isframe.toggle()
+                            isframe2 = true
+                        })
                 }
-                .offset(x: 334, y: -107.5)
+                else{
+                    Image("frame")
+                        .offset(x: 334, y: -107.5)
+                        .onTapGesture(perform: {
+                            isframe.toggle()
+                            isframe2 = true
+                        })
+                }
+                
+//                if(!isframe){
+//                    if (!isLampOn){
+//                        Image("frame"  +
+//                              (Theme.current == .day ? "_night" : "_day"))
+//                            .offset(x: 334, y: -107.5)
+//                            .onTapGesture(perform: {
+//                                isframe.toggle()
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                                    isframe2 = true
+//                                }
+//                            })
+//                    }
+//                    else{
+//                        Image("frame")
+//                            .offset(x: 334, y: -107.5)
+//                            .onTapGesture(perform: {
+//                                isframe.toggle()
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                                    isframe2 = true
+//                                }
+//                            })
+//                    }
+//                }
+//                else{
+//                    if (!isLampOn){
+//                        SwingAnimation(imgName: "frame" +
+//                                       (Theme.current == .day ? "_night" : "_day"))
+//                        .offset(x: 334, y: -107.5)
+//
+//                    }
+//                    else{
+//                        SwingAnimation(imgName: "frame").offset(x: 334, y: -107.5)
+//                    }
+//                }
+                if(isCharacterTapped){
+                    LottieView(jsonName: "love", loopMode: .repeat(.infinity))
+                        .frame(width: 155)
+                        .offset(x:200, y:50)
+                        .onTapGesture(perform: {
+                            isCharacterTapped.toggle()
+                        })
+                    
+                }
+                else{
+                    LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
+                        .frame(width: 155)
+                        .offset(x:200, y:50)
+                        .onTapGesture(perform: {
+                            isCharacterTapped.toggle()
+                        })
+
+                }
+                               
+                
                 
                 Button(action: {
                     isArchive.toggle()
@@ -506,9 +586,18 @@ struct MainView: View {
                         .offset(x: 0, y: 97)
                     }
                 }
-                
+//                if isframe {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                        shouldNavigate = true
+//                    }
+//                }
+//
+//                if shouldNavigate {
+//                    ToCameraView()
+//                        .fullScreenCover(isPresented: $shouldNavigate, content: {})
+//                }
                 //각 버튼에 따라 modal view 뜨는 부분
-                if (isframe){
+                if(isframe2){
                     ToCameraView()//사진 모달
                 }
                 if(isprofile){
@@ -517,9 +606,9 @@ struct MainView: View {
 //                if(isArchive){
 //                    ArchiveView()
 //                }
-                //                if(isSkyTapped){
-                //                    MainView()//날씨 모달
-                //                }
+//                if(isSkyTapped){
+//                    GLPopupView()//날씨 모달
+//                }
             }
             .onAppear(perform: {
                 let calendar = Calendar.current
@@ -548,7 +637,6 @@ struct MainView: View {
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarBackButtonHidden(true)
-        
     }
 }
 
@@ -578,6 +666,7 @@ extension DateFormatter {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
+//        MainView(image: .constant(nil))
         MainView()
             .previewInterfaceOrientation(.landscapeRight)
     }
