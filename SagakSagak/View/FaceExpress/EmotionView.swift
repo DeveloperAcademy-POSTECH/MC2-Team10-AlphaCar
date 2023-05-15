@@ -78,18 +78,19 @@ struct EmotionView: View {
                         .frame(width: 100, height:60)
                         .foregroundColor(Color.system2)
                     
-//                    Text(UserDefaultsManager.shared.feel!) /// 표정 이름이 들어감
-                    Text(selectedFeeling).font(FontManager.shared.nanumsquare(.extrabold, 24))
-                        .foregroundColor(Color.system2)
-                    
-                        .frame(width: 100, height: 60)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(
-                                    .shadow(.inner(color: Color.init(hex: "006AFF").opacity(0.5), radius: 10, x:0, y:-4))
-                                )
-                                .foregroundColor(Color.block_bg2))
-                
+
+////                    Text(UserDefaultsManager.shared.feel!) /// 표정 이름이 들어감
+//                    Text(selectedFeeling).font(FontManager.shared.nanumsquare(.extrabold, 24))
+//                        .foregroundColor(Color.system2)
+//
+//                        .frame(width: 100, height: 60)
+//                        .background(
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .fill(
+//                                    .shadow(.inner(color: Color.init(hex: "006AFF").opacity(0.5), radius: 10, x:0, y:-4))
+//                                )
+//                                .foregroundColor(Color.block_bg2))
+//
                 }
                 Text("이야.").font(FontManager.shared.nanumsquare(.bold, 28))
             }
@@ -98,6 +99,7 @@ struct EmotionView: View {
         .onChange(of: emotionFace.faceName) { _ in
             //selectedFace = emotionFace.faceName ?? "basic"
             selectedFeeling = UserDefaultsManager.shared.feel ?? ""
+            print(selectedFace)
         }
         //.background(.blue)
     }
