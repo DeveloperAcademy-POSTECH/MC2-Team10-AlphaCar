@@ -13,10 +13,16 @@ struct EndingView3: View {
     var body: some View {
         VStack{
             LottieView(jsonName: "stamp", delay: 0.7)
+        }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .ignoresSafeArea()
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                coordinator.push(.main)
             }
-            .navigationBarBackButtonHidden(true)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-            .ignoresSafeArea()
+        }
+        
     }
 }
 

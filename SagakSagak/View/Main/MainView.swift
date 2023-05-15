@@ -600,12 +600,12 @@ struct MainView: View {
                 if(isframe2){
                     ToCameraView()//사진 모달
                 }
-                if(isprofile){
-                    MainView()//프로필 화면
-                }
-//                if(isArchive){
-//                    ArchiveView()
+//                if(isprofile){
+//                    MainView()//프로필 화면
 //                }
+                if(isArchive){
+                    ArchiveView()
+                }
 //                if(isSkyTapped){
 //                    GLPopupView()//날씨 모달
 //                }

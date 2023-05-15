@@ -20,11 +20,10 @@ struct ArchiveView: View {
             
             ZStack{
                 GLNavBarTitle(navBarTitle: "어쩌구한 이야기책", navBarBgColor: .white, navBarFontColor: .blue)
-                    .offset(x: 0, y: -140)
-                Image("greenButton")
-                    .offset(x:350, y:-110.5)
-                    .padding(.top, -53.5)
-                    .padding(.leading, 50)
+                    .padding(.bottom, 300)
+                Image("button_exit")
+                    .padding(.leading, 750)
+                    .padding(.bottom, 300)
                     .onTapGesture {
                         coordinator.push(.main)
                     }
