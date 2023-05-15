@@ -17,7 +17,7 @@ enum BlockItemType{
 struct GLBlockItem: View {
 
     static var blockItemType: BlockItemType = .textItem
-    @State private var onDrag = false
+    @State private var onClicked = true
     
     let imageName: String
     let textName: String
@@ -59,18 +59,33 @@ struct GLBlockItem: View {
 
         case .textItem:
             return AnyView(
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(onDrag ? Color.block_bg3: Color.block_bg2) //TODO: 컬러 확인
-                        .frame(width: 100, height: 60)  // TODO: 그림자 효과(innershadow, blur) 재조정 필요
-
-                    Text(textName)
-                        .font(FontManager.shared.nanumsquare(.extrabold, 24))
-                        .foregroundColor(onDrag ? Color.block_bg3: .system2)//TODO: 컬러 확인
-                }
-                .onDrag {
-                    self.onDrag = true
-                    return NSItemProvider(object: String(textName) as NSString)
+                Button(action: {
+                    onClicked.toggle()
+                }){
+                    if onClicked{
+                        Text(textName).font(FontManager.shared.nanumsquare(.extrabold, 24))
+                            .foregroundColor(Color.system2)
+                        
+                            .frame(width: 100, height: 60)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(
+                                        .shadow(.inner(color: Color.init(hex: "006AFF").opacity(0.5), radius: 10, x:0, y:-4))
+                                    )
+                                    .foregroundColor(Color.block_bg2))
+                    
+                    } else {
+                        Text(textName).font(FontManager.shared.nanumsquare(.extrabold, 24))
+                            .foregroundColor(Color.system2)
+                            .frame(width: 100, height: 60)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(
+                                        .shadow(.inner(color: Color(hex: "006AFF").opacity(0.5), radius: 10, x:0, y:4))
+                                    )
+                                    .foregroundColor(Color.init(hex: "579DFF").opacity(0.3)))
+     
+                    }
                 }
             )
         }

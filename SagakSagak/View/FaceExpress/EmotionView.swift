@@ -52,12 +52,20 @@ struct EmotionView: View {
         VStack{
             HStack(spacing:16){
                 RoundedRectangle(cornerRadius: 10)
+                    .fill(
+                        .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:4))
+                    )
                     .frame(width: 100, height:60)
                     .foregroundColor(Color.system2)
                 Text("표정의 이름은").font(FontManager.shared.nanumsquare(.bold, 28))
+                
                 RoundedRectangle(cornerRadius: 10)
+                    .fill(
+                        .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:4))
+                    )
                     .frame(width: 100, height:60)
                     .foregroundColor(Color.system2)
+                
                 Text("이야.").font(FontManager.shared.nanumsquare(.bold, 28))
             }
         }
@@ -71,7 +79,7 @@ struct EmotionView: View {
         .frame(width: Const.glScreenWidth, height:88)
         .foregroundColor(.system2)
         .overlay{
-            GLBlockView()//.background(.yellow)
+            GLBlockView()
         }
     }
 }
