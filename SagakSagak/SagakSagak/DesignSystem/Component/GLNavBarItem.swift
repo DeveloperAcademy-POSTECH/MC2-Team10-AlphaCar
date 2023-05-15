@@ -69,12 +69,12 @@ struct GLNavBarItem: View {
 struct GLBavBarItem_Previews: PreviewProvider {
     static var previews: some View {
         //쉐도우 버전
-        GLNavBarItem(backPage: .character1, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system1, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
-            .previewInterfaceOrientation(.landscapeRight)
+//        GLNavBarItem(backPage: .character1, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system1, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
+//            .previewInterfaceOrientation(.landscapeRight)
         
         //쉐도우 없는 버전
-//        GLNavBarItem(backPage: .character1, backButtonImg: "button_modal_back", shadowOn: false, navBarTitle: "오늘의 이야기", navBarBgColor: .bg1, navBarFontColor: .system1, nextButtonImg: "button_modal_next", nextPage: .character2, nextEnabled: true)
-//            .previewInterfaceOrientation(.landscapeRight)
+        GLNavBarItem(backPage: .character1, backButtonImg: "button_modal_back", shadowOn: false, navBarTitle: "오늘의 이야기", navBarBgColor: .bg1, navBarFontColor: .system1, nextButtonImg: "button_modal_next", nextPage: .character2, nextEnabled: true)
+            .previewInterfaceOrientation(.landscapeRight)
     }
     
 }

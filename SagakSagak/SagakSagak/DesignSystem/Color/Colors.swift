@@ -15,7 +15,7 @@ extension Color {
     static let system2 = Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
     /// #000000
     static let system3 = Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-    
+     
     //MARK: bg
     /// #F2F7FF
     static let bg1 = Color(#colorLiteral(red: 0.9590327144, green: 0.9756026864, blue: 1, alpha: 1))
