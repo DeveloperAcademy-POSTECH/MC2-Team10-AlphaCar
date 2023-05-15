@@ -17,7 +17,7 @@ class UserDefaultsManager{
     
     var faceImage: String? {
         get{
-            guard let faceImage = UserDefaults.standard.value(forKey: UserDefaultKey.faceImage.rawValue) as? String else { return nil }
+            guard let faceImage = UserDefaults.standard.value(forKey: UserDefaultKey.faceImage.rawValue) as? String else { return "sad" }
             return faceImage
         }
         

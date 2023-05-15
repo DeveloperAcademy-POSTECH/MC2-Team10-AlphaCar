@@ -30,7 +30,7 @@ struct EmotionView: View {
             Spacer().frame(width:70)
             
             Button {
-                print("Button Tapped")
+                coordinator.popToRoot()
             } label: {
                 Image("button_exit")
                     .shadow(color: Color(hex: "26775F").opacity(0.15),
@@ -41,7 +41,6 @@ struct EmotionView: View {
             }
         }
         .frame(width: Const.glScreenWidth, height: 72)
-        //.background(.yellow)
         .padding(.top, 24)
         .padding(.trailing, 24)
         .padding(.leading, 142)
@@ -51,12 +50,17 @@ struct EmotionView: View {
     var contentsView: some View {
         VStack{
             HStack(spacing:16){
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(
-                        .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:4))
-                    )
-                    .frame(width: 100, height:60)
-                    .foregroundColor(Color.system2)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(
+                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:4))
+                        )
+                        .frame(width: 100, height:60)
+                        .foregroundColor(Color.system2)
+                    
+                    Image(UserDefaultsManager.shared.faceImage!) /// 표정 얼굴 모양이 들어감
+                        .padding(.top, 20)
+                }
                 Text("표정의 이름은").font(FontManager.shared.nanumsquare(.bold, 28))
                 
                 RoundedRectangle(cornerRadius: 10)
