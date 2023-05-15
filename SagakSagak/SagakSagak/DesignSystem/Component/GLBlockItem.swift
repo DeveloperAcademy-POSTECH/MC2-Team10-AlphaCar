@@ -61,6 +61,7 @@ struct GLBlockItem: View {
             return AnyView(
                 Button(action: {
                     onClicked.toggle()
+                    UserDefaultsManager.shared.feel = textName
                 }){
                     if onClicked{
                         Text(textName).font(FontManager.shared.nanumsquare(.extrabold, 24))
