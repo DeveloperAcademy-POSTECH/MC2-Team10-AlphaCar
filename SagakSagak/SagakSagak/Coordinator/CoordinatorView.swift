@@ -17,7 +17,7 @@ struct CoordinatorView: View {
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            coordinator.build(page: .emotion) //TODO: 페이지 바꾸기
+            coordinator.build(page: .main) //TODO: 페이지 바꾸기
                 .navigationDestination(for: Page.self) { page in
                     coordinator.build(page: page)
                 }

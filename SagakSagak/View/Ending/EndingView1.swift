@@ -44,6 +44,14 @@ struct EndingView1: View {
                     
                 ZStack{
 //                        GLButtonSet(nextpage: .end2, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                    
+                    Button {
+                        coordinator.push(.end2)
+        //                    .environmentObject(snapshotImage)
+                    } label: {
+                       Text("다음으로")
+                    }
+                    
                         
                     }
                     .navigationBarBackButtonHidden(true)

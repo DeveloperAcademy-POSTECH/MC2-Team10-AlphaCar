@@ -28,9 +28,9 @@ struct EmotionView: View {
 //                GLNavBarItem(navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system3)
 //                
                 VStack{
-                    LottieView(jsonName: "love", loopMode: .loop)
-                        .frame(height: 360)
-                        .offset(y: 20)
+//                    LottieView(jsonName: "love", loopMode: .loop)
+//                        .frame(height: 360)
+//                        .offset(y: 20)
                 }
                 .navigationBarBackButtonHidden(true)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
@@ -38,6 +38,13 @@ struct EmotionView: View {
                 
                 ZStack{
                     //                        GLButtonSet(nextpage: .end3, backButtonImage: "button_back", forwardButtonImage: "button_next")
+                    Button {
+                        coordinator.push(.story1)
+                    } label: {
+                        Text("다음으로")
+                    }
+
+                    
                     
                 }
                 .navigationBarBackButtonHidden(true)

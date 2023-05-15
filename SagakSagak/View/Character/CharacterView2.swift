@@ -33,7 +33,7 @@ struct CharacterView2: View {
                 
                 HStack{
                     Spacer()
-                    GLNavBarItem(navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: .system1)
+//                    GLNavBarItem(navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: .system1)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 

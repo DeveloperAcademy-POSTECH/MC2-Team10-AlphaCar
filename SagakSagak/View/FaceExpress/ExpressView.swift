@@ -17,83 +17,14 @@ struct ExpressView: View {
     
     
     var body: some View {
-        if !isNextBtnClicked && !isPrevBtnClicked && !isExitBtnClicked{
-            ZStack {
-                Image("background")
-                    .resizable()
-                    .scaledToFill()
-                
-                Color.bg2
-                    .ignoresSafeArea()
-                    .opacity(0.5)
-                
-                VStack {
-                    ZStack {
-                        Image("button_exit")
-                            .padding(EdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 15))
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .onTapGesture {
-//                                isExitBtnClicked = true
-                            }
-                    }
-                    
-                    HStack{
-                        Image("button_back")
-                            .onTapGesture {
-                                isPrevBtnClicked = true
-                            }
-                        if let image = emotionFace.faceName {
-                            LottieView(jsonName: image)
-                                .id(image)
-                      
-                        }else{
-                            LottieView(jsonName: "basic")
-                        }
-                        Image("button_next")
-                            .onTapGesture {
-                                if selectedFace != "basic" {
-                                    isNextBtnClicked = true
-                                    coordinator.push(.emotion)
-                                }
-                            }
-                            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                        }
-                        
-                        HStack(spacing: 530){
-                            Image("button_back")
-                                .onTapGesture {
-                                    isPrevBtnClicked = true
-                                }
-                            Image("button_next")
-                                .onTapGesture {
-                                    if selectedFace != "basic" {
-                                        isNextBtnClicked = true
-                                    }
-                                }
-                        }
-                        .offset(y: -20)
-                        
-                    }
-                }
-
-                VStack {
-                    Spacer()
-                    FaceView()
-                        .environmentObject(self.emotionFace)
-                }
-                .edgesIgnoringSafeArea(.bottom)
-            }
-            .onChange(of: emotionFace.faceName) { _ in
-                selectedFace = emotionFace.faceName ?? "basic"
-            }
-            .ignoresSafeArea()
-            .navigationBarBackButtonHidden(true)
-            
-        } else if isPrevBtnClicked {
-            CharacterView2()
-        } else {
-            EmotionView().environmentObject(self.emotionFace)
+        Rectangle()
+        
+        Button {
+            coordinator.push(.emotion)
+        } label: {
+            Text("다음으로)")
         }
+
     }
 }
 

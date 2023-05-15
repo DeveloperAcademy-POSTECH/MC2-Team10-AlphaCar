@@ -39,6 +39,7 @@
 		A872FC932A0FD9F80058880B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872FC922A0FD9F80058880B /* UserDefaultsManager.swift */; };
 		A878E4962A09D55800B97358 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4952A09D55800B97358 /* FontManager.swift */; };
 		A878E4A52A09E49C00B97358 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4A42A09E49C00B97358 /* Const.swift */; };
+		A88BF9552A120063002E1BF3 /* GLButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF9542A120063002E1BF3 /* GLButtonSet.swift */; };
 		A8A2F4A12A11770D00F24B11 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2F4A02A11770D00F24B11 /* SwiftUIView.swift */; };
 		A8A2F4A32A1183D500F24B11 /* great.json in Resources */ = {isa = PBXBuildFile; fileRef = A8A2F4A22A1183D500F24B11 /* great.json */; };
 		A8A2F4A52A1183DB00F24B11 /* happy.json in Resources */ = {isa = PBXBuildFile; fileRef = A8A2F4A42A1183DB00F24B11 /* happy.json */; };
@@ -114,6 +115,7 @@
 		A878E4952A09D55800B97358 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		A878E4982A09D8A100B97358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A878E4A42A09E49C00B97358 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		A88BF9542A120063002E1BF3 /* GLButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLButtonSet.swift; sourceTree = "<group>"; };
 		A8A2F4A02A11770D00F24B11 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		A8A2F4A22A1183D500F24B11 /* great.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = great.json; path = "../../../../../../../../../Downloads/drive-download-20230514T170345Z-001/great.json"; sourceTree = "<group>"; };
 		A8A2F4A42A1183DB00F24B11 /* happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = happy.json; path = "../../../../../../../../../Downloads/drive-download-20230514T170345Z-001/happy.json"; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				A80EAEAA2A0F377000676483 /* GLPopupView.swift */,
 				A8DA46C42A10929800E25EAF /* GLBasicView_type1.swift */,
 				A8DA46C62A10944200E25EAF /* BasicView.swift */,
+				A88BF9542A120063002E1BF3 /* GLButtonSet.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				A81261BB2A1009A900280ECE /* ToCameraView.swift in Sources */,
 				A8FA45372A0E1D63009C3A2C /* EndingView1.swift in Sources */,
 				A878E4A52A09E49C00B97358 /* Const.swift in Sources */,
+				A88BF9552A120063002E1BF3 /* GLButtonSet.swift in Sources */,
 				A80EAE8E2A0E912800676483 /* HapticManager.swift in Sources */,
 				A8FA451F2A0E1AE8009C3A2C /* SplashView.swift in Sources */,
 				BFCE55272A0B8D4B003A85CA /* CharacterExpressView.swift in Sources */,

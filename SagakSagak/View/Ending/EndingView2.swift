@@ -27,7 +27,7 @@ struct EndingView2: View {
                 }
                 HStack{
                     Spacer()
-                    GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
+//                    GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
                 }
             VStack{
                 LottieView(jsonName: "love", loopMode: .loop)
