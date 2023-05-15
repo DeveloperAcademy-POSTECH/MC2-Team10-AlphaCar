@@ -17,6 +17,7 @@
 		5739EBF92A0F8D0B00AEAB5E /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */; };
 		5739EBFC2A0F8D2900AEAB5E /* pop_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBFA2A0F8D2900AEAB5E /* pop_sound.mp3 */; };
 		5739EBFD2A0F8D2900AEAB5E /* paper_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */; };
+
 		A35B65A82A1251A3005B61D2 /* snowy_d.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B659C2A1251A2005B61D2 /* snowy_d.json */; };
 		A35B65A92A1251A3005B61D2 /* rainy_n.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B659D2A1251A2005B61D2 /* rainy_n.json */; };
 		A35B65AA2A1251A3005B61D2 /* sunny_d.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B659E2A1251A3005B61D2 /* sunny_d.json */; };
@@ -48,6 +49,7 @@
 		A35B65E52A127439005B61D2 /* stamp.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B65D82A127439005B61D2 /* stamp.json */; };
 		A35B65E62A127439005B61D2 /* hi.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B65D92A127439005B61D2 /* hi.json */; };
 		A35B65E72A127439005B61D2 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B65DA2A127439005B61D2 /* love.json */; };
+
 		A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE6E2A0E77E400676483 /* SoundManager.swift */; };
 		A80EAE8E2A0E912800676483 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE8D2A0E912800676483 /* HapticManager.swift */; };
 		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
@@ -111,6 +113,7 @@
 		5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveView.swift; path = View/MainView/ArchiveView.swift; sourceTree = SOURCE_ROOT; };
 		5739EBFA2A0F8D2900AEAB5E /* pop_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pop_sound.mp3; path = SagakSagak/Utils/Music/pop_sound.mp3; sourceTree = SOURCE_ROOT; };
 		5739EBFB2A0F8D2900AEAB5E /* paper_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paper_sound.mp3; path = SagakSagak/Utils/Music/paper_sound.mp3; sourceTree = SOURCE_ROOT; };
+
 		A35B659C2A1251A2005B61D2 /* snowy_d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = snowy_d.json; path = SagakSagak/DesignSystem/LottieFile/Weather/snowy_d.json; sourceTree = "<group>"; };
 		A35B659D2A1251A2005B61D2 /* rainy_n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = rainy_n.json; path = SagakSagak/DesignSystem/LottieFile/Weather/rainy_n.json; sourceTree = "<group>"; };
 		A35B659E2A1251A3005B61D2 /* sunny_d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sunny_d.json; path = SagakSagak/DesignSystem/LottieFile/Weather/sunny_d.json; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		A35B65D82A127439005B61D2 /* stamp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stamp.json; path = "../../../../../../drive-download-20230515T140633Z-001 2/stamp.json"; sourceTree = "<group>"; };
 		A35B65D92A127439005B61D2 /* hi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = hi.json; path = "../../../../../../drive-download-20230515T140633Z-001 2/hi.json"; sourceTree = "<group>"; };
 		A35B65DA2A127439005B61D2 /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = love.json; path = "../../../../../../drive-download-20230515T140633Z-001 2/love.json"; sourceTree = "<group>"; };
+
 		A80EAE6E2A0E77E400676483 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A80EAE8D2A0E912800676483 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				5722D82F2A0CCFA00023B0F6 /* MainView.swift */,
 				5739EBF32A0F8D0B00AEAB5E /* ArchiveOpenView.swift */,
 				5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */,
+				5746C9B22A1276500047102C /* ImageData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				BFCE55282A0B8D4B003A85CA /* FaceView.swift in Sources */,
 				A80EAE922A0EE4B000676483 /* View+.swift in Sources */,
 				A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */,
+				5746C9B32A1276500047102C /* ImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
