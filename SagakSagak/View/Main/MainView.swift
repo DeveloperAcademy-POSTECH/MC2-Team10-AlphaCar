@@ -93,6 +93,8 @@ struct MainView: View {
     @AppStorage("isLampOn") private var isLampOn = true
     @State private var isCurtainOn = false
     @State private var isCurtainOpened = false
+    @State private var loopNum : Float = 0
+    @State private var isCharacterTapped = false
     
     //modal view related
     @State private var isLetter = false
@@ -147,6 +149,12 @@ struct MainView: View {
                     .frame(width: 450, height: 160)
                     .offset(y:-120)
             }
+            LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
+                .frame(width: 70)
+                .offset(x:-100, y:-70)
+                .onTapGesture(perform: {
+                    isCharacterTapped.toggle()
+                })
             
             if(!isLampOn){
                 if(!isCurtainOn){
@@ -170,9 +178,15 @@ struct MainView: View {
             
             if (!isLampOn){
                 Image("default" + (Theme.current == .day ? "_night" : "_day"))
-                    .resizable()
                     .offset(x: 334, y: -100)
-                    .frame(width: 120, height: 120)
+                    .onTapGesture(perform: {
+                        isframe.toggle()
+                        isframe2 = true
+                    })
+            }
+            else{
+                Image("default")
+                    .offset(x: 334, y: -100)
                     .onTapGesture(perform: {
                         isframe.toggle()
                         isframe2 = true
@@ -207,14 +221,7 @@ struct MainView: View {
 //                            isframe2 = true
 //                        })
 //                }
-            else{
-                Image("default")
-                    .offset(x: 334, y: -100)
-                    .onTapGesture(perform: {
-                        isframe.toggle()
-                        isframe2 = true
-                    })
-            }
+            
 //            if(!isframe){
 //                if (!isLampOn){
 //                    Image("default"  +
@@ -498,6 +505,26 @@ struct MainView: View {
 //                        SwingAnimation(imgName: "frame").offset(x: 334, y: -107.5)
 //                    }
 //                }
+                if(isCharacterTapped){
+                    LottieView(jsonName: "love", loopMode: .repeat(.infinity))
+                        .frame(width: 155)
+                        .offset(x:200, y:50)
+                        .onTapGesture(perform: {
+                            isCharacterTapped.toggle()
+                        })
+                    
+                }
+                else{
+                    LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
+                        .frame(width: 155)
+                        .offset(x:200, y:50)
+                        .onTapGesture(perform: {
+                            isCharacterTapped.toggle()
+                        })
+
+                }
+                               
+                
                 
                 Button(action: {
                     isArchive.toggle()
@@ -576,9 +603,9 @@ struct MainView: View {
                 if(isprofile){
                     MainView()//프로필 화면
                 }
-                if(isArchive){
-                    ArchiveView()
-                }
+//                if(isArchive){
+//                    ArchiveView()
+//                }
 //                if(isSkyTapped){
 //                    GLPopupView()//날씨 모달
 //                }
