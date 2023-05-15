@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+
 struct ArchiveOpenView: View {
+    
+    @EnvironmentObject private var coordinator: Coordinator
     
     @State private var isActive: Bool = false
     @State private var title = ""
@@ -47,13 +50,15 @@ struct ArchiveOpenView: View {
                 
                 Button(action: {
                     isActive = true
+                    
                 }) {
                     Image("archive_open")
                 }
                 .offset(x: 0, y: 50)
-                .sheet(isPresented: $isActive) {
-                    MainView()
-                }
+                
+//                .sheet(isPresented: $isActive) {
+//                    MainView()
+//                }
                 HStack{
                     VStack{
                         Text("나에게 가장 소중한 것은")
