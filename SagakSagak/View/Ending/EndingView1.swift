@@ -11,62 +11,42 @@ struct EndingView1: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
+        ZStack {
+            Image("background").padding(.top, 20)
 
             ZStack {
-                Image("background")
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                GLNavBarItem(backPage: .story2, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이야기 들려줘서 고마워!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .end2, nextEnabled: true)
                 
-                GeometryReader { geometry in
-                    ZStack {
-                        Ellipse()
-                            .foregroundColor(.bg4)
-                            .frame(width: 1000, height: 400)
-                            .offset(y: 100)
+                Image("button_exit")
+                    .padding(.leading, 750)
+                    .onTapGesture {
+                        coordinator.push(.main)
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    
-                    HStack{
-                        Spacer()
-//                        GLNavBarItem(navBarTitle: "이야기를 들어줘서 고마워.", navBarBgColor: .system2, navBarFontColor: .system3)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    
-                    
-                VStack{
-                    LottieView(jsonName: "happy", loopMode: .loop)
-                        .frame(height: 360)
-                        .offset(y: 20)
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    .padding(.bottom, geometry.safeAreaInsets.bottom)
-                    
-                ZStack{
-//                        GLButtonSet(nextpage: .end2, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                    
-                    Button {
-                        coordinator.push(.end2)
-        //                    .environmentObject(snapshotImage)
-                    } label: {
-                       Text("다음으로")
-                    }
-                    
-                        
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                    
+            }.padding(.bottom, 280)
+            
+            GeometryReader { geometry in
+                ZStack {
+                    Ellipse()
+                        .foregroundColor(.bg4)
+                        .frame(width: 1000, height: 400)
+                        .offset(y: 100)
                 }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                .ignoresSafeArea()
-                
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .background(Color.bg2)
+            
+            VStack{
+                LottieView(jsonName: "happy", loopMode: .loop)
+                    .frame(height: 340)
+                    .offset(y:35)
+            }
         }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
+    }
 }
-
+    
 struct EndingView1_Previews: PreviewProvider {
     static var previews: some View {
         EndingView1()

@@ -9,65 +9,43 @@ import SwiftUI
 
 struct CharacterView1: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @State private var isNextBtnClicked = false
-    @State private var isPrevBtnClicked = false
     
     var body: some View {
-        
-//        if let image = UserDefaultsManager.shared.snapShot {
-//              Image(uiImage: image)
-//                .resizable()
-//                .frame(width: 300, height: 300) ///프레임 사이즈 결정
-//        }
-        
-        Image(uiImage: image)
-            .resizable()
-            .frame(width: 300, height: 300)
-        
-        
-        Image(uiImage: UserDefaultsManager.shared.snapShot!)
-            .resizable()
-            .frame(width: 400, height: 300)
-
-
+        ZStack {
+            Image("background").padding(.top, 20)
+            //                    .resizable()
+            //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
             ZStack {
-                Image("background")
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-                GeometryReader { geometry in
-                    ZStack {
-                        Ellipse()
-                            .foregroundColor(.bg4)
-                            .frame(width: 1000, height: 400)
-                            .offset(y: 100)
+                GLNavBarItem(backPage: .draw, backButtonImg: "button_back", shadowOn: true, navBarTitle: "정말 멋진 그림이야!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
+                
+                Image("button_exit")
+                    .padding(.leading, 750)
+                    .onTapGesture {
+                        coordinator.push(.main)
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-
-
-
+            }.padding(.bottom, 280)
+            
+            GeometryReader { geometry in
+                ZStack {
+                    Ellipse()
+                        .foregroundColor(.bg4)
+                        .frame(width: 1000, height: 400)
+                        .offset(y: 100)
                 }
-                HStack{
-//                    GLNavBarItem(navBarTitle: "정말 멋진 그림이야!", navBarBgColor: .system2, navBarFontColor: .system3)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-
+                .frame(width: geometry.size.width, height: geometry.size.height)
+            }
+            
             VStack{
                 LottieView(jsonName: "great", loopMode: .loop)
                     .frame(height: 340)
-                }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                .ignoresSafeArea()
-
-            ZStack{
-                    GLButtonSet(nextpage: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
-
-                }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                    .offset(y:35)
             }
-            .background(Color.bg2)
+        }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
         }
 
 }
@@ -78,3 +56,13 @@ struct CharacterView1_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
+
+//        if let image = UserDefaultsManager.shared.snapShot {
+//              Image(uiImage: image)
+//                .resizable()
+//                .frame(width: 300, height: 300) ///프레임 사이즈 결정
+//        }
+            
+//        Image(uiImage: UserDefaultsManager.shared.snapShot!)
+//            .resizable()
+//            .frame(width: 400, height: 300)

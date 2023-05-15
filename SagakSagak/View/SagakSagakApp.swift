@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+ @main
 struct SagakSagakApp: App {
     var body: some Scene {
         WindowGroup {

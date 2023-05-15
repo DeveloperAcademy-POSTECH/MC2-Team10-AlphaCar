@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ArchiveView: View {
     @State private var isActive : Bool = false
+    @EnvironmentObject private var coordinator: Coordinator
+    
     var body: some View {
         ZStack {
             Image("background_archive")
@@ -19,6 +21,13 @@ struct ArchiveView: View {
             ZStack{
                 GLNavBarTitle(navBarTitle: "어쩌구한 이야기책", navBarBgColor: .white, navBarFontColor: .blue)
                     .offset(x: 0, y: -140)
+                Image("greenButton")
+                    .offset(x:350, y:-110.5)
+                    .padding(.top, -53.5)
+                    .padding(.leading, 50)
+                    .onTapGesture {
+                        coordinator.push(.main)
+                    }
                 Button(action: {
                     isActive = true
                 }) {
