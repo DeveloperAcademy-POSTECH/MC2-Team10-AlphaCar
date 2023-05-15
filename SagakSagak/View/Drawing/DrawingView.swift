@@ -41,40 +41,14 @@ struct DrawingView: View {
     @State private var isNextBtnClicked : Bool = false
     @State private var isExitBtnClicked : Bool = false
     @EnvironmentObject private var snapshotImage: SnapshotImage
-    
-    func takeSnapshot() {
-        let snapshot = snapshot()
-        snapshotImage.image = snapshot
-        
-        UserDefaultsManager.shared.snapShot = snapshot
+
+    var imageView: some View {
+        Text("Hello, SwiftUI")
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
     }
-    
-    func snapshot() -> UIImage {
-            let canvasSize = CGSize(width: 650, height: 280)
-            let canvasView = Canvas { context, size in
-                for line in lines {
-                    var path = Path()
-                    path.addLines(line.points)
-                    
-                    context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-                }
-            }
-            .frame(width: canvasSize.width, height: canvasSize.height)
-            .background(Color.white)
-            .cornerRadius(50)
-            
-            let controller = UIHostingController(rootView: canvasView)
-            let view = controller.view
-            
-            view?.bounds = CGRect(origin: .zero, size: canvasSize)
-            view?.backgroundColor = .clear
-            
-            let renderer = UIGraphicsImageRenderer(size: canvasSize)
-            
-            return renderer.image { _ in
-                view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
-            }
-        }
     
     var body: some View {
         if !isNextBtnClicked && !isExitBtnClicked {
@@ -89,7 +63,7 @@ struct DrawingView: View {
                         if isDrawing {
                             isNextBtnClicked = true
                         }
-                        takeSnapshot()
+
                     }
                     .padding(.horizontal, 47)
                     .padding(.bottom, -4)
@@ -137,37 +111,29 @@ struct DrawingView: View {
                                 .cornerRadius(90)
                                 .padding(.bottom, 10)
                                 .padding(.top, 10)
-                            Canvas{ context, size in
-                                for line in lines {
-                                    var path = Path()
-                                    path.addLines(line.points)
-                                    
-                                    context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-                                }
-                            }.frame(width: 600, height: 280)
-                                .background(Color.white)
-                                .cornerRadius(50)
-                                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                                    isDrawing = true
-                                    let newPoint = value.location
-                                    //newPoint : 그림 그리는 다음 위치
-                                    /*
-                                     새로운 라인의 객체
-                                     value.translation: 사용자의 터치 이동 거리(이전~이후)
-                                     -> 이게 0이면, 새로운 터치를 시작했다는 의미!
-                                     */
-                                    if value.translation.width + value.translation.height == 0{
-                                        lines.append(Line(points: [newPoint], color: selectedColor, lineWidth: selectedWidth))
-                                    }
-                                    /*
-                                     0이 아니면 "이어서 그림"을 의미!
-                                     이전 터치의 index를 찾아서,newPoint를 이전에 추가합니다!
-                                     */
-                                    else{
-                                        let index = lines.count - 1
-                                        lines[index].points.append(newPoint)
-                                    }
-                                }))
+                            
+                            // MARK: Canvas
+                            
+                            
+                            canvas
+                            
+                            
+                            Button {
+                                let image = canvas.snapshot()
+                                UserDefaultsManager.shared.snapShot = image
+                            } label: {
+                                Text("Capture Image")
+                            }
+
+                            
+                            // MARK: Canvas
+                            
+//                            Button("Save to image") {
+//                                 let image = Canvas.snapshot()
+//
+//                                 // Do what you want with the image now.
+//                                 print(image)
+//                             }
                         }
                         
                         VStack() {
@@ -237,6 +203,41 @@ struct DrawingView: View {
 //            StoryView1().environmentObject(snapshotImage)
         }
     }
+    
+    
+    var canvas: some View {
+        Canvas{ context, size in
+            for line in lines {
+                var path = Path()
+                path.addLines(line.points)
+                
+                context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
+            }
+        }.frame(width: 600, height: 280)
+            .background(Color.white)
+            .cornerRadius(50)
+            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                isDrawing = true
+                let newPoint = value.location
+                //newPoint : 그림 그리는 다음 위치
+                /*
+                 새로운 라인의 객체
+                 value.translation: 사용자의 터치 이동 거리(이전~이후)
+                 -> 이게 0이면, 새로운 터치를 시작했다는 의미!
+                 */
+                if value.translation.width + value.translation.height == 0{
+                    lines.append(Line(points: [newPoint], color: selectedColor, lineWidth: selectedWidth))
+                }
+                /*
+                 0이 아니면 "이어서 그림"을 의미!
+                 이전 터치의 index를 찾아서,newPoint를 이전에 추가합니다!
+                 */
+                else{
+                    let index = lines.count - 1
+                    lines[index].points.append(newPoint)
+                }
+            }))
+    }
 }
 
 struct DrawingView_Previews: PreviewProvider {
@@ -245,3 +246,23 @@ struct DrawingView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
+
+
+
+//extension View{
+//    func snapshot() -> UIImage{
+//        let controller = UIHostingController(rootView: self.edgesIgnoringSafeArea(.all))
+//        let view = controller.view
+//        
+//        let targetSize = controller.view.intrinsicContentSize
+//        
+//        view?.bounds = CGRect(origin: .zero, size: targetSize)
+//        view?.backgroundColor = .clear
+//        
+//        let renderer = UIGraphicsImageRenderer(size: targetSize)
+//        
+//        return renderer.image { _ in
+//            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+//        }
+//    }
+//}
