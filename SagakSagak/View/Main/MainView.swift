@@ -104,6 +104,19 @@ struct MainView: View {
     @State private var moveToLetter = false
     @State private var shouldNavigate = false
     
+//    //ToCameraView에서 이미지 받아오기
+//    @EnvironmentObject var imageData: ImageData
+    
+    @State var showImagePicker = false
+    @State var selectedUIImage: UIImage?
+    
+//    @Binding var image: UIImage?
+    
+//    func loadImage() {
+//        guard let selectedImage = selectedUIImage else { return }
+//        image = Image(uiImage: selectedImage)
+//    }
+    
     //weather related
     @State var weather: String = "sky"
     
@@ -156,14 +169,44 @@ struct MainView: View {
             }
             
             if (!isLampOn){
-                Image("default"  +
-                      (Theme.current == .day ? "_night" : "_day"))
+                Image("default" + (Theme.current == .day ? "_night" : "_day"))
+                    .resizable()
                     .offset(x: 334, y: -100)
+                    .frame(width: 120, height: 120)
                     .onTapGesture(perform: {
                         isframe.toggle()
                         isframe2 = true
                     })
             }
+//                if let image = image {
+//                    Image(uiImage: image)
+//                        .resizable()
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            isframe2 = true
+//                        })
+//                        .frame(width: 120, height: 120)
+//                } else {
+                    
+//
+//                if(showImagePicker){
+//                    image
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            isframe2 = true
+//                        })
+//                }
+//                else{
+//                    Image("default"  +
+//                          (Theme.current == .day ? "_night" : "_day"))
+//                        .offset(x: 334, y: -100)
+//                        .onTapGesture(perform: {
+//                            isframe.toggle()
+//                            isframe2 = true
+//                        })
+//                }
             else{
                 Image("default")
                     .offset(x: 334, y: -100)
@@ -596,6 +639,7 @@ extension DateFormatter {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
+//        MainView(image: .constant(nil))
         MainView()
             .previewInterfaceOrientation(.landscapeRight)
     }

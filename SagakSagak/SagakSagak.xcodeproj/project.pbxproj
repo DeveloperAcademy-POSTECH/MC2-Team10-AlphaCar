@@ -45,6 +45,7 @@
 		5739EC872A11333D00AEAB5E /* curtain_open_n.json in Resources */ = {isa = PBXBuildFile; fileRef = 5739EC7B2A11333C00AEAB5E /* curtain_open_n.json */; };
 		5739EC882A11333D00AEAB5E /* curtain_close_n.json in Resources */ = {isa = PBXBuildFile; fileRef = 5739EC7C2A11333C00AEAB5E /* curtain_close_n.json */; };
 		5739EC8A2A11333D00AEAB5E /* curtain_open.json in Resources */ = {isa = PBXBuildFile; fileRef = 5739EC7E2A11333C00AEAB5E /* curtain_open.json */; };
+		5746C9B32A1276500047102C /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5746C9B22A1276500047102C /* ImageData.swift */; };
 		A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE6E2A0E77E400676483 /* SoundManager.swift */; };
 		A80EAE8E2A0E912800676483 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE8D2A0E912800676483 /* HapticManager.swift */; };
 		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
@@ -139,6 +140,7 @@
 		5739EC7B2A11333C00AEAB5E /* curtain_open_n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = curtain_open_n.json; sourceTree = "<group>"; };
 		5739EC7C2A11333C00AEAB5E /* curtain_close_n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = curtain_close_n.json; sourceTree = "<group>"; };
 		5739EC7E2A11333C00AEAB5E /* curtain_open.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = curtain_open.json; sourceTree = "<group>"; };
+		5746C9B22A1276500047102C /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		A80EAE6E2A0E77E400676483 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A80EAE8D2A0E912800676483 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				5722D82F2A0CCFA00023B0F6 /* MainView.swift */,
 				5739EBF32A0F8D0B00AEAB5E /* ArchiveOpenView.swift */,
 				5739EBF42A0F8D0B00AEAB5E /* ArchiveView.swift */,
+				5746C9B22A1276500047102C /* ImageData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				BFCE55282A0B8D4B003A85CA /* FaceView.swift in Sources */,
 				A80EAE922A0EE4B000676483 /* View+.swift in Sources */,
 				A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */,
+				5746C9B32A1276500047102C /* ImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,20 @@ import AVFoundation
 
 struct ToCameraView: View {
     @State private var isClicked: Bool = false
-    @State private var selectedImage: UIImage? = nil
+    @State var selectedImage: UIImage?
     @State private var showImagePicker: Bool = false
     @State private var showCamera: Bool = false
     @State private var isShowingCamera: Bool = false
     @State private var isBackBtnClicked: Bool = false
+    @State var image: Image?
+    
+    //MainView로 이미지 전달
+//    @EnvironmentObject var imageData: ImageData
+
+    func loadImage() {
+        guard let selectedImage = selectedImage else { return }
+        image = Image(uiImage: selectedImage)
+    }
     
     var body: some View {
         if !isBackBtnClicked {
@@ -34,12 +43,22 @@ struct ToCameraView: View {
                     
                     ZStack {
                         ZStack {
-                            if selectedImage == nil {
+                            if let image = image {
+                                image
+                                    .resizable()
+                                    .frame(width: 180,height: 140)
+                                    .padding(.top, 35)
+                            } else {
                                 Image("AddImgBtn").padding(.top, 20)
-                            }else{
-                                Image(uiImage: selectedImage!).resizable()
-                                    .frame(width: 180,height: 140).padding(.top, 35)
                             }
+//                            if selectedImage == nil {
+//                                Image("AddImgBtn").padding(.top, 20)
+//                            }else{
+//                                image
+//                                    .resizable()
+//                                    .frame(width: 180,height: 140)
+//                                    .padding(.top, 35)
+//                            }
                             
                             Image("defaultFrame")
                         }.onTapGesture {
@@ -105,21 +124,25 @@ struct ToCameraView: View {
             
             .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage)
+//                imageData.image = $selectedImage
             }
         } else {
+//            MainView(image: $selectedImage)
             MainView()
         }
     }
+        
     
-    private func loadImage() {
-        if let image = selectedImage {
-            
-        }
-    }
+//    private func loadImage() {
+//        if let image = selectedImage {
+//
+//        }
+//    }
     
     func openLibrary() {
         showImagePicker = true
     }
+    
 }
 
 struct ImagePicker: UIViewControllerRepresentable {
@@ -164,6 +187,7 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 struct ToCameraView_Previews: PreviewProvider {
     static var previews: some View {
+//        ToCameraView(selectedImage: .constant(nil))
         ToCameraView()
             .previewInterfaceOrientation(.landscapeRight)
     }
