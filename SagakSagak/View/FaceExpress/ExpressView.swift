@@ -65,6 +65,7 @@ struct ExpressView: View {
             CharacterView2()
         } else {
             EmotionView(onClicked: false, textBlock: "감정").environmentObject(self.emotionFace)
+                .navigationBarBackButtonHidden(true)
         }
 
     }

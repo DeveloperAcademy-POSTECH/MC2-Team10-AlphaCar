@@ -27,6 +27,7 @@ struct EmotionView: View {
                 tabBarView
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: navBar
