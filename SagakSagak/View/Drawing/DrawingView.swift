@@ -36,11 +36,9 @@ struct DrawingView: View {
     @State private var isDrawing : Bool = false
     @State private var isRedTapped : Bool = false
     @State private var isOrangeTapped : Bool = false
-    @EnvironmentObject private var coordinator: Coordinator
     
-    @State private var isNextBtnClicked : Bool = false
-    @State private var isExitBtnClicked : Bool = false
-    @EnvironmentObject private var snapshotImage: SnapshotImage
+    @State private var isSaved : Bool = false
+    @EnvironmentObject private var coordinator: Coordinator
 
     var imageView: some View {
         Text("Hello, SwiftUI")
@@ -51,159 +49,86 @@ struct DrawingView: View {
     }
     
     var body: some View {
-        if !isNextBtnClicked && !isExitBtnClicked {
-            ZStack {
-                Image("background")
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                ZStack{
-                    ZStack{
-                        GLButtonSet(nextpage: .character1, backButtonImage: "button_back", forwardButtonImage: isDrawing ? "button_next" : "button_next_enabled")
-                    }.onTapGesture {
-                        if isDrawing {
-                            isNextBtnClicked = true
-                        }
+        ZStack {
+            Image("background").padding(.top, 20)
 
-                    }
-                    .padding(.horizontal, 47)
-                    .padding(.bottom, -4)
-                    .navigationBarBackButtonHidden(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                }
-                
-                VStack{
-                    //버튼으로 바꾸기
-                    HStack {
-                        VStack{
-                            Spacer(minLength: 100)
-                            ForEach(crayonColors1, id: \.id) { crayon in
-                                Button(action: {
-                                    selectedWidth = 5
-                                    selectedColor = crayon.color
-                                    selectedCrayon = crayon.id
-                                }, label: {
-                                    Image(crayon.image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 108, height: 28)
-                                        .padding(.bottom, 3)
-                                        .padding(.trailing, 30)
-                                        .offset(x: selectedCrayon == crayon.id ? 20 : 0, y:-10)
-                                        .animation(.spring(), value: selectedCrayon)
-                                })
-                            }
-                            Image("")
-                                .resizable()
-                                .frame(width: 48, height: 48)
-                            //                            .padding(.top, 9)
-                                .padding(.leading, 24)
-                                .padding(.bottom, 24)
-                        }
-                        .padding(.trailing, 24)
-                        VStack {
-                            Text("가람이에게 가장 소중한 것을 그려보자!")
-                                .font(FontManager.shared.nanumsquare(.extrabold, 18))
-                                .frame(width: 300)
-                                .foregroundColor(.system1)
-                                .padding(.horizontal, 80)
-                                .padding(.vertical, 15)
-                                .background(Color.white)
-                                .cornerRadius(90)
-                                .padding(.bottom, 10)
-                                .padding(.top, 10)
-                            
-                            // MARK: Canvas
-                            
-                            
-                            canvas
-                            
-                            
-                            Button {
-                                let image = canvas.snapshot()
-                                UserDefaultsManager.shared.snapShot = image
-                            } label: {
-                                Text("Capture Image")
-                            }
-
-                            
-                            // MARK: Canvas
-                            
-//                            Button("Save to image") {
-//                                 let image = Canvas.snapshot()
-//
-//                                 // Do what you want with the image now.
-//                                 print(image)
-//                             }
-                        }
-                        
-                        VStack() {
-                            Image("button_exit")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 48, height: 48)
-                            //                            .padding(.bottom, 9)
-                                .padding(.trailing, 48)
-                                .padding(.top, 24)
-                                .onTapGesture {
-                                    isExitBtnClicked = true
-                                }
-                            
-                            //MARK: 화면 전환
-//                            Button("화면"){
-//                                coordinator.push(.character1)
-//                            }
-                            
-                            ForEach(crayonColors2, id: \.0) { crayon in
-                                Button(action: {
-                                    selectedWidth = 5
-                                    selectedColor = crayon.color
-                                    selectedCrayon = crayon.id
-                                }, label: {
-                                    Image(crayon.image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 108, height: 28)
-                                        .padding(.bottom, 3)
-                                        .padding(.leading, 30)
-                                        .offset(x: selectedCrayon == crayon.id ? -20 : 0, y:-10)
-                                        .animation(.spring(), value: selectedCrayon)
-                                })
-                            }
+            ZStack{
+                //버튼으로 바꾸기
+                HStack(alignment: .center) {
+                    VStack{
+                        ForEach(crayonColors1, id: \.id) { crayon in
                             Button(action: {
-                                selectedWidth = 20
-                                selectedColor = .white
-                                selectedCrayon = 0
-                            }) {
-                                Image("eraser")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 108, height: 68)
-                                    .offset(x: selectedWidth == 20 ? -21 : 0, y: 0)
-                                    .animation(.spring(), value: selectedWidth)
-                                    .padding(.bottom, 3)
-                                    .padding(.trailing, 24)
+                                selectedWidth = 5
+                                selectedColor = crayon.color
+                                selectedCrayon = crayon.id
+                            }, label: {
+                                Image(crayon.image)
+                                    .offset(x: selectedCrayon == crayon.id ? 0 : -20, y:0)
+                                    .animation(.spring(), value: selectedCrayon)
                             }
-                            
+                            )
                         }
-                        .navigationBarBackButtonHidden(true)
-                        .padding(.leading, 24)
-                        // .layoutPriority(0)
+                    }
+                        // MARK: Canvas
+                        canvas
+                    
+                    VStack {
+                        //MARK: 화면 전환
+                        ForEach(crayonColors2, id: \.0) { crayon in
+                            Button(action: {
+                                selectedWidth = 5
+                                selectedColor = crayon.color
+                                selectedCrayon = crayon.id
+                            }, label: {
+                                Image(crayon.image)
+                                    .offset(x: selectedCrayon == crayon.id ? 0 : 20, y:0)
+                                    .animation(.spring(), value: selectedCrayon)
+                            })
+                        }
+                        Button(action: {
+                            selectedWidth = 20
+                            selectedColor = .white
+                            selectedCrayon = 0
+                        }) {
+                            Image("eraser")
+                                .offset(x: selectedWidth == 20 ? 0 : 20, y: 0)
+                                .animation(.spring(), value: selectedWidth)
+                                .padding(.bottom, 3)
+                                .padding(.trailing, 24)
+                        }
+
+                    }
+                    .navigationBarBackButtonHidden(true)
+                }.padding(.top, 90)
+                
+                ZStack {
+                    ZStack {
+                        GLNavBarItem(
+                            backPage: .letter, backButtonImg: "button_back", shadowOn: true, navBarTitle: "가람이에게 가장 소중한 것을 그려보자", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .character1, nextEnabled: isDrawing ? true : false)
+                        Image("button_exit")
+                            .padding(.leading, 750)
+                            .onTapGesture {
+                                coordinator.push(.main)
+                            }
+                    }.padding(.bottom, 280)
+                    
+                    if !isSaved {
+                        Button {
+                            let image = canvas.snapshot()
+                            UserDefaultsManager.shared.snapShot = image
+                            isSaved = true
+                        } label: {
+                            Rectangle()
+                                .frame(width: 50, height: 50).foregroundColor(.yellow).padding([.top, .leading], 10).opacity(0)
+                        }.offset(x:250, y:-145)
                     }
                 }
-                
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.bg2)
-            .ignoresSafeArea()
-            
-        } else if isExitBtnClicked {
-            MainView()
-        } else {
-            CharacterView1()
-//            StoryView1().environmentObject(snapshotImage)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
     }
-    
     
     var canvas: some View {
         Canvas{ context, size in
@@ -213,9 +138,9 @@ struct DrawingView: View {
                 
                 context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
             }
-        }.frame(width: 600, height: 280)
+        }.frame(width: 580, height: 280)
             .background(Color.white)
-            .cornerRadius(50)
+            .cornerRadius(40)
             .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
                 isDrawing = true
                 let newPoint = value.location

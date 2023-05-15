@@ -12,48 +12,40 @@ struct CharacterView2: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-
+        ZStack {
+            Image("background").padding(.top, 20)
+            //                    .resizable()
+            //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
             ZStack {
-                Image("background")
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
-                GeometryReader { geometry in
-                    ZStack {
-                        Ellipse()
-                            .foregroundColor(.bg4)
-                            .frame(width: 1000, height: 400)
-                            .offset(y: 100)
+                GLNavBarItem(
+                    backPage: .character1, backButtonImg: "button_back", shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?" , navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .face, nextEnabled: true)
+                Image("button_exit")
+                    .padding(.leading, 750)
+                    .onTapGesture {
+                        coordinator.push(.main)
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    
-                    
-
+            }.padding(.bottom, 280)
+            
+            GeometryReader { geometry in
+                ZStack {
+                    Ellipse()
+                        .foregroundColor(.bg4)
+                        .frame(width: 1000, height: 400)
+                        .offset(y: 100)
                 }
-                
-                HStack{
-                    Spacer()
-//                    GLNavBarItem(navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: .system1)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                
-            VStack{
-                LottieView(jsonName: "happy", loopMode: .loop)
-                    .frame(height: 360)
-                    .offset(y: 20)
-                }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                
-            ZStack{
-                    GLButtonSet(nextpage: .face, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                    
-                }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                .ignoresSafeArea()
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .background(Color.bg2)
+            VStack{
+                LottieView(jsonName: "love", loopMode: .loop)
+                    .frame(height: 340)
+                    .offset(y:35)
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
         }
 
 }

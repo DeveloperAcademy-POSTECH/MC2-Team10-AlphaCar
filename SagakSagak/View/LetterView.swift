@@ -13,10 +13,8 @@ struct LetterView: View {
     @State private var isAnimating: Bool = false
     @State private var letterOpacity: Double = 1
     @State private var letterOpacityReverse: Double = 0
-    @State private var isBackBtnClicked: Bool = false
-    @State private var isNextBtnClicked: Bool = false
     
-    @StateObject private var snapshotImage = SnapshotImage()
+    @EnvironmentObject private var coordinator: Coordinator
     
     func animateOpacityAndPosition(opacity: Double, position: CGFloat, duration: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -44,63 +42,55 @@ struct LetterView: View {
     }
     
     var body: some View {
-        if !isBackBtnClicked && !isNextBtnClicked {
-            ZStack {
-                Rectangle().foregroundColor(Color(hex: "D5F0E7").opacity(0.5)).ignoresSafeArea()
+        ZStack {
+            Rectangle().foregroundColor(Color(hex: "D5F0E7").opacity(0.5)).ignoresSafeArea()
+            
+            ZStack{
                 
-                ZStack{
-                    
-                    Image("letterHead")
-                        .offset(x:0, y:coverPosition + 8)
-                        .opacity(letterOpacity)
-                        .onAppear {
-                            animateOpacityAndPosition(opacity: 0, position: 300, duration: 2)
-                        }
-                    ZStack{
-                        Image("lettterBody")
-                            .offset(x:0, y: letterPosition + 215)
-                            .onAppear {
-                                animatePosition(position: -200, duration: 0.75)
-                            }
-                        
-                        Image("나에게 가장 소중한 것은 무엇일까_")
-                            .offset(x:0, y: letterPosition + 230)
-                        
-                        Image("button_modal_next")
-                            .offset(x: 230, y: letterPosition + 340)
-                            .onTapGesture {
-                                isNextBtnClicked = true
-                            }
-                            
-                        Image("오늘의_이야기")
-                            .offset(x:0, y: letterPosition + 90)
-                            .opacity(letterOpacityReverse)
-                            .onAppear {
-                                animateOpacity(opacity: 1, duration: 0.5)
-                            }
+                Image("letterHead")
+                    .offset(x:0, y:coverPosition + 8)
+                    .opacity(letterOpacity)
+                    .onAppear {
+                        animateOpacityAndPosition(opacity: 0, position: 300, duration: 2)
                     }
+                ZStack{
+                    Image("letterBody")
+                        .offset(x:0, y: letterPosition + 215)
+                        .onAppear {
+                            animatePosition(position: -200, duration: 0.75)
+                        }
                     
+                    Image("나에게 가장 소중한 것은 무엇일까_")
+                        .offset(x:0, y: letterPosition + 230)
+                    
+                    ZStack{
+                        GLNavBarItem(
+                            backPage: .main, backButtonImg: "", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "D6E7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .draw, nextEnabled: true)
+                        .offset(x:0, y: letterPosition + 90)
+                        .padding(.leading, 40)
+                        .opacity(letterOpacityReverse)
+                    }.onAppear {
+                        animateOpacity(opacity: 1, duration: 0.5)
+                    }
                     Image("greenButton")
-                        .offset(x:350, y:-110)
+                        .offset(x:350, y:-110.5)
+                        .padding(.top, -53.5)
+                        .padding(.leading, 50)
                         .opacity(letterOpacityReverse)
                         .onAppear {
                             animateOpacity(opacity: 1, duration: 1)
                         }
                         .onTapGesture {
-                            isBackBtnClicked = true
-                        }
-                    
-                    Image("letterFoot").offset(x:0, y:coverPosition + 115)
-                        .opacity(letterOpacity)
-                        .onAppear {
-                            animateOpacityAndPosition(opacity: 0, position: 100, duration: 2)
+                            coordinator.push(.main)
                         }
                 }
+                
+                Image("letterFoot").offset(x:0, y:coverPosition + 115)
+                    .opacity(letterOpacity)
+                    .onAppear {
+                        animateOpacityAndPosition(opacity: 0, position: 100, duration: 2)
+                    }
             }
-        } else if isNextBtnClicked{
-          DrawingView().environmentObject(snapshotImage)
-        } else {
-            MainView()
         }
     }
 }

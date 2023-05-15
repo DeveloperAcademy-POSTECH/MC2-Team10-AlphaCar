@@ -10,50 +10,58 @@ import SwiftUI
 struct StoryView1: View {
     @AppStorage(UserDefaultKey.snapShot.rawValue) var snapShotData: Data?
     @EnvironmentObject private var coordinator: Coordinator
-    @State private var isNextBtnClicked = false
-    @State private var isPrevBtnClicked = false
 
     var body: some View {
-        if !isNextBtnClicked && !isPrevBtnClicked { 
+        ZStack {
+            Image("background").padding(.top, 20)
             ZStack {
-                Image("Group 10226").padding(.top,20)
-                Rectangle().foregroundColor(Color(hex: "D5F0E7").opacity(0.5)).ignoresSafeArea()
+                Image("storyBoard")
+                    .padding(.top, 20)
+                    .offset(x:0, y: 0)
+                
+                if let image = UserDefaultsManager.shared.snapShot {
+                    
+                    ZStack{
+//                        Rectangle()
+                        Image(uiImage: image)
+                            .resizable()
+                            .frame(width: 300, height: 150)
+                            .padding(.top, 110)
+                            .foregroundColor(.yellow)
+                        
+                        Text("나에게 가장 소중한 것은")
+                            .font(FontManager.shared.nanumsquare(.bold, 16))
+                            .padding(.top, -70)
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color(hex: "D6E7FF"))
+                            .frame(width: 360, height:170)
+                            .foregroundColor(.white)
+                            .padding(.top, 110)
+                    }
+                } else {
+                    Text("Snapshot image is not available.")
+                }
                 
                 ZStack{
-                    GLButtonSet(nextpage: .story2, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-
-                ZStack {
-                    if let data = snapShotData, let snapshot = UIImage(data: data) {
-                        Image("letterBody")
-                        VStack{
-                            Image("오늘의_이야기").padding(.top,10)
-                            Image("나에게 가장 소중한 것은").padding(.vertical,20).padding(.top,-10)
-                        }.padding(.bottom,200)
-                        ZStack{
-                            Image("imageBody").resizable().frame(width:450, height:200)
-                            Image("button_modal_back").offset(x: -360, y: 80)
-                                .onTapGesture {
-                                    isNextBtnClicked = true
-                                }
-                            Image("button_modal_next").offset(x: 360 , y: 80)
-                                .onTapGesture {
-                                    isNextBtnClicked = true
-                                }
-                            Image(uiImage: snapshot)
-                                .resizable().scaledToFit().frame(width:450,height:450)
-                                .offset(x:-15,y:0)
-                        }.padding(.top,90)
-                    } else {
-                        Text("Snapshot image is not available.")
-                    }
-                }
-            }.navigationBarBackButtonHidden(true)
-        } else {
-            StoryView2()
+                    GLNavBarItem(
+                        backPage: .emotion, backButtonImg: "button_modal_back", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "D6E7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .story2, nextEnabled: true)
+                    .padding(.leading, 0).padding(.top, 30)
+                    
+                    Image("button_exit")
+                        .padding(.leading, 750)
+                        .padding(.top, -20)
+                        .onTapGesture {
+                            coordinator.push(.main)
+                        }
+                }.padding(.bottom, 260)
+                
+            }
         }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
     }
 }
 

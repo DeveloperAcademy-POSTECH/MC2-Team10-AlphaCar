@@ -8,46 +8,43 @@
 import SwiftUI
 
 struct EndingView2: View {
+    @EnvironmentObject private var coordinator: Coordinator
+    
     var body: some View {
-
+        ZStack {
+            Image("background").padding(.top, 20)
+            
             ZStack {
-                Image("background")
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                GLNavBarItem(backPage: .end1, backButtonImg: "button_back", shadowOn: true, navBarTitle: "내일 또 만나자!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .end3, nextEnabled: true)
                 
-                GeometryReader { geometry in
-                    ZStack {
-                        Ellipse()
-                            .foregroundColor(.bg4)
-                            .frame(width: 1000, height: 400)
-                            .offset(y: 100)
+                Image("button_exit")
+                    .padding(.leading, 750)
+                    .onTapGesture {
+                        coordinator.push(.main)
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    
+            }.padding(.bottom, 280)
+            
+            GeometryReader { geometry in
+                ZStack {
+                    Ellipse()
+                        .foregroundColor(.bg4)
+                        .frame(width: 1000, height: 400)
+                        .offset(y: 100)
                 }
-                HStack{
-                    Spacer()
-//                    GLNavBarItem(navBarTitle: "내일 또 만나자, 사랑해♥︎", navBarBgColor: .system2, navBarFontColor: .system3)
-                }
+                .frame(width: geometry.size.width, height: geometry.size.height)
+            }
+            
             VStack{
                 LottieView(jsonName: "love", loopMode: .loop)
-                    .frame(height: 360)
-                    .offset(y: 20)
-                }
-                .navigationBarBackButtonHidden(true)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-
-                
-            ZStack{
-                    GLButtonSet(nextpage: .end3, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                    
-                }
-            .navigationBarBackButtonHidden(true)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-            .ignoresSafeArea()
+                    .frame(height: 340)
+                    .offset(y:35)
             }
-            .background(Color.bg2)
         }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
+    }
 }
 
 struct EndingView2_Previews: PreviewProvider {
