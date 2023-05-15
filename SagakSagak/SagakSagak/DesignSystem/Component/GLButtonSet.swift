@@ -14,6 +14,7 @@ import SwiftUI
 
 struct GLButtonSet: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var snapshotImage: SnapshotImage
     
     let nextpage: Page ///이동하려는 페이지
     let backButtonImage: String ///뒤로 가기 버튼 이미지명
