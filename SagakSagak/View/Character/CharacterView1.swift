@@ -13,12 +13,28 @@ struct CharacterView1: View {
     @State private var isPrevBtnClicked = false
     
     var body: some View {
+        
+//        if let image = UserDefaultsManager.shared.snapShot {
+//              Image(uiImage: image)
+//                .resizable()
+//                .frame(width: 300, height: 300) ///프레임 사이즈 결정
+//        }
+        
+        Image(uiImage: image)
+            .resizable()
+            .frame(width: 300, height: 300)
+        
+        
+        Image(uiImage: UserDefaultsManager.shared.snapShot!)
+            .resizable()
+            .frame(width: 400, height: 300)
+
 
             ZStack {
                 Image("background")
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
+
                 GeometryReader { geometry in
                     ZStack {
                         Ellipse()
@@ -27,15 +43,15 @@ struct CharacterView1: View {
                             .offset(y: 100)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
-                    
-                    
+
+
 
                 }
                 HStack{
                     GLNavBarItem(navBarTitle: "정말 멋진 그림이야!", navBarBgColor: .system2, navBarFontColor: .system3)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                
+
             VStack{
                 LottieView(jsonName: "great", loopMode: .loop)
                     .frame(height: 340)
@@ -43,10 +59,10 @@ struct CharacterView1: View {
                 .navigationBarBackButtonHidden(true)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                 .ignoresSafeArea()
-                
+
             ZStack{
                     GLButtonSet(nextpage: .character2, backButtonImage: "button_back", forwardButtonImage: "button_next")
-                    
+
                 }
                 .navigationBarBackButtonHidden(true)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
