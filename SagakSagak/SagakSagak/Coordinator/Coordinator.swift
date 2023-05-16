@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 enum Page: String, Identifiable {
-    case splash, main, letter, draw, character1, character2, face, emotion, story1, story2, end1, end2, end3, archive1, archive2
+    case splash, main, letter, draw, character1, character2, face, emotion, story1, story2, end1, end2, end3, archive1, archive2, toCamera
     //, login, signup
     
     var id: String {
@@ -49,6 +49,8 @@ class Coordinator: ObservableObject{
             ArchiveView().navigationBarBackButtonHidden()
         case .archive2:
             ArchiveOpenView().navigationBarBackButtonHidden()
+        case .toCamera:
+            ToCameraView().navigationBarBackButtonHidden()
         case .letter:
             LetterView().navigationBarBackButtonHidden()
         case .draw:

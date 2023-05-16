@@ -265,6 +265,7 @@ struct MainView: View {
                         .offset(x: 334, y: -107.5)
                     
                     .onTapGesture(perform: {
+                        coordinator.push(.toCamera)
                         isframe.toggle()
                         isframe2 = true
                     })
@@ -274,6 +275,7 @@ struct MainView: View {
                         .offset(x: 334, y: -107.5)
                         
                         .onTapGesture(perform: {
+                            coordinator.push(.toCamera)
                             isframe.toggle()
                             isframe2 = true
                         })
@@ -359,17 +361,7 @@ struct MainView: View {
                         .offset(x: 0, y: 97)
                     }
                 }
-                //각 버튼에 따라 modal view 뜨는 부분
-                if(isframe2){
-                    ToCameraView()
-                    //사진 모달
-                }
-//                if(isprofile){
-//                    MainView()//프로필 화면
-//                }
-//                if(isSkyTapped){
-//                    GLPopupView()//날씨 모달
-//                }
+
             }
             .ignoresSafeArea()
             .onAppear(perform: {
