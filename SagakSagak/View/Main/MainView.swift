@@ -76,6 +76,7 @@ enum ButtonStyle: String, Identifiable{
 
 let buttons: [ButtonStyle] = [.archive, .clock, .frame, .lamp, .letter]
 
+
 struct MainView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
@@ -121,6 +122,9 @@ struct MainView: View {
     
     //weather related
     @State var weather: String = "sky"
+    
+    //날씨뷰 모달 확인
+    @State var isWeatherPresented: Bool = false
     
     var curtainOpenName: String {
         var baseName = "curtain_open"
@@ -277,6 +281,17 @@ struct MainView: View {
 //                    })
 //                    .offset(x: 334, y: -100)
 //            }
+            
+            
+            
+            ///날씨모달 버튼
+            VStack {
+                Button("Show Weather Modal") {
+                    isWeatherPresented.toggle()
+                }
+            }
+            
+            
             
             ZStack {
                 Button(action: {
@@ -601,6 +616,20 @@ struct MainView: View {
 //                    ToCameraView()
 //                        .fullScreenCover(isPresented: $shouldNavigate, content: {})
 //                }
+                
+                
+                //날씨모달
+                ZStack{
+                    WeatherView(isWeatherPresented: $isWeatherPresented, selectedWeatherImageName: .constant(""), weathetImageName: .constant(""))
+                        .background(Color.clear)
+                        .cornerRadius(30)
+                        .opacity(isWeatherPresented ? 1 : 0)
+                }
+                
+                
+                
+                
+                
                 //각 버튼에 따라 modal view 뜨는 부분
                 if(isframe2){
                     ToCameraView()
@@ -609,9 +638,9 @@ struct MainView: View {
 //                if(isprofile){
 //                    MainView()//프로필 화면
 //                }
-                if(isArchive){
-                    ArchiveView()
-                }
+//                if(isArchive){
+//                    ArchiveView()
+//                }
 //                if(isSkyTapped){
 //                    GLPopupView()//날씨 모달
 //                }
