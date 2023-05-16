@@ -19,6 +19,8 @@ struct EmotionView: View {
     @State var textBlock: String
     ///테스트 비교 필요함 - 텍스트와 같으면 버튼 색깔 바꾸도록 하기
     
+    private let soundManager = SoundManager.instance
+    
     var body: some View {
         ZStack {
             Color.bg3.ignoresSafeArea()
@@ -45,6 +47,7 @@ struct EmotionView: View {
             
             Button {
                 coordinator.popToRoot()
+                soundManager.playSound(sound: .exit)
             } label: {
                 Image("button_exit")
                     .shadow(color: Color(hex: "26775F").opacity(0.15),
@@ -58,6 +61,9 @@ struct EmotionView: View {
         .padding(.top, 24)
         .padding(.trailing, 24)
         .padding(.leading, 142)
+        .onAppear(perform: {
+            SoundManager.instance.playTts(sound: .facename)
+        })
     }
     
     //MARK: Contents
