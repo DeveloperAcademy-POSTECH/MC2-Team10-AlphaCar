@@ -24,6 +24,9 @@ class SoundManager {
         case main = "main_music"
         case archive = "archive_music"
         case splash = "splash_music"
+        case approve = "approve_sound"
+        case click = "click_sound"
+        case select = "select_sound"
     }
     
     func playSound(sound: SoundOption) {
