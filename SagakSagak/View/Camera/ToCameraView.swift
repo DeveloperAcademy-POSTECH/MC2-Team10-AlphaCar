@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 struct ToCameraView: View {
-    @State private var isClicked: Bool = true
+    @State private var isClicked: Bool = false
     @State var selectedImage: UIImage?
     @State private var showImagePicker: Bool = false
     @State private var showCamera: Bool = false
