@@ -81,7 +81,6 @@ struct MainView: View {
     
     @State var attempts: Int = 0
     @State private var isWatchClicked = false
-    @StateObject private var snapshotImage = SnapshotImage()
     
     //time related
     @State var receiver = Timer.publish(every: 0.5, on: .current, in: .default).autoconnect()
@@ -109,8 +108,9 @@ struct MainView: View {
 //    //ToCameraView에서 이미지 받아오기
 //    @EnvironmentObject var imageData: ImageData
     
+    @State private var selectedImage: UIImage?
     @State var showImagePicker = false
-    @State var selectedUIImage: UIImage?
+
     
 //    @Binding var image: UIImage?
     
@@ -185,12 +185,17 @@ struct MainView: View {
                     })
             }
             else{
-                Image("default")
-                    .offset(x: 334, y: -100)
-                    .onTapGesture(perform: {
-                        isframe.toggle()
-                        isframe2 = true
-                    })
+                if let profileImage = UserDefaultsManager.shared.profile {
+                    Image(uiImage: profileImage)
+                        .resizable()
+//                        .scaledToFit()
+                        .frame(width: 90, height: 90)
+                        .offset(x: 334, y: -100)
+                        .padding(.top, 5)
+                } else {
+                    Image("default")
+                        .offset(x: 334, y: -100)
+                }
             }
 //                if let image = image {
 //                    Image(uiImage: image)
@@ -598,7 +603,8 @@ struct MainView: View {
 //                }
                 //각 버튼에 따라 modal view 뜨는 부분
                 if(isframe2){
-                    ToCameraView()//사진 모달
+                    ToCameraView()
+                    //사진 모달
                 }
                 if(isprofile){
                     MainView()//프로필 화면

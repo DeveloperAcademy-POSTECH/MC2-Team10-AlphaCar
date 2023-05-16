@@ -13,8 +13,6 @@ struct CharacterView1: View {
     var body: some View {
         ZStack {
             Image("background").padding(.top, 20)
-            //                    .resizable()
-            //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             ZStack {
                 GLNavBarItem(backPage: .draw, backButtonImg: "button_back", shadowOn: true, navBarTitle: "정말 멋진 그림이야!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
@@ -29,7 +27,7 @@ struct CharacterView1: View {
             GeometryReader { geometry in
                 ZStack {
                     Ellipse()
-                        .foregroundColor(.bg4)
+                        .foregroundColor(Color(hex: "C8E9DF"))
                         .frame(width: 1000, height: 400)
                         .offset(y: 100)
                 }
@@ -56,13 +54,3 @@ struct CharacterView1_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
-
-//        if let image = UserDefaultsManager.shared.snapShot {
-//              Image(uiImage: image)
-//                .resizable()
-//                .frame(width: 300, height: 300) ///프레임 사이즈 결정
-//        }
-            
-//        Image(uiImage: UserDefaultsManager.shared.snapShot!)
-//            .resizable()
-//            .frame(width: 400, height: 300)

@@ -53,7 +53,7 @@ struct StoryView2: View {
                 
                 ZStack{
                     GLNavBarItem(
-                        backPage: .story1, backButtonImg: "button_modal_back", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "D6E7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .end1, nextEnabled: true)
+                        backPage: .story1, backButtonImg: "button_modal_back", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .end1, nextEnabled: true)
                     .padding(.leading, 0).padding(.top, 30)
                     
                     Image("button_exit")

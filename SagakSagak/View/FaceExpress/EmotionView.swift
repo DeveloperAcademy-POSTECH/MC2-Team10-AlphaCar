@@ -26,7 +26,7 @@ struct EmotionView: View {
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 
 //                GLNavBarItem(navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system3)
-//                
+//
                 VStack{
 //                    LottieView(jsonName: "love", loopMode: .loop)
 //                        .frame(height: 360)

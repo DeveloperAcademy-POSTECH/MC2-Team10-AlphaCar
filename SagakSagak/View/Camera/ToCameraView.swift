@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 struct ToCameraView: View {
-    @State private var isClicked: Bool = false
+    @State private var isClicked: Bool = true
     @State var selectedImage: UIImage?
     @State private var showImagePicker: Bool = false
     @State private var showCamera: Bool = false
@@ -18,103 +18,95 @@ struct ToCameraView: View {
     @State private var isBackBtnClicked: Bool = false
     @State var image: Image?
     
-    //MainView로 이미지 전달
-//    @EnvironmentObject var imageData: ImageData
-
+    func modalImageFunc(title: String) -> some View {
+        return Image(title)
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color(.white).opacity(0.5), lineWidth: 2)
+                    .shadow(color: Color(hex: "579DFF"), radius: 3, x: 0, y: -7)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+            )
+            .cornerRadius(20)
+            .offset(y:30)
+    }
+    
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
         image = Image(uiImage: selectedImage)
+        UserDefaultsManager.shared.profile = selectedImage
     }
     
     var body: some View {
-        if !isBackBtnClicked {
             ZStack {
-                Rectangle().foregroundColor(Color(hex: !isClicked ? "D5F0E7" : "95A8A1"))
-                    .ignoresSafeArea()
-                
-                VStack {
-                    ZStack(alignment: .center) {
-                        Image("추억이_담긴_액자")
-                        Image(!isClicked ? "greenButton" : "").offset(x:370)
-                            .onTapGesture {
-                                isBackBtnClicked = true
-                            }
-                    }.padding(.bottom, 10)
+                Rectangle().foregroundColor(Color(hex:"D5F0E7")).ignoresSafeArea()
+                Image("cameraStripe")
+                if isClicked{
+                    Rectangle().foregroundColor(Color(hex:"000000")).opacity(0.5).ignoresSafeArea()
+                }
+                ZStack{
                     
-                    ZStack {
-                        ZStack {
-                            if let image = image {
-                                image
-                                    .resizable()
-                                    .frame(width: 180,height: 140)
-                                    .padding(.top, 35)
-                            } else {
-                                Image("AddImgBtn").padding(.top, 20)
-                            }
-//                            if selectedImage == nil {
-//                                Image("AddImgBtn").padding(.top, 20)
-//                            }else{
-//                                image
-//                                    .resizable()
-//                                    .frame(width: 180,height: 140)
-//                                    .padding(.top, 35)
-//                            }
-                            
-                            Image("defaultFrame")
-                        }.onTapGesture {
-                            isClicked = true
-                        }
-                        if isClicked {
-                            ZStack {
-                                Image("modal").padding(.all, -100)
-                                    .shadow(radius: 5 ,x: 0, y: 10)
-                                Image("blueXBtn").offset(x: 260, y: -130)
-                                    .onTapGesture {
-                                        isClicked = false
-                                    }
-                                VStack {
-                                    Image("액자에_추억을_담아보자").padding(.top, -80)
-                                    HStack {
-                                        Image("사진_찍기")
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 15)
-                                                    .stroke(Color(.white).opacity(0.5),
-                                                            lineWidth: 2)
-                                                    .shadow(color: Color(hex: "579DFF"),
-                                                            radius: 3, x: 0, y: -7)
-                                                    .clipShape(
-                                                        RoundedRectangle(cornerRadius: 15)
-                                                    )
-                                            )
-                                            .cornerRadius(20)
-                                            .onTapGesture {
-                                                isShowingCamera = true
-                                                showCamera = true
-                                                isClicked = false
-                                            }
-                                        Image("앨범에서_고르기")
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 15)
-                                                    .stroke(Color(.white).opacity(0.5),
-                                                            lineWidth: 2)
-                                                    .shadow(color: Color(hex: "579DFF"),
-                                                            radius: 3, x: 0, y: -7)
-                                                    .clipShape(
-                                                        RoundedRectangle(cornerRadius: 15)
-                                                    )
-                                            ).padding(.leading, 40)
-                                            .cornerRadius(20)
-                                            .onTapGesture {
-                                                showImagePicker = true
-                                                isClicked = false
-                                            }
-                                    }
+                    VStack {
+                        ZStack(alignment: .center) {
+                            Image(!isClicked ? "추억이_담긴_액자" : "추억이_담긴_액자_black")
+                            Image(!isClicked ? "greenButton" : "").offset(x:370)
+                                .onTapGesture {
+                                    isBackBtnClicked = true
                                 }
-                            }.padding(.top, -25)
+                        }.padding(.bottom, 16)
+                        
+
+                        
+                        ZStack {
+                            ZStack {
+                                if let image = image {
+                                    image
+                                        .resizable()
+                                        .frame(width: 180,height: 140)
+                                        .padding(.top, 35)
+                                } else if let profileImage = UserDefaultsManager.shared.profile {
+                                    Image(uiImage: profileImage)
+                                        .resizable()
+                                        .frame(width: 180,height: 140)
+                                        .padding(.top, 35)
+                                } else {
+                                    Image("AddImgBtn").padding(.top, 20)
+                                }
+                                
+                                Image("defaultFrame")
+                            }.onTapGesture {
+                                isClicked = true
+                            }
+                            if isClicked {
+                                ZStack {
+                                    Image("camera_modal").padding(.all, -100)
+                                        .shadow(radius: 5 ,x: 0, y: 10)
+                                    Image("blueXBtn").offset(x: 260, y: -130)
+                                        .onTapGesture {
+                                            isClicked = false
+                                        }
+                                    VStack {
+                                        Image("액자에_추억을_담아보자").padding(.top, -89)
+                                        HStack {
+                                            modalImageFunc(title: "사진_찍기")
+                                                .onTapGesture {
+                                                    isShowingCamera = true
+                                                    showCamera = true
+                                                    isClicked = false
+                                                }
+                                            modalImageFunc(title: "앨범에서_고르기")
+                                                .onTapGesture {
+                                                    showImagePicker = true
+                                                    isClicked = false
+                                                }
+                                        }.padding(.top, -18)
+                                    }
+                                }.padding(.top, -18)
+                            }
                         }
-                    }
-                    Spacer()
-                }.padding(.top, 40)
+                        Spacer()
+                    }.padding(.top, 54)
+                    
+                }
             }
             .fullScreenCover(isPresented: $isShowingCamera) {
                 ImagePicker(sourceType: .camera, selectedImage: $selectedImage)
@@ -122,12 +114,12 @@ struct ToCameraView: View {
                     .edgesIgnoringSafeArea(.all)
             }
             
-            .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+            .fullScreenCover(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage)
 //                imageData.image = $selectedImage
             }
-        } else {
-//            MainView(image: $selectedImage)
+        
+        if isBackBtnClicked {
             MainView()
         }
     }
