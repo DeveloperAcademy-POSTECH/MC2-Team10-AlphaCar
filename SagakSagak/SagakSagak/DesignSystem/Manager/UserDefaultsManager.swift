@@ -12,6 +12,7 @@ enum UserDefaultKey: String {
     case faceImage
     case feel
     case snapShot
+    case profile
 }
 
 class UserDefaultsManager {
@@ -30,6 +31,22 @@ class UserDefaultsManager {
             }
             let snapShotData = snapShot.jpegData(compressionQuality: 1.0)
             UserDefaults.standard.set(snapShotData, forKey: UserDefaultKey.snapShot.rawValue)
+        }
+    }
+    
+    var profile: UIImage? {
+        get {
+            guard let profileData = UserDefaults.standard.value(forKey: UserDefaultKey.profile.rawValue) as? Data else { return nil }
+            return UIImage(data: profileData)
+        }
+        
+        set(profile) {
+            guard let profile = profile else {
+                UserDefaults.standard.removeObject(forKey: UserDefaultKey.profile.rawValue)
+                return
+            }
+            let profileData = profile.jpegData(compressionQuality: 1.0)
+            UserDefaults.standard.set(profileData, forKey: UserDefaultKey.profile.rawValue)
         }
     }
     

@@ -40,13 +40,12 @@ struct LetterView: View {
             }
         }
     }
-    
+
     var body: some View {
         ZStack {
-            Rectangle().foregroundColor(Color(hex: "D5F0E7").opacity(0.5)).ignoresSafeArea()
+            Image("background").padding(.top, 20)
             
             ZStack{
-                
                 Image("letterHead")
                     .offset(x:0, y:coverPosition + 8)
                     .opacity(letterOpacity)
@@ -65,7 +64,7 @@ struct LetterView: View {
                     
                     ZStack{
                         GLNavBarItem(
-                            backPage: .main, backButtonImg: "", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "D6E7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .draw, nextEnabled: true)
+                            backPage: .main, backButtonImg: "", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .draw, nextEnabled: true)
                         .offset(x:0, y: letterPosition + 90)
                         .padding(.leading, 40)
                         .opacity(letterOpacityReverse)
@@ -92,6 +91,10 @@ struct LetterView: View {
                     }
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
     }
 }
 

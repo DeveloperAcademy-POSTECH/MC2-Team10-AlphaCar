@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct StoryView1: View {
-    @AppStorage(UserDefaultKey.snapShot.rawValue) var snapShotData: Data?
     @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
@@ -39,7 +38,7 @@ struct StoryView1: View {
                             .padding(.top, -70)
                         
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color(hex: "D6E7FF"))
+                            .stroke(Color(hex: "F2F7FF"))
                             .frame(width: 360, height:170)
                             .foregroundColor(.white)
                             .padding(.top, 110)
@@ -50,7 +49,7 @@ struct StoryView1: View {
                 
                 ZStack{
                     GLNavBarItem(
-                        backPage: .emotion, backButtonImg: "button_modal_back", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "D6E7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .story2, nextEnabled: true)
+                        backPage: .emotion, backButtonImg: "button_modal_back", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .story2, nextEnabled: true)
                     .padding(.leading, 0).padding(.top, 30)
                     
                     Image("button_exit")

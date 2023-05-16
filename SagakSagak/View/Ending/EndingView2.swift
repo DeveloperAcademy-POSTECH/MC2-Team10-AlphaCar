@@ -27,7 +27,7 @@ struct EndingView2: View {
             GeometryReader { geometry in
                 ZStack {
                     Ellipse()
-                        .foregroundColor(.bg4)
+                        .foregroundColor(Color(hex: "C8E9DF"))
                         .frame(width: 1000, height: 400)
                         .offset(y: 100)
                 }
