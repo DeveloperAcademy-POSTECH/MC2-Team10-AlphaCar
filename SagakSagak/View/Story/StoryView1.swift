@@ -15,9 +15,14 @@ struct StoryView1: View {
         ZStack {
             Image("background").padding(.top, 20)
             ZStack {
-                Image("storyBoard")
-                    .padding(.top, 20)
-                    .offset(x:0, y: 0)
+//                Image("storyBoard")
+//                    .padding(.top, 20)
+//                    .offset(x:0, y: 0)
+                RoundedRectangle(cornerRadius: 30)
+                    .fill(Color.system2)
+                    .frame(width: 580, height:320)
+                
+                
                 
                 if let image = UserDefaultsManager.shared.snapShot {
                     
@@ -30,7 +35,7 @@ struct StoryView1: View {
                             .foregroundColor(.yellow)
                         
                         Text("나에게 가장 소중한 것은")
-                            .font(FontManager.shared.nanumsquare(.bold, 16))
+                            .font(FontManager.shared.nanumsquare(.bold, 22))
                             .padding(.top, -70)
                         
                         RoundedRectangle(cornerRadius: 20)
@@ -52,7 +57,7 @@ struct StoryView1: View {
                         .padding(.leading, 750)
                         .padding(.top, -20)
                         .onTapGesture {
-                            coordinator.push(.main)
+                            coordinator.popToRoot()
                         }
                 }.padding(.bottom, 260)
                 

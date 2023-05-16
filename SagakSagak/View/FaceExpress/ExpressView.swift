@@ -26,8 +26,7 @@ struct ExpressView: View {
                         Image("text").frame(alignment: .center)
                         Image("button_exit").offset(x:380)
                             .onTapGesture {
-                                
-//                                isExitBtnClicked = true
+                                coordinator.popToRoot()
                             }
                     }
                     
@@ -65,6 +64,7 @@ struct ExpressView: View {
             CharacterView2()
         } else {
             EmotionView(onClicked: false, textBlock: "감정").environmentObject(self.emotionFace)
+                .navigationBarBackButtonHidden(true)
         }
 
     }

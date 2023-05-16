@@ -19,7 +19,7 @@ struct EndingView3: View {
         .ignoresSafeArea()
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                coordinator.push(.main)
+                coordinator.popToRoot()
             }
         }
         

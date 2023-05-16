@@ -81,7 +81,7 @@ struct LetterView: View {
                             animateOpacity(opacity: 1, duration: 1)
                         }
                         .onTapGesture {
-                            coordinator.push(.main)
+                            coordinator.popToRoot()
                         }
                 }
                 

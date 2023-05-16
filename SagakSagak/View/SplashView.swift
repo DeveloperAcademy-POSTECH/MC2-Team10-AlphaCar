@@ -15,7 +15,7 @@ struct SplashView: View {
             ZStack{
                 LottieView(jsonName: "splash", delay: 0.5)
                 Button("화면을 터치하세요"){
-                    coordinator.push(.main)
+                    coordinator.popToRoot()
                 }
                 .foregroundColor(.system2)
                 .offset(y: 130)
