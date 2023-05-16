@@ -10,6 +10,7 @@ import SwiftUI
 struct ArchiveView: View {
     @State private var isActive : Bool = false
     @EnvironmentObject private var coordinator: Coordinator
+    private let soundManager = SoundManager.instance
     
     var body: some View {
         ZStack {
@@ -26,6 +27,7 @@ struct ArchiveView: View {
                     .padding(.bottom, 300)
                     .onTapGesture {
                         coordinator.popToRoot()
+                        soundManager.playSound(sound: .exit)
                     }
                 Button(action: {
                     isActive = true

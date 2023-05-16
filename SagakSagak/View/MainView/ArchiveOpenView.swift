@@ -26,6 +26,8 @@ struct ArchiveOpenView: View {
         }
     
     let timer = Timer.publish(every: 0.8, on: .main, in: .common).autoconnect()
+    
+    private let soundManager = SoundManager.instance
         
     var body: some View {
         ZStack {
@@ -47,6 +49,7 @@ struct ArchiveOpenView: View {
                     .padding(.leading, 750)
                     .onTapGesture {
                         coordinator.popToRoot()
+                        soundManager.playSound(sound: .exit)
                     }
             }.padding(.bottom, 300)
             
