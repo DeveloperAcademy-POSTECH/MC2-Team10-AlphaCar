@@ -145,68 +145,6 @@ struct MainView: View {
             }
             .ignoresSafeArea()
             
-            ZStack{
-                if (!isLampOn){
-                    if let profileImage = UserDefaultsManager.shared.profile {
-//                        let imageData = profileImage.pngData()?.base64EncodedString() ?? ""
-                        let dark : String = "dark" + (Theme.current == .day ? "_n" : "_d")
-                        Image(uiImage: profileImage)
-                            .resizable()
-                            .frame(width: 70, height: 70)
-                            .offset(x: 334, y: -100)
-                            .onAppear(perform: {
-                                isPhotoExist.toggle()
-                            })
-                            
-                        Image(dark)
-                            .resizable()
-                            .frame(width: 70, height: 70)
-                            .offset(x: 334, y: -100)
-                            .onTapGesture(perform: {
-                                print("photo")
-                                isframe.toggle()
-                                isframe2 = true
-                            })
-//                        if(isPhotoExist){
-//                            SwingAnimation(imgName: imageData)
-//                            SwingAnimation(imgName: dark)
-//                        }
-                    }
-                    else{
-                        Image("default" + (Theme.current == .day ? "_night" : "_day"))
-                            .offset(x: 334, y: -100)
-                            .onTapGesture(perform: {
-                                isframe.toggle()
-                                isframe2 = true
-                            })
-                    }
-                    
-                }
-                else{
-                    if let profileImage = UserDefaultsManager.shared.profile {
-//                        let imageData = profileImage.pngData()?.base64EncodedString() ?? ""
-//                        SwingAnimation(imgName: imageData)
-                        Image(uiImage: profileImage)
-                            .resizable()
-                            .frame(width: 70, height: 70)
-                            .offset(x: 334, y: -100)
-                            .onTapGesture(perform: {
-                                print("photo")
-                                isframe.toggle()
-                                isframe2 = true
-                            })
-                    } else {
-                        Image("default")
-                            .offset(x: 334, y: -100)
-                            .onTapGesture(perform: {
-                                isframe.toggle()
-                                isframe2 = true
-                            })
-                    }
-                }
-
-            }
-            
             ZStack {
                 Button(action: {
                     isprofile.toggle()
@@ -323,21 +261,18 @@ struct MainView: View {
                 .buttonStyle(PlainButtonStyle())
 
                 if (!isLampOn){
-                    Image("frame"  +
-                          (Theme.current == .day ? "_night" : "_day"))
-                    .resizable()
-                    .frame(width: 95, height: 114)
-                    .offset(x: 334, y: -107.5)
+                    SwingAnimation(imgName: "frame" + (Theme.current == .day ? "_night" : "_day"), isDark: true)
+                        .offset(x: 334, y: -107.5)
+                    
                     .onTapGesture(perform: {
                         isframe.toggle()
                         isframe2 = true
                     })
                 }
                 else{
-                    Image("frame")
-                        .resizable()
-                        .frame(width: 95, height: 114)
+                    SwingAnimation(imgName: "frame", isDark: false)
                         .offset(x: 334, y: -107.5)
+                        
                         .onTapGesture(perform: {
                             isframe.toggle()
                             isframe2 = true
