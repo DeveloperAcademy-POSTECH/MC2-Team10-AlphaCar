@@ -36,7 +36,7 @@ struct ExpressTextButton: View {
 //                        .stroke(Color(.white).opacity(0.1), lineWidth: 5)
 //                        .shadow(color: Color(hex: "579DFF"),
 //                                radius: 5, x: 0, y: -4)
-                        .stroke(Color(.white).opacity(0.1), lineWidth: 5)
+                        .stroke(Color(.white).opacity(0.1), lineWidth: 6)
                         .shadow(color: isSelected ? Color(hex: "006AFF") : Color(hex: "579DFF"),
                                 radius: 5, x: 0, y: isSelected ? 4 : -4)
                         .padding(-6)

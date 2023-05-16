@@ -26,24 +26,19 @@ struct ExpressView: View {
                     LottieView(jsonName: "basic")
                         .frame(width:370, height:370)
                         .padding(.top, 40)
-                        //.background(.yellow)
-                    
+        
                     ZStack{
-//                        navBarView
-//                        FaceView()
-                        VStack{
+                        VStack(){
                             navBarView
-                            Spacer().frame(height:230)
+                           
+                            Spacer().frame(height:220)
                             FaceView()
                             
                         }
-                        
-                        
                     }
         
                 .padding()
-       
-                    //.offset(y:150)
+
             }
             .onChange(of: emotionFace.faceName) { _ in
                 selectedFace = emotionFace.faceName ?? "basic"
