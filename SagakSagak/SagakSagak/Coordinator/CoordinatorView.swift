@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoordinatorView: View {
     @StateObject private var coordinator = Coordinator()
-    
+    @StateObject private var emotionFace = EmotionFace()
     init(){
            UINavigationBar.setAnimationsEnabled(false)
        }
@@ -21,6 +21,7 @@ struct CoordinatorView: View {
                     coordinator.build(page: page)
                 }
         }
+//        .environmentObject(self.emotionFace)
         .environmentObject(coordinator)
     }
 }

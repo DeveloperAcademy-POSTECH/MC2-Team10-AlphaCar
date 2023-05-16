@@ -71,7 +71,6 @@ struct EmotionView: View {
         VStack{
             HStack(spacing:16){
                 Image(UserDefaultsManager.shared.faceImage!)
-                    .offset(y:10)
                     .frame(width: 100, height: 60)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
@@ -113,7 +112,7 @@ struct EmotionView: View {
     var tabBarView: some View {
         Rectangle()
         .frame(width: Const.glScreenWidth, height:88)
-        .foregroundColor(.system2)
+        //.foregroundColor(.system2)
         .overlay{
             ExpressionTextBlock()
                 .environmentObject(self.emotionText)

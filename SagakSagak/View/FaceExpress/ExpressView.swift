@@ -17,58 +17,65 @@ struct ExpressView: View {
     private let soundManager = SoundManager.instance
     
     var body: some View {
-        if !isNextBtnClicked && !isPrevBtnClicked && !isExitBtnClicked{
-            ZStack {
-                Image("background").resizable().scaledToFill()
-                Color.bg2.ignoresSafeArea().opacity(0.5)
-                VStack {
-                    ZStack {
-                        Image("text").frame(alignment: .center)
-                        Image("button_exit").offset(x:380)
-                            .onTapGesture {
-                                coordinator.popToRoot()
-                                soundManager.playSound(sound: .exit)
-                            }
-                    }
-                    
-                    HStack{
-                        Image("button_back")
-                            .onTapGesture {
-                                isPrevBtnClicked = true
-                            }
-                        if let image = emotionFace.faceName {
-                            LottieView(jsonName: image)
-                                .id(image)
-                      
-                        }else{
-                            LottieView(jsonName: "basic")
-                        }
-                        Image("button_next")
-                            .onTapGesture {
-                                if selectedFace != "basic" {
-                                    isNextBtnClicked = true
-                                    coordinator.push(.emotion)
-                                }
-                            }
-                    }
+        ZStack {
+            Image("background").padding(.top, 20)
+            
+            if let image = emotionFace.faceName {
+                LottieView(jsonName: image)
+                    .id(image)
+                    .frame(width:370, height:370)
+                    .padding(.top, 40)
+            } else {
+                LottieView(jsonName: "basic")
+                    .frame(width:370, height:370)
+                    .padding(.top, 40)
+            }
+            
+            ZStack{
+                VStack(){
+                    navBarView
+                    Spacer().frame(height:220)
+                    FaceView()
+                        .environmentObject(self.emotionFace)
                 }
-                .padding()
-                FaceView()
-                    .environmentObject(self.emotionFace)
-                    .offset(y:150)
             }
-            .onChange(of: emotionFace.faceName) { _ in
-                selectedFace = emotionFace.faceName ?? "basic"
-            }
-            .navigationBarBackButtonHidden(true)
-        } else if isPrevBtnClicked {
-            CharacterView2()
-        } else {
-            EmotionView(onClicked: false, textBlock: "감정").environmentObject(self.emotionFace)
-                .navigationBarBackButtonHidden(true)
+            .padding()
         }
-
+        .onChange(of: emotionFace.faceName) { _ in
+            selectedFace = emotionFace.faceName ?? "basic"
+        }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
     }
+    
+    
+    var navBarView: some View {
+        ZStack{
+            ZStack{
+                GLNavBarItem(backPage: .character2, backButtonImg: "button_back", shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .emotion,
+                             nextEnabled: selectedFace == "basic" ? false : true) //변수
+                .padding(.top, 4)
+                Spacer().frame(width:70)
+                
+                Image("button_exit")
+                    .padding(.leading, 750)
+                    .onTapGesture {
+                        coordinator.popToRoot()
+                    }.padding(.top, 4)
+                    .padding(.leading, -1)
+                    .shadow(color: Color(hex: "26775F").opacity(0.15),
+                            radius: 30, x: 0, y: 4)
+            }
+        }
+        .frame(width: Const.glScreenWidth, height: 72)
+        .padding(.top, 24)
+        .padding(.trailing, 24)
+        .padding(.leading, 25)
+        
+    }
+    
 }
 
 struct ExpressView_Previews: PreviewProvider {
