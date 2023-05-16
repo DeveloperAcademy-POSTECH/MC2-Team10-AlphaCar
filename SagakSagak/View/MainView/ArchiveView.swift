@@ -20,7 +20,7 @@ struct ArchiveView: View {
                 .background(Color(red: 250/255, green: 248/255, blue: 229/255))
             
             ZStack{
-                GLNavBarTitle(navBarTitle: "어쩌구한 이야기책", navBarBgColor: .white, navBarFontColor: .blue)
+                GLNavBarTitle(navBarTitle: "마음이 담긴 공책", navBarBgColor: .white, navBarFontColor: .blue)
                     .padding(.bottom, 300)
                 Image("button_exit")
                     .padding(.leading, 750)
