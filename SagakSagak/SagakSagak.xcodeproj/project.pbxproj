@@ -58,7 +58,6 @@
 		A878E4962A09D55800B97358 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4952A09D55800B97358 /* FontManager.swift */; };
 		A878E4A52A09E49C00B97358 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E4A42A09E49C00B97358 /* Const.swift */; };
 		A88BF9552A120063002E1BF3 /* GLButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF9542A120063002E1BF3 /* GLButtonSet.swift */; };
-		A8A2F4A12A11770D00F24B11 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2F4A02A11770D00F24B11 /* SwiftUIView.swift */; };
 		A8B696F32A12D17800763A1A /* soso.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696E62A12D17700763A1A /* soso.json */; };
 		A8B696F42A12D17800763A1A /* hi.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696E72A12D17700763A1A /* hi.json */; };
 		A8B696F52A12D17800763A1A /* happy.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696E82A12D17700763A1A /* happy.json */; };
@@ -72,8 +71,9 @@
 		A8B696FD2A12D17800763A1A /* great.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696F02A12D17800763A1A /* great.json */; };
 		A8B696FE2A12D17800763A1A /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696F12A12D17800763A1A /* basic.json */; };
 		A8B696FF2A12D17800763A1A /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696F22A12D17800763A1A /* love.json */; };
+		A8B697022A12E02300763A1A /* ExpressionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B697012A12E02300763A1A /* ExpressionContentView.swift */; };
+		A8B697042A12E12500763A1A /* ExpressionTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B697032A12E12500763A1A /* ExpressionTextBlock.swift */; };
 		A8DA46C52A10929800E25EAF /* GLBasicView_type1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA46C42A10929800E25EAF /* GLBasicView_type1.swift */; };
-		A8DA46C72A10944200E25EAF /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA46C62A10944200E25EAF /* BasicView.swift */; };
 		A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */; };
 		A8F10D832A008FB60015EC23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F10D822A008FB60015EC23 /* Assets.xcassets */; };
 		A8F10D862A008FB60015EC23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F10D852A008FB60015EC23 /* Preview Assets.xcassets */; };
@@ -152,7 +152,6 @@
 		A878E4982A09D8A100B97358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A878E4A42A09E49C00B97358 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		A88BF9542A120063002E1BF3 /* GLButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLButtonSet.swift; sourceTree = "<group>"; };
-		A8A2F4A02A11770D00F24B11 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		A8B696E62A12D17700763A1A /* soso.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = soso.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/soso.json"; sourceTree = "<group>"; };
 		A8B696E72A12D17700763A1A /* hi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = hi.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/hi.json"; sourceTree = "<group>"; };
 		A8B696E82A12D17700763A1A /* happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = happy.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/happy.json"; sourceTree = "<group>"; };
@@ -166,8 +165,9 @@
 		A8B696F02A12D17800763A1A /* great.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = great.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/great.json"; sourceTree = "<group>"; };
 		A8B696F12A12D17800763A1A /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/basic.json"; sourceTree = "<group>"; };
 		A8B696F22A12D17800763A1A /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = love.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/love.json"; sourceTree = "<group>"; };
+		A8B697012A12E02300763A1A /* ExpressionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionContentView.swift; sourceTree = "<group>"; };
+		A8B697032A12E12500763A1A /* ExpressionTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionTextBlock.swift; sourceTree = "<group>"; };
 		A8DA46C42A10929800E25EAF /* GLBasicView_type1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBasicView_type1.swift; sourceTree = "<group>"; };
-		A8DA46C62A10944200E25EAF /* BasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
 		A8F10D7B2A008FB50015EC23 /* SagakSagak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SagakSagak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SagakSagakApp.swift; sourceTree = "<group>"; };
 		A8F10D822A008FB60015EC23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -326,6 +326,7 @@
 				BF791C4B2A0A332900BA00D2 /* Drawing */,
 				A8FA45252A0E1C40009C3A2C /* Character */,
 				BFCE55232A0B8D23003A85CA /* FaceExpress */,
+				A8B697002A12DF4700763A1A /* Expression */,
 				A8FA452E2A0E1CD6009C3A2C /* Story */,
 				A8FA45352A0E1D46009C3A2C /* Ending */,
 				A83D72D12A07ABA700119DB9 /* Login */,
@@ -361,7 +362,6 @@
 				A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */,
 				A80EAEAA2A0F377000676483 /* GLPopupView.swift */,
 				A8DA46C42A10929800E25EAF /* GLBasicView_type1.swift */,
-				A8DA46C62A10944200E25EAF /* BasicView.swift */,
 				A88BF9542A120063002E1BF3 /* GLButtonSet.swift */,
 			);
 			path = Component;
@@ -384,6 +384,16 @@
 				BF791C522A0A37EE00BA00D2 /* NanumSquareRoundL.ttf */,
 			);
 			path = NanumSquareRound;
+			sourceTree = "<group>";
+		};
+		A8B697002A12DF4700763A1A /* Expression */ = {
+			isa = PBXGroup;
+			children = (
+				A81261BC2A1017AE00280ECE /* EmotionView.swift */,
+				A8B697012A12E02300763A1A /* ExpressionContentView.swift */,
+				A8B697032A12E12500763A1A /* ExpressionTextBlock.swift */,
+			);
+			path = Expression;
 			sourceTree = "<group>";
 		};
 		A8F10D722A008FB50015EC23 = {
@@ -483,11 +493,9 @@
 		BFCE55232A0B8D23003A85CA /* FaceExpress */ = {
 			isa = PBXGroup;
 			children = (
-				BFCE55262A0B8D4B003A85CA /* ExpressView.swift */,
 				BFCE55242A0B8D4B003A85CA /* CharacterExpressView.swift */,
 				BFCE55252A0B8D4B003A85CA /* FaceView.swift */,
-				A81261BC2A1017AE00280ECE /* EmotionView.swift */,
-				A8A2F4A02A11770D00F24B11 /* SwiftUIView.swift */,
+				BFCE55262A0B8D4B003A85CA /* ExpressView.swift */,
 			);
 			path = FaceExpress;
 			sourceTree = "<group>";
@@ -625,7 +633,8 @@
 				A81261BF2A101A5F00280ECE /* DragRelocateDelegate.swift in Sources */,
 				A83D72D82A07E5D000119DB9 /* LoginDomain.swift in Sources */,
 				A80EAE992A0EF0E800676483 /* GLBlockView.swift in Sources */,
-				A8DA46C72A10944200E25EAF /* BasicView.swift in Sources */,
+				A8B697042A12E12500763A1A /* ExpressionTextBlock.swift in Sources */,
+				A8B697022A12E02300763A1A /* ExpressionContentView.swift in Sources */,
 				A8FA45232A0E1BFB009C3A2C /* CharacterView1.swift in Sources */,
 				A83D72CD2A07A82D00119DB9 /* CoordinatorView.swift in Sources */,
 				1717205A2A0CDAD300E34C24 /* LottieTest.swift in Sources */,
@@ -642,7 +651,6 @@
 				5722D8302A0CCFA00023B0F6 /* MainView.swift in Sources */,
 				A80EAEA52A0F256000676483 /* GLNavBarItem.swift in Sources */,
 				A872FC932A0FD9F80058880B /* UserDefaultsManager.swift in Sources */,
-				A8A2F4A12A11770D00F24B11 /* SwiftUIView.swift in Sources */,
 				A80EAEAB2A0F377000676483 /* GLPopupView.swift in Sources */,
 				A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */,
 				A81261B32A10075A00280ECE /* SwingAnimation.swift in Sources */,

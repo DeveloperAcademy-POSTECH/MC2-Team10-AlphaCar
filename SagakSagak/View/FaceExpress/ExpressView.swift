@@ -26,8 +26,7 @@ struct ExpressView: View {
                         Image("text").frame(alignment: .center)
                         Image("button_exit").offset(x:380)
                             .onTapGesture {
-                                
-//                                isExitBtnClicked = true
+                                coordinator.popToRoot()
                             }
                     }
                     

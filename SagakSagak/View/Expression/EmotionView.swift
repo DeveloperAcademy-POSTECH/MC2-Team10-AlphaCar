@@ -3,14 +3,15 @@
 //  SagakSagak
 //
 //  Created by Joy on 2023/05/14.
-//
+
+//  TODO: Refactoring 필요함
 
 import SwiftUI
 
 
 struct EmotionView: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @StateObject private var emotionFace = EmotionFace()
+    @StateObject private var emotionText = EmotionText()
     @State private var selectedFace = "basic" // 초기 표정 설정
     @State private var selectedFeeling = "feeling"
     
@@ -23,9 +24,14 @@ struct EmotionView: View {
             Color.bg3.ignoresSafeArea()
             VStack(spacing:0){
                 navBarView
-                contentsView
+                    .padding(.bottom, 76)
+                contents
+                    .padding(.bottom, 94)
                 tabBarView
             }
+        }
+        .onChange(of: emotionText.textName) { _ in
+            selectedFeeling = emotionText.textName ?? "feeling"
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -54,55 +60,42 @@ struct EmotionView: View {
         .padding(.leading, 142)
     }
     
-    // MARK: Contents
-    var contentsView: some View {
+    //MARK: Contents
+    var contents: some View {
         VStack{
             HStack(spacing:16){
                 ZStack{
                     RoundedRectangle(cornerRadius: 10)
                         .fill(
-                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:4))
+                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:-4))
                         )
                         .frame(width: 100, height:60)
                         .foregroundColor(Color.system2)
                     
                     Image(UserDefaultsManager.shared.faceImage!) /// 표정 얼굴 모양이 들어감
-                        .padding(.top, 20)
+                        .padding(.top, 10)
                 }
                 Text("표정의 이름은").font(FontManager.shared.nanumsquare(.bold, 28))
-                
+                        
                 ZStack{
                     RoundedRectangle(cornerRadius: 10)
                         .fill(
-                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:4))
+                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:-4))
+                            //TODO : 블록 쉐도우 재조정 필요
+                            
                         )
                         .frame(width: 100, height:60)
-                        .foregroundColor(Color.system2)
+                        .foregroundColor(selectedFeeling != "feeling" ? .block_bg2 : .system2)
                     
-
-////                    Text(UserDefaultsManager.shared.feel!) /// 표정 이름이 들어감
-//                    Text(selectedFeeling).font(FontManager.shared.nanumsquare(.extrabold, 24))
-//                        .foregroundColor(Color.system2)
-//
-//                        .frame(width: 100, height: 60)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .fill(
-//                                    .shadow(.inner(color: Color.init(hex: "006AFF").opacity(0.5), radius: 10, x:0, y:-4))
-//                                )
-//                                .foregroundColor(Color.block_bg2))
-//
+                    if let text = emotionText.textName {
+                        Text(text).font(FontManager.shared.nanumsquare(.extrabold, 24))
+                            .foregroundColor(.white)
+    
+                    }
                 }
                 Text("이야.").font(FontManager.shared.nanumsquare(.bold, 28))
             }
         }
-        .frame(width: Const.glScreenWidth, height:230)
-        .onChange(of: emotionFace.faceName) { _ in
-            //selectedFace = emotionFace.faceName ?? "basic"
-            selectedFeeling = UserDefaultsManager.shared.feel ?? ""
-            print(selectedFace)
-        }
-        //.background(.blue)
     }
     
     //MARK: TabBar
@@ -111,11 +104,14 @@ struct EmotionView: View {
         .frame(width: Const.glScreenWidth, height:88)
         .foregroundColor(.system2)
         .overlay{
-            GLBlockView()
+            ExpressionTextBlock()
+                .environmentObject(self.emotionText)
+        }
+        .onChange(of: emotionText.textName) { _ in
+            selectedFeeling = emotionText.textName ?? "basic"
         }
     }
 }
-
 
 
 struct EmotionView_Previews: PreviewProvider {

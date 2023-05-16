@@ -71,7 +71,7 @@ struct FaceView: View {
                         action: {
                             emotionFace.faceName = imageName
                             UserDefaultsManager.shared.faceImage = emotionFace.faceName
-                            backgroundColor = Color(.black)
+                           // backgroundColor = Color(.black)
                         },
                         offset: offset,
                         selectedButton: $selectedButton
