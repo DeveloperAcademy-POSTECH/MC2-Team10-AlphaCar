@@ -48,9 +48,9 @@ struct SwingAnimation: View {
     private func rotationAngle() -> Angle {
         switch state {
         case .max:
-            return .degrees(-10)
+            return .degrees(-1.5)
         case .min:
-            return .degrees(10)
+            return .degrees(1.5)
         case .done:
             return .degrees(0)
         }

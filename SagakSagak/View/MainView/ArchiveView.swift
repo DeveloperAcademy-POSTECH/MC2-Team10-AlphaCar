@@ -26,25 +26,27 @@ struct ArchiveView: View {
                     .padding(.leading, 750)
                     .padding(.bottom, 300)
                     .onTapGesture {
+//                        coordinator.popToRoot()
                         coordinator.popToRoot()
                         soundManager.playSound(sound: .exit)
                     }
                 Button(action: {
                     isActive = true
+                    coordinator.push(.archive2)
                 }) {
                     Image("book")
                 }
                 .offset(x: -85, y: 65)
                 .shadow(color: Color(red: 38/255, green: 119/255, blue: 95/255).opacity(0.3), radius: 15, x: 0, y: -4)
-                if(isActive){
-                    ArchiveOpenView()
-                }
+//                if(isActive){
+//                    ArchiveOpenView()
+//                }
             }
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear(perform: {
-            SoundManager.instance.playBackgroundMusic(sound: .archive) 
+            SoundManager.instance.playBackgroundMusic(sound: .archive)
         })
     }
 }
