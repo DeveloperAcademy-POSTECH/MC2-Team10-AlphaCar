@@ -17,6 +17,10 @@ struct ToCameraView: View {
     @State private var isShowingCamera: Bool = false
     @State private var isBackBtnClicked: Bool = false
     @State var image: Image?
+    @State private var currentImg: UIImage? = UserDefaultsManager.shared.profile
+    
+    @EnvironmentObject private var coordinator: Coordinator
+    private let soundManager = SoundManager.instance
     
     func modalImageFunc(title: String) -> some View {
         return Image(title)
@@ -36,6 +40,7 @@ struct ToCameraView: View {
         UserDefaultsManager.shared.profile = selectedImage
     }
     
+    
     var body: some View {
             ZStack {
                 Rectangle().foregroundColor(Color(hex:"D5F0E7")).ignoresSafeArea()
@@ -47,14 +52,13 @@ struct ToCameraView: View {
                     
                     VStack {
                         ZStack(alignment: .center) {
-                            Image(!isClicked ? "추억이_담긴_액자" : "추억이_담긴_액자_black")
+                            Image(!isClicked ? "추억이_담긴_액자" : "추억이_담긴_액자_black")
                             Image(!isClicked ? "greenButton" : "").offset(x:370)
                                 .onTapGesture {
-                                    isBackBtnClicked = true
+                                    coordinator.push(.main)
+//                                    soundManager.playSound(sound: .exit)
                                 }
                         }.padding(.bottom, 16)
-                        
-
                         
                         ZStack {
                             ZStack {
@@ -80,26 +84,30 @@ struct ToCameraView: View {
                                 ZStack {
                                     Image("camera_modal").padding(.all, -100)
                                         .shadow(radius: 5 ,x: 0, y: 10)
-                                    Image("blueXBtn").offset(x: 260, y: -130)
+                                    Image("button_modal_exit").offset(x: 260, y: -130)
                                         .onTapGesture {
                                             isClicked = false
+//                                            soundManager.playSound(sound: .exit)
                                         }
                                     VStack {
-                                        Image("액자에_추억을_담아보자").padding(.top, -89)
+                                        Image("액자에_추억을_담아보자").padding(.top, -89)
                                         HStack {
-                                            modalImageFunc(title: "사진_찍기")
+                                            modalImageFunc(title: "사진_찍기")
                                                 .onTapGesture {
                                                     isShowingCamera = true
                                                     showCamera = true
                                                     isClicked = false
                                                 }
-                                            modalImageFunc(title: "앨범에서_고르기")
+                                            modalImageFunc(title: "앨범에서_고르기")
                                                 .onTapGesture {
                                                     showImagePicker = true
                                                     isClicked = false
                                                 }
                                         }.padding(.top, -18)
                                     }
+                                    .onAppear(perform: {
+//                                        SoundManager.instance.playTts(sound: .frame)
+                                    })
                                 }.padding(.top, -18)
                             }
                         }
@@ -108,7 +116,7 @@ struct ToCameraView: View {
                     
                 }
             }
-            .fullScreenCover(isPresented: $isShowingCamera) {
+            .fullScreenCover(isPresented: $isShowingCamera, onDismiss: loadImage) {
                 ImagePicker(sourceType: .camera, selectedImage: $selectedImage)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .edgesIgnoringSafeArea(.all)
@@ -116,20 +124,9 @@ struct ToCameraView: View {
             
             .fullScreenCover(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage)
-//                imageData.image = $selectedImage
             }
         
-        if isBackBtnClicked {
-            MainView()
-        }
     }
-        
-    
-//    private func loadImage() {
-//        if let image = selectedImage {
-//
-//        }
-//    }
     
     func openLibrary() {
         showImagePicker = true
@@ -166,6 +163,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.originalImage] as? UIImage {
                 selectedImage = image
+                UserDefaultsManager.shared.profile = selectedImage
             }
             
             picker.dismiss(animated: true)
@@ -179,7 +177,6 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 struct ToCameraView_Previews: PreviewProvider {
     static var previews: some View {
-//        ToCameraView(selectedImage: .constant(nil))
         ToCameraView()
             .previewInterfaceOrientation(.landscapeRight)
     }
