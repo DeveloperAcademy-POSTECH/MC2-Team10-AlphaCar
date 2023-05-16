@@ -43,7 +43,7 @@ struct StoryView1: View {
                             .padding(.top, -70)
                         
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color(hex: "F2F7FF"))
+                            .stroke(Color(hex: "F2F7FF"), lineWidth: 4)
                             .frame(width: 360, height:170)
                             .foregroundColor(.white)
                             .padding(.top, 110)
