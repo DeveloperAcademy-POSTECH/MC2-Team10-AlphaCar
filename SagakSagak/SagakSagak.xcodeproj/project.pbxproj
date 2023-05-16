@@ -72,7 +72,6 @@
 		A8B696FE2A12D17800763A1A /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696F12A12D17800763A1A /* basic.json */; };
 		A8B696FF2A12D17800763A1A /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = A8B696F22A12D17800763A1A /* love.json */; };
 		A8B697042A12E12500763A1A /* ExpressionTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B697032A12E12500763A1A /* ExpressionTextBlock.swift */; };
-		A8DA46C52A10929800E25EAF /* GLBasicView_type1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DA46C42A10929800E25EAF /* GLBasicView_type1.swift */; };
 		A8F10D7F2A008FB50015EC23 /* SagakSagakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */; };
 		A8F10D832A008FB60015EC23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F10D822A008FB60015EC23 /* Assets.xcassets */; };
 		A8F10D862A008FB60015EC23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8F10D852A008FB60015EC23 /* Preview Assets.xcassets */; };
@@ -165,7 +164,6 @@
 		A8B696F12A12D17800763A1A /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/basic.json"; sourceTree = "<group>"; };
 		A8B696F22A12D17800763A1A /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = love.json; path = "../../../../../../../../../Downloads/drive-download-20230515T204205Z-001/love.json"; sourceTree = "<group>"; };
 		A8B697032A12E12500763A1A /* ExpressionTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionTextBlock.swift; sourceTree = "<group>"; };
-		A8DA46C42A10929800E25EAF /* GLBasicView_type1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLBasicView_type1.swift; sourceTree = "<group>"; };
 		A8F10D7B2A008FB50015EC23 /* SagakSagak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SagakSagak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F10D7E2A008FB50015EC23 /* SagakSagakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SagakSagakApp.swift; sourceTree = "<group>"; };
 		A8F10D822A008FB60015EC23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 				A80EAE982A0EF0E800676483 /* GLBlockView.swift */,
 				A80EAEA22A0F15BF00676483 /* GLBlockItem.swift */,
 				A80EAEAA2A0F377000676483 /* GLPopupView.swift */,
-				A8DA46C42A10929800E25EAF /* GLBasicView_type1.swift */,
 				A88BF9542A120063002E1BF3 /* GLButtonSet.swift */,
 			);
 			path = Component;
@@ -635,7 +632,6 @@
 				A83D72CD2A07A82D00119DB9 /* CoordinatorView.swift in Sources */,
 				1717205A2A0CDAD300E34C24 /* LottieTest.swift in Sources */,
 				A83D72C92A07A4EA00119DB9 /* Coordinator.swift in Sources */,
-				A8DA46C52A10929800E25EAF /* GLBasicView_type1.swift in Sources */,
 				A8FA45212A0E1B10009C3A2C /* LetterView.swift in Sources */,
 				A878E4962A09D55800B97358 /* FontManager.swift in Sources */,
 				A8FA45392A0E1D73009C3A2C /* EndingView2.swift in Sources */,
