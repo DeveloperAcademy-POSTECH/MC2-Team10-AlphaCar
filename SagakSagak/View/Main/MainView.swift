@@ -291,11 +291,11 @@ struct MainView: View {
                     if !isCurtainOn {
                         LottieView(jsonName: "curtain_close" +
                                    (Theme.current == .day ? "_n" : "_d"), loopMode: .repeat(1))
-                            .frame(width: 540)
-                            .onTapGesture(perform: {
-                                isCurtainOn = true
-                            })
-                            .offset(x: 0, y: -119)
+                        .frame(width: 540)
+                        .onTapGesture(perform: {
+                            isCurtainOn = true
+                        })
+                        .offset(x: 0, y: -119)
                     }
                     else{
                         LottieView(jsonName: "curtain_open" +
@@ -326,7 +326,7 @@ struct MainView: View {
                             })
                     }
                 }
-
+                
                 
 //                if(!isCurtainOn){
 //                    Button(action: {

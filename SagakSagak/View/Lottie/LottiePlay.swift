@@ -12,12 +12,14 @@ struct LottieView: UIViewRepresentable {
     var name : String
     var loopMode: LottieLoopMode
     var delay: Double
+    var playAnimation : Bool
     
     // 간단하게 View로 JSON 파일 이름으로 애니메이션을 실행합니다.
-    init(jsonName: String = "", loopMode : LottieLoopMode = .playOnce, delay: Double = 0.0){
+    init(jsonName: String = "", loopMode : LottieLoopMode = .playOnce, delay: Double = 0.0, playAnimation : Bool = true){
         self.name = jsonName
         self.loopMode = loopMode
         self.delay = delay
+        self.playAnimation = playAnimation
     }
     
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
@@ -30,12 +32,14 @@ struct LottieView: UIViewRepresentable {
         animationView.contentMode = .scaleAspectFit
         // 애니메이션 Loop
         animationView.loopMode = loopMode
-        // 애니메이션 딜레이 후 재생
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                    animationView.play()
-                }
-        // 백그라운드에서 재생이 멈추는 오류를 잡습니다
-        animationView.backgroundBehavior = .pauseAndRestore
+        if playAnimation{
+            // 애니메이션 딜레이 후 재생
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                        animationView.play()
+                    }
+            // 백그라운드에서 재생이 멈추는 오류를 잡습니다
+            animationView.backgroundBehavior = .pauseAndRestore
+        }
 
   //컨테이너의 너비와 높이를 자동으로 지정할 수 있도록합니다. 로티는 컨테이너 위에 작성됩니다.
   
