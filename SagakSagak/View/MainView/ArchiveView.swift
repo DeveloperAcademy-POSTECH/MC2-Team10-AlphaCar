@@ -25,7 +25,7 @@ struct ArchiveView: View {
                     .padding(.leading, 750)
                     .padding(.bottom, 300)
                     .onTapGesture {
-                        coordinator.push(.main)
+                        coordinator.popToRoot()
                     }
                 Button(action: {
                     isActive = true

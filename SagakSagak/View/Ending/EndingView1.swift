@@ -20,7 +20,7 @@ struct EndingView1: View {
                 Image("button_exit")
                     .padding(.leading, 750)
                     .onTapGesture {
-                        coordinator.push(.main)
+                        coordinator.popToRoot()
                     }
             }.padding(.bottom, 280)
             

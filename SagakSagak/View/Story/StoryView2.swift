@@ -60,7 +60,7 @@ struct StoryView2: View {
                         .padding(.leading, 750)
                         .padding(.top, -20)
                         .onTapGesture {
-                            coordinator.push(.main)
+                            coordinator.popToRoot()
                         }
                 }.padding(.bottom, 260)
                 
