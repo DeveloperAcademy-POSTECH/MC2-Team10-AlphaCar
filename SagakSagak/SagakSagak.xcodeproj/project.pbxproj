@@ -31,6 +31,7 @@
 		A330F7A62A13AFDE000623FC /* pleased.json in Resources */ = {isa = PBXBuildFile; fileRef = A330F7992A13AFDE000623FC /* pleased.json */; };
 		A330F7A72A13AFDE000623FC /* sad.json in Resources */ = {isa = PBXBuildFile; fileRef = A330F79A2A13AFDE000623FC /* sad.json */; };
 		A330F7A82A13AFDE000623FC /* happy.json in Resources */ = {isa = PBXBuildFile; fileRef = A330F79B2A13AFDE000623FC /* happy.json */; };
+		A3363CA12A13F05900CA02CD /* stamp_archieve_rotated.json in Resources */ = {isa = PBXBuildFile; fileRef = A3363CA02A13F05900CA02CD /* stamp_archieve_rotated.json */; };
 		A35B65A82A1251A3005B61D2 /* snowy_d.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B659C2A1251A2005B61D2 /* snowy_d.json */; };
 		A35B65A92A1251A3005B61D2 /* rainy_n.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B659D2A1251A2005B61D2 /* rainy_n.json */; };
 		A35B65AA2A1251A3005B61D2 /* sunny_d.json in Resources */ = {isa = PBXBuildFile; fileRef = A35B659E2A1251A3005B61D2 /* sunny_d.json */; };
@@ -136,6 +137,7 @@
 		A330F7992A13AFDE000623FC /* pleased.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pleased.json; path = "../../../../../../drive-download-20230515T140633Z-001/pleased.json"; sourceTree = "<group>"; };
 		A330F79A2A13AFDE000623FC /* sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sad.json; path = "../../../../../../drive-download-20230515T140633Z-001/sad.json"; sourceTree = "<group>"; };
 		A330F79B2A13AFDE000623FC /* happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = happy.json; path = "../../../../../../drive-download-20230515T140633Z-001/happy.json"; sourceTree = "<group>"; };
+		A3363CA02A13F05900CA02CD /* stamp_archieve_rotated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stamp_archieve_rotated.json; path = ../../../../Downloads/lottie_stamp/stamp_archieve_rotated.json; sourceTree = "<group>"; };
 		A35B659C2A1251A2005B61D2 /* snowy_d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = snowy_d.json; path = SagakSagak/DesignSystem/LottieFile/Weather/snowy_d.json; sourceTree = "<group>"; };
 		A35B659D2A1251A2005B61D2 /* rainy_n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = rainy_n.json; path = SagakSagak/DesignSystem/LottieFile/Weather/rainy_n.json; sourceTree = "<group>"; };
 		A35B659E2A1251A3005B61D2 /* sunny_d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sunny_d.json; path = SagakSagak/DesignSystem/LottieFile/Weather/sunny_d.json; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				A35B65A62A1251A3005B61D2 /* sunny_n.json */,
 				A35B65A22A1251A3005B61D2 /* windy_d.json */,
 				A35B65A72A1251A3005B61D2 /* windy_n.json */,
+				A3363CA02A13F05900CA02CD /* stamp_archieve_rotated.json */,
 				BFC9FAF12A1371310094853D /* character1_tts.mp3 */,
 				BFC9FAF32A1371310094853D /* character2_tts.mp3 */,
 				A330F78D2A13AFD4000623FC /* exit_sound.mp3 */,
@@ -607,6 +610,7 @@
 				BFC9FAFC2A1371310094853D /* character1_tts.mp3 in Resources */,
 				A35B65BF2A1251AA005B61D2 /* curtain_open.json in Resources */,
 				BFC9FAE22A13687C0094853D /* main_music.mp3 in Resources */,
+				A3363CA12A13F05900CA02CD /* stamp_archieve_rotated.json in Resources */,
 				A330F7A02A13AFDE000623FC /* twinkle.json in Resources */,
 				5739EBFC2A0F8D2900AEAB5E /* pop_sound.mp3 in Resources */,
 				BFC9FADE2A1351F80094853D /* approve_sound.mp3 in Resources */,
