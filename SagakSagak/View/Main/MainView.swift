@@ -34,41 +34,6 @@ enum Theme : String {
         return .day // 기본값은 day로 설정
     }
 }
-enum ButtonStyle: String, Identifiable{
-    case archive
-    case lamp
-    case frame
-    case clock
-    case letter
-    
-    var id : UUID{
-        UUID()
-    }
-    
-    var imageName: String{
-        switch Theme.current {
-        case .day:
-            switch self {
-            case .archive: return "archive_day"
-            case .lamp: return "lamp_day"
-            case .frame: return "frame_day"
-            case .clock: return "clock_day"
-            case .letter: return "letter_day"
-            }
-        case .night:
-            switch self {
-            case .archive: return "archive_night"
-            case .lamp: return "lamp_night"
-            case .frame: return "frame_night"
-            case .clock: return "clock_night"
-            case .letter: return "letter_night"
-            }
-        }
-    }
-}
-
-let buttons: [ButtonStyle] = [.archive, .clock, .frame, .lamp, .letter]
-
 
 struct MainView: View {
     @EnvironmentObject private var coordinator: Coordinator
