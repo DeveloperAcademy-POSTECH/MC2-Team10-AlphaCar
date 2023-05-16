@@ -78,23 +78,26 @@ struct EmotionView: View {
                     .foregroundColor(.black)
                 
                 Text("표정의 이름은").font(FontManager.shared.nanumsquare(.bold, 28))
+
+                let textType = emotionText.textName ?? "표정"
+                
+                Text(textType)
+                    .font(FontManager.shared.nanumsquare(.extrabold, 24))
+                    .foregroundColor(.white)
+                    .frame(width: 100, height: 60)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(.white).opacity(0.1), lineWidth: 5)
                         
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(
-                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y: 4))
-                            //TODO: 블록 쉐도우 재조정 필요
-                            
-                        )
-                        .frame(width: 100, height:60)
-                        .foregroundColor(selectedFeeling != "feeling" ? .block_bg2 : .system2)
-                    
-                    if let text = emotionText.textName {
-                        Text(text).font(FontManager.shared.nanumsquare(.extrabold, 24))
-                            .foregroundColor(.white)
-    
-                    }
-                }
+                            .shadow(color: selectedFeeling != "feeling" ? Color(hex: "006AFF") : Color(hex: "579DFF"),
+                                    radius: 5, x: 0, y: selectedFeeling != "feeling" ? -4 : 4)
+
+                            .padding(-6)
+                    )
+                    .background(selectedFeeling != "feeling" ? Color(hex: "#89BAFF") : .white)
+                    .cornerRadius(10)
+                    .foregroundColor(.black)
+
                 Text("이야.").font(FontManager.shared.nanumsquare(.bold, 28))
             }
         }
