@@ -111,7 +111,8 @@ struct MainView: View {
     
     //weather related
     @State var weather: String = "sky"
-  
+    @StateObject private var weatherValue = WeatherValue()
+    
     private let soundManager = SoundManager.instance
     
     var body: some View {
@@ -208,8 +209,7 @@ struct MainView: View {
                 .offset(x: -310, y: -47)
 
                 Button(action: {
-                    soundManager.playSound(sound: .clock)
-                    isWatchClicked.toggle()
+                    isWatchClicked = true
                 }) {
                     ZStack{
                         if (isLampOn){
@@ -261,6 +261,7 @@ struct MainView: View {
                         }
                         .onTapGesture {
                             withAnimation(.default) {
+                                soundManager.playSound(sound: .clock)
                                 self.attempts += 1
                             }
                         }
@@ -394,7 +395,8 @@ struct MainView: View {
                         .background(Color.clear)
                         .cornerRadius(30)
                         .opacity(isWeatherPresented ? 1 : 0)
-                }
+                }.environmentObject(self.weatherValue)
+
 
                 //각 버튼에 따라 modal view 뜨는 부분
 //                if(isframe2){

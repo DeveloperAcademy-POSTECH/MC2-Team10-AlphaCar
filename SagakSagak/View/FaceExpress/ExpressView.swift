@@ -43,7 +43,6 @@ struct ExpressView: View {
                         
                 }
             }
-//            .padding()
         }
         .onChange(of: emotionFace.faceName) { _ in
             selectedFace = emotionFace.faceName ?? "basic"
@@ -54,7 +53,6 @@ struct ExpressView: View {
         .background(Color.bg2)
         
     }
-    
     
     var navBarView: some View {
         ZStack{
@@ -69,7 +67,6 @@ struct ExpressView: View {
                     .onTapGesture {
                         coordinator.popToRoot()
                     }.padding(.top, 4)
-//                    .padding(.leading, -1)
                     .shadow(color: Color(hex: "26775F").opacity(0.15),
                             radius: 30, x: 0, y: 4)
             }
