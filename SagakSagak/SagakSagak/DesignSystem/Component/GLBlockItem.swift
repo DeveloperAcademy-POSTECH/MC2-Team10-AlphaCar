@@ -21,7 +21,7 @@ struct GLBlockItem: View {
     
     let imageName: String
     let textName: String
-    
+        
     var body: some View {
         setUI(GLBlockItem.blockItemType)
     }

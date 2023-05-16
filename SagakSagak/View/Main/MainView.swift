@@ -4,13 +4,6 @@
 //
 //  Created by 신정연 on 2023/05/10.
 //
-
-//  MainView.swift
-//  SagakSagak
-//
-//  Created by 신정연 on 2023/05/10.
-//
-
 import SwiftUI
 
 struct MainButton{
@@ -88,13 +81,10 @@ struct MainView: View {
     @State var currentTime = Time(min: 0, hour : 0)
     
     //button related
-    @State private var isActive = false
-    @State private var isAnimating = false
     @AppStorage("isLampOn") private var isLampOn = true
     @State private var isCurtainOn = false
-    @State private var isCurtainOpened = false
-    @State private var loopNum : Float = 0
     @State private var isCharacterTapped = false
+    @State private var isPhotoExist = false
     
     //modal view related
     @State private var isLetter = false
@@ -103,14 +93,10 @@ struct MainView: View {
     @State private var isprofile = false
     @State private var isArchive = false
     @State private var isSkyTapped = false
-    @State private var moveToLetter = false
     @State private var shouldNavigate = false
+  
     //날씨뷰 모달 확인
     @State var isWeatherPresented: Bool = false
-    
-//    //ToCameraView에서 이미지 받아오기
-//    @EnvironmentObject var imageData: ImageData
-    
     
     @State var selectedWeatherImageName: String = ""
     @State var snowSelected: Bool = false
@@ -122,99 +108,53 @@ struct MainView: View {
     
     @State private var selectedImage: UIImage?
     @State var showImagePicker = false
-
-    
-//    @Binding var image: UIImage?
-    
-//    func loadImage() {
-//        guard let selectedImage = selectedUIImage else { return }
-//        image = Image(uiImage: selectedImage)
-//    }
     
     //weather related
     @State var weather: String = "sky"
-   
-
-    
-    
-    
-    var curtainOpenName: String {
-        var baseName = "curtain_open"
-        baseName += isLampOn ? (Theme.current == .day ? "_n" : "_d") : ""
-        return baseName
-    }
-    
-    var curtainCloseName: String {
-        var baseName = "curtain_close"
-        baseName += isLampOn ? (Theme.current == .day ? "_n" : "_d") : ""
-        return baseName
-    }
-    
+  
     private let soundManager = SoundManager.instance
     
     var body: some View {
         ZStack {
-            if(weather == "sky"){
-                Image(weather +
-                      (Theme.current == .day ? "_night" : "_day"))
-                .resizable()
-                .offset(x: 0, y: -120)
-            }
-            else{
-                LottieView(jsonName: weather + (Theme.current == .day ? "_n":"_d"), loopMode: .repeat(100))
-                    .frame(width: 450, height: 160)
-                    .offset(y:-120)
-            }
-            LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
-                .frame(width: 70)
-                .offset(x:-100, y:-70)
-                .onTapGesture(perform: {
-                    isCharacterTapped.toggle()
-                })
-            
-            if(!isLampOn){
-                if(!isCurtainOn){
-                    Image("background1" +
+            ZStack{
+                if(weather == "sky"){
+                    Image(weather +
                           (Theme.current == .day ? "_night" : "_day"))
                     .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                    .frame(width: 80, height: 40)
+                    .offset(x: 0, y: -120)
                 }
                 else{
-                    Image("background2" +
-                          (Theme.current == .day ? "_night" : "_day"))
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    LottieView(jsonName: weather + (Theme.current == .day ? "_n":"_d"), loopMode: .repeat(100))
+                        .frame(width: 450, height: 160)
+                        .offset(y:-120)
                 }
-            }
-            else{
-                Image("background_on")
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            
-            if (!isLampOn){
-                Image("default" + (Theme.current == .day ? "_night" : "_day"))
-                    .offset(x: 334, y: -100)
-                    .onTapGesture(perform: {
-                        isframe.toggle()
-                        isframe2 = true
-                    })
-            }
-            else{
-                if let profileImage = UserDefaultsManager.shared.profile {
-                    Image(uiImage: profileImage)
+                
+                if(!isLampOn){
+                    if(!isCurtainOn){
+                        Image("background1" +
+                              (Theme.current == .day ? "_night" : "_day"))
                         .resizable()
-                        .frame(width: 90, height: 90)
-                        .offset(x: 334, y: -100)
-                        .padding(.top, 5)
-                } else {
-                    Image("default")
-                        .offset(x: 334, y: -100)
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                    }
+                    else{
+                        Image("background2" +
+                              (Theme.current == .day ? "_night" : "_day"))
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                    }
+                }
+                else{
+                    Image("background_on")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
                 }
             }
+            .ignoresSafeArea()
 
-            
-            
             ZStack {
                 Button(action: {
                     isprofile.toggle()
@@ -224,47 +164,34 @@ struct MainView: View {
                 .offset(x: -377.5, y: -148.4)
                 .shadow(color: Color(red: 38/255, green: 119/255, blue: 95/255).opacity(0.3), radius: 15, x: 0, y: -4)
                 
-                if !isLampOn {
-                    if !isCurtainOn {
-                        LottieView(jsonName: "curtain_close" +
-                                   (Theme.current == .day ? "_n" : "_d"))
-                            .frame(width: 540)
-                            .onTapGesture(perform: {
-                                isCurtainOn = true
-                            })
-                            .offset(x: 0, y: -119)
+                Button(action: {
+                    soundManager.playSound(sound: .curtain)
+                    isCurtainOn.toggle()
+                    print("curtain")
+                }) {
+                    if(!isCurtainOn){
+                        if (isLampOn == false){
+                            Image("curtain_closed" +
+                                  (Theme.current == .day ? "_night" : "_day"))
+                        }
+                        else{
+                            Image("curtain_closed")
+                        }
                     }
                     else{
-                        LottieView(jsonName: "curtain_open" +
-                                   (Theme.current == .day ? "_n" : "_d"))
-                        .frame(width: 540)
-                        .offset(x:0, y:-119)
-                        .onTapGesture(perform: {
-                            isCurtainOn = false
-                            isSkyTapped = true
-                        })
-                    }
-                } else {
-                    if (!isCurtainOn) {
-                        LottieView(jsonName: "curtain_close")
-                            .frame(width: 540)
-                            .onTapGesture(perform: {
-                                isCurtainOn = true
-                            })
-                            .offset(x: 0, y: -119)
-                    }
-                    else{
-                        LottieView(jsonName: "curtain_open")
-                            .frame(width: 540)
-                            .offset(x:0, y:-119)
-                            .onTapGesture(perform: {
-                                isCurtainOn = false
-                                isSkyTapped = true
-                            })
+                        if (isLampOn == false){
+                            Image("curtain_opened" +
+                                  (Theme.current == .day ? "_night" : "_day"))
+                            //                            Image("curtaintmp")
+                        }
+                        else{
+                            Image("curtain_opened")
+                            //                            Image("curtaintmp")
+                        }
                     }
                 }
+                .offset(x: 0, y: -123)
 
-                
                 Button(action: {
                     soundManager.playSound(sound: .button)
                     isLampOn.toggle()
@@ -276,12 +203,11 @@ struct MainView: View {
                     else{
                         Image("lamp")
                     }
-                    
+
                 }
                 .offset(x: -310, y: -47)
-                 
+
                 Button(action: {
-                    isAnimating = true
                     soundManager.playSound(sound: .clock)
                     isWatchClicked.toggle()
                 }) {
@@ -306,7 +232,7 @@ struct MainView: View {
                             }
                             .modifier(Shake(animatableData: CGFloat(attempts)))
                         }
-                        
+
                         VStack{
                             Text(String(format: "%02d:%02d", self.currentTime.hour, self.currentTime.min))
                                 .foregroundColor(.clock2)
@@ -315,20 +241,20 @@ struct MainView: View {
                         .offset(x: 14, y: 2.5)
                         .onAppear(perform: {
                             let calendar = Calendar.current
-                            
+
                             let min = calendar.component(.minute, from: Date())
                             let hour = calendar.component(.hour, from: Date())
-                            
+
                             withAnimation(Animation.linear(duration: 0.01)){
                                 self.currentTime = Time(min: min, hour: hour)
                             }
                         })
                         .onReceive(receiver){ (_) in
                             let calendar = Calendar.current
-                            
+
                             let min = calendar.component(.minute, from: Date())
                             let hour = calendar.component(.hour, from: Date())
-                            
+
                             withAnimation(Animation.linear(duration: 0.01)){
                                 self.currentTime = Time(min: min, hour: hour)
                             }
@@ -343,49 +269,50 @@ struct MainView: View {
                 }
                 .offset(x: 334, y: 25)
                 .buttonStyle(PlainButtonStyle())
-                
+
                 if (!isLampOn){
-                    Image("frame"  +
-                          (Theme.current == .day ? "_night" : "_day"))
+                    SwingAnimation(imgName: "frame" + (Theme.current == .day ? "_night" : "_day"), isDark: true)
                         .offset(x: 334, y: -107.5)
-                        .onTapGesture(perform: {
-                            isframe.toggle()
-                            isframe2 = true
-                        })
+                    
+                    .onTapGesture(perform: {
+                        coordinator.push(.toCamera)
+                        isframe.toggle()
+                        isframe2 = true
+                    })
                 }
                 else{
-                    Image("frame")
+                    SwingAnimation(imgName: "frame", isDark: false)
                         .offset(x: 334, y: -107.5)
+                        
                         .onTapGesture(perform: {
+                            coordinator.push(.toCamera)
                             isframe.toggle()
                             isframe2 = true
                         })
                 }
-                
+
                 if(isCharacterTapped){
                     LottieView(jsonName: "love", loopMode: .repeat(.infinity))
-                        .frame(width: 155)
-                        .offset(x:200, y:50)
-                        .onTapGesture(perform: {
-                            isCharacterTapped.toggle()
-                        })
-                    
-                }
-                else{
-                    LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
-                        .frame(width: 155)
-                        .offset(x:200, y:50)
+                        .frame(width: 70)
+                        .offset(x:190, y:50)
                         .onTapGesture(perform: {
                             isCharacterTapped.toggle()
                         })
 
                 }
-                               
-                
-                
-                
+                else{
+                    LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
+                        .frame(width: 70)
+                        .offset(x:190, y:50)
+                        .onTapGesture(perform: {
+                            isCharacterTapped.toggle()
+                        })
+
+                }
+
                 Button(action: {
                     isArchive.toggle()
+                    coordinator.push(.archive1)
                 }) {
                     if(!isLampOn){
                         Image("archive" +
@@ -396,7 +323,7 @@ struct MainView: View {
                     }
                 }
                 .offset(x: -224, y: 97)
-                
+
                 if(isLampOn){
                     if(isLetter){
                         // 램프 킴, 편지
@@ -459,11 +386,7 @@ struct MainView: View {
                             .offset(y: -120)
                             .zIndex(isWeatherPresented ? 0 : 1)
                         
-              
-                
-                
-                
-                
+
                 
 //                날씨모달
                 ZStack{
@@ -472,11 +395,7 @@ struct MainView: View {
                         .cornerRadius(30)
                         .opacity(isWeatherPresented ? 1 : 0)
                 }
-                
-                
-                
-                
-                
+
                 //각 버튼에 따라 modal view 뜨는 부분
 //                if(isframe2){
 //                    ToCameraView()
@@ -491,23 +410,25 @@ struct MainView: View {
 //                if(isSkyTapped){
 //                    GLPopupView()//날씨 모달
 //                }
+
             }
+            .ignoresSafeArea()
             .onAppear(perform: {
                 let calendar = Calendar.current
-                
+
                 let min = calendar.component(.minute, from: Date())
                 let hour = calendar.component(.hour, from: Date())
-                
+
                 withAnimation(Animation.linear(duration: 0.01)){
                     self.currentTime = Time(min: min, hour: hour)
                 }
             })
             .onReceive(receiver){ (_) in
                 let calendar = Calendar.current
-                
+
                 let min = calendar.component(.minute, from: Date())
                 let hour = calendar.component(.hour, from: Date())
-                
+
                 withAnimation(Animation.linear(duration: 0.01)){
                     self.currentTime = Time(min: min, hour: hour)
                 }
@@ -516,7 +437,8 @@ struct MainView: View {
                 SoundManager.instance.playBackgroundMusic(sound: .main)
             })
         }
-        .ignoresSafeArea()
+//        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarBackButtonHidden(true)
     }
@@ -548,7 +470,6 @@ extension DateFormatter {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-//        MainView(image: .constant(nil))
         MainView()
             .previewInterfaceOrientation(.landscapeRight)
     }

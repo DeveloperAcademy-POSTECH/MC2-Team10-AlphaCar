@@ -10,19 +10,25 @@ import SwiftUI
 struct EndingView2: View {
     @EnvironmentObject private var coordinator: Coordinator
     
+    private let soundManager = SoundManager.instance
+    
     var body: some View {
         ZStack {
             Image("background").padding(.top, 20)
             
             ZStack {
-                GLNavBarItem(backPage: .end1, backButtonImg: "button_back", shadowOn: true, navBarTitle: "내일 또 만나자!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .end3, nextEnabled: true)
+                GLNavBarItem(backPage: .end1, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "내일 또 만나자!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .end3, nextEnabled: true)
                 
                 Image("button_exit")
                     .padding(.leading, 750)
                     .onTapGesture {
                         coordinator.popToRoot()
+                        soundManager.playSound(sound: .exit)
                     }
             }.padding(.bottom, 280)
+            .onAppear(perform: {
+                SoundManager.instance.playTts(sound: .ending2)
+            })
             
             GeometryReader { geometry in
                 ZStack {

@@ -13,6 +13,8 @@ struct StoryView2: View {
     @State private var isNextBtnClicked = false
     @State private var isPrevBtnClicked = false
     
+    private let soundManager = SoundManager.instance
+    
     var body: some View {
         ZStack {
             Image("background").padding(.top, 20)
@@ -53,7 +55,7 @@ struct StoryView2: View {
                 
                 ZStack{
                     GLNavBarItem(
-                        backPage: .story1, backButtonImg: "button_modal_back", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .end1, nextEnabled: true)
+                        backPage: .story1, backButtonImg: "button_modal_back", backEnabled : true, shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .end1, nextEnabled: true)
                     .padding(.leading, 0).padding(.top, 30)
                     
                     Image("button_exit")
@@ -61,6 +63,7 @@ struct StoryView2: View {
                         .padding(.top, -20)
                         .onTapGesture {
                             coordinator.popToRoot()
+                            soundManager.playSound(sound: .exit)
                         }
                 }.padding(.bottom, 260)
                 

@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Group 10303.svg",
+      "filename" : "off_d_open.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 10303@2x.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 10303@3x.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

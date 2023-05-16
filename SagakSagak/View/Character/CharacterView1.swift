@@ -9,20 +9,25 @@ import SwiftUI
 
 struct CharacterView1: View {
     @EnvironmentObject private var coordinator: Coordinator
+    private let soundManager = SoundManager.instance
     
     var body: some View {
         ZStack {
             Image("background").padding(.top, 20)
             
             ZStack {
-                GLNavBarItem(backPage: .draw, backButtonImg: "button_back", shadowOn: true, navBarTitle: "정말 멋진 그림이야!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
+                GLNavBarItem(backPage: .draw, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "정말 멋진 그림이야!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
                 
                 Image("button_exit")
                     .padding(.leading, 750)
                     .onTapGesture {
                         coordinator.popToRoot()
+                        soundManager.playSound(sound: .exit)
                     }
             }.padding(.bottom, 280)
+            .onAppear(perform: {
+                SoundManager.instance.playTts(sound: .character1)
+            })
             
             GeometryReader { geometry in
                 ZStack {

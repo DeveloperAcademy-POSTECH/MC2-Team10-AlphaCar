@@ -13,17 +13,47 @@ enum RotationState: Int {
     case done
 }
 
+
 struct SwingAnimation: View {
-    @State private var state: RotationState = .min
     @State var imgName: String
+    @State var isDark: Bool
+    @State private var state: RotationState = .min
+    @State private var profileImage: UIImage? = nil 
+    @State private var isProfileImageLoaded = false
 
     var body: some View {
-        VStack(alignment: .center, spacing: -1) {
-            Image(imgName)
-                .rotationEffect(rotationAngle(), anchor: .top)
+
+        ZStack {
+            
+            ZStack {
+                
+                if let image = profileImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 70, height: 70)
+                        .overlay(
+                            Rectangle()
+                                .foregroundColor(Color(hex: "1B1D3C"))
+                                .opacity(isDark ? 0.5 : 0)
+                        )
+                        .offset(y: 10)
+                        
+                }else {
+                    Image("frame")
+                }
+                Image(imgName)
+            }
+            .rotationEffect(rotationAngle(), anchor: .top)
                 .onAppear {
+                    if !isProfileImageLoaded { // Load the profile image only once
+                        if let profileImage = UserDefaultsManager.shared.profile {
+                            self.profileImage = profileImage
+                            self.isProfileImageLoaded = true
+                        }
+                    }
+                    
                     let baseAnimation = Animation.easeInOut(duration: 0.5)
-                    let repeated = baseAnimation.repeatCount(2) // 3 times in each direction
+                    let repeated = baseAnimation.repeatCount(2)
                     
                     withAnimation(repeated) {
                         switch state {
@@ -38,7 +68,8 @@ struct SwingAnimation: View {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         withAnimation(.easeInOut(duration: 0.5)) {
-                            state = .done // Stop at 0 degrees
+                            state = .done
+                            
                         }
                     }
                 }
@@ -48,9 +79,9 @@ struct SwingAnimation: View {
     private func rotationAngle() -> Angle {
         switch state {
         case .max:
-            return .degrees(-10)
+            return .degrees(-1.5)
         case .min:
-            return .degrees(10)
+            return .degrees(1.5)
         case .done:
             return .degrees(0)
         }
@@ -69,6 +100,8 @@ struct RoundedCorner: Shape {
 
 struct SwingAnimation_Previews: PreviewProvider {
     static var previews: some View {
-        SwingAnimation(imgName:"frame")
+        SwingAnimation(imgName:"frame", isDark: false)
     }
 }
+
+
