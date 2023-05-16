@@ -64,23 +64,25 @@ struct EmotionView: View {
     var contents: some View {
         VStack{
             HStack(spacing:16){
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(
-                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:-4))
-                        )
-                        .frame(width: 100, height:60)
-                        .foregroundColor(Color.system2)
-                    
-                    Image(UserDefaultsManager.shared.faceImage!) /// 표정 얼굴 모양이 들어감
-                        .padding(.top, 10)
-                }
+                Image(UserDefaultsManager.shared.faceImage!)
+                    .offset(y:10)
+                    .frame(width: 100, height: 60)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(.white).opacity(0.1), lineWidth: 5)
+                            .shadow(color: Color(hex: "579DFF"), radius: 5, x: 0, y: -4)
+                            .padding(-6)
+                    )
+                    .background(.white)
+                    .cornerRadius(10)
+                    .foregroundColor(.black)
+                
                 Text("표정의 이름은").font(FontManager.shared.nanumsquare(.bold, 28))
                         
                 ZStack{
                     RoundedRectangle(cornerRadius: 10)
                         .fill(
-                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:-4))
+                            .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y: 4))
                             //TODO: 블록 쉐도우 재조정 필요
                             
                         )

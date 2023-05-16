@@ -33,9 +33,14 @@ struct ExpressTextButton: View {
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                         .fill(
-                            .shadow(.inner(color: Color(hex: "006AFF").opacity(0.5), radius: 10, x:0, y: isSelected ? 4 : -4))
+                            //.shadow(.inner(color: Color(hex: "006AFF").opacity(0.5), radius: 10, x:0, y: isSelected ? 4 : -4))
+                            .shadow(.inner(color: Color(hex: "006AFF").opacity(0.5),
+                                    radius: 10,
+                                    x: 0,
+                                    y: isSelected ? 4 : -4
+                                   ))
                         )
-                        .foregroundColor(isSelected ? Color.init(hex: "89BAFF").opacity(0.3) : Color.block_bg2)
+                        .foregroundColor(isSelected ? Color.block_bg2.opacity(0.3) : Color.block_bg2)
                 )
         }
         .buttonStyle(PlainButtonStyle())
