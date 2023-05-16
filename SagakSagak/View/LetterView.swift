@@ -95,6 +95,9 @@ struct LetterView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.bg2)
         .ignoresSafeArea()
+        .onAppear(perform: {
+            SoundManager.instance.playBackgroundMusic(sound: .main)
+        })
     }
 }
 

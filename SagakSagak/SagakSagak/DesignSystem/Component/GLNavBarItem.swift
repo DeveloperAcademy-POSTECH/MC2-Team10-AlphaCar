@@ -25,11 +25,13 @@ struct GLNavBarItem: View {
     let nextButtonImg: String
     let nextPage: Page
     let nextEnabled: Bool
+    private let soundManager = SoundManager.instance
     
     var body: some View {
         HStack(spacing:10){
             Button {
                 coordinator.push(backPage)
+                soundManager.playSound(sound: .select)
             } label: {
                 Image(backButtonImg)
                     .shadow(color: shadowOn ?
@@ -43,6 +45,7 @@ struct GLNavBarItem: View {
             
             Button {
                 coordinator.push(nextPage)
+                soundManager.playSound(sound: .approve)
             } label: {
                 if(nextEnabled){
                     Image(nextButtonImg)
