@@ -55,7 +55,8 @@ struct ToCameraView: View {
                             Image(!isClicked ? "추억이_담긴_액자" : "추억이_담긴_액자_black")
                             Image(!isClicked ? "greenButton" : "").offset(x:370)
                                 .onTapGesture {
-                                    coordinator.push(.main)
+//                                    coordinator.push(.main)
+                                    coordinator.popToRoot()
                                     soundManager.playSound(sound: .exit)
                                 }
                         }.padding(.bottom, 16)
