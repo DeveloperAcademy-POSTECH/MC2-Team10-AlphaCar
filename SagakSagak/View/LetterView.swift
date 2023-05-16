@@ -53,9 +53,9 @@ struct LetterView: View {
                     .onAppear {
                         animateOpacityAndPosition(opacity: 0, position: 300, duration: 2)
                     }
-                ZStack{
+                ZStack(alignment: .center){
                     Image("letterBody")
-                        .offset(x:0, y: letterPosition + 215)
+                        .offset(x:0, y: letterPosition + 211)
                         .onAppear {
                             animatePosition(position: -200, duration: 0.75)
                         }
@@ -65,7 +65,7 @@ struct LetterView: View {
                     
                     ZStack{
                         GLNavBarItem(
-                            backPage: .main, backButtonImg: "", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .draw, nextEnabled: true)
+                            backPage: .main, backButtonImg: "", backEnabled : true, shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .draw, nextEnabled: true)
                         .offset(x:0, y: letterPosition + 90)
                         .padding(.leading, 40)
                         .opacity(letterOpacityReverse)
@@ -75,19 +75,26 @@ struct LetterView: View {
                     .onAppear(perform: {
                         SoundManager.instance.playTts(sound: .intro)
                     })
-                    Image("greenButton")
-                        .offset(x:350, y:-110.5)
-                        .padding(.top, -53.5)
-                        .padding(.leading, 50)
-                        .opacity(letterOpacityReverse)
-                        .onAppear {
-                            animateOpacity(opacity: 1, duration: 1)
-                        }
-                        .onTapGesture {
-                            coordinator.popToRoot()
-                            soundManager.playSound(sound: .exit)
-                        }
+                    
                 }
+                .alignmentGuide(HorizontalAlignment.center) { dimensions in
+                    dimensions.width / 2
+                }
+                .alignmentGuide(VerticalAlignment.center) { dimensions in
+                    dimensions.height / 2
+                }
+                Image("greenButton")
+                    .offset(x:350, y:-110.5)
+                    .padding(.top, -53.5)
+                    .padding(.leading, 50)
+                    .opacity(letterOpacityReverse)
+                    .onAppear {
+                        animateOpacity(opacity: 1, duration: 1)
+                    }
+                    .onTapGesture {
+                        coordinator.popToRoot()
+                        soundManager.playSound(sound: .exit)
+                    }
                 
                 Image("letterFoot").offset(x:0, y:coverPosition + 115)
                     .opacity(letterOpacity)

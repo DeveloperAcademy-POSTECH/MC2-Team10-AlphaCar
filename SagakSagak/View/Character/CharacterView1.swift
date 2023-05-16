@@ -16,7 +16,7 @@ struct CharacterView1: View {
             Image("background").padding(.top, 20)
             
             ZStack {
-                GLNavBarItem(backPage: .draw, backButtonImg: "button_back", shadowOn: true, navBarTitle: "정말 멋진 그림이야!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
+                GLNavBarItem(backPage: .draw, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "정말 멋진 그림이야!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .character2, nextEnabled: true)
                 
                 Image("button_exit")
                     .padding(.leading, 750)

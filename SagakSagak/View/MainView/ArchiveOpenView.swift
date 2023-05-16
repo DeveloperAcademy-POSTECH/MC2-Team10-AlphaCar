@@ -36,10 +36,19 @@ struct ArchiveOpenView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color(red: 250/255, green: 248/255, blue: 229/255))
             ZStack {
-                GLNavBarItem(backPage: .main, backButtonImg: "button_back", shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
-                    .onAppear {
-                        self.title = self.dateFormatter.string(from: Date())
-                    }
+                if let image = UserDefaultsManager.shared.snapShot {
+                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
+                        .onAppear {
+                            self.title = self.dateFormatter.string(from: Date())
+                        }
+                }
+                else{
+                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", backEnabled : false, shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
+                        .onAppear {
+                            self.title = self.dateFormatter.string(from: Date())
+                        }
+                }
+                
                 Image(weather)
                     .resizable()
                     .frame(width: 36, height: 36)
@@ -123,8 +132,12 @@ struct ArchiveOpenView: View {
                     .padding(.top, 65)
                 }
                 else{
-                    HStack{
-                        Text("아직 오늘의 이야기가 없어요.\n편지를 열어 오늘의 이야기를 들려줄래?")
+                    VStack{
+                        Spacer()
+                        Image("noArchive")
+                            .resizable()
+                            .frame(width: 600, height: 270)
+                            
                     }
                 }
             }

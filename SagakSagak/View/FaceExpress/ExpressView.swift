@@ -18,7 +18,8 @@ struct ExpressView: View {
     
     var body: some View {
         ZStack {
-            Image("background").padding(.top, 20)
+            Image("background")
+                .padding(.top, 20)
             
             if let image = emotionFace.faceName {
                 LottieView(jsonName: image)
@@ -34,27 +35,31 @@ struct ExpressView: View {
             ZStack{
                 VStack(){
                     navBarView
-                    Spacer().frame(height:220)
+                        .padding(.trailing, 1)
+                        .padding(.top, 6)
+                    Spacer().frame(height:225)
                     FaceView()
                         .environmentObject(self.emotionFace)
+                        
                 }
             }
-            .padding()
+//            .padding()
         }
         .onChange(of: emotionFace.faceName) { _ in
             selectedFace = emotionFace.faceName ?? "basic"
         }
+        .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.bg2)
-        .ignoresSafeArea()
+        
     }
     
     
     var navBarView: some View {
         ZStack{
             ZStack{
-                GLNavBarItem(backPage: .character2, backButtonImg: "button_back", shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .emotion,
+                GLNavBarItem(backPage: .character2, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .emotion,
                              nextEnabled: selectedFace == "basic" ? false : true) //변수
                 .padding(.top, 4)
                 Spacer().frame(width:70)
@@ -64,13 +69,13 @@ struct ExpressView: View {
                     .onTapGesture {
                         coordinator.popToRoot()
                     }.padding(.top, 4)
-                    .padding(.leading, -1)
+//                    .padding(.leading, -1)
                     .shadow(color: Color(hex: "26775F").opacity(0.15),
                             radius: 30, x: 0, y: 4)
             }
         }
         .frame(width: Const.glScreenWidth, height: 72)
-        .padding(.top, 24)
+        .padding(.top, 23)
         .padding(.trailing, 24)
         .padding(.leading, 25)
         

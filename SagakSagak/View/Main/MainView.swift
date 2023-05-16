@@ -242,7 +242,7 @@ struct MainView: View {
                         }
                     }
                 }
-                .offset(x: 0, y: -120)
+                .offset(x: 0, y: -123)
 
                 Button(action: {
                     soundManager.playSound(sound: .button)
