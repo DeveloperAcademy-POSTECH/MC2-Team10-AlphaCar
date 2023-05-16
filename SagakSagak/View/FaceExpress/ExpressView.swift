@@ -17,66 +17,63 @@ struct ExpressView: View {
     
     
     var body: some View {
-        
-        
-        if !isNextBtnClicked && !isPrevBtnClicked && !isExitBtnClicked{
-            ZStack {
-                Color.bg2.ignoresSafeArea()
-                Image("background").resizable().ignoresSafeArea()
-                    LottieView(jsonName: "basic")
-                        .frame(width:370, height:370)
-                        .padding(.top, 40)
-        
-                    ZStack{
-                        VStack(){
-                            navBarView
-                           
-                            Spacer().frame(height:220)
-                            FaceView()
-                            
-                        }
-                    }
-        
-                .padding()
-
+        ZStack {
+            Image("background").padding(.top, 20)
+            
+            if let image = emotionFace.faceName {
+                LottieView(jsonName: image)
+                    .id(image)
+                    .frame(width:370, height:370)
+                    .padding(.top, 40)
+            } else {
+                LottieView(jsonName: "basic")
+                    .frame(width:370, height:370)
+                    .padding(.top, 40)
             }
-            .onChange(of: emotionFace.faceName) { _ in
-                selectedFace = emotionFace.faceName ?? "basic"
+            
+            ZStack{
+                VStack(){
+                    navBarView
+                    Spacer().frame(height:220)
+                    FaceView()
+                        .environmentObject(self.emotionFace)
+                }
             }
-            .navigationBarBackButtonHidden(true)
-        } else if isPrevBtnClicked {
-            CharacterView2()
-        } else {
-            EmotionView(onClicked: false, textBlock: "감정").environmentObject(self.emotionFace)
-                .navigationBarBackButtonHidden(true)
+            .padding()
         }
-        
-        
-
+        .onChange(of: emotionFace.faceName) { _ in
+            selectedFace = emotionFace.faceName ?? "basic"
+        }
+        .navigationBarBackButtonHidden(true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.bg2)
+        .ignoresSafeArea()
     }
     
     
     var navBarView: some View {
-        HStack{
-            GLNavBarItem(backPage: .face, backButtonImg: "button_back", shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까", navBarBgColor: .system2, navBarFontColor: .system1, nextButtonImg: "button_next", nextPage: .story1, nextEnabled: false) //변수
-            
-            Spacer().frame(width:70)
-            
-            Button {
-                coordinator.popToRoot()
-            } label: {
-                Image("button_exit")
-                    .shadow(color: Color(hex: "26775F").opacity(0.15),
-                            radius: 30,
-                            x: 0,
-                            y: 4)
+        ZStack{
+            ZStack{
+                GLNavBarItem(backPage: .character2, backButtonImg: "button_back", shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?", navBarBgColor: .system2, navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .emotion,
+                             nextEnabled: selectedFace == "basic" ? false : true) //변수
+                .padding(.top, 4)
+                Spacer().frame(width:70)
                 
+                Image("button_exit")
+                    .padding(.leading, 750)
+                    .onTapGesture {
+                        coordinator.popToRoot()
+                    }.padding(.top, 4)
+                    .padding(.leading, -1)
+                    .shadow(color: Color(hex: "26775F").opacity(0.15),
+                            radius: 30, x: 0, y: 4)
             }
         }
         .frame(width: Const.glScreenWidth, height: 72)
         .padding(.top, 24)
         .padding(.trailing, 24)
-        .padding(.leading, 142)
+        .padding(.leading, 25)
+        
     }
     
 }
