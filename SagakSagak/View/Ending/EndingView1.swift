@@ -16,7 +16,7 @@ struct EndingView1: View {
             Image("background").padding(.top, 20)
 
             ZStack {
-                GLNavBarItem(backPage: .story2, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이야기 들려줘서 고마워!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .end2, nextEnabled: true)
+                GLNavBarItem(backPage: .story2, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "이야기 들려줘서 고마워!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "383838"), nextButtonImg: "button_next", nextPage: .end2, nextEnabled: true)
                 
                 Image("button_exit")
                     .padding(.leading, 750)

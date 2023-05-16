@@ -25,11 +25,13 @@ struct EmotionView: View {
         ZStack {
             Color.bg3.ignoresSafeArea()
             VStack(spacing:0){
+                
                 navBarView
-                    .padding(.bottom, 76)
+                    .padding(.bottom, 68)
                 contents
                     .padding(.bottom, 94)
                 tabBarView
+                    .padding(.bottom, 7.5)
             }
         }
         .onChange(of: emotionText.textName) { _ in
@@ -40,27 +42,22 @@ struct EmotionView: View {
     
     // MARK: navBar
     var navBarView: some View {
-        HStack{
-            GLNavBarItem(backPage: .face, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system1, nextButtonImg: "button_next", nextPage: .story1, nextEnabled: selectedFeeling != "feeling" ? true : false)
-            
-            Spacer().frame(width:70)
-            
-            Button {
-                coordinator.popToRoot()
-                soundManager.playSound(sound: .exit)
-            } label: {
-                Image("button_exit")
-                    .shadow(color: Color(hex: "26775F").opacity(0.15),
-                            radius: 30,
-                            x: 0,
-                            y: 4)
-                
-            }
+        ZStack{
+            GLNavBarItem(backPage: .face, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .story1,
+                         nextEnabled: selectedFeeling != "feeling" ? true : false) 
+            Image("button_exit")
+                .padding(.leading, 750)
+                .padding(.top, 1)
+                .onTapGesture {
+                    coordinator.popToRoot()
+                    soundManager.playSound(sound: .exit)
+                }
+                .shadow(color: Color(hex: "26775F").opacity(0.15),
+                        radius: 30, x: 0, y: 4)
+
         }
         .frame(width: Const.glScreenWidth, height: 72)
-        .padding(.top, 24)
-        .padding(.trailing, 24)
-        .padding(.leading, 142)
+        .padding(.top, 37)
         .onAppear(perform: {
             SoundManager.instance.playTts(sound: .facename)
         })
@@ -127,5 +124,7 @@ struct EmotionView: View {
 struct EmotionView_Previews: PreviewProvider {
     static var previews: some View {
         EmotionView(onClicked: false, textBlock: "감정")
+            .previewInterfaceOrientation(.landscapeRight)
+
     }
 }

@@ -18,7 +18,7 @@ struct CharacterView2: View {
             
             ZStack {
                 GLNavBarItem(
-                    backPage: .character1, backButtonImg: "button_back", shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?" , navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .face, nextEnabled: true)
+                    backPage: .character1, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "소중한 것을 떠올리면 어떤 표정이 될까?" , navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .face, nextEnabled: true)
                 Image("button_exit")
                     .padding(.leading, 750)
                     .onTapGesture {
