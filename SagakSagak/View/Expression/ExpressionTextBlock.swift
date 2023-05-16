@@ -72,6 +72,7 @@ struct ExpressionTextBlock: View {
                             selectedtextName: title,
                             action: {
                                 emotionText.textName = textName
+                                UserDefaultsManager.shared.feel = textName
                             },
                             offset: offset,
                             selectedButton: $selectedButton
@@ -90,6 +91,7 @@ struct ExpressionTextBlock: View {
                                 selectedtextName: title,
                                 action: {
                                     emotionText.textName = textName
+                                    UserDefaultsManager.shared.feel = textName
                                 },
                                 offset: offset,
                                 selectedButton: $selectedButton

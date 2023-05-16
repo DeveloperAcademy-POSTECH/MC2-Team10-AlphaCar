@@ -39,7 +39,7 @@ struct EmotionView: View {
     // MARK: navBar
     var navBarView: some View {
         HStack{
-            GLNavBarItem(backPage: .face, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system1, nextButtonImg: "button_next", nextPage: .story1, nextEnabled: false)
+            GLNavBarItem(backPage: .face, backButtonImg: "button_back", shadowOn: true, navBarTitle: "이 표정은 어떤 이름일까?", navBarBgColor: .system2, navBarFontColor: .system1, nextButtonImg: "button_next", nextPage: .story1, nextEnabled: selectedFeeling != "feeling" ? true : false)
             
             Spacer().frame(width:70)
             
@@ -81,7 +81,7 @@ struct EmotionView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(
                             .shadow(.inner(color: Color.init(hex: "579DFF").opacity(0.3), radius: 10, x:0, y:-4))
-                            //TODO : 블록 쉐도우 재조정 필요
+                            //TODO: 블록 쉐도우 재조정 필요
                             
                         )
                         .frame(width: 100, height:60)
