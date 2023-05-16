@@ -12,6 +12,7 @@ enum UserDefaultKey: String {
     case faceImage
     case feel
     case snapShot
+    case weather
     case profile
 }
 
@@ -34,27 +35,38 @@ class UserDefaultsManager {
         }
     }
     
-    var profile: UIImage? {
-        get {
-            guard let profileData = UserDefaults.standard.value(forKey: UserDefaultKey.profile.rawValue) as? Data else { return nil }
-            return UIImage(data: profileData)
+    private init() {}
+
+    var weather: String? {
+        get{
+            guard let weather = UserDefaults.standard.value(forKey: UserDefaultKey.weather.rawValue) as? String else { return nil }
+            return weather
         }
         
-        set(profile) {
-            guard let profile = profile else {
-                UserDefaults.standard.removeObject(forKey: UserDefaultKey.profile.rawValue)
-                return
-            }
-            let profileData = profile.jpegData(compressionQuality: 1.0)
-            UserDefaults.standard.set(profileData, forKey: UserDefaultKey.profile.rawValue)
+        set(weather){
+            UserDefaults.standard.set(weather, forKey: UserDefaultKey.weather.rawValue)
         }
     }
     
-    private init() {}
-
+    var profile: UIImage? {
+            get {
+                guard let profileData = UserDefaults.standard.value(forKey: UserDefaultKey.profile.rawValue) as? Data else { return nil }
+                return UIImage(data: profileData)
+            }
+            
+            set(profile) {
+                guard let profile = profile else {
+                    UserDefaults.standard.removeObject(forKey: UserDefaultKey.profile.rawValue)
+                    return
+                }
+                let profileData = profile.jpegData(compressionQuality: 1.0)
+                UserDefaults.standard.set(profileData, forKey: UserDefaultKey.profile.rawValue)
+            }
+        }
+        
     var faceImage: String? {
         get{
-            guard let faceImage = UserDefaults.standard.value(forKey: UserDefaultKey.faceImage.rawValue) as? String else { return "sad" }
+            guard let faceImage = UserDefaults.standard.value(forKey: UserDefaultKey.faceImage.rawValue) as? String else { return nil }
             return faceImage
         }
         
@@ -65,7 +77,7 @@ class UserDefaultsManager {
     
     var feel: String? {
         get{
-            guard let feel = UserDefaults.standard.value(forKey: UserDefaultKey.feel.rawValue) as? String else { return "슬픔" }
+            guard let feel = UserDefaults.standard.value(forKey: UserDefaultKey.feel.rawValue) as? String else { return nil }
             return feel
         }
         
@@ -73,5 +85,6 @@ class UserDefaultsManager {
             UserDefaults.standard.set(feel, forKey: UserDefaultKey.feel.rawValue)
         }
     }
+
     
 }

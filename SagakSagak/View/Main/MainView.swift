@@ -69,6 +69,7 @@ enum ButtonStyle: String, Identifiable{
 
 let buttons: [ButtonStyle] = [.archive, .clock, .frame, .lamp, .letter]
 
+
 struct MainView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
@@ -93,15 +94,24 @@ struct MainView: View {
     @State private var isArchive = false
     @State private var isSkyTapped = false
     @State private var shouldNavigate = false
+  
+    //날씨뷰 모달 확인
+    @State var isWeatherPresented: Bool = false
+    
+    @State var selectedWeatherImageName: String = ""
+    @State var snowSelected: Bool = false
+    @State var windSelected: Bool = false
+    @State var sunSelected: Bool = false
+    @State var cloudSelected: Bool = false
+    @State var rainSelected: Bool = false
+    @State var thunderSelected: Bool = false
+    
+    @State private var selectedImage: UIImage?
+    @State var showImagePicker = false
     
     //weather related
-//    @State var weather: String = "snowy"
-    @State var weather: String = "stormy"
-//    @State var weather: String = "sunny"
-//    @State var weather: String = "windy"
-//    @State var weather: String = "rainy"
-//    @State var weather: String = "cloudy"
-    
+    @State var weather: String = "sky"
+  
     private let soundManager = SoundManager.instance
     
     var body: some View {
@@ -144,7 +154,7 @@ struct MainView: View {
                 }
             }
             .ignoresSafeArea()
-            
+
             ZStack {
                 Button(action: {
                     isprofile.toggle()
@@ -180,7 +190,7 @@ struct MainView: View {
                         }
                     }
                 }
-                .offset(x: 0, y: -120)
+                .offset(x: 0, y: -123)
 
                 Button(action: {
                     soundManager.playSound(sound: .button)
@@ -361,6 +371,45 @@ struct MainView: View {
                         .offset(x: 0, y: 97)
                     }
                 }
+                
+                ///날씨모달 버튼
+                Button(action: {
+                    isWeatherPresented.toggle()
+                    
+                }) {
+                    ZStack{
+                        Image("button_plus")
+                                    
+                                    }
+                            }
+                            .opacity(isCurtainOn ? 1 : 0)
+                            .offset(y: -120)
+                            .zIndex(isWeatherPresented ? 0 : 1)
+                        
+
+                
+//                날씨모달
+                ZStack{
+                    WeatherView(isWeatherPresented: $isWeatherPresented, selectedWeatherImageName: $selectedWeatherImageName, snowSelected: $snowSelected, windSelected: $windSelected, sunSelected: $sunSelected, cloudSelected: $cloudSelected, rainSelected: $rainSelected, thunderSelected: $thunderSelected, weather: $weather)
+                        .background(Color.clear)
+                        .cornerRadius(30)
+                        .opacity(isWeatherPresented ? 1 : 0)
+                }
+
+                //각 버튼에 따라 modal view 뜨는 부분
+//                if(isframe2){
+//                    ToCameraView()
+                    //사진 모달
+//                }
+//                if(isprofile){
+//                    MainView()//프로필 화면
+//                }
+//                if(isArchive){
+//                    ArchiveView()
+//                }
+//                if(isSkyTapped){
+//                    GLPopupView()//날씨 모달
+//                }
 
             }
             .ignoresSafeArea()

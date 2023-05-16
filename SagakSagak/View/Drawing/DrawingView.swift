@@ -70,6 +70,7 @@ struct DrawingView: View {
                             )
                         }
                     }
+                    .padding(.leading, 4)
                         // MARK: Canvas
                         canvas
                     
@@ -95,17 +96,18 @@ struct DrawingView: View {
                                 .offset(x: selectedWidth == 20 ? 0 : 20, y: 0)
                                 .animation(.spring(), value: selectedWidth)
                                 .padding(.bottom, 3)
-                                .padding(.trailing, 24)
+                                .padding(.trailing, 14)
                         }
 
                     }
+//                    .padding(.leading, 20)
                     .navigationBarBackButtonHidden(true)
                 }.padding(.top, 90)
                 
                 ZStack {
                     ZStack {
                         GLNavBarItem(
-                            backPage: .letter, backButtonImg: "button_back", shadowOn: true, navBarTitle: "가람이에게 가장 소중한 것을 그려보자", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .character1, nextEnabled: isDrawing ? true : false)
+                            backPage: .letter, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: "가장 소중한 것을 그려보자!", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_next", nextPage: .character1, nextEnabled: isDrawing ? true : false)
                         Image("button_exit")
                             .padding(.leading, 750)
                             .onTapGesture {

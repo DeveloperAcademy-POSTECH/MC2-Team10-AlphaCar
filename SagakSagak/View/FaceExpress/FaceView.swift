@@ -79,5 +79,6 @@ struct FaceView: View {
                 }
             }
         }
+        .ignoresSafeArea()
     }
 }

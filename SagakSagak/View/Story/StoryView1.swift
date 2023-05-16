@@ -19,9 +19,12 @@ struct StoryView1: View {
 //                Image("storyBoard")
 //                    .padding(.top, 20)
 //                    .offset(x:0, y: 0)
-                RoundedRectangle(cornerRadius: 30)
-                    .fill(Color.system2)
-                    .frame(width: 580, height:320)
+//                RoundedRectangle(cornerRadius: 30)
+//                    .fill(Color.system2)
+//                    .frame(width: 580, height:320)
+                Image("storyBoard")
+                    .padding(.top, 20)
+                    .offset(x:0, y: 0)
                 
                 
                 
@@ -51,7 +54,7 @@ struct StoryView1: View {
                 
                 ZStack{
                     GLNavBarItem(
-                        backPage: .emotion, backButtonImg: "button_modal_back", shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .story2, nextEnabled: true)
+                        backPage: .emotion, backButtonImg: "button_modal_back", backEnabled : true, shadowOn: true, navBarTitle: "오늘의 이야기", navBarBgColor: Color(hex: "F2F7FF"), navBarFontColor: Color(hex: "5E9BF0"), nextButtonImg: "button_modal_next", nextPage: .story2, nextEnabled: true)
                     .padding(.leading, 0).padding(.top, 30)
                     
                     Image("button_exit")

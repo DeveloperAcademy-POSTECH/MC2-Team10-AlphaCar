@@ -36,6 +36,7 @@ struct ArchiveOpenView: View {
                 .background(Color(red: 250/255, green: 248/255, blue: 229/255))
             ZStack {
                 if let image = UserDefaultsManager.shared.snapShot {
+
                     GLNavBarItem(backPage: .main, backButtonImg: "button_back", shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
                         .onAppear {
                             self.title = self.dateFormatter.string(from: Date())

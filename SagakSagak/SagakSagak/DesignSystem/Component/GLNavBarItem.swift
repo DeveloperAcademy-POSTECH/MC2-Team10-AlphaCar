@@ -12,6 +12,7 @@ struct GLNavBarItem: View {
     ///이전 페이지로(이미지, 페이지명)
     let backPage: Page
     let backButtonImg: String
+    let backEnabled: Bool
     
     ///섀도우 여부
     let shadowOn: Bool
@@ -33,12 +34,23 @@ struct GLNavBarItem: View {
                 coordinator.push(backPage)
                 soundManager.playSound(sound: .select)
             } label: {
-                Image(backButtonImg)
-                    .shadow(color: shadowOn ?
-                            Color(hex: "26775F").opacity(0.15) : .system2,
-                            radius: shadowOn ? 30 : 0,
-                            x: shadowOn ? 0 : 0,
-                            y: shadowOn ? 4 : 0)
+                if(backEnabled){
+                    Image(backButtonImg)
+                        .shadow(color: shadowOn ?
+                                Color(hex: "26775F").opacity(0.15) : .system2,
+                                radius: shadowOn ? 30 : 0,
+                                x: shadowOn ? 0 : 0,
+                                y: shadowOn ? 4 : 0)
+                }
+                else{
+                    Image("button_next_enabled")
+                        .shadow(color: shadowOn ?
+                                Color(hex: "26775F").opacity(0.15) : .system2,
+                                radius: shadowOn ? 30 : 0,
+                                x: shadowOn ? 0 : 0,
+                                y: shadowOn ? 0 : 0)
+                        .scaleEffect(x: -1, y: 1)
+                }
             }
             
             GLNavBarTitle(navBarTitle: navBarTitle, navBarBgColor: navBarBgColor, navBarFontColor: navBarFontColor)
@@ -76,7 +88,7 @@ struct GLBavBarItem_Previews: PreviewProvider {
 //            .previewInterfaceOrientation(.landscapeRight)
         
         //쉐도우 없는 버전
-        GLNavBarItem(backPage: .character1, backButtonImg: "button_modal_back", shadowOn: false, navBarTitle: "오늘의 이야기", navBarBgColor: .bg1, navBarFontColor: .system1, nextButtonImg: "button_modal_next", nextPage: .character2, nextEnabled: true)
+        GLNavBarItem(backPage: .character1, backButtonImg: "button_modal_back", backEnabled : true, shadowOn: false, navBarTitle: "오늘의 이야기", navBarBgColor: .bg1, navBarFontColor: .system1, nextButtonImg: "button_modal_next", nextPage: .character2, nextEnabled: true)
             .previewInterfaceOrientation(.landscapeRight)
     }
     
