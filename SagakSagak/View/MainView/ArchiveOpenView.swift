@@ -1,4 +1,3 @@
-//
 //  ArchiveOpenView.swift
 //  SagakSagak
 //
@@ -37,13 +36,14 @@ struct ArchiveOpenView: View {
                 .background(Color(red: 250/255, green: 248/255, blue: 229/255))
             ZStack {
                 if let image = UserDefaultsManager.shared.snapShot {
-                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", backEnabled : true, shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
+
+                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
                         .onAppear {
                             self.title = self.dateFormatter.string(from: Date())
                         }
                 }
                 else{
-                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", backEnabled : false, shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
+                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
                         .onAppear {
                             self.title = self.dateFormatter.string(from: Date())
                         }
@@ -57,8 +57,9 @@ struct ArchiveOpenView: View {
                 Image("button_exit")
                     .padding(.leading, 750)
                     .onTapGesture {
-                        coordinator.push(.main)
-//                        coordinator.popToRoot()
+//                        coordinator.push(.main)
+                        
+                        coordinator.popToRoot()
                         soundManager.playSound(sound: .exit)
                     }
             }.padding(.bottom, 300)
@@ -77,8 +78,8 @@ struct ArchiveOpenView: View {
                                 Image(uiImage: image)
                                     .resizable()
                                     .frame(width: 300, height: 150)
+                                    .cornerRadius(20)
                                     .padding(.top, 90)
-                                    .foregroundColor(.yellow)
                                 
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color(hex: "D6E7FF"))
@@ -87,49 +88,59 @@ struct ArchiveOpenView: View {
                                     .padding(.top, 90)
                             }
                         }
-                        .padding(.leading, 30)
+                        .padding(.leading, 35)
                         .padding(.trailing, 30)
                         
-                        VStack {
-                            HStack {
-                                Text("소중한 것을 떠올리면")
-                                    .font(FontManager.shared.nanumsquare(.bold, 16))
-                                
-                                Image("faceBgImage")
-                                    .resizable()
-                                    .frame(width: 50, height: 30)
-                                    .overlay {
-                                        Image(UserDefaultsManager.shared.faceImage ?? "twinkle")
-                                            .resizable()
-                                            .frame(width: 35, height: 13)
-                                            .shadow(color: Color(.systemBlue).opacity(0.3), radius: 10, x: 0, y: -4)
-                                    }
-                                Text("한 표정이 돼.")
-                                    .font(FontManager.shared.nanumsquare(.bold, 16))
-                            }
-                            HStack{
-                                Text("이 표정의 이름은")
-                                    .font(FontManager.shared.nanumsquare(.bold, 16))
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color.block_bg2)
+                        ZStack{
+                            VStack(alignment: .center) {
+                                HStack {
+                                    Text("소중한 것을 떠올리면")
+                                        .font(FontManager.shared.nanumsquare(.bold, 16))
+                                    
+                                    Image("faceBgImage")
+                                        .resizable()
                                         .frame(width: 50, height: 30)
-                                        .mask(RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color.yellow.opacity(0.5)) ///color
-                                            .innerShadow(color: Color(hex: "006AFF"), radius: 10))
-                                    Text(UserDefaultsManager.shared.feel ?? "사랑")
-                                        .font(FontManager.shared.nanumsquare(.extrabold, 12))
-                                        .foregroundColor(Color.block_bg3)
-                                }
-                                Text("이야")
-                                    .font(FontManager.shared.nanumsquare(.bold, 16))
+                                        .overlay {
+                                            Image(UserDefaultsManager.shared.faceImage ?? "twinkle")
+                                                .resizable()
+                                                .frame(width: 35, height: 13)
+                                                .shadow(color: Color(.systemBlue).opacity(0.3), radius: 10, x: 0, y: -4)
+                                        }
+                                    Text("한 표정이 돼.")
+                                        .font(FontManager.shared.nanumsquare(.bold, 16))
+                                }.padding(.top, -17)
+                                HStack{
+                                    Text("이 표정의 이름은")
+                                        .font(FontManager.shared.nanumsquare(.bold, 16))
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color.block_bg2)
+                                            .frame(width: 50, height: 30)
+                                            .mask(RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.yellow.opacity(0.5)) ///color
+                                                .innerShadow(color: Color(hex: "006AFF"), radius: 10))
+                                        Text(UserDefaultsManager.shared.feel ?? "사랑")
+                                            .font(FontManager.shared.nanumsquare(.extrabold, 12))
+                                            .foregroundColor(Color.block_bg3)
+                                    }
+                                    Text("이야")
+                                        .font(FontManager.shared.nanumsquare(.bold, 16))
+                                }.padding(.top, 10).offset(y:-5)
+                                
                             }
+                            .padding(.top, 30)
+                            .padding(.trailing, 30)
+                            .padding(.leading, 30)
+                            
+                            
+                        LottieView(jsonName: "stamp_archieve_rotated", delay: 0.5)
+                                .frame(width: 130, height: 130)
+                                .offset(x:80, y:105)
+
                         }
-                        .padding(.trailing, 30)
-                        .padding(.leading, 30)
                         
                     }
-                    .padding(.top, 65)
+                    .padding(.top, 55)
                 }
                 else{
                     VStack{
@@ -156,3 +167,4 @@ struct ArchiveOpenView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
+
