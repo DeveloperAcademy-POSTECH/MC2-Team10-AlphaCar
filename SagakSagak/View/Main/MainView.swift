@@ -95,19 +95,12 @@ struct MainView: View {
     @State private var shouldNavigate = false
     
     //weather related
-    @State var weather: String = "sky"
-    
-    var curtainOpenName: String {
-        var baseName = "curtain_open"
-        baseName += isLampOn ? (Theme.current == .day ? "_n" : "_d") : ""
-        return baseName
-    }
-    
-    var curtainCloseName: String {
-        var baseName = "curtain_close"
-        baseName += isLampOn ? (Theme.current == .day ? "_n" : "_d") : ""
-        return baseName
-    }
+//    @State var weather: String = "snowy"
+    @State var weather: String = "stormy"
+//    @State var weather: String = "sunny"
+//    @State var weather: String = "windy"
+//    @State var weather: String = "rainy"
+//    @State var weather: String = "cloudy"
     
     private let soundManager = SoundManager.instance
     
@@ -161,6 +154,9 @@ struct MainView: View {
                             .resizable()
                             .frame(width: 70, height: 70)
                             .offset(x: 334, y: -100)
+                            .onAppear(perform: {
+                                isPhotoExist.toggle()
+                            })
                             
                         Image(dark)
                             .resizable()
@@ -351,7 +347,7 @@ struct MainView: View {
                 if(isCharacterTapped){
                     LottieView(jsonName: "love", loopMode: .repeat(.infinity))
                         .frame(width: 70)
-                        .offset(x:230, y:50)
+                        .offset(x:190, y:50)
                         .onTapGesture(perform: {
                             isCharacterTapped.toggle()
                         })
@@ -360,7 +356,7 @@ struct MainView: View {
                 else{
                     LottieView(jsonName: "hi", loopMode: .repeat(.infinity))
                         .frame(width: 70)
-                        .offset(x:230, y:50)
+                        .offset(x:190, y:50)
                         .onTapGesture(perform: {
                             isCharacterTapped.toggle()
                         })
