@@ -37,13 +37,13 @@ struct ArchiveOpenView: View {
             ZStack {
                 if let image = UserDefaultsManager.shared.snapShot {
 
-                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
+                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", backEnabled: true, shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
                         .onAppear {
                             self.title = self.dateFormatter.string(from: Date())
                         }
                 }
                 else{
-                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
+                    GLNavBarItem(backPage: .main, backButtonImg: "button_back", backEnabled: true, shadowOn: true, navBarTitle: title + "의 이야기", navBarBgColor: Color(hex: "FFFFFF"), navBarFontColor: .blue, nextButtonImg: "button_next", nextPage: .character2, nextEnabled: false)
                         .onAppear {
                             self.title = self.dateFormatter.string(from: Date())
                         }
