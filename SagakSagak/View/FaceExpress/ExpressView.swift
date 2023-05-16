@@ -14,7 +14,7 @@ struct ExpressView: View {
     @State private var selectedFace = "basic" // 초기 표정 설정
     @StateObject private var emotionFace = EmotionFace()
     @EnvironmentObject private var coordinator: Coordinator
-    
+    private let soundManager = SoundManager.instance
     
     var body: some View {
         if !isNextBtnClicked && !isPrevBtnClicked && !isExitBtnClicked{
@@ -27,6 +27,7 @@ struct ExpressView: View {
                         Image("button_exit").offset(x:380)
                             .onTapGesture {
                                 coordinator.popToRoot()
+                                soundManager.playSound(sound: .exit)
                             }
                     }
                     

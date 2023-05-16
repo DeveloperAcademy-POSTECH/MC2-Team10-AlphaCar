@@ -13,6 +13,8 @@ struct StoryView2: View {
     @State private var isNextBtnClicked = false
     @State private var isPrevBtnClicked = false
     
+    private let soundManager = SoundManager.instance
+    
     var body: some View {
         ZStack {
             Image("background").padding(.top, 20)
@@ -61,6 +63,7 @@ struct StoryView2: View {
                         .padding(.top, -20)
                         .onTapGesture {
                             coordinator.popToRoot()
+                            soundManager.playSound(sound: .exit)
                         }
                 }.padding(.bottom, 260)
                 

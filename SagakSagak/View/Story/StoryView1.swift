@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StoryView1: View {
     @EnvironmentObject private var coordinator: Coordinator
+    
+    private let soundManager = SoundManager.instance
 
     var body: some View {
         ZStack {
@@ -57,9 +59,12 @@ struct StoryView1: View {
                         .padding(.top, -20)
                         .onTapGesture {
                             coordinator.popToRoot()
+                            soundManager.playSound(sound: .exit)
                         }
                 }.padding(.bottom, 260)
-                
+                    .onAppear(perform: {
+                        SoundManager.instance.playTts(sound: .story1)
+                    })
             }
         }
         .navigationBarBackButtonHidden(true)

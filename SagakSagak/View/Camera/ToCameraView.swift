@@ -56,7 +56,7 @@ struct ToCameraView: View {
                             Image(!isClicked ? "greenButton" : "").offset(x:370)
                                 .onTapGesture {
                                     coordinator.push(.main)
-//                                    soundManager.playSound(sound: .exit)
+                                    soundManager.playSound(sound: .exit)
                                 }
                         }.padding(.bottom, 16)
                         
@@ -87,7 +87,7 @@ struct ToCameraView: View {
                                     Image("button_modal_exit").offset(x: 260, y: -130)
                                         .onTapGesture {
                                             isClicked = false
-//                                            soundManager.playSound(sound: .exit)
+                                            soundManager.playSound(sound: .exit)
                                         }
                                     VStack {
                                         Image("액자에_추억을_담아보자").padding(.top, -89)
@@ -106,7 +106,7 @@ struct ToCameraView: View {
                                         }.padding(.top, -18)
                                     }
                                     .onAppear(perform: {
-//                                        SoundManager.instance.playTts(sound: .frame)
+                                        SoundManager.instance.playTts(sound: .frame)
                                     })
                                 }.padding(.top, -18)
                             }

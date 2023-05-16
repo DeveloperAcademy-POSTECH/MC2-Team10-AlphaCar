@@ -13,6 +13,7 @@ class SoundManager {
     static let instance = SoundManager()
     var player: AVAudioPlayer?
     var backgroundMusicPlayer: AVAudioPlayer?
+    var ttsPlayer: AVAudioPlayer?
     var currentBackgroundMusic: SoundOption?
     
     enum SoundOption: String {
@@ -23,7 +24,23 @@ class SoundManager {
         case pop = "pop_sound"
         case main = "main_music"
         case archive = "archive_music"
+        case letter = "letter_music"
         case splash = "splash_music"
+        case approve = "approve_sound"
+        case click = "click_sound"
+        case select = "select_sound"
+        case exit = "exit_sound"
+        case intro = "intro_tts"
+        case draw = "draw_tts"
+        case character1 = "character1_tts"
+        case character2 = "character2_tts"
+        case facename = "facename_tts"
+        case story1 = "story1_tts"
+        case story2 = "story2_tts"
+        case ending1 = "ending1_tts"
+        case ending2 = "ending2_tts"
+        case frame = "frame_tts"
+        case weather = "weather_tts"
     }
     
     func playSound(sound: SoundOption) {
@@ -54,4 +71,19 @@ class SoundManager {
         backgroundMusicPlayer?.stop()
     }
     
+    func playTts(sound: SoundOption) {
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else { return }
+        do {
+            ttsPlayer?.stop()
+            ttsPlayer = try AVAudioPlayer(contentsOf: url)
+            ttsPlayer?.numberOfLoops = 0 // 한 번만 재생
+            ttsPlayer?.play()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func stopTts() {
+        ttsPlayer?.stop()
+    }
 }

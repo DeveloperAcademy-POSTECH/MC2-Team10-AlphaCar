@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CharacterView1: View {
     @EnvironmentObject private var coordinator: Coordinator
+    private let soundManager = SoundManager.instance
     
     var body: some View {
         ZStack {
@@ -21,8 +22,12 @@ struct CharacterView1: View {
                     .padding(.leading, 750)
                     .onTapGesture {
                         coordinator.popToRoot()
+                        soundManager.playSound(sound: .exit)
                     }
             }.padding(.bottom, 280)
+            .onAppear(perform: {
+                SoundManager.instance.playTts(sound: .character1)
+            })
             
             GeometryReader { geometry in
                 ZStack {
