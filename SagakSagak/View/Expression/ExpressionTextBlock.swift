@@ -12,18 +12,6 @@ class EmotionText: ObservableObject {
 }
 
 
-
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .fill(
-//                            //.shadow(.inner(color: Color(hex: "006AFF").opacity(0.5), radius: 10, x:0, y: isSelected ? 4 : -4))
-//                            .shadow(.inner(color: Color(hex: "006AFF").opacity(0.5),
-//                                    radius: 10,
-//                                    x: 0,
-//                                    y: isSelected ? 4 : -4
-//                                   ))
-//                        )
-//                        .foregroundColor(isSelected ? Color.block_bg2.opacity(0.3) : Color.block_bg2)
-
 struct ExpressTextButton: View {
     let textName: String
     let selectedtextName: String
@@ -45,6 +33,9 @@ struct ExpressTextButton: View {
                 .frame(width: 100, height: 60)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
+//                        .stroke(Color(.white).opacity(0.1), lineWidth: 5)
+//                        .shadow(color: Color(hex: "579DFF"),
+//                                radius: 5, x: 0, y: -4)
                         .stroke(Color(.white).opacity(0.1), lineWidth: 5)
                         .shadow(color: isSelected ? Color(hex: "006AFF") : Color(hex: "579DFF"),
                                 radius: 5, x: 0, y: isSelected ? 4 : -4)
@@ -52,6 +43,8 @@ struct ExpressTextButton: View {
 
                 )
                 .background(isSelected ? Color(hex: "C4DDFF") : Color(hex: "#89BAFF"))
+                //.background(Color(hex: "#89BAFF"))
+                //.background(.yellow)
                 .cornerRadius(10)
                 .foregroundColor(.black)
         }
