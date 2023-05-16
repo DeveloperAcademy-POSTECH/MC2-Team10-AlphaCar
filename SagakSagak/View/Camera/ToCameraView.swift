@@ -17,6 +17,7 @@ struct ToCameraView: View {
     @State private var isShowingCamera: Bool = false
     @State private var isBackBtnClicked: Bool = false
     @State var image: Image?
+    private let soundManager = SoundManager.instance
     
     func modalImageFunc(title: String) -> some View {
         return Image(title)
@@ -51,6 +52,7 @@ struct ToCameraView: View {
                             Image(!isClicked ? "greenButton" : "").offset(x:370)
                                 .onTapGesture {
                                     isBackBtnClicked = true
+                                    soundManager.playSound(sound: .exit)
                                 }
                         }.padding(.bottom, 16)
                         
@@ -80,9 +82,10 @@ struct ToCameraView: View {
                                 ZStack {
                                     Image("camera_modal").padding(.all, -100)
                                         .shadow(radius: 5 ,x: 0, y: 10)
-                                    Image("blueXBtn").offset(x: 260, y: -130)
+                                    Image("button_modal_exit").offset(x: 260, y: -130)
                                         .onTapGesture {
                                             isClicked = false
+                                            soundManager.playSound(sound: .exit)
                                         }
                                     VStack {
                                         Image("액자에_추억을_담아보자").padding(.top, -89)
@@ -100,6 +103,9 @@ struct ToCameraView: View {
                                                 }
                                         }.padding(.top, -18)
                                     }
+                                    .onAppear(perform: {
+                                        SoundManager.instance.playTts(sound: .frame)
+                                    })
                                 }.padding(.top, -18)
                             }
                         }

@@ -30,6 +30,8 @@ struct ExpressTextButton: View {
     let action: () -> Void
     let offset: CGSize
     @Binding var selectedButton: String?
+    private let soundManager = SoundManager.instance
+
 
     var isSelected: Bool {
         selectedButton == textName
@@ -38,6 +40,7 @@ struct ExpressTextButton: View {
     var body: some View {
         Button(action: {
             selectedButton = isSelected ? nil : textName
+            soundManager.playSound(sound: .click)
             action()
         }) {
             Text(textName).font(FontManager.shared.nanumsquare(.extrabold, 24))

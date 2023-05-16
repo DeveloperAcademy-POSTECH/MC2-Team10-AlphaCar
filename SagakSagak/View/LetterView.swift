@@ -13,6 +13,7 @@ struct LetterView: View {
     @State private var isAnimating: Bool = false
     @State private var letterOpacity: Double = 1
     @State private var letterOpacityReverse: Double = 0
+    private let soundManager = SoundManager.instance
     
     @EnvironmentObject private var coordinator: Coordinator
     
@@ -71,6 +72,9 @@ struct LetterView: View {
                     }.onAppear {
                         animateOpacity(opacity: 1, duration: 0.5)
                     }
+                    .onAppear(perform: {
+                        SoundManager.instance.playTts(sound: .intro)
+                    })
                     Image("greenButton")
                         .offset(x:350, y:-110.5)
                         .padding(.top, -53.5)
@@ -81,6 +85,7 @@ struct LetterView: View {
                         }
                         .onTapGesture {
                             coordinator.popToRoot()
+                            soundManager.playSound(sound: .exit)
                         }
                 }
                 
@@ -96,7 +101,7 @@ struct LetterView: View {
         .background(Color.bg2)
         .ignoresSafeArea()
         .onAppear(perform: {
-            SoundManager.instance.playBackgroundMusic(sound: .main)
+            SoundManager.instance.playBackgroundMusic(sound: .letter)
         })
     }
 }

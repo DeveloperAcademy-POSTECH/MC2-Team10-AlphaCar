@@ -39,6 +39,7 @@ struct DrawingView: View {
     
     @State private var isSaved : Bool = false
     @EnvironmentObject private var coordinator: Coordinator
+    private let soundManager = SoundManager.instance
 
     var imageView: some View {
         Text("Hello, SwiftUI")
@@ -109,8 +110,12 @@ struct DrawingView: View {
                             .padding(.leading, 750)
                             .onTapGesture {
                                 coordinator.popToRoot()
+                                soundManager.playSound(sound: .exit)
                             }
                     }.padding(.bottom, 280)
+                        .onAppear(perform: {
+                            SoundManager.instance.playTts(sound: .draw)
+                        })
                     
                     if !isSaved {
                         Button {
