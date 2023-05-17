@@ -51,6 +51,7 @@
 		577BFDE12A13DAC5007172C3 /* windy_d.json in Resources */ = {isa = PBXBuildFile; fileRef = 577BFDDF2A13DAC5007172C3 /* windy_d.json */; };
 		577BFDE22A13DAC5007172C3 /* windy_n.json in Resources */ = {isa = PBXBuildFile; fileRef = 577BFDE02A13DAC5007172C3 /* windy_n.json */; };
 		577BFDE42A13F9F1007172C3 /* stamp_archieve_rotated.json in Resources */ = {isa = PBXBuildFile; fileRef = 577BFDE32A13F9F1007172C3 /* stamp_archieve_rotated.json */; };
+		577BFDE62A1497B9007172C3 /* hi2.json in Resources */ = {isa = PBXBuildFile; fileRef = 577BFDE52A1497B9007172C3 /* hi2.json */; };
 		A80EAE6F2A0E77E400676483 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE6E2A0E77E400676483 /* SoundManager.swift */; };
 		A80EAE8E2A0E912800676483 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE8D2A0E912800676483 /* HapticManager.swift */; };
 		A80EAE922A0EE4B000676483 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EAE912A0EE4B000676483 /* View+.swift */; };
@@ -158,6 +159,7 @@
 		577BFDDF2A13DAC5007172C3 /* windy_d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = windy_d.json; path = SagakSagak/DesignSystem/LottieFile/windy_d.json; sourceTree = "<group>"; };
 		577BFDE02A13DAC5007172C3 /* windy_n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = windy_n.json; path = SagakSagak/DesignSystem/LottieFile/windy_n.json; sourceTree = "<group>"; };
 		577BFDE32A13F9F1007172C3 /* stamp_archieve_rotated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stamp_archieve_rotated.json; sourceTree = "<group>"; };
+		577BFDE52A1497B9007172C3 /* hi2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hi2.json; sourceTree = "<group>"; };
 		A80EAE6E2A0E77E400676483 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A80EAE8D2A0E912800676483 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		A80EAE912A0EE4B000676483 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			children = (
 				5702607E2A13B01200E4395C /* angry.json */,
 				570260742A13B01200E4395C /* basic.json */,
+				577BFDE52A1497B9007172C3 /* hi2.json */,
 				570260772A13B01200E4395C /* great.json */,
 				5702606C2A13AFB900E4395C /* happy.json */,
 				570260762A13B01200E4395C /* heart.json */,
@@ -615,6 +618,7 @@
 				BFC9FAE22A13687C0094853D /* main_music.mp3 in Resources */,
 				5739EBFC2A0F8D2900AEAB5E /* pop_sound.mp3 in Resources */,
 				BFC9FADE2A1351F80094853D /* approve_sound.mp3 in Resources */,
+				577BFDE62A1497B9007172C3 /* hi2.json in Resources */,
 				5739EBF52A0F8D0B00AEAB5E /* curtain_sound.mp3 in Resources */,
 				570260842A13B01200E4395C /* great.json in Resources */,
 				577BFDD52A13DAA2007172C3 /* storm_n.json in Resources */,
