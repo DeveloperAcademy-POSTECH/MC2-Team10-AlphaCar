@@ -26,12 +26,12 @@ struct ArchiveView: View {
                     .padding(.leading, 750)
                     .padding(.bottom, 300)
                     .onTapGesture {
-//                        coordinator.popToRoot()
                         coordinator.popToRoot()
                         soundManager.playSound(sound: .exit)
                     }
                 Button(action: {
                     isActive = true
+                    soundManager.playSound(sound: .click)
                     coordinator.push(.archive2)
                 }) {
                     Image("book")

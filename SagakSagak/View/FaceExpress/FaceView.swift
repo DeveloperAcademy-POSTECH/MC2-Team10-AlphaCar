@@ -17,6 +17,7 @@ struct ExpressButton: View {
     let action: () -> Void
     let offset: CGSize
     @Binding var selectedButton: String?
+    private let soundManager = SoundManager.instance
 
     var isSelected: Bool {
         selectedButton == imageName
@@ -25,6 +26,7 @@ struct ExpressButton: View {
     var body: some View {
         Button(action: {
             selectedButton = isSelected ? nil : imageName
+            soundManager.playSound(sound: .click)
             action()
         }) {
             Image(imageName)
