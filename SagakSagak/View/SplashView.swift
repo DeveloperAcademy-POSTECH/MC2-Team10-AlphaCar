@@ -9,33 +9,42 @@ import SwiftUI
 
 struct SplashView: View {
     @EnvironmentObject private var coordinator: Coordinator
+    @State var isActive: Bool = false
     
     var body: some View {
-        HStack{
-            ZStack{
-                LottieView(jsonName: "splash", delay: 0.5)
-                Button("화면을 터치하세요"){
-                    coordinator.popToRoot()
-                }
-                .foregroundColor(.system2)
-                .offset(y: 130)
-                .bold()
-            
-                
-            }
-            .padding()
-            .navigationTitle("스플래시 화면")
-            .navigationBarBackButtonHidden(true)
-            .frame(maxWidth: 700, maxHeight: .infinity)
-            .ignoresSafeArea()
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background(Color.bg4)
-        .onAppear(perform: {
-            SoundManager.instance.playBackgroundMusic(sound: .splash)
-        })
+        ZStack {
+            if self.isActive {
+                CoordinatorView()
+            } else {
+                HStack{
+                    ZStack{
+                        LottieView(jsonName: "splash", delay: 0.5)
         
+                    }
+                    .padding()
+                    .navigationTitle("스플래시 화면")
+                    .navigationBarBackButtonHidden(true)
+                    .frame(maxWidth: 700, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
+                .background(Color.bg4)
+                .onAppear(perform: {
+                    SoundManager.instance.playBackgroundMusic(sound: .splash)
+    
+                    }
+        
+                )
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                withAnimation {
+                    self.isActive = true
+                }
+            }
+        }
     }
 }
 
