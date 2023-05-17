@@ -31,6 +31,7 @@
 		A81261BD2A1017AE00280ECE /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261BC2A1017AE00280ECE /* EmotionView.swift */; };
 		A81261BF2A101A5F00280ECE /* DragRelocateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81261BE2A101A5F00280ECE /* DragRelocateDelegate.swift */; };
 		A828052D2A14BEB100C212F5 /* hi2.json in Resources */ = {isa = PBXBuildFile; fileRef = A828052C2A14BEB100C212F5 /* hi2.json */; };
+		A828052F2A14CB3A00C212F5 /* stamp_archieve_rotated.json in Resources */ = {isa = PBXBuildFile; fileRef = A828052E2A14CB3A00C212F5 /* stamp_archieve_rotated.json */; };
 		A83D728E2A070BFA00119DB9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D728D2A070BFA00119DB9 /* Colors.swift */; };
 		A83D729A2A07938600119DB9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A83D72992A07938600119DB9 /* ComposableArchitecture */; };
 		A83D72C62A07A47600119DB9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D72C52A07A47600119DB9 /* LoginView.swift */; };
@@ -132,6 +133,7 @@
 		A81261BC2A1017AE00280ECE /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
 		A81261BE2A101A5F00280ECE /* DragRelocateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRelocateDelegate.swift; sourceTree = "<group>"; };
 		A828052C2A14BEB100C212F5 /* hi2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = hi2.json; path = ../../../../../../../../../Downloads/hi2.json; sourceTree = "<group>"; };
+		A828052E2A14CB3A00C212F5 /* stamp_archieve_rotated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stamp_archieve_rotated.json; path = ../../../../../../../../../Downloads/stamp_archieve_rotated.json; sourceTree = "<group>"; };
 		A83D728D2A070BFA00119DB9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A83D72C52A07A47600119DB9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A83D72C82A07A4EA00119DB9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				A8B77A772A14B73B00DE6DF8 /* sunny_n.json */,
 				A8B77A7D2A14B73B00DE6DF8 /* windy_d.json */,
 				A8B77A802A14B73B00DE6DF8 /* windy_n.json */,
+				A828052E2A14CB3A00C212F5 /* stamp_archieve_rotated.json */,
 			);
 			path = LottieFile;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				BFC9FAFE2A1371310094853D /* character2_tts.mp3 in Resources */,
 				BFC9FB002A1375890094853D /* ending2_tts.mp3 in Resources */,
 				BFC9FAFC2A1371310094853D /* character1_tts.mp3 in Resources */,
+				A828052F2A14CB3A00C212F5 /* stamp_archieve_rotated.json in Resources */,
 				BFC9FAE22A13687C0094853D /* main_music.mp3 in Resources */,
 				A8B77A872A14B73B00DE6DF8 /* stormy_d.json in Resources */,
 				A8B77A852A14B73B00DE6DF8 /* cloudy_d.json in Resources */,
