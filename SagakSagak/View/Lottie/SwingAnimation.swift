@@ -18,13 +18,12 @@ struct SwingAnimation: View {
     @State var imgName: String
     @State var isDark: Bool
     @State private var state: RotationState = .min
-    @State private var profileImage: UIImage? = nil 
+    @State private var profileImage: UIImage? = nil
     @State private var isProfileImageLoaded = false
 
     var body: some View {
 
         ZStack {
-            
             ZStack {
                 
                 if let image = profileImage {
@@ -37,42 +36,48 @@ struct SwingAnimation: View {
                                 .opacity(isDark ? 0.5 : 0)
                         )
                         .offset(y: 10)
-                        
+                    
                 }else {
-                    Image("frame")
+                    ZStack{
+                        Image("defaultImg 1")
+                            .resizable()
+                            .frame(width: 70, height: 70)
+                    }.overlay(
+                        Rectangle()
+                            .foregroundColor(Color(hex: "1B1D3C"))
+                            .opacity(isDark ? 0.5 : 0)
+                    ).offset(y: 10)
                 }
                 Image(imgName)
             }
+            
             .rotationEffect(rotationAngle(), anchor: .top)
-                .onAppear {
-                    if !isProfileImageLoaded { // Load the profile image only once
-                        if let profileImage = UserDefaultsManager.shared.profile {
-                            self.profileImage = profileImage
-                            self.isProfileImageLoaded = true
-                        }
-                    }
-                    
-                    let baseAnimation = Animation.easeInOut(duration: 0.5)
-                    let repeated = baseAnimation.repeatCount(2)
-                    
-                    withAnimation(repeated) {
-                        switch state {
-                        case .max:
-                            state = .min
-                        case .min:
-                            state = .max
-                        case .done:
-                            state = .done
-                        }
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        withAnimation(.easeInOut(duration: 0.5)) {
-                            state = .done
-                            
-                        }
+            .onAppear {
+                if let profileImage = UserDefaultsManager.shared.profile {
+                    self.profileImage = profileImage
+                }
+                
+                let baseAnimation = Animation.easeInOut(duration: 0.5)
+                let repeated = baseAnimation.repeatCount(2)
+                
+                withAnimation(repeated) {
+                    switch state {
+                    case .max:
+                        state = .min
+                    case .min:
+                        state = .max
+                    case .done:
+                        state = .done
                     }
                 }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        state = .done
+                        
+                    }
+                }
+            }
         }
     }
     
@@ -103,5 +108,4 @@ struct SwingAnimation_Previews: PreviewProvider {
         SwingAnimation(imgName:"frame", isDark: false)
     }
 }
-
 

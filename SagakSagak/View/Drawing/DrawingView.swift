@@ -9,12 +9,12 @@ import SwiftUI
 import ComposableArchitecture
 
 let crayonColors1: [(image: String, color: Color, id: Int)] = [
-    ("redcrayon", Color.red, 1),
-    ("orangecrayon", Color.orange, 2),
-    ("yellowcrayon", Color.yellow, 3),
-    ("greencrayon", Color.green, 4),
-    ("bluecrayon", Color.blue, 5),
-    ("purplecrayon", Color.purple, 6)
+    ("redcrayon", Color.crayon1, 1),
+    ("orangecrayon", Color.crayon2, 2),
+    ("yellowcrayon", Color.crayon3, 3),
+    ("greencrayon", Color.crayon4, 4),
+    ("bluecrayon", Color.crayon5, 5),
+    ("purplecrayon", Color.crayon6, 6)
 ]
 
 let crayonColors2: [(image: String, color: Color, id: Int)] = [
@@ -126,7 +126,7 @@ struct DrawingView: View {
                             isSaved = true
                         } label: {
                             Rectangle()
-                                .frame(width: 75, height: 75).foregroundColor(.yellow).padding([.top, .leading], 10).opacity(0)
+                                .frame(width: 50, height: 50).foregroundColor(.yellow).padding([.top, .leading], 10).opacity(0)
                         }.offset(x:250, y:-145)
                     }
                 }
