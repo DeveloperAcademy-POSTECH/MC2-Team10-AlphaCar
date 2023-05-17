@@ -30,10 +30,18 @@ struct StoryView2: View {
                                 .font(FontManager.shared.nanumsquare(.bold, 24))
                             //                            .frame(width:160)
                             
-                            Image("faceBgImage")
-                                .overlay{
-                                    Image(UserDefaultsManager.shared.faceImage ?? "twinkle")
-                                }
+                            Image(UserDefaultsManager.shared.faceImage!)
+                                .frame(width: 100, height: 60)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(.white).opacity(0.1), lineWidth: 5)
+                                        .shadow(color: Color(hex: "579DFF"), radius: 5, x: 0, y: -4)
+                                        .padding(-6)
+                                )
+                                .background(.white)
+                                .cornerRadius(10)
+                                .foregroundColor(.black)
+                            
                             
                             Text("한 표정이 돼.")
                                 .font(FontManager.shared.nanumsquare(.bold, 24))
@@ -42,12 +50,22 @@ struct StoryView2: View {
                             Text("이 표정의 이름은")
                                 .font(FontManager.shared.nanumsquare(.bold, 24))
                             
-                            Image("faceBgImage")
-                                .overlay{
-                                    Text(UserDefaultsManager.shared.feel ?? "사랑")
-                                        .font(FontManager.shared.nanumsquare(.bold, 24))
-                                }
-                            
+                            Text(UserDefaultsManager.shared.feel!)
+                                .font(FontManager.shared.nanumsquare(.extrabold, 24))
+                                .foregroundColor(Color.system2)
+                                .frame(width: 100, height: 60)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(.white).opacity(0.1), lineWidth: 6)
+                                        .shadow(color: Color(hex: "579DFF"),
+                                                radius: 5, x: 0, y: -4)
+                                        .padding(-6)
+
+                                )
+                                .background(Color(hex: "89BAFF"))
+                                .cornerRadius(10)
+                                .foregroundColor(.black)
+  
                             Text("이야")
                                 .font(FontManager.shared.nanumsquare(.bold, 24))
                         }
