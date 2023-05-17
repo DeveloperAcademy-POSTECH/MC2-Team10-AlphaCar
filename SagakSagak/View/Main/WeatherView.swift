@@ -310,7 +310,7 @@ struct WeatherView: View {
                                     cloudSelected = false
                                     rainSelected = false
                                     thunderSelected = true
-                                    weather = "storm"
+                                    weather = "stormy"
                                 }) {VStack{
                                     Image("thunder")
                                         .frame(width: 60, height: 60)

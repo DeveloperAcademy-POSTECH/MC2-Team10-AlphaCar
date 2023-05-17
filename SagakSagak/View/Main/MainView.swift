@@ -76,7 +76,7 @@ struct MainView: View {
     
     //weather related
     @State var weather: String = "sky"
-    @StateObject private var weatherValue = WeatherValue()
+//    @StateObject private var weatherValue = WeatherValue()
     
     private let soundManager = SoundManager.instance
     
@@ -360,23 +360,7 @@ struct MainView: View {
                         .background(Color.clear)
                         .cornerRadius(30)
                         .opacity(isWeatherPresented ? 1 : 0)
-                }.environmentObject(self.weatherValue)
-
-
-                //각 버튼에 따라 modal view 뜨는 부분
-//                if(isframe2){
-//                    ToCameraView()
-                    //사진 모달
-//                }
-//                if(isprofile){
-//                    MainView()//프로필 화면
-//                }
-//                if(isArchive){
-//                    ArchiveView()
-//                }
-//                if(isSkyTapped){
-//                    GLPopupView()//날씨 모달
-//                }
+                }
 
             }
             .ignoresSafeArea()

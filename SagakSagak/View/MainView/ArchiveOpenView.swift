@@ -97,7 +97,7 @@ struct ArchiveOpenView: View {
                                     Text("소중한 것을 떠올리면")
                                         .font(FontManager.shared.nanumsquare(.bold, 16))
                                     
-                                    Image("faceBgImage")
+                                    Image("faceBlock")
                                         .resizable()
                                         .frame(width: 50, height: 30)
                                         .overlay {
@@ -112,17 +112,34 @@ struct ArchiveOpenView: View {
                                 HStack{
                                     Text("이 표정의 이름은")
                                         .font(FontManager.shared.nanumsquare(.bold, 16))
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color.block_bg2)
-                                            .frame(width: 50, height: 30)
-                                            .mask(RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color.yellow.opacity(0.5)) ///color
-                                                .innerShadow(color: Color(hex: "006AFF"), radius: 10))
-                                        Text(UserDefaultsManager.shared.feel ?? "사랑")
-                                            .font(FontManager.shared.nanumsquare(.extrabold, 12))
-                                            .foregroundColor(Color.block_bg3)
-                                    }
+                                    
+                                    Text(UserDefaultsManager.shared.feel ?? "사랑")
+                                        .font(FontManager.shared.nanumsquare(.extrabold, 12))
+                                        .foregroundColor(Color.system2)
+                                        .frame(width: 50, height: 30)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color(.white).opacity(0.1), lineWidth: 6)
+                                                .shadow(color: Color(hex: "579DFF"),
+                                                        radius: 5, x: 0, y: -4)
+                                                .padding(-6)
+
+                                        )
+                                        .background(Color(hex: "89BAFF"))
+                                        .cornerRadius(10)
+                                        .foregroundColor(.black)
+                                    
+//                                    ZStack{
+//                                        RoundedRectangle(cornerRadius: 10)
+//                                            .fill(Color.block_bg2)
+//                                            .frame(width: 50, height: 30)
+//                                            .mask(RoundedRectangle(cornerRadius: 10)
+//                                                .fill(Color.yellow.opacity(0.5)) ///color
+//                                                .innerShadow(color: Color(hex: "006AFF"), radius: 10))
+//                                        Text(UserDefaultsManager.shared.feel ?? "사랑")
+//                                            .font(FontManager.shared.nanumsquare(.extrabold, 12))
+//                                            .foregroundColor(Color.block_bg3)
+//                                    }
                                     Text("이야")
                                         .font(FontManager.shared.nanumsquare(.bold, 16))
                                 }.padding(.top, 10).offset(y:-5)
