@@ -1,3 +1,4 @@
+
 //
 //  WeatherView.swift
 //  SagakSagak
@@ -24,6 +25,8 @@ struct WeatherView: View {
     
     @Binding var weather: String
     
+    private let soundManager = SoundManager.instance
+    
     var body: some View {
         ZStack{
             Color.black.opacity(0.5)
@@ -38,6 +41,7 @@ struct WeatherView: View {
                         
                         Button(action: {
                             isWeatherPresented = false
+                            soundManager.playSound(sound: .click)
                         }) {
                             Image("blueXBtn")
                         }
@@ -201,6 +205,7 @@ struct WeatherView: View {
                                     rainSelected = false
                                     thunderSelected = false
                                     weather = "snowy"
+                                    soundManager.playSound(sound: .click)
                                 }) {VStack{
                                     Image("snow")
                                         .frame(width: 60, height: 60)
@@ -223,6 +228,7 @@ struct WeatherView: View {
                                     rainSelected = false
                                     thunderSelected = false
                                     weather = "windy"
+                                    soundManager.playSound(sound: .click)
                                 }) {VStack{
                                     Image("wind")
                                         .frame(width: 60, height: 60)
@@ -245,6 +251,7 @@ struct WeatherView: View {
                                     rainSelected = false
                                     thunderSelected = false
                                     weather = "sunny"
+                                    soundManager.playSound(sound: .click)
                                 }) {VStack{
                                     Image("sun")
                                         .frame(width: 60, height: 60)
@@ -267,6 +274,7 @@ struct WeatherView: View {
                                     rainSelected = false
                                     thunderSelected = false
                                     weather = "cloudy"
+                                    soundManager.playSound(sound: .click)
                                 }) {VStack{
                                     Image("cloud")
                                         .frame(width: 60, height: 60)
@@ -289,6 +297,7 @@ struct WeatherView: View {
                                     rainSelected = true
                                     thunderSelected = false
                                     weather = "rainy"
+                                    soundManager.playSound(sound: .click)
                                 }) {VStack{
                                     Image("rain")
                                         .frame(width: 60, height: 60)
@@ -311,6 +320,7 @@ struct WeatherView: View {
                                     rainSelected = false
                                     thunderSelected = true
                                     weather = "stormy"
+                                    soundManager.playSound(sound: .click)
                                 }) {VStack{
                                     Image("thunder")
                                         .frame(width: 60, height: 60)
@@ -350,9 +360,6 @@ struct WeatherView: View {
             
             
         }
-        //        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //        .ignoresSafeArea()
-        //        .background(Color.black.opacity(0.5))
         
     }
 }

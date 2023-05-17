@@ -1,4 +1,4 @@
-//
+
 //  DrawingView.swift
 //  SagakSagak
 //
@@ -126,7 +126,7 @@ struct DrawingView: View {
                             isSaved = true
                         } label: {
                             Rectangle()
-                                .frame(width: 50, height: 50).foregroundColor(.yellow).padding([.top, .leading], 10).opacity(0)
+                                .frame(width: 75, height: 75).foregroundColor(.yellow).padding([.top, .leading], 10).opacity(0)
                         }.offset(x:250, y:-145)
                     }
                 }

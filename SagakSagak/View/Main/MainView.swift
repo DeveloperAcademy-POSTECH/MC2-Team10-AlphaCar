@@ -76,7 +76,6 @@ struct MainView: View {
     
     //weather related
     @State var weather: String = "sky"
-//    @StateObject private var weatherValue = WeatherValue()
     
     private let soundManager = SoundManager.instance
     
@@ -91,9 +90,15 @@ struct MainView: View {
                     .offset(x: 0, y: -120)
                 }
                 else{
-                    LottieView(jsonName: weather + (Theme.current == .day ? "_n":"_d"), loopMode: .repeat(100))
-                        .frame(width: 450, height: 160)
-                        .offset(y:-120)
+                    Rectangle()
+                        .id(weather)
+                        .overlay(
+                            LottieView(jsonName: weather + (Theme.current == .day ? "_n":"_d"), loopMode: .loop)
+                                .frame(width: 450, height: 160)
+                                .offset(y:-120)
+                        )
+                    
+                    let _ = print(weather)
                 }
                 
                 if(!isLampOn){
@@ -345,12 +350,12 @@ struct MainView: View {
                 }) {
                     ZStack{
                         Image("button_plus")
-                                    
-                                    }
-                            }
-                            .opacity(isCurtainOn ? 1 : 0)
-                            .offset(y: -120)
-                            .zIndex(isWeatherPresented ? 0 : 1)
+                            .opacity(weather == "sky" ? 1 : 0)
+                    }
+                }
+                .opacity(isCurtainOn ? 1 : 0)
+                .offset(y: -120)
+                .zIndex(isWeatherPresented ? 0 : 1)
                         
 
                 
@@ -361,7 +366,6 @@ struct MainView: View {
                         .cornerRadius(30)
                         .opacity(isWeatherPresented ? 1 : 0)
                 }
-
             }
             .ignoresSafeArea()
             .onAppear(perform: {
@@ -425,3 +429,4 @@ struct MainView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
+
