@@ -258,7 +258,7 @@ struct MainView: View {
                 }
 
                 if(isCharacterTapped){
-                    LottieView(jsonName: "love", loopMode: .repeat(.infinity))
+                    LottieView(jsonName: "hi2", loopMode: .repeat(.infinity))
                         .frame(width: 70)
                         .offset(x:190, y:50)
                         .onTapGesture(perform: {
