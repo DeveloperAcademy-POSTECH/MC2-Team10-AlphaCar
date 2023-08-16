@@ -1,5 +1,26 @@
 # 소개
-Apple Developer Academy 🌓 알파카 팀🦙의 레포지토리입니다.
+Apple Developer Academy MC2 - 🌓 알파카 팀🦙의 레포지토리입니다.<br/>
+'아이들이 그 날의 이야기를 다양한 컨텐츠로 재미있게 표현할 수 있는 이야기 놀이터' 란 주제로 만든 앱입니다. <br/>
+🔗 앱스토어 링크: https://apps.apple.com/app/sagaksagak/id6448937856
+ <br/>
+ 
+# 개발 환경
+- UI: SwiftUI
+- 디자인 패턴: Coordinator pattern (화면 전환)
+- 의존성 관리 도구: Swift Package Manager
+- Apple Resource: AVKit
+ <br/>
+
+# 팀원
+|박지영|신정연|채영민|박리라|나경빈|박세빈|
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|[Joy](https://github.com/JYPjoy)|[Madeline](https://github.com/MADElinessss)|[Noel](https://github.com/yeongminChae)|[Nova](https://github.com/lil-prime01)|[Theo](https://github.com/ngbeen)|[Binu](https://github.com/SEBIN-PARK)|
+<br/>
+
+# 화면 소개
+<img width="898" alt="스크린샷 2023-08-17 오전 12 58 16" src="https://github.com/JYPjoy/MC2-Team10-AlphaCar/assets/84610593/b2975353-ca88-4684-ba28-849d3613a476">
+
+
 
 # 규칙
 ## 코딩 컨벤션
